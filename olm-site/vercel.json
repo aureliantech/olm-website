@@ -1,0 +1,31 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/the-counter-protocol", "destination": "/pages/the-counter-protocol.html" },
+    { "source": "/about", "destination": "/pages/about.html" },
+    { "source": "/physician-license-defense", "destination": "/pages/physician-license-defense.html" },
+    { "source": "/midwife-license-defense", "destination": "/pages/midwife-license-defense.html" },
+    { "source": "/strategy-session", "destination": "/pages/strategy-session.html" },
+    { "source": "/texas-medical-board", "destination": "/pages/texas-medical-board.html" },
+    { "source": "/faq", "destination": "/pages/faq.html" },
+    { "source": "/contact", "destination": "/pages/contact.html" },
+    { "source": "/texas-medical-license-defense/houston", "destination": "/pages/texas-medical-license-defense/houston.html" },
+    { "source": "/texas-medical-license-defense/dallas", "destination": "/pages/texas-medical-license-defense/dallas.html" },
+    { "source": "/texas-medical-license-defense/san-antonio", "destination": "/pages/texas-medical-license-defense/san-antonio.html" },
+    { "source": "/texas-medical-license-defense/austin", "destination": "/pages/texas-medical-license-defense/austin.html" },
+    { "source": "/texas-medical-license-defense/el-paso", "destination": "/pages/texas-medical-license-defense/el-paso.html" },
+    { "source": "/texas-medical-license-defense/lubbock", "destination": "/pages/texas-medical-license-defense/lubbock.html" },
+    { "source": "/texas-medical-license-defense/mcallen", "destination": "/pages/texas-medical-license-defense/mcallen.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-XSS-Protection", "value": "1; mode=block" }
+      ]
+    }
+  ]
+}

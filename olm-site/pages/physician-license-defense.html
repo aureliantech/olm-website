@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Texas Physician License Defense Attorney | TMB Complaint Defense — Octavia LaVon Martinez PLLC</title>
+  <meta name="description" content="Facing a Texas Medical Board complaint? Octavia LaVon Martinez defends physicians against TMB complaints using The Counter Protocol — a parallel investigation strategy built to achieve dismissal before a hearing is scheduled." />
+  <link rel="canonical" href="https://octaviamartinezlaw.com/physician-license-defense" />
+  <link rel="stylesheet" href="../css/global.css" />
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "name": "The Law Firm of Octavia LaVon Martinez PLLC",
+    "description": "Medical license defense for physicians facing Texas Medical Board complaints.",
+    "url": "https://octaviamartinezlaw.com/physician-license-defense",
+    "telephone": "+19564263550",
+    "areaServed": {"@type": "State", "name": "Texas"},
+    "serviceType": "Physician License Defense"
+  }
+  </script>
+
+  <style>
+    .phys-hero {
+      background: var(--dark);
+      padding: 140px var(--gutter) 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .phys-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 20% 70%, rgba(232,114,42,0.09) 0%, transparent 60%),
+        linear-gradient(150deg, #1A1221 0%, #2B2438 100%);
+    }
+    .phys-hero__inner {
+      position: relative;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      max-width: 720px;
+    }
+    .phys-hero h1 {
+      font-size: clamp(34px, 5vw, 62px);
+      color: var(--bg);
+      line-height: 1.06;
+      margin-bottom: 24px;
+    }
+    .phys-hero h1 em { color: var(--accent-lite); }
+    .phys-hero p {
+      font-size: clamp(16px, 1.8vw, 19px);
+      color: rgba(250,246,240,0.72);
+      line-height: 1.75;
+      margin-bottom: 32px;
+      max-width: 580px;
+    }
+    .phys-hero__ctas { display: flex; flex-wrap: wrap; gap: 14px; }
+
+    /* Urgency bar */
+    .urgency {
+      background: var(--ember);
+      padding: 20px var(--gutter);
+      text-align: center;
+    }
+    .urgency p {
+      font-size: 15px;
+      color: #fff;
+      font-weight: 600;
+    }
+    .urgency a { color: #fff; text-decoration: underline; }
+
+    /* What happens section */
+    .what-happens { background: var(--surface); }
+    .what-happens__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .what-happens h2 { font-size: clamp(24px, 2.8vw, 36px); margin-bottom: 20px; }
+    .what-happens p { font-size: 15px; color: var(--mid); line-height: 1.75; margin-bottom: 14px; }
+    .what-happens strong { color: var(--dark); }
+
+    .consequence-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .consequence-item {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      padding: 16px 20px;
+    }
+    .consequence-item__title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+    .consequence-item__body {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .what-happens__inner { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    /* Stakes table */
+    .phys-stakes { background: var(--plum); color: var(--bg); }
+    .phys-stakes h2 { font-size: clamp(24px, 3vw, 38px); color: var(--bg); margin-bottom: 12px; }
+    .phys-stakes__intro { font-size: 16px; color: rgba(250,246,240,0.7); line-height: 1.7; margin-bottom: 40px; max-width: 600px; }
+
+    .phys-table {
+      background: rgba(26,18,33,0.5);
+      border-radius: 2px;
+      max-width: 680px;
+    }
+    .phys-table__head {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      padding: 14px 24px;
+      background: rgba(26,18,33,0.5);
+    }
+    .phys-table__head span {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-lite);
+    }
+    .phys-table__row {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      padding: 14px 24px;
+      border-top: 1px solid rgba(201,184,154,0.1);
+      transition: background 0.15s;
+    }
+    .phys-table__row:hover { background: rgba(232,114,42,0.05); }
+    .phys-table__row span:first-child { font-size: 13px; color: rgba(250,246,240,0.65); }
+    .phys-table__row span:not(:first-child) { font-family: var(--ff-serif); font-size: 14px; color: var(--accent-lite); }
+    .phys-table__note {
+      padding: 14px 24px;
+      border-top: 1px solid rgba(201,184,154,0.1);
+      font-size: 11px;
+      color: rgba(250,246,240,0.3);
+      font-style: italic;
+    }
+
+    /* Who it's for */
+    .fit-section { background: var(--bg); }
+    .fit-section__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .fit-col {
+      padding: 36px;
+      border-radius: 2px;
+    }
+    .fit-col--yes { background: var(--surface); border: 1px solid var(--border); }
+    .fit-col--no { background: #fff; border: 1px solid var(--border); opacity: 0.85; }
+    .fit-col__label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .fit-col--yes .fit-col__label { color: var(--accent); }
+    .fit-col--no .fit-col__label { color: var(--muted); }
+    .fit-col__head {
+      font-family: var(--ff-serif);
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: var(--dark);
+    }
+    .fit-items { display: flex; flex-direction: column; gap: 10px; }
+    .fit-item { display: flex; gap: 10px; font-size: 14px; color: var(--mid); line-height: 1.4; align-items: flex-start; }
+    .fit-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+    .fit-col--yes .fit-icon { color: var(--accent); }
+    .fit-col--no .fit-icon { color: var(--muted); }
+
+    .fit-header { text-align: center; max-width: 560px; margin: 0 auto 48px; }
+    .fit-header h2 { font-size: clamp(24px, 3vw, 38px); margin-bottom: 12px; }
+    .fit-header p { font-size: 15px; color: var(--mid); line-height: 1.7; }
+
+    @media (max-width: 680px) {
+      .fit-section__inner { grid-template-columns: 1fr; }
+      .phys-table__head, .phys-table__row { grid-template-columns: 2fr 1fr; }
+      .phys-table__head span:last-child, .phys-table__row span:last-child { display: none; }
+    }
+
+    /* CTA section */
+    .phys-cta { background: var(--dark); text-align: center; }
+    .phys-cta__inner { max-width: 620px; margin: 0 auto; }
+    .phys-cta h2 { font-size: clamp(26px, 3vw, 40px); color: var(--bg); margin-bottom: 16px; }
+    .phys-cta p { font-size: 16px; color: rgba(250,246,240,0.65); line-height: 1.7; margin-bottom: 32px; }
+    .phys-cta__ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <span class="nav__logo-firm">Octavia LaVon Martinez PLLC</span>
+        <span class="nav__logo-sub">Medical License Defense · Texas</span>
+      </a>
+      <div class="nav__links">
+        <a href="the-counter-protocol.html">The Counter Protocol</a>
+        <a href="about.html">About</a>
+        <a href="physician-license-defense.html" style="color:var(--accent-lite);">Physician Defense</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+      <div class="nav__cta">
+        <a href="tel:9564263550" class="nav__phone">(956) 426-3550</a>
+        <a href="strategy-session.html" class="btn btn--primary">Book Strategy Session</a>
+      </div>
+      <button class="nav__hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile">
+      <a href="../index.html">Home</a>
+      <a href="the-counter-protocol.html">The Counter Protocol</a>
+      <a href="about.html">About</a>
+      <a href="physician-license-defense.html">Physician Defense</a>
+      <a href="midwife-license-defense.html">Midwife Defense</a>
+      <a href="faq.html">FAQ</a>
+      <a href="tel:9564263550">(956) 426-3550</a>
+      <div class="mobile-cta">
+        <a href="strategy-session.html" class="btn btn--primary" style="width:100%;justify-content:center;margin-bottom:16px;">Book Strategy Session — $150</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="phys-hero">
+    <div class="phys-hero__inner">
+      <div class="eyebrow" style="margin-bottom:16px;">Texas Medical Board Complaint Defense</div>
+      <h1>You spent a decade<br>earning that license.<br><em>We fight to keep it.</em></h1>
+      <p>
+        A Texas Medical Board complaint is not an administrative inconvenience — it is a prosecution
+        of your professional character and livelihood. The board has investigators, institutional momentum,
+        and attorneys building a case against you. You need an attorney who matches that from day one.
+      </p>
+      <div class="phys-hero__ctas">
+        <a href="strategy-session.html" class="btn btn--primary">Book Your Strategy Session — $150</a>
+        <a href="tel:9564263550" class="btn btn--outline">Call (956) 426-3550</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- URGENCY BAR -->
+  <div class="urgency">
+    <p>The board's timeline does not pause for indecision. Every day without a defense strategy is a day the board builds its record unopposed. <a href="strategy-session.html">Book your session today →</a></p>
+  </div>
+
+  <!-- WHAT A TMB COMPLAINT TRIGGERS -->
+  <section class="section what-happens">
+    <div class="container">
+      <div class="what-happens__inner">
+        <div class="reveal">
+          <div class="eyebrow" style="margin-bottom:14px;">What You're Actually Facing</div>
+          <div class="rule"></div>
+          <h2>A TMB complaint doesn't just threaten your license. It threatens everything attached to it.</h2>
+          <p>
+            Most physicians underestimate the chain reaction a board complaint triggers.
+            It is not an isolated administrative process. It is a prosecution that touches
+            your hospital privileges, your insurance panels, your prescribing authority,
+            and your permanent professional record — simultaneously.
+          </p>
+          <p>
+            <strong>The initial written response to the board is the most consequential document in your defense.</strong>
+            A passive response allows the board to continue building unopposed.
+            An evidence-anchored counter-response forces a dismissal decision.
+            That window opens once. Most attorneys miss it.
+          </p>
+          <div style="margin-top:28px;">
+            <a href="the-counter-protocol.html" class="btn btn--ghost">How The Counter Protocol Works →</a>
+          </div>
+        </div>
+
+        <div class="consequence-list reveal">
+          <div class="consequence-item">
+            <div class="consequence-item__title">NPDB Filing</div>
+            <p class="consequence-item__body">Permanent record with the National Practitioner Data Bank. Every hospital, every credentialing body, every insurance panel checks it — indefinitely.</p>
+          </div>
+          <div class="consequence-item">
+            <div class="consequence-item__title">Hospital Privileges</div>
+            <p class="consequence-item__body">Suspended or terminated during investigation. Insurance panel participation dropped. Your ability to practice your specialty is disrupted immediately.</p>
+          </div>
+          <div class="consequence-item">
+            <div class="consequence-item__title">DEA Registration</div>
+            <p class="consequence-item__body">Revoked if the complaint involves prescribing. You cannot prescribe Schedule II–V controlled substances during the proceeding.</p>
+          </div>
+          <div class="consequence-item">
+            <div class="consequence-item__title">Hearing Timeline</div>
+            <p class="consequence-item__body">Once you're in an administrative hearing, resolution averages 12 months. Your license, practice, and reputation remain in question for every month of that process.</p>
+          </div>
+          <div class="consequence-item">
+            <div class="consequence-item__title">Student Loan Debt</div>
+            <p class="consequence-item__body">$200K–$300K in medical school debt does not disappear with license revocation. The debt survives. The income does not.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAKES TABLE -->
+  <section class="section phys-stakes">
+    <div class="container">
+      <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:14px;">What Your License Protects</div>
+      <div class="rule"></div>
+      <h2 class="reveal">The math is not complicated.</h2>
+      <p class="phys-stakes__intro reveal">
+        The retainer to retain this firm is $10,000. A physician's license generates that amount every few weeks.
+        The license it protects took a decade to earn. The financial exposure of inaction dwarfs the cost of aggressive early defense.
+      </p>
+      <div class="phys-table reveal">
+        <div class="phys-table__head">
+          <span>What Is at Stake</span>
+          <span>Physician (Avg)</span>
+          <span>Specialist</span>
+        </div>
+        <div class="phys-table__row">
+          <span>Annual salary</span>
+          <span>$374,000+</span>
+          <span>$564,000+</span>
+        </div>
+        <div class="phys-table__row">
+          <span>Practice value</span>
+          <span>$500K–$2M+</span>
+          <span>$500K–$2M+</span>
+        </div>
+        <div class="phys-table__row">
+          <span>Foregone earnings (20-yr career)</span>
+          <span>$7.5M+</span>
+          <span>$11M+</span>
+        </div>
+        <div class="phys-table__row">
+          <span>Medical school debt (survives revocation)</span>
+          <span>$200–300K</span>
+          <span>$200–300K</span>
+        </div>
+        <div class="phys-table__row">
+          <span>Training years invested</span>
+          <span>8–12 years</span>
+          <span>8–12 years</span>
+        </div>
+        <div class="phys-table__row">
+          <span>NPDB filing</span>
+          <span>Permanent</span>
+          <span>Permanent</span>
+        </div>
+        <div class="phys-table__note">
+          Source: AAMC, MGMA physician compensation data. The retainer to retain this firm is $10,000 — approximately 10 days of physician income.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO THIS IS FOR -->
+  <section class="section fit-section">
+    <div class="container">
+      <div class="fit-header reveal">
+        <div class="eyebrow" style="margin-bottom:12px;">Who This Firm Is Built For</div>
+        <h2>This is the right fit — and the wrong fit.</h2>
+        <p>We are direct about who we do our best work with. The wrong fit wastes your time and ours. The right fit gets uncompromised defense.</p>
+      </div>
+      <div class="fit-section__inner reveal">
+        <div class="fit-col fit-col--yes">
+          <div class="fit-col__label">Right Fit</div>
+          <div class="fit-col__head">Physicians who vet hard, then trust fully.</div>
+          <div class="fit-items">
+            <div class="fit-item"><span class="fit-icon">✓</span><span>Licensed physician, midwife, nurse practitioner, pharmacist, or allied health professional facing a state board complaint or investigation</span></div>
+            <div class="fit-item"><span class="fit-icon">✓</span><span>Someone who received the complaint recently and wants to move fast — before the board sets the narrative</span></div>
+            <div class="fit-item"><span class="fit-icon">✓</span><span>Someone whose current or prior attorney has gone passive, missed communications, or failed to fight for dismissal</span></div>
+            <div class="fit-item"><span class="fit-icon">✓</span><span>Someone who understands the value of what they are protecting and is willing to invest accordingly in defending it</span></div>
+            <div class="fit-item"><span class="fit-icon">✓</span><span>Someone who will ask hard questions upfront, then get out of the way and let us work</span></div>
+          </div>
+        </div>
+        <div class="fit-col fit-col--no">
+          <div class="fit-col__label">Wrong Fit</div>
+          <div class="fit-col__head">We will not be the right match if you:</div>
+          <div class="fit-items">
+            <div class="fit-item"><span class="fit-icon">✗</span><span>Want to co-manage your own defense strategy or arrive with pre-formed legal approaches</span></div>
+            <div class="fit-item"><span class="fit-icon">✗</span><span>Are looking for the cheapest option available</span></div>
+            <div class="fit-item"><span class="fit-icon">✗</span><span>Cannot maintain retainer continuity or have payment concerns</span></div>
+            <div class="fit-item"><span class="fit-icon">✗</span><span>Are facing a divorce, criminal charge, or landlord dispute — we do not practice in those areas</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section phys-cta">
+    <div class="container">
+      <div class="phys-cta__inner reveal">
+        <div class="eyebrow" style="margin-bottom:14px;">The First Step</div>
+        <h2>One entry point.<br>Intentionally simple.</h2>
+        <p>
+          Book a 30-minute Strategy Session. You'll receive a frank assessment of your complaint,
+          a realistic range of outcomes, and clear direction — whether you retain us or not.
+          $150 credited in full toward your retainer if you proceed.
+        </p>
+        <div class="phys-cta__ctas">
+          <a href="strategy-session.html" class="btn btn--primary">Book Strategy Session — $150</a>
+          <a href="tel:9564263550" class="btn btn--outline">Call (956) 426-3550</a>
+        </div>
+        <p style="margin-top:20px;font-size:13px;color:rgba(250,246,240,0.4);">Virtual · Serves all of Texas · Monday–Friday 8AM–6PM CST</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__firm">The Law Firm of Octavia LaVon Martinez PLLC</div>
+          <div class="footer__tagline">Medical License Defense · Texas</div>
+          <div class="footer__detail">
+            Virtual Firm — Serving All of Texas<br>
+            <a href="tel:9564263550">(956) 426-3550</a><br>
+            Monday–Friday · 8:00 AM–6:00 PM CST
+          </div>
+        </div>
+        <div>
+          <div class="footer__heading">Practice</div>
+          <nav class="footer__links">
+            <a href="physician-license-defense.html">Physician License Defense</a>
+            <a href="midwife-license-defense.html">Midwife License Defense</a>
+            <a href="the-counter-protocol.html">The Counter Protocol</a>
+            <a href="texas-medical-board.html">TMB Process</a>
+          </nav>
+        </div>
+        <div>
+          <div class="footer__heading">Firm</div>
+          <nav class="footer__links">
+            <a href="about.html">About Octavia</a>
+            <a href="faq.html">FAQ</a>
+            <a href="strategy-session.html">Book Strategy Session</a>
+          </nav>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__copy">© 2026 The Law Firm of Octavia LaVon Martinez PLLC</div>
+        <div class="footer__bar">Licensed in Texas · Arizona</div>
+        <div class="footer__legal"><a href="#">Privacy Policy</a><a href="#">Attorney Advertising</a></div>
+      </div>
+      <p style="margin-top:16px;font-size:11px;color:rgba(250,246,240,0.25);line-height:1.6;">
+        Disclaimer: The information on this website is for general information purposes only. Nothing on this site should be taken as legal advice for any individual case or situation. Viewing this information does not constitute an attorney-client relationship.
+      </p>
+    </div>
+  </footer>
+
+  <script src="../js/global.js"></script>
+</body>
+</html>

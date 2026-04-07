@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found | Octavia LaVon Martinez PLLC</title>
+  <meta name="robots" content="noindex, follow" />
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <link rel="stylesheet" href="css/global.css" />
+  <style>
+    .error-hero {
+      min-height: 100svh;
+      background: var(--dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px var(--gutter) 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .error-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 50% 60%, rgba(232,114,42,0.07) 0%, transparent 65%),
+        linear-gradient(160deg, #1A1221 0%, #2B2438 100%);
+    }
+    .error-hero__inner {
+      position: relative;
+      z-index: 2;
+      max-width: 580px;
+    }
+    .error-num {
+      font-family: var(--ff-serif);
+      font-size: clamp(100px, 18vw, 180px);
+      color: var(--accent);
+      opacity: 0.15;
+      line-height: 1;
+      margin-bottom: 0;
+      letter-spacing: -0.02em;
+    }
+    .error-rule {
+      width: 48px;
+      height: 3px;
+      background: var(--accent);
+      margin: 0 auto 28px;
+    }
+    .error-hero h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      color: var(--bg);
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+    .error-hero p {
+      font-size: 17px;
+      color: rgba(250,246,240,0.65);
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 460px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .error-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+    .error-phone {
+      font-size: 15px;
+      color: rgba(250,246,240,0.35);
+    }
+    .error-phone a {
+      color: var(--accent-lite);
+      transition: color 0.2s;
+    }
+    .error-phone a:hover { color: var(--accent); }
+
+    /* Quick links strip */
+    .error-links {
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(201,184,154,0.15);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+    .error-links a {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(250,246,240,0.4);
+      padding: 8px 16px;
+      border: 1px solid rgba(201,184,154,0.15);
+      border-radius: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .error-links a:hover {
+      color: var(--accent-lite);
+      border-color: rgba(232,114,42,0.3);
+    }
+    .error-links__label {
+      width: 100%;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(250,246,240,0.25);
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav__bar">
+      <a href="index.html" class="nav__logo">
+        <span class="nav__logo-firm">Octavia LaVon Martinez PLLC</span>
+        <span class="nav__logo-sub">Texas Attorney · Virtual · Statewide</span>
+      </a>
+      <div class="nav__items">
+        <div class="nav__item">
+          <button class="nav__item-link">Practice <svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg></button>
+          <div class="nav__mega">
+            <div class="nav__mega-grid nav__mega-grid--2col">
+              <a href="texas-medical-attorney/physician-license-defense.html" class="nav__mega-item"><span class="nav__mega-title">Physician License Defense</span><span class="nav__mega-desc">TMB complaint defense for physicians</span></a>
+              <a href="texas-medical-attorney/midwife-license-defense.html" class="nav__mega-item"><span class="nav__mega-title">Midwife License Defense</span><span class="nav__mega-desc">CNM &amp; licensed midwife defense</span></a>
+              <div class="nav__mega-divider"></div>
+              <a href="texas-medical-attorney/the-counter-protocol.html" class="nav__mega-item"><span class="nav__mega-title">The Counter Protocol</span><span class="nav__mega-desc">Our parallel investigation method</span></a>
+              <a href="texas-medical-attorney/texas-medical-board.html" class="nav__mega-item"><span class="nav__mega-title">TMB Complaint Process</span><span class="nav__mega-desc">What happens &amp; when to act</span></a>
+            </div>
+          </div>
+        </div>
+        <div class="nav__item">
+          <button class="nav__item-link">Locations <svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg></button>
+          <div class="nav__mega">
+            <div class="nav__mega-grid nav__mega-grid--2col">
+              <a href="texas-medical-attorney/texas-medical-license-defense/houston.html" class="nav__mega-item"><span class="nav__mega-title">Houston</span></a>
+              <a href="texas-medical-attorney/texas-medical-license-defense/dallas.html" class="nav__mega-item"><span class="nav__mega-title">Dallas</span></a>
+              <a href="texas-medical-attorney/texas-medical-license-defense/san-antonio.html" class="nav__mega-item"><span class="nav__mega-title">San Antonio</span></a>
+              <a href="texas-medical-attorney/texas-medical-license-defense/austin.html" class="nav__mega-item"><span class="nav__mega-title">Austin</span></a>
+              <a href="texas-medical-attorney/texas-medical-license-defense/el-paso.html" class="nav__mega-item"><span class="nav__mega-title">El Paso</span></a>
+              <a href="texas-medical-attorney/texas-medical-license-defense/lubbock.html" class="nav__mega-item"><span class="nav__mega-title">Lubbock</span></a>
+              <a href="texas-medical-attorney/texas-medical-license-defense/mcallen.html" class="nav__mega-item"><span class="nav__mega-title">McAllen</span></a>
+            </div>
+          </div>
+        </div>
+        <div class="nav__item"><a href="texas-medical-attorney/about.html" class="nav__item-link">About</a></div>
+        <div class="nav__item"><a href="texas-medical-attorney/faq.html" class="nav__item-link">FAQ</a></div>
+      </div>
+      <div class="nav__right">
+        <a href="tel:9564263550" class="nav__phone">(956) 426-3550</a>
+        <a href="texas-medical-attorney/strategy-session.html" class="btn btn--primary">Book Strategy Session</a>
+      </div>
+      <button class="nav__hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile">
+      <a href="texas-medical-attorney/physician-license-defense.html">Physician Defense</a>
+      <a href="texas-medical-attorney/midwife-license-defense.html">Midwife Defense</a>
+      <a href="texas-medical-attorney/the-counter-protocol.html">The Counter Protocol</a>
+      <a href="texas-medical-attorney/texas-medical-board.html">TMB Process</a>
+      <a href="texas-medical-attorney/about.html">About</a>
+      <a href="texas-medical-attorney/faq.html">FAQ</a>
+      <a href="tel:9564263550">(956) 426-3550</a>
+      <div class="nav__mobile-cta">
+        <a href="texas-medical-attorney/strategy-session.html" class="btn btn--primary" style="width:100%;justify-content:center;">Book Strategy Session</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="error-hero">
+    <div class="error-hero__inner">
+
+      <div class="error-num">404</div>
+      <div class="error-rule"></div>
+
+      <h1>This page doesn't exist.</h1>
+      <p>If you're facing a TMB complaint, the page you need is right below. Don't let a wrong turn cost you time you don't have.</p>
+
+      <div class="error-ctas">
+        <a href="texas-medical-attorney/strategy-session.html" class="btn btn--primary">Book Your Strategy Session</a>
+        <a href="index.html" class="btn btn--outline">Return Home</a>
+      </div>
+
+      <p class="error-phone">Or call directly: <a href="tel:9564263550">(956) 426-3550</a></p>
+
+      <div class="error-links">
+        <div class="error-links__label">You may be looking for</div>
+        <a href="texas-medical-attorney/physician-license-defense.html">Physician Defense</a>
+        <a href="texas-medical-attorney/midwife-license-defense.html">Midwife Defense</a>
+        <a href="texas-medical-attorney/the-counter-protocol.html">The Counter Protocol</a>
+        <a href="texas-medical-attorney/about.html">About Octavia</a>
+        <a href="texas-medical-attorney/texas-medical-board.html">TMB Process</a>
+        <a href="texas-medical-attorney/faq.html">FAQ</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/global.js"></script>
+</body>
+</html>

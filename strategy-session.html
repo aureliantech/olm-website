@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Strategy Session | Octavia LaVon Martinez PLLC — Texas Attorney</title>
+  <meta name="description" content="Book a paid strategy session with Octavia LaVon Martinez. Real legal analysis applied to your specific situation. Clear direction on your options. Not a sales call." />
+  <link rel="canonical" href="https://octaviamartinezlaw.com/strategy-session" />
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <link rel="stylesheet" href="css/global.css" />
+  <style>
+    /* HERO */
+    .ss-hero { background: var(--dark); padding: 140px var(--gutter) 90px; position: relative; overflow: hidden; }
+    .ss-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 100% 0%, rgba(232,114,42,0.07) 0%, transparent 55%), linear-gradient(150deg, #0a0806 0%, #1A1221 55%, #2B2438 100%); }
+    .ss-hero__inner { position: relative; z-index: 2; max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .ss-hero h1 { font-size: clamp(32px, 4.5vw, 56px); color: var(--bg); line-height: 1.06; margin-bottom: 22px; }
+    .ss-hero h1 em { color: var(--accent-lite); font-style: italic; }
+    .ss-hero__lead { font-size: clamp(16px, 1.8vw, 19px); color: rgba(250,246,240,0.7); line-height: 1.75; margin-bottom: 32px; max-width: 520px; }
+    .ss-hero__trust { margin-top: 24px; font-size: 13px; color: rgba(250,246,240,0.35); letter-spacing: 0.06em; }
+
+    /* Booking card — matches medpro design */
+    .ss-booking-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 40px 36px;
+    }
+    .ss-booking-card__price-badge {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 8px;
+      background: var(--accent);
+      color: #fff;
+      padding: 14px 24px;
+      margin-bottom: 20px;
+    }
+    .ss-booking-card__price-amount {
+      font-family: var(--ff-serif);
+      font-size: 36px;
+      line-height: 1;
+    }
+    .ss-booking-card__price-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .ss-booking-card__credit {
+      font-family: var(--ff-serif);
+      font-size: 15px;
+      color: var(--mid);
+      font-style: italic;
+      margin-bottom: 24px;
+    }
+    .ss-booking-card h2 {
+      font-family: var(--ff-serif);
+      font-size: 26px;
+      color: var(--dark);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+    .ss-booking-card p {
+      font-size: 15px;
+      color: var(--mid);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .ss-booking-card__cta {
+      display: block;
+      background: var(--accent);
+      color: #fff;
+      text-align: center;
+      font-family: var(--ff-sans);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 18px 24px;
+      text-decoration: none;
+      transition: background 0.2s;
+      margin-bottom: 20px;
+    }
+    .ss-booking-card__cta:hover { background: var(--accent-dark); }
+    .ss-booking-card__divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .ss-booking-card__divider::before,
+    .ss-booking-card__divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .ss-booking-card__phone-box {
+      border: 1px solid var(--border);
+      padding: 16px 24px;
+      text-align: center;
+    }
+    .ss-booking-card__phone {
+      display: block;
+      font-family: var(--ff-serif);
+      font-size: 28px;
+      color: var(--dark);
+      text-decoration: none;
+    }
+    .ss-booking-card__hours {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+      letter-spacing: 0.04em;
+    }
+    @media (max-width: 900px) { .ss-hero__inner { grid-template-columns: 1fr; gap: 48px; } }
+
+    /* WHAT YOU GET */
+    .ss-deliverables { background: var(--surface); }
+    .ss-deliverables__header { text-align: center; max-width: 600px; margin: 0 auto 52px; }
+    .ss-deliverables__header h2 { font-size: clamp(26px, 3vw, 40px); margin-bottom: 12px; color: var(--dark); }
+    .ss-deliverables__header p { font-size: 16px; color: var(--mid); line-height: 1.75; }
+    .ss-deliverables__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .ss-deliverable { background: var(--bg); border: 1px solid var(--border); border-top: 3px solid var(--accent); padding: 28px 24px; }
+    .ss-deliverable-num { font-family: var(--ff-serif); font-size: 36px; color: rgba(232,114,42,0.18); line-height: 1; margin-bottom: 10px; }
+    .ss-deliverable-title { font-size: 17px; font-weight: 700; color: var(--dark); margin-bottom: 10px; }
+    .ss-deliverable-body { font-size: 15px; color: var(--mid); line-height: 1.65; }
+    @media (max-width: 768px) { .ss-deliverables__grid { grid-template-columns: 1fr; } }
+
+    /* WHY PAID */
+    .ss-why { background: var(--plum); color: var(--bg); }
+    .ss-why__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .ss-why h2 { font-size: clamp(26px, 3vw, 40px); color: var(--bg); margin-bottom: 20px; line-height: 1.1; }
+    .ss-why h2 em { color: var(--accent-lite); }
+    .ss-why p { font-size: 16px; color: rgba(250,246,240,0.7); line-height: 1.8; margin-bottom: 16px; }
+    .ss-why strong { color: var(--bg); }
+    .ss-why__compare { display: flex; flex-direction: column; gap: 2px; }
+    .ss-why__row { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .ss-why__cell { padding: 16px 20px; font-size: 15px; line-height: 1.5; }
+    .ss-why__cell--header { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 12px 20px; }
+    .ss-why__cell--free { background: rgba(26,18,33,0.4); color: rgba(250,246,240,0.5); }
+    .ss-why__cell--free-header { background: rgba(26,18,33,0.6); color: rgba(250,246,240,0.4); }
+    .ss-why__cell--paid { background: rgba(232,114,42,0.1); color: rgba(250,246,240,0.8); }
+    .ss-why__cell--paid-header { background: rgba(232,114,42,0.18); color: var(--accent-lite); }
+    @media (max-width: 768px) { .ss-why__inner { grid-template-columns: 1fr; gap: 40px; } }
+
+    /* WHO IT'S FOR */
+    .ss-for { background: var(--bg); }
+    .ss-for__header { text-align: center; max-width: 580px; margin: 0 auto 48px; }
+    .ss-for__header h2 { font-size: clamp(26px, 3vw, 38px); margin-bottom: 12px; color: var(--dark); }
+    .ss-for__header p { font-size: 16px; color: var(--mid); line-height: 1.75; }
+    .ss-for__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
+    .ss-for__card { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); padding: 24px 28px; }
+    .ss-for__card-title { font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+    .ss-for__card-body { font-size: 15px; color: var(--mid); line-height: 1.65; }
+    @media (max-width: 768px) { .ss-for__grid { grid-template-columns: 1fr; } }
+
+    /* ATTORNEY + FINAL BOOK */
+    .ss-close { background: var(--dark); }
+    .ss-close__inner { display: grid; grid-template-columns: 280px 1fr; gap: 64px; align-items: center; }
+    .ss-close__photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center top; }
+    .ss-close__badge { background: rgba(43,36,56,0.8); padding: 14px 20px; }
+    .ss-close__badge-name { font-family: var(--ff-serif); font-size: 17px; color: var(--bg); }
+    .ss-close__badge-title { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-top: 3px; }
+    .ss-close__content h2 { font-size: clamp(26px, 3vw, 40px); color: var(--bg); margin-bottom: 16px; line-height: 1.1; }
+    .ss-close__content h2 em { color: var(--accent-lite); }
+    .ss-close__content p { font-size: 16px; color: rgba(250,246,240,0.65); line-height: 1.8; margin-bottom: 14px; }
+    .ss-close__btns { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; }
+    @media (max-width: 768px) { .ss-close__inner { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav__bar">
+      <a href="index.html" class="nav__logo">
+        <span class="nav__logo-firm">Octavia LaVon Martinez PLLC</span>
+        <span class="nav__logo-sub">Texas Attorney · Virtual · Statewide</span>
+      </a>
+      <div class="nav__items">
+        <div class="nav__item">
+          <button class="nav__item-link">General Practice <svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg></button>
+          <div class="nav__mega nav__mega--image">
+            <div class="nav__mega-layout">
+              <div class="nav__mega-image-panel">
+                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&q=80&fit=crop&auto=format" alt="Legal services" loading="lazy" />
+                <div class="nav__mega-image-title">Full Service<br>Practice</div>
+                <div class="nav__mega-image-label">All Practice Areas</div>
+              </div>
+              <div class="nav__mega-links">
+                <a href="probate.html" class="nav__mega-item"><span class="nav__mega-title">Complex Probate &amp; Estate</span><span class="nav__mega-desc">Contested estates &amp; failed administration</span></a>
+                <a href="wills-and-poa.html" class="nav__mega-item"><span class="nav__mega-title">Wills &amp; Power of Attorney</span><span class="nav__mega-desc">Estate planning &amp; advance directives</span></a>
+                <a href="employment-law.html" class="nav__mega-item"><span class="nav__mega-title">Employment Law</span><span class="nav__mega-desc">Wrongful termination &amp; workplace disputes</span></a>
+                <a href="breach-of-contract.html" class="nav__mega-item"><span class="nav__mega-title">Breach of Contract</span><span class="nav__mega-desc">Business &amp; commercial litigation</span></a>
+                <a href="defamation.html" class="nav__mega-item"><span class="nav__mega-title">Defamation &amp; Reputation Defense</span><span class="nav__mega-desc">Libel, slander &amp; online attacks</span></a>
+                <a href="medical-malpractice.html" class="nav__mega-item"><span class="nav__mega-title">Medical Malpractice</span><span class="nav__mega-desc">Negligence &amp; wrongful death</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="nav__item">
+          <button class="nav__item-link">Medical Professionals <svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg></button>
+          <div class="nav__mega nav__mega--image">
+            <div class="nav__mega-layout">
+              <div class="nav__mega-image-panel">
+                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&q=80&fit=crop&auto=format" alt="Medical professional" loading="lazy" />
+                <div class="nav__mega-image-title">For Medical<br>Professionals</div>
+                <div class="nav__mega-image-label">Dedicated Experience →</div>
+              </div>
+              <div class="nav__mega-links">
+                <a href="texas-medical-attorney/physician-license-defense.html" class="nav__mega-item"><span class="nav__mega-title">Physician License Defense</span><span class="nav__mega-desc">TMB complaint defense for physicians</span></a>
+                <a href="texas-medical-attorney/midwife-license-defense.html" class="nav__mega-item"><span class="nav__mega-title">Midwife License Defense</span><span class="nav__mega-desc">CNM &amp; licensed midwife defense</span></a>
+                <a href="texas-medical-attorney/employment-law.html" class="nav__mega-item"><span class="nav__mega-title">Healthcare Employment Law</span><span class="nav__mega-desc">Hospital privileges, non-competes, retaliation</span></a>
+                <a href="texas-medical-attorney/the-counter-protocol.html" class="nav__mega-item"><span class="nav__mega-title">The Counter Protocol</span><span class="nav__mega-desc">Our parallel investigation method</span></a>
+                <a href="texas-medical-attorney/texas-medical-board.html" class="nav__mega-item"><span class="nav__mega-title">TMB Complaint Process</span><span class="nav__mega-desc">What happens &amp; when to act</span></a>
+                <a href="texas-medical-attorney/index.html" class="nav__mega-item nav__mega-cta-link"><span class="nav__mega-title">View All Medical Professional Services →</span><span class="nav__mega-desc">Enter the dedicated medpro experience</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="nav__item">
+          <button class="nav__item-link">Firm <svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg></button>
+          <div class="nav__mega">
+            <div class="nav__mega-grid nav__mega-grid--1col">
+              <a href="about.html" class="nav__mega-item"><span class="nav__mega-title">About Octavia</span><span class="nav__mega-desc">Background, credentials, and how she works</span></a>
+              <a href="faq.html" class="nav__mega-item"><span class="nav__mega-title">FAQ</span><span class="nav__mega-desc">Common questions about the firm</span></a>
+              <a href="strategy-session.html" class="nav__mega-item"><span class="nav__mega-title">Book a Strategy Session</span><span class="nav__mega-desc">Paid strategy session · Clear direction</span></a>
+              <a href="contact.html" class="nav__mega-item"><span class="nav__mega-title">Contact</span><span class="nav__mega-desc">(956) 426-3550 · Virtual · All of Texas</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav__right">
+        <a href="tel:9564263550" class="nav__phone">(956) 426-3550</a>
+        <a href="strategy-session.html" class="btn btn--primary">Book Strategy Session</a>
+      </div>
+      <button class="nav__hamburger" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+    <div class="nav__mobile">
+      <a href="texas-medical-attorney/physician-license-defense.html">Physician Defense</a>
+      <a href="texas-medical-attorney/midwife-license-defense.html">Midwife Defense</a>
+      <a href="texas-medical-attorney/index.html">All Medical Pro Services</a>
+      <a href="probate.html">Probate</a>
+      <a href="wills-and-poa.html">Wills &amp; POA</a>
+      <a href="employment-law.html">Employment Law</a>
+      <a href="breach-of-contract.html">Breach of Contract</a>
+      <a href="defamation.html">Defamation</a>
+      <a href="medical-malpractice.html">Medical Malpractice</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="tel:9564263550">(956) 426-3550</a>
+      <div class="nav__mobile-cta"><a href="strategy-session.html" class="btn btn--primary" style="width:100%;justify-content:center;">Book Strategy Session</a></div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="ss-hero">
+    <div class="ss-hero__inner">
+      <div>
+        <div class="eyebrow" style="margin-bottom:16px;display:flex;align-items:center;gap:12px;">
+          <span style="width:32px;height:2px;background:var(--accent);display:inline-block;"></span>
+          Strategy Session
+        </div>
+        <h1>The strategy session is not<br>a sales call.<br><em>It's the first hour<br>of your case.</em></h1>
+        <p class="ss-hero__lead">We do not offer free strategy sessions. The strategy session is one hour of real legal analysis applied to your specific situation. You leave knowing exactly where you stand and what your options are.</p>
+        <p class="ss-hero__trust">Virtual · Paid · No commitment to further representation</p>
+      </div>
+
+      <div class="ss-booking-card reveal">
+        <div class="ss-booking-card__price-badge">
+          <span class="ss-booking-card__price-amount">$150</span>
+          <span class="ss-booking-card__price-label">Strategy Session</span>
+        </div>
+        <p class="ss-booking-card__credit">Credited in full toward your retainer if you proceed.</p>
+        <h2>Book Online Now</h2>
+        <p>Select a time that works. The attorney reviews your situation before the session.</p>
+        <a href="https://octaviamartinezlaw.cliogrow.com/book/05558212793e35d7ef5df6a9349d47ae" target="_blank" rel="noopener noreferrer" class="ss-booking-card__cta">Schedule My Strategy Session →</a>
+        <div class="ss-booking-card__divider">or call directly</div>
+        <div class="ss-booking-card__phone-box">
+          <a href="tel:9564263550" class="ss-booking-card__phone">(956) 426-3550</a>
+          <div class="ss-booking-card__hours">Monday–Friday · 8:00 AM–6:00 PM CST<br>Virtual · Serves all of Texas</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU GET -->
+  <section class="section ss-deliverables">
+    <div class="container">
+      <div class="ss-deliverables__header reveal">
+        <div class="eyebrow" style="margin-bottom:12px;">What the Session Delivers</div>
+        <div class="rule rule--center"></div>
+        <h2>Exactly what you receive — no varnish.</h2>
+        <p>One session. Real analysis. Clear direction. Whether or not you retain this firm afterward, what you learn in this session is yours.</p>
+      </div>
+      <div class="ss-deliverables__grid">
+        <div class="ss-deliverable reveal">
+          <div class="ss-deliverable-num">01</div>
+          <div class="ss-deliverable-title">An honest assessment of your legal position</div>
+          <p class="ss-deliverable-body">Not what you want to hear — what the facts actually support. Where you are strong, where you are exposed, and what that means for how you should proceed.</p>
+        </div>
+        <div class="ss-deliverable reveal">
+          <div class="ss-deliverable-num">02</div>
+          <div class="ss-deliverable-title">Your realistic options — all of them</div>
+          <p class="ss-deliverable-body">Every viable path forward, including doing nothing. The tradeoffs of each option explained clearly — what each costs, what each risks, and what each is likely to produce.</p>
+        </div>
+        <div class="ss-deliverable reveal">
+          <div class="ss-deliverable-num">03</div>
+          <div class="ss-deliverable-title">A frank economic assessment</div>
+          <p class="ss-deliverable-body">If the cost of pursuing a matter outweighs the likely recovery, we will tell you. Directly. In the first session. You deserve to know that before you spend money on representation.</p>
+        </div>
+        <div class="ss-deliverable reveal">
+          <div class="ss-deliverable-num">04</div>
+          <div class="ss-deliverable-title">What immediate steps — if any — are required</div>
+          <p class="ss-deliverable-body">Deadlines, evidence that needs to be preserved, communications that should stop immediately, filings that are time-sensitive. If there is something urgent, you will know before you leave.</p>
+        </div>
+        <div class="ss-deliverable reveal">
+          <div class="ss-deliverable-num">05</div>
+          <div class="ss-deliverable-title">Whether this firm is the right fit</div>
+          <p class="ss-deliverable-body">If your matter falls outside our scope, we will tell you and refer you toward someone who handles it. We do not take cases we cannot win or represent clients whose interests we cannot serve effectively.</p>
+        </div>
+        <div class="ss-deliverable reveal">
+          <div class="ss-deliverable-num">06</div>
+          <div class="ss-deliverable-title">No obligation to retain</div>
+          <p class="ss-deliverable-body">The session is a standalone service. Payment covers the analysis — not a commitment to further representation. If you decide to retain this firm, work begins immediately. If you do not, the analysis is still yours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY PAID -->
+  <section class="section ss-why">
+    <div class="container">
+      <div class="ss-why__inner">
+        <div class="reveal">
+          <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:14px;">Why It's Paid</div>
+          <div class="rule"></div>
+          <h2>Free consultations are<br>sales calls.<br><em>This is not.</em></h2>
+          <p>A free consultation is structurally a sales meeting — the attorney has not been paid to think carefully about your situation, and the incentive is to move you toward retention, not to give you honest analysis that might include "your case is not strong."</p>
+          <p><strong>A paid consultation changes that dynamic entirely.</strong> The attorney's obligation is to you and to the accuracy of the analysis — not to whether you retain them. You get honest advice. The firm gets to work with clients who are genuinely suited to their practice.</p>
+          <p>This is not a policy designed to extract money. It is a policy designed to produce a better outcome for everyone in the room.</p>
+        </div>
+        <div class="ss-why__compare reveal">
+          <div class="ss-why__row">
+            <div class="ss-why__cell ss-why__cell--free-header ss-why__cell--header">Free Consultation</div>
+            <div class="ss-why__cell ss-why__cell--paid-header ss-why__cell--header">Paid Strategy Session</div>
+          </div>
+          <div class="ss-why__row">
+            <div class="ss-why__cell ss-why__cell--free">Generic overview of the law</div>
+            <div class="ss-why__cell ss-why__cell--paid">Analysis of your specific facts</div>
+          </div>
+          <div class="ss-why__row">
+            <div class="ss-why__cell ss-why__cell--free">Optimistic framing to encourage retention</div>
+            <div class="ss-why__cell ss-why__cell--paid">Honest assessment including weaknesses</div>
+          </div>
+          <div class="ss-why__row">
+            <div class="ss-why__cell ss-why__cell--free">No cost analysis — encourages litigation</div>
+            <div class="ss-why__cell ss-why__cell--paid">Direct economic assessment up front</div>
+          </div>
+          <div class="ss-why__row">
+            <div class="ss-why__cell ss-why__cell--free">Incentive is to retain you as a client</div>
+            <div class="ss-why__cell ss-why__cell--paid">Incentive is to give you accurate advice</div>
+          </div>
+          <div class="ss-why__row">
+            <div class="ss-why__cell ss-why__cell--free">Leaves you without actionable direction</div>
+            <div class="ss-why__cell ss-why__cell--paid">Leaves you knowing exactly what to do</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="section ss-for">
+    <div class="container">
+      <div class="ss-for__header reveal">
+        <div class="eyebrow" style="margin-bottom:12px;">Who the Session Is For</div>
+        <div class="rule rule--center"></div>
+        <h2>You belong in this session if any of these describe you.</h2>
+        <p>The session is designed for people at the beginning of a legal matter, in the middle of one that has stalled, or at a crossroads where they need honest direction before deciding how to proceed.</p>
+      </div>
+      <div class="ss-for__grid">
+        <div class="ss-for__card reveal">
+          <div class="ss-for__card-title">Something happened and you need to know where you stand</div>
+          <p class="ss-for__card-body">A termination, a breach, a false statement, a death in the family with a contested estate. You have facts. You need legal analysis applied to them.</p>
+        </div>
+        <div class="ss-for__card reveal">
+          <div class="ss-for__card-title">You have an attorney but something is wrong</div>
+          <p class="ss-for__card-body">Your case has stalled, your attorney isn't communicating, a deadline may have been missed. You need an independent assessment of where things stand.</p>
+        </div>
+        <div class="ss-for__card reveal">
+          <div class="ss-for__card-title">You need to decide whether to pursue legal action</div>
+          <p class="ss-for__card-body">You believe you have a claim but you're not sure it's worth pursuing. The session tells you whether it is — and what it would realistically cost and produce.</p>
+        </div>
+        <div class="ss-for__card reveal">
+          <div class="ss-for__card-title">You have a document that needs review before you sign</div>
+          <p class="ss-for__card-body">An employment agreement, a non-compete, a settlement offer, a contract. You need to understand what you're agreeing to and whether there's room to negotiate.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING ATTORNEY + BOOK -->
+  <section class="section ss-close">
+    <div class="container">
+      <div class="ss-close__inner">
+        <div class="reveal">
+          <img src="octavia-headshot.png" alt="Octavia LaVon Martinez — Texas Attorney" class="ss-close__photo" width="280" height="373" />
+          <div class="ss-close__badge">
+            <div class="ss-close__badge-name">Octavia LaVon Martinez</div>
+            <div class="ss-close__badge-title">Founder &amp; Principal Attorney</div>
+          </div>
+        </div>
+        <div class="ss-close__content reveal">
+          <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:14px;">No Intake Queue. No Delay.</div>
+          <div class="rule"></div>
+          <h2>Once retained,<br><em>work begins immediately.</em></h2>
+          <p>This firm does not have an onboarding queue, a junior associate review period, or a waiting room between retention and action. The session is the assessment. If you decide to retain this firm, work starts the same day.</p>
+          <p>For urgent matters — active investigations, imminent hearings, situations where evidence needs to be preserved — communicate the urgency when booking and it will be addressed in the session.</p>
+          <div class="ss-close__btns">
+            <a href="https://octaviamartinezlaw.cliogrow.com/book/05558212793e35d7ef5df6a9349d47ae" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Book Online Now →</a>
+            <a href="tel:9564263550" class="btn btn--outline">Call (956) 426-3550</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__firm">Octavia LaVon Martinez PLLC</div>
+          <div class="footer__tagline">Texas Attorney · Virtual · Statewide</div>
+          <div class="footer__detail"><strong style="color:rgba(250,246,240,0.8);">Virtual Firm — Texas &amp; Arizona</strong><br>Mailing: 2330 E. Freddy Gonzalez Dr. #2074<br>Edinburg, TX 78542<br><br><a href="tel:9564263550">(956) 426-3550</a><br>Monday–Friday · 8:00 AM–6:00 PM CST</div>
+        </div>
+        <div>
+          <div class="footer__heading">Practice Areas</div>
+          <nav class="footer__links">
+            <a href="texas-medical-attorney/index.html">Medical License Defense</a>
+            <a href="probate.html">Complex Probate &amp; Estate</a>
+            <a href="wills-and-poa.html">Wills &amp; Power of Attorney</a>
+            <a href="employment-law.html">Employment Law</a>
+            <a href="breach-of-contract.html">Breach of Contract</a>
+            <a href="defamation.html">Defamation</a>
+            <a href="medical-malpractice.html">Medical Malpractice</a>
+          </nav>
+        </div>
+        <div>
+          <div class="footer__heading">Firm</div>
+          <nav class="footer__links">
+            <a href="about.html">About Octavia</a>
+            <a href="faq.html">FAQ</a>
+            <a href="strategy-session.html">Book Strategy Session</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__copy">© 2026 Octavia LaVon Martinez PLLC · All Rights Reserved</div>
+        <div class="footer__bar">Licensed in Texas · Arizona</div>
+        <div class="footer__legal"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Attorney Advertising</a></div>
+      </div>
+      <p style="margin-top:16px;font-size:11px;color:rgba(250,246,240,0.25);line-height:1.6;">Disclaimer: The information on this website is for general information purposes only. Nothing on this site should be taken as legal advice for any individual case or situation. Viewing this information does not constitute an attorney-client relationship.</p>
+    </div>
+  </footer>
+  <script src="js/global.js"></script>
+</body>
+</html>
