@@ -1625,7 +1625,19 @@
       text-align: center;
       box-sizing: border-box;
     }
-    .review-stars { font-size: 22px; color: var(--accent); letter-spacing: 6px; margin-bottom: 28px; }
+    .review-stars {
+      display: flex; justify-content: center; gap: 5px;
+      margin-bottom: 28px;
+    }
+    .review-stars span {
+      font-size: 20px;
+      color: #F5C842;
+      text-shadow:
+        0 0 8px rgba(245,200,66,0.7),
+        0 0 18px rgba(245,200,66,0.35);
+      filter: drop-shadow(0 1px 2px rgba(180,130,0,0.4));
+      line-height: 1;
+    }
     .review-text {
       font-family: var(--ff-serif);
       font-size: clamp(17px, 2vw, 24px);
@@ -2414,32 +2426,69 @@
         <div class="reviews-track" id="reviewsTrack">
           <div class="review-card">
             <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-            <p class="review-text">"I cannot recommend Octavia enough. She is an incredible attorney who is both passionate about her work and deeply committed to her clients. What sets her apart is her rare combination of warmth and professionalism — razor-sharp and thorough. You always know she truly cares."</p>
-            <div class="review-author">Jenn</div>
+            <p class="review-text">"I cannot recommend Octavia enough. She is an incredible attorney who is both passionate about her work and deeply committed to her clients. What sets her apart is her rare combination of warmth and professionalism. She has a calming, reassuring presence while also being razor-sharp and thorough in her work. You always know she truly cares and is fighting for the best possible outcome."</p>
+            <div class="review-author">J.C.</div>
             <div class="review-source">Google Review · Verified · Texas</div>
           </div>
           <div class="review-card">
             <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-            <p class="review-text">"Octavia has been amazing. I have been working with her for almost a year and she has been incredible the entire time — her passion, communication, professionalism, responsiveness, and willingness to explain things have been top notch. 10/10."</p>
-            <div class="review-author">Elizabeth</div>
+            <p class="review-text">"10/10 would hire again! Octavia is an exceptional attorney who demonstrates both strength and compassion in her practice. She is fierce and effective in advocating for her clients, while maintaining a genuine kindness and professionalism that sets her apart. Her dedication, attention to detail, and ability to navigate complex situations with confidence make her an invaluable advocate."</p>
+            <div class="review-author">K.A.</div>
             <div class="review-source">Google Review · Verified · Texas</div>
           </div>
           <div class="review-card">
             <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-            <p class="review-text">"AMAZING. Octavia is highly professional, efficient, and thorough. She is extremely knowledgeable and provided excellent advice on several complex defamation and libel cases. Her support was invaluable — I truly felt like more than just a case number."</p>
-            <div class="review-author">Nicole</div>
+            <p class="review-text">"Octavia has been amazing. I have been working with her for almost a year and she has been incredible the entire time, her passion, communication, professionalism, responsiveness, and willingness to explain things have been top notch. 10/10 would recommend her services."</p>
+            <div class="review-author">E.F.</div>
             <div class="review-source">Google Review · Verified · Texas</div>
           </div>
           <div class="review-card">
             <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-            <p class="review-text">"She pursues Right over Wrong, Justice over Injustice — and not just Win or Lose. I respect and admire her for that."</p>
+            <p class="review-text">"Was very thorough, helpful in updating our wills and advising us. Would have no hesitation recommending her to others."</p>
+            <div class="review-author">F.R.</div>
+            <div class="review-source">Google Review · Verified · Texas</div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <p class="review-text">"AMAZING!!!! Octavia is highly professional, efficient, and thorough. She is extremely knowledgeable and provided excellent advice on several complex defamation and libel cases. Her support was invaluable, and I truly felt like more than just a case number. I can't recommend Octavia enough for her genuine dedication."</p>
+            <div class="review-author">N.M.</div>
+            <div class="review-source">Google Review · Verified · Texas</div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <p class="review-text">"Mrs. Martinez was highly professional, efficient, and knowledgeable in handling my case from the beginning. Thanks to her expertise and prompt attention, we were able to resolve the matter within just two weeks with the best possible outcome. She communicates with you every step of the way, and was always available when I needed to reach out. I wholeheartedly recommend her to anyone in need of legal counsel."</p>
+            <div class="review-author">M.T.</div>
+            <div class="review-source">Google Review · Verified · Texas</div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <p class="review-text">"Octavia handled our mother's affairs after her passing. She handled everything effectively and with care. We did not have to worry about dealing with creditors or any other of those tasks during such a difficult time. She took care of everything."</p>
+            <div class="review-author">M.M.</div>
+            <div class="review-source">Google Review · Verified · Texas</div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <p class="review-text">"Very easy to deal with. Very thorough and precise. She is extremely intelligent and professional. I highly recommend her law firm for your legal situations."</p>
+            <div class="review-author">G.E.</div>
+            <div class="review-source">Google Review · Verified · Texas</div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <p class="review-text">"Octavia is the &#8220;opposite&#8221; attorney. She pursues &#8220;Right&#8221; over &#8220;Wrong&#8221;, Justice over Injustice and not just Win or Lose. I respect and admire her for that!"</p>
             <div class="review-author">M.P.</div>
             <div class="review-source">Google Review · Verified · Texas</div>
           </div>
           <div class="review-card">
             <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-            <p class="review-text">"Highly professional, efficient, and knowledgeable in handling my case from beginning to end. Excellent communication throughout. Would not hesitate to recommend."</p>
-            <div class="review-author">M.T.</div>
+            <p class="review-text">"Attorney Octavia Martinez has helped my family out on several occasions. I cannot say enough about how passionate Mrs. Martinez is about fighting for what's right. She is an incredibly competent attorney who I will highly recommend a million times over."</p>
+            <div class="review-author">R.M.O.</div>
+            <div class="review-source">Google Review · Verified · Texas</div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <p class="review-text">"Thank you for your encouragement. Please keep fighting for midwifery in Texas."</p>
+            <div class="review-author">S.G.</div>
             <div class="review-source">Google Review · Verified · Texas</div>
           </div>
         </div>
