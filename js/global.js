@@ -58,7 +58,7 @@
           <div class="apx__panel-eyebrow">Practice Areas</div>
           <div class="apx__panel-title">Full Service<br><em>Civil Practice</em></div>
           <p class="apx__panel-desc">Texas statewide representation across probate, defamation, and civil litigation.</p>
-          <a href="/practice-areas.html" class="apx__panel-pill">All Practice Areas →</a>
+          <a href="tel:9564263550" class="apx__panel-pill">Call (956) 426-3550 →</a>
         </div>
       </div>
       <div class="apx__panel-right">
@@ -103,7 +103,7 @@
           <div class="apx__panel-eyebrow">Healthcare Practitioner Defense</div>
           <div class="apx__panel-title">Dedicated<br><em>Legal Defense</em></div>
           <p class="apx__panel-desc">License defense, healthcare employment, and reputation protection built around licensing risk.</p>
-          <a href="/texas-medical-attorney/index.html" class="apx__panel-pill">View Practice Area →</a>
+          <a href="tel:9564263550" class="apx__panel-pill">Call (956) 426-3550 →</a>
         </div>
       </div>
       <div class="apx__panel-right">
@@ -277,25 +277,19 @@
      (homepage has its own hardcoded nav/footer)
   ══════════════════════════════════════════ */
   function injectNav() {
-    // Don't inject if apex nav already exists (homepage)
-    if (document.getElementById('apxNav')) return;
-
     const placeholder = document.getElementById('site-nav');
     if (placeholder) {
       placeholder.outerHTML = NAV_HTML;
-    } else {
+    } else if (!document.getElementById('apxNav')) {
       document.body.insertAdjacentHTML('afterbegin', NAV_HTML);
     }
   }
 
   function injectFooter() {
-    // Don't inject if footer already exists (homepage)
-    if (document.querySelector('.footer')) return;
-
     const placeholder = document.getElementById('site-footer');
     if (placeholder) {
       placeholder.outerHTML = FOOTER_HTML;
-    } else {
+    } else if (!document.querySelector('.footer')) {
       document.body.insertAdjacentHTML('beforeend', FOOTER_HTML);
     }
   }
