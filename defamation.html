@@ -26,9 +26,9 @@
   </script>
   <style>
     /* HERO */
-    .def-hero { background: var(--dark); padding: 140px var(--gutter) 90px; position: relative; overflow: hidden; }
+    .def-hero { background: var(--dark); min-height: 100svh; display: flex; align-items: center; padding: 120px var(--gutter) 80px; position: relative; overflow: hidden; }
     .def-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 60% at 90% 10%, rgba(232,114,42,0.07) 0%, transparent 55%), linear-gradient(150deg, #0a0806 0%, #1A1221 55%, #2B2438 100%); }
-    .def-hero__inner { position: relative; z-index: 2; max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .def-hero__inner { position: relative; z-index: 2; width: 100%; max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
     .def-hero h1 { font-size: clamp(34px, 4.8vw, 60px); color: var(--bg); line-height: 1.06; margin-bottom: 22px; }
     .def-hero h1 em { color: var(--accent-lite); font-style: italic; }
     .def-hero__lead { font-size: clamp(16px, 1.8vw, 19px); color: rgba(250,246,240,0.7); line-height: 1.75; margin-bottom: 32px; max-width: 520px; }
@@ -105,7 +105,8 @@
     /* REVIEW */
     .def-review { background: var(--dark); }
     .def-review__inner { max-width: 760px; margin: 0 auto; text-align: center; }
-    .def-review__stars { font-size: 22px; color: var(--accent); letter-spacing: 4px; margin-bottom: 24px; }
+    .def-review__stars { display:flex; justify-content:center; gap:6px; margin-bottom:24px; }
+    .def-review__stars span { font-size:20px; color:#F5C842; text-shadow:0 0 6px rgba(245,200,66,0.8),0 0 14px rgba(245,200,66,0.35); }
     .def-review__quote { font-family: var(--ff-serif); font-size: clamp(18px, 2.2vw, 26px); color: var(--bg); line-height: 1.5; font-style: italic; margin-bottom: 28px; }
     .def-review__attr { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
 
@@ -346,7 +347,7 @@
   <section class="section def-review">
     <div class="container">
       <div class="def-review__inner reveal">
-        <div class="def-review__stars">★★★★★</div>
+        <div class="def-review__stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
         <div class="def-review__quote">"AMAZING!!!! Octavia is highly professional, efficient, and thorough. She is extremely knowledgeable and provided excellent advice on several complex defamation and libel cases. Her support was invaluable, and I truly felt like more than just a case number. I can't recommend Octavia enough for her genuine dedication."</div>
         <div class="def-review__attr">Nicole · Texas · Google Review</div>
         <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">

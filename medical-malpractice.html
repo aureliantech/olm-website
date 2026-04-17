@@ -23,9 +23,9 @@
   </script>
   <style>
     /* HERO */
-    .mal-hero { background: var(--dark); padding: 140px var(--gutter) 90px; position: relative; overflow: hidden; }
+    .mal-hero { background: var(--dark); min-height: 100svh; display: flex; align-items: center; padding: 120px var(--gutter) 80px; position: relative; overflow: hidden; }
     .mal-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 60% at 90% 10%, rgba(232,114,42,0.07) 0%, transparent 55%), linear-gradient(150deg, #0a0806 0%, #1A1221 55%, #2B2438 100%); }
-    .mal-hero__inner { position: relative; z-index: 2; max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .mal-hero__inner { position: relative; z-index: 2; width: 100%; max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
     .mal-hero h1 { font-size: clamp(34px, 4.8vw, 60px); color: var(--bg); line-height: 1.06; margin-bottom: 22px; }
     .mal-hero h1 em { color: var(--accent-lite); font-style: italic; }
     .mal-hero__lead { font-size: clamp(16px, 1.8vw, 19px); color: rgba(250,246,240,0.7); line-height: 1.75; margin-bottom: 32px; max-width: 520px; }
@@ -88,7 +88,8 @@
     /* REVIEW */
     .mal-review { background: var(--dark); }
     .mal-review__inner { max-width: 760px; margin: 0 auto; text-align: center; }
-    .mal-review__stars { font-size: 22px; color: var(--accent); letter-spacing: 4px; margin-bottom: 24px; }
+    .mal-review__stars { display:flex; justify-content:center; gap:6px; margin-bottom:24px; }
+    .mal-review__stars span { font-size:20px; color:#F5C842; text-shadow:0 0 6px rgba(245,200,66,0.8),0 0 14px rgba(245,200,66,0.35); }
     .mal-review__quote { font-family: var(--ff-serif); font-size: clamp(18px, 2.2vw, 26px); color: var(--bg); line-height: 1.5; font-style: italic; margin-bottom: 28px; }
     .mal-review__attr { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
 
@@ -278,7 +279,7 @@
   <section class="section mal-review">
     <div class="container">
       <div class="mal-review__inner reveal">
-        <div class="mal-review__stars">★★★★★</div>
+        <div class="mal-review__stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
         <div class="mal-review__quote">"I cannot recommend Octavia enough. She is an incredible attorney who is both passionate about her work and deeply committed to her clients. What sets her apart is her rare combination of warmth and professionalism. She has a calming, reassuring presence while also being razor-sharp and thorough in her work. You always know she truly cares and is fighting for the best possible outcome. Five stars isn't enough for the journey she has walked alongside me."</div>
         <div class="mal-review__attr">Jenn · Texas · Google Review</div>
         <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
