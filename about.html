@@ -290,31 +290,26 @@
     }
     .about-principles__item:hover .about-principles__item-num { color: rgba(232,114,42,0.08); }
     .about-principles__item-tag {
-      font-size: 9px; font-weight: 700;
-      letter-spacing: 0.3em; text-transform: uppercase;
-      color: var(--accent);
+      font-family: var(--ff-serif);
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 400;
+      color: var(--bg);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
     }
-
+    .about-principles__item-title {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .about-principles__item-sub { display: none; }
     .about-principles__item-right {
       padding: clamp(36px, 5vw, 56px) clamp(32px, 4vw, 64px);
       display: flex;
       flex-direction: column;
       justify-content: center;
-    }
-    .about-principles__item-title {
-      font-family: var(--ff-serif);
-      font-size: clamp(24px, 2.8vw, 36px);
-      font-weight: 400;
-      color: var(--bg);
-      line-height: 1.1;
-      margin-bottom: 8px;
-      letter-spacing: -0.01em;
-    }
-    .about-principles__item-sub {
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: rgba(250,246,240,0.3);
-      margin-bottom: 20px;
     }
     .about-principles__item-body {
       font-size: 15px;
@@ -333,68 +328,87 @@
       .about-principles__header-sub { text-align: left; }
     }
 
-    /* PHOTO + CTA BAND */
-    .about-cta-band { background: var(--surface); }
-    .about-cta-band__inner {
-      display: grid;
-      grid-template-columns: 300px 1fr;
-      gap: 64px;
-      align-items: center;
+    /* PRACTICE AREAS — WORLD CLASS */
+    .about-practice { background: var(--dark); position: relative; overflow: hidden; }
+    .about-practice::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 0% 100%, rgba(232,114,42,0.06) 0%, transparent 60%);
+      pointer-events: none;
     }
-    .about-cta-band__photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center top; }
-    .about-cta-band__badge { background: var(--dark); padding: 16px 20px; }
-    .about-cta-band__badge-name { font-family: var(--ff-serif); font-size: 18px; color: var(--bg); }
-    .about-cta-band__badge-title { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-top: 3px; }
-    .about-cta-band__content h2 { font-size: clamp(24px, 2.8vw, 36px); color: var(--dark); margin-bottom: 16px; }
-    .about-cta-band__content p { font-size: 16px; color: var(--mid); line-height: 1.8; margin-bottom: 14px; }
-    .about-cta-band__content strong { color: var(--dark); }
-    .about-cta-band__btns { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; }
-    @media (max-width: 768px) { .about-cta-band__inner { grid-template-columns: 1fr; } }
-
-    /* REVIEW */
-    .about-review { background: var(--dark); }
-    .about-review__inner { max-width: 760px; margin: 0 auto; text-align: center; }
-    .about-review__stars { display:flex; justify-content:center; gap:6px; margin-bottom:24px; }
-    .about-review__stars span { font-size:20px; color:#F5C842; text-shadow:0 0 6px rgba(245,200,66,0.8),0 0 14px rgba(245,200,66,0.35); }
-    .about-review__quote { font-family: var(--ff-serif); font-size: clamp(18px, 2.2vw, 26px); color: var(--bg); line-height: 1.5; font-style: italic; margin-bottom: 28px; }
-    .about-review__attr { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
-
-    /* PRACTICE LINKS */
-    .about-practice { background: var(--bg); }
-    .about-practice__header { text-align: center; max-width: 560px; margin: 0 auto 44px; }
-    .about-practice__header h2 { font-size: clamp(24px, 2.8vw, 36px); margin-bottom: 12px; color: var(--dark); }
-    .about-practice__header p { font-size: 16px; color: var(--mid); line-height: 1.75; }
-    .about-practice__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .about-practice__header { max-width: var(--max-w); margin: 0 auto clamp(48px, 6vw, 72px); display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
+    .about-practice__header h2 { font-size: clamp(28px, 3.5vw, 48px); color: var(--bg); margin-bottom: 0; line-height: 1.05; }
+    .about-practice__header h2 em { font-style: italic; color: var(--accent-lite); }
+    .about-practice__header p { font-size: 14px; color: rgba(250,246,240,0.4); line-height: 1.7; max-width: 240px; text-align: right; flex-shrink: 0; }
+    .about-practice__list { max-width: var(--max-w); margin: 0 auto; display: flex; flex-direction: column; }
     .about-practice__card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-top: 2px solid var(--accent);
-      padding: 24px 24px 20px;
-      text-decoration: none;
-      display: flex;
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
       align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      transition: background 0.2s;
+      gap: 0;
+      padding: clamp(24px, 3vw, 36px) 0;
+      border-top: 1px solid rgba(201,184,154,0.1);
+      text-decoration: none;
+      position: relative;
+      transition: padding-left 0.35s cubic-bezier(0.16,1,0.3,1);
     }
-    .about-practice__card:hover { background: var(--bg); border-top-color: var(--accent); }
-    .about-practice__card-label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
-    .about-practice__card-title { font-size: 16px; font-weight: 700; color: var(--dark); line-height: 1.2; }
-    .about-practice__card-arrow { font-size: 18px; color: var(--accent); opacity: 0.4; flex-shrink: 0; transition: opacity 0.2s, transform 0.2s; }
-    .about-practice__card:hover .about-practice__card-arrow { opacity: 1; transform: translateX(4px); }
-    @media (max-width: 768px) { .about-practice__grid { grid-template-columns: 1fr; } }
+    .about-practice__card:last-child { border-bottom: 1px solid rgba(201,184,154,0.1); }
+    .about-practice__card::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 0;
+      background: rgba(232,114,42,0.06);
+      transition: width 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+    .about-practice__card:hover::before { width: 100%; }
+    .about-practice__card:hover { padding-left: 12px; }
+    .about-practice__card-num {
+      font-family: var(--ff-serif);
+      font-size: clamp(13px, 1.2vw, 15px);
+      color: rgba(232,114,42,0.4);
+      letter-spacing: 0.05em;
+      position: relative;
+    }
+    .about-practice__card-body { position: relative; }
+    .about-practice__card-label { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(250,246,240,0.35); margin-bottom: 6px; }
+    .about-practice__card-title {
+      font-family: var(--ff-serif);
+      font-size: clamp(22px, 2.5vw, 32px);
+      font-weight: 400;
+      color: var(--bg);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      transition: color 0.2s;
+    }
+    .about-practice__card:hover .about-practice__card-title { color: var(--accent-lite); }
+    .about-practice__card-arrow {
+      font-size: 24px;
+      color: var(--accent);
+      opacity: 0;
+      position: relative;
+      transform: translateX(-8px);
+      transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.16,1,0.3,1);
+    }
+    .about-practice__card:hover .about-practice__card-arrow { opacity: 1; transform: translateX(0); }
+    .about-practice__card--featured .about-practice__card-title { color: var(--accent-lite); }
+    .about-practice__card--featured .about-practice__card-label { color: var(--accent); }
+    @media (max-width: 768px) {
+      .about-practice__header { flex-direction: column; align-items: flex-start; }
+      .about-practice__header p { text-align: left; }
+      .about-practice__card { grid-template-columns: 48px 1fr auto; }
+    }
 
-    /* CORRECTIVE */
-    .about-corrective { background: var(--plum); color: var(--bg); }
+    /* CORRECTIVE — LIGHT THEME */
+    .about-corrective { background: var(--surface); }
     .about-corrective__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .about-corrective h2 { font-size: clamp(24px, 2.8vw, 36px); color: var(--bg); margin-bottom: 16px; line-height: 1.15; }
-    .about-corrective h2 em { color: var(--accent-lite); }
-    .about-corrective p { font-size: 16px; color: rgba(250,246,240,0.72); line-height: 1.8; margin-bottom: 14px; }
-    .about-corrective strong { color: var(--bg); }
-    .about-corrective__card { background: rgba(26,18,33,0.5); border: 1px solid rgba(201,184,154,0.15); padding: 36px 32px; }
+    .about-corrective h2 { font-size: clamp(24px, 2.8vw, 36px); color: var(--dark); margin-bottom: 16px; line-height: 1.15; }
+    .about-corrective h2 em { font-style: italic; color: var(--accent); }
+    .about-corrective p { font-size: 16px; color: var(--mid); line-height: 1.8; margin-bottom: 14px; }
+    .about-corrective strong { color: var(--dark); }
+    .about-corrective__card { background: var(--bg); border: 1px solid var(--border); border-top: 3px solid var(--accent); padding: 36px 32px; }
     .about-corrective__card-label { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
-    .about-corrective__card h3 { font-family: var(--ff-serif); font-size: 22px; color: var(--bg); margin-bottom: 14px; line-height: 1.3; }
-    .about-corrective__card p { font-size: 15px; color: rgba(250,246,240,0.6); line-height: 1.7; margin-bottom: 20px; }
+    .about-corrective__card h3 { font-family: var(--ff-serif); font-size: 22px; color: var(--dark); margin-bottom: 14px; line-height: 1.3; }
+    .about-corrective__card p { font-size: 15px; color: var(--mid); line-height: 1.7; margin-bottom: 20px; }
     @media (max-width: 768px) { .about-corrective__inner { grid-template-columns: 1fr; gap: 40px; } }
 
     /* FINAL CTA */
@@ -552,11 +566,10 @@
         <div class="about-principles__item reveal">
           <div class="about-principles__item-left">
             <div class="about-principles__item-num">01</div>
-            <div class="about-principles__item-tag">Truth</div>
           </div>
           <div class="about-principles__item-right">
+            <div class="about-principles__item-tag">Truth</div>
             <div class="about-principles__item-title">Evidence Over Narrative</div>
-            <div class="about-principles__item-sub">Objective fact. Always.</div>
             <p class="about-principles__item-body">We live in an era of "relative truth," where facts are often twisted to fit a convenient narrative. We reject that. We believe in objective truth. Whether we are defending a license or litigating a complex contract, our strategy is built on digging for the facts and presenting them without varnish.</p>
           </div>
         </div>
@@ -564,11 +577,10 @@
         <div class="about-principles__item reveal">
           <div class="about-principles__item-left">
             <div class="about-principles__item-num">02</div>
-            <div class="about-principles__item-tag">Courage</div>
           </div>
           <div class="about-principles__item-right">
+            <div class="about-principles__item-tag">Courage</div>
             <div class="about-principles__item-title">Standing in the Gap</div>
-            <div class="about-principles__item-sub">A spine is not optional.</div>
             <p class="about-principles__item-body">True advocacy requires a spine. It demands the bravery to stand alone when the mob is loud and the opposition is formidable. We frequently accept the cases that other attorneys find "too messy" or "too difficult" — because we are not intimidated by aggressive tactics, complex records, or political pressure. If the cause is just, we will stand in the gap for you.</p>
           </div>
         </div>
@@ -576,11 +588,10 @@
         <div class="about-principles__item reveal">
           <div class="about-principles__item-left">
             <div class="about-principles__item-num">03</div>
-            <div class="about-principles__item-tag">Righteous Advocacy</div>
           </div>
           <div class="about-principles__item-right">
+            <div class="about-principles__item-tag">Righteous Advocacy</div>
             <div class="about-principles__item-title">A Moral Duty to Push Back</div>
-            <div class="about-principles__item-sub">Justice over convenience.</div>
             <p class="about-principles__item-body">Too often, the legal system is used to bully the weak or silence the ethical. We view our advocacy as a moral duty to resist this injustice. We fight for the righteous outcome — not merely the convenient one — even when it means challenging powerful institutions to ensure that justice prevails. That is not a slogan. It is what we show up to do every day.</p>
           </div>
         </div>
@@ -589,97 +600,56 @@
     </div>
   </section>
 
-  <!-- PHOTO + CONSULTATION CTA -->
-  <section class="section about-cta-band">
-    <div class="container">
-      <div class="about-cta-band__inner">
-        <div class="reveal">
-          <img
-            src="octavia-headshot.png"
-            alt="Octavia LaVon Martinez — Texas Attorney"
-            class="about-cta-band__photo"
-            width="300"
-            height="400"
-          />
-          <div class="about-cta-band__badge">
-            <div class="about-cta-band__badge-name">Octavia LaVon Martinez</div>
-            <div class="about-cta-band__badge-title">Founder &amp; Principal Attorney</div>
-          </div>
-        </div>
-        <div class="about-cta-band__content reveal">
-          <div class="eyebrow" style="margin-bottom:14px;">How to Work With This Firm</div>
-          <div class="rule"></div>
-          <h2>The strategy session is the first step of legal work — not a sales call.</h2>
-          <p>We do not offer free strategy sessions. We believe that high-quality legal advice requires dedicated time and honest analysis — and that both should be treated as valuable from the first conversation.</p>
-          <p>The initial strategy session reviews your situation in depth, applies real legal analysis to your specific facts, and gives you actionable direction. <strong>You will leave knowing exactly where you stand and what your options are.</strong> Whether or not you retain this firm, that analysis is yours.</p>
-          <p>The session is paid. It is not a commitment to further representation. It is an investment in understanding your situation clearly before you decide how to proceed.</p>
-          <div class="about-cta-band__btns">
-            <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
-            <a href="strategy-session.html" class="btn btn--ghost">Book a Strategy Session →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- REVIEW -->
-  <section class="section about-review">
-    <div class="container">
-      <div class="about-review__inner reveal">
-        <div class="about-review__stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <div class="about-review__quote">"She pursues Right over Wrong, Justice over Injustice — and not just Win or Lose. I respect and admire her for that."</div>
-        <div class="about-review__attr">M.P. · Texas · Google Review</div>
-        <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
-          <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
-          <a href="strategy-session.html" class="btn btn--outline">Book a Strategy Session</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- PRACTICE AREA LINKS -->
   <section class="section about-practice">
     <div class="container">
       <div class="about-practice__header reveal">
-        <div class="eyebrow" style="margin-bottom:12px;">Practice Areas</div>
-        <div class="rule rule--center"></div>
-        <h2>Where this firm practices.</h2>
-        <p>Each practice area is handled with the same level of preparation and the same standard of advocacy.</p>
+        <div>
+          <div class="eyebrow" style="color:var(--accent);margin-bottom:14px;">Practice Areas</div>
+          <h2>Where this firm <em>practices.</em></h2>
+        </div>
+        <p>Each matter handled with the same level of preparation and the same standard of advocacy.</p>
       </div>
-      <div class="about-practice__grid">
-        <a href="probate.html" class="about-practice__card reveal">
-          <div>
-            <div class="about-practice__card-label">Estate Administration</div>
-            <div class="about-practice__card-title">Complex Probate &amp; Estate</div>
-          </div>
-          <span class="about-practice__card-arrow">→</span>
-        </a>
+      <div class="about-practice__list">
         <a href="medical-malpractice.html" class="about-practice__card reveal">
-          <div>
+          <div class="about-practice__card-num">01</div>
+          <div class="about-practice__card-body">
             <div class="about-practice__card-label">Negligence &amp; Wrongful Death</div>
             <div class="about-practice__card-title">Medical Malpractice</div>
           </div>
           <span class="about-practice__card-arrow">→</span>
         </a>
-        <a href="breach-of-contract.html" class="about-practice__card reveal">
-          <div>
-            <div class="about-practice__card-label">Civil Litigation</div>
-            <div class="about-practice__card-title">Breach of Contract</div>
-          </div>
-          <span class="about-practice__card-arrow">→</span>
-        </a>
         <a href="defamation.html" class="about-practice__card reveal">
-          <div>
+          <div class="about-practice__card-num">02</div>
+          <div class="about-practice__card-body">
             <div class="about-practice__card-label">Reputation Defense</div>
             <div class="about-practice__card-title">Defamation &amp; Libel</div>
           </div>
           <span class="about-practice__card-arrow">→</span>
         </a>
-        <a href="texas-medical-attorney/index.html" class="about-practice__card reveal" style="background:var(--dark);border-color:rgba(232,114,42,0.25);border-top-color:var(--accent);">
-          <div>
-            <div class="about-practice__card-label" style="color:var(--accent);">Dedicated Experience</div>
-            <div class="about-practice__card-title" style="color:var(--bg);">Medical Professionals →</div>
+        <a href="probate.html" class="about-practice__card reveal">
+          <div class="about-practice__card-num">03</div>
+          <div class="about-practice__card-body">
+            <div class="about-practice__card-label">Estate Administration</div>
+            <div class="about-practice__card-title">Complex Probate &amp; Estate</div>
           </div>
+          <span class="about-practice__card-arrow">→</span>
+        </a>
+        <a href="breach-of-contract.html" class="about-practice__card reveal">
+          <div class="about-practice__card-num">04</div>
+          <div class="about-practice__card-body">
+            <div class="about-practice__card-label">Civil Litigation</div>
+            <div class="about-practice__card-title">Breach of Contract</div>
+          </div>
+          <span class="about-practice__card-arrow">→</span>
+        </a>
+        <a href="texas-medical-attorney/index.html" class="about-practice__card about-practice__card--featured reveal">
+          <div class="about-practice__card-num">05</div>
+          <div class="about-practice__card-body">
+            <div class="about-practice__card-label">Dedicated Experience</div>
+            <div class="about-practice__card-title">Medical Professionals</div>
+          </div>
+          <span class="about-practice__card-arrow">→</span>
         </a>
       </div>
     </div>
@@ -690,9 +660,9 @@
     <div class="container">
       <div class="about-corrective__inner">
         <div class="reveal">
-          <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:14px;">Corrective Counsel</div>
+          <div class="eyebrow" style="color:var(--accent);margin-bottom:14px;">Corrective Counsel</div>
           <div class="rule"></div>
-          <h2>You are not obligated to stay with an attorney who is<br><em>failing you.</em></h2>
+          <h2>You are not obligated to stay with an attorney who is <em>failing you.</em></h2>
           <p>If your current counsel has stopped communicating, missed critical deadlines, or allowed your legal strategy to stagnate — you have the right to seek effective representation. You do not have to wait for things to get worse.</p>
           <p><strong>The earlier the intervention, the more options remain available.</strong> This firm is regularly retained to step in, audit what has gone wrong, and restore momentum toward a result.</p>
         </div>
@@ -701,7 +671,7 @@
           <h3>One session. A clear picture of where your case stands and what corrective action looks like.</h3>
           <p>Paid session. Real legal analysis. Honest direction on whether we can help and how quickly we can move.</p>
           <a href="tel:9564263550" class="btn btn--primary" style="display:block;text-align:center;margin-bottom:14px;">Call (956) 426-3550</a>
-          <a href="strategy-session.html" style="display:block;text-align:center;font-family:var(--ff-serif);font-size:18px;color:var(--accent-lite);text-decoration:none;">or Book a Strategy Session →</a>
+          <a href="strategy-session.html" style="display:block;text-align:center;font-family:var(--ff-serif);font-size:18px;color:var(--accent);text-decoration:none;">or Book a Strategy Session →</a>
         </div>
       </div>
     </div>
