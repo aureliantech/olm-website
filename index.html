@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="js/global.js" defer></script>
   <style>
     /* ── RESET & BASE ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -2409,99 +2410,6 @@
   (function() {
     'use strict';
 
-    /* ── APEX NAV ── */
-    (function() {
-      var nav      = document.getElementById('apxNav');
-      var triggers = nav ? nav.querySelectorAll('.apx__trigger') : [];
-      var ham      = document.getElementById('apxHam');
-      var mob      = document.getElementById('apxMobile');
-      var current  = null;
-
-      var backdrop = document.getElementById('apxBackdrop');
-
-      function openPanel(id) {
-        closeAll();
-        var panel = document.getElementById('panel-' + id);
-        var btn   = nav.querySelector('[data-panel="' + id + '"]');
-        if (!panel || !btn) return;
-        panel.classList.add('open');
-        btn.classList.add('active');
-        btn.setAttribute('aria-expanded', 'true');
-        nav.classList.add('has-open');
-        if (backdrop) backdrop.classList.add('open');
-        current = id;
-      }
-
-      function closeAll() {
-        nav.querySelectorAll('.apx__panel').forEach(function(p) { p.classList.remove('open'); });
-        triggers.forEach(function(t) { t.classList.remove('active'); t.setAttribute('aria-expanded','false'); });
-        nav.classList.remove('has-open');
-        if (backdrop) backdrop.classList.remove('open');
-        current = null;
-      }
-
-      triggers.forEach(function(btn) {
-        var id = btn.getAttribute('data-panel');
-
-        btn.addEventListener('mouseenter', function() { openPanel(id); });
-        btn.addEventListener('click', function(e) {
-          e.stopPropagation();
-          if (current === id) { closeAll(); } else { openPanel(id); }
-        });
-      });
-
-      /* Keep panel open while hovering it */
-      nav.querySelectorAll('.apx__panel').forEach(function(panel) {
-        panel.addEventListener('mouseenter', function() {
-          /* stay open */
-        });
-        panel.addEventListener('mouseleave', function() {
-          closeAll();
-        });
-      });
-
-      /* Close when mouse leaves trigger area entirely */
-      var linksEl = nav.querySelector('.apx__links');
-      if (linksEl) {
-        linksEl.addEventListener('mouseleave', function(e) {
-          /* only close if not entering a panel */
-          var to = e.relatedTarget;
-          if (!to || !to.closest('.apx__panel')) closeAll();
-        });
-      }
-
-      document.addEventListener('click', closeAll);
-      if (backdrop) backdrop.addEventListener('click', closeAll);
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') closeAll();
-      });
-
-      /* Hamburger */
-      if (ham && mob) {
-        ham.addEventListener('click', function(e) {
-          e.stopPropagation();
-          var open = mob.classList.toggle('open');
-          ham.classList.toggle('open', open);
-          ham.setAttribute('aria-expanded', String(open));
-        });
-      }
-
-      /* Scroll hide/show */
-      var lastY = 0, tick = false;
-      window.addEventListener('scroll', function() {
-        if (!tick) {
-          requestAnimationFrame(function() {
-            var y = window.scrollY;
-            nav.classList.toggle('scrolled', y > 40);
-            nav.classList.toggle('hide', y > lastY + 12 && y > 320);
-            if (y < 8) nav.classList.remove('hide');
-            lastY = y; tick = false;
-          });
-          tick = true;
-        }
-      });
-    })();
-
     /* ── 3. INTERSECTION OBSERVER — ALL REVEAL CLASSES ── */
     const REVEAL_SELECTORS = '.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-clip';
     const revealEls = document.querySelectorAll(REVEAL_SELECTORS);
@@ -2979,6 +2887,5 @@
       bannerObs.observe(medroBanner);
     }
   </script>
-  <script src="js/global.js"></script>
 </body>
 </html>
