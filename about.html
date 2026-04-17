@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Octavia LaVon Martinez — Texas & Arizona Attorney | About the Firm</title>
-  <meta name="description" content="Octavia LaVon Martinez is a former felony prosecutor, Superior Court law clerk, and complex litigator serving Texas and Arizona clients. Rio Grande Valley. Virtual. Fearless." />
+  <meta name="description" content="Octavia LaVon Martinez is a former felony prosecutor, trial attorney, and complex litigator serving Texas and Arizona clients. Rio Grande Valley. Virtual. Fearless." />
   <link rel="canonical" href="https://octaviamartinezlaw.com/about" />
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
@@ -25,7 +25,7 @@
       {"@type": "CollegeOrUniversity", "name": "University of Virginia"},
       {"@type": "CollegeOrUniversity", "name": "Ohio State University Moritz College of Law"}
     ],
-    "knowsAbout": ["Medical License Defense", "Complex Probate", "Employment Law", "Defamation", "Breach of Contract", "Wills & Power of Attorney"],
+    "knowsAbout": ["Medical License Defense", "Complex Probate", "Defamation", "Breach of Contract", "Medical Malpractice"],
     "areaServed": [
       {"@type": "State", "name": "Texas"},
       {"@type": "State", "name": "Arizona"}
@@ -43,7 +43,10 @@
     /* HERO */
     .about-hero {
       background: var(--dark);
-      padding: 140px var(--gutter) 90px;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      padding: 120px var(--gutter) 80px;
       position: relative;
       overflow: hidden;
     }
@@ -58,6 +61,7 @@
     .about-hero__inner {
       position: relative;
       z-index: 2;
+      width: 100%;
       max-width: var(--max-w);
       margin: 0 auto;
       display: grid;
@@ -241,7 +245,8 @@
     /* REVIEW */
     .about-review { background: var(--dark); }
     .about-review__inner { max-width: 760px; margin: 0 auto; text-align: center; }
-    .about-review__stars { font-size: 22px; color: var(--accent); letter-spacing: 4px; margin-bottom: 24px; }
+    .about-review__stars { display:flex; justify-content:center; gap:6px; margin-bottom:24px; }
+    .about-review__stars span { font-size:20px; color:#F5C842; text-shadow:0 0 6px rgba(245,200,66,0.8),0 0 14px rgba(245,200,66,0.35); }
     .about-review__quote { font-family: var(--ff-serif); font-size: clamp(18px, 2.2vw, 26px); color: var(--bg); line-height: 1.5; font-style: italic; margin-bottom: 28px; }
     .about-review__attr { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
 
@@ -304,11 +309,11 @@
           <span style="width:32px;height:2px;background:var(--accent);display:inline-block;"></span>
           Founder &amp; Principal Attorney
         </div>
-        <h1>Uncompromised<br>counsel. <em>Fearless</em><br>advocacy.</h1>
+        <h1>Uncompromised counsel. <em>Fearless advocacy.</em></h1>
         <p class="about-hero__sub">A litigator with a national perspective and a homesteader's grit. Octavia L. Martinez provides advocacy that operates outside of the status quo — for clients who need an attorney who will actually fight.</p>
         <div class="about-hero__tags">
           <span class="about-hero__tag">Former Felony Prosecutor</span>
-          <span class="about-hero__tag">Superior Court Law Clerk</span>
+          <span class="about-hero__tag">Trial Attorney</span>
           <span class="about-hero__tag">Texas · Arizona</span>
           <span class="about-hero__tag">Rio Grande Valley</span>
           <span class="about-hero__tag">Virtual · Statewide</span>
@@ -348,7 +353,7 @@
           <h2>About Octavia L. Martinez</h2>
 
           <h3>Professional Background</h3>
-          <p>A graduate of The University of Virginia and The Ohio State University Moritz College of Law, Octavia began her career in Phoenix, Arizona. She gained rare judicial insight serving as a bailiff and Superior Court law clerk — watching cases from the bench before ever arguing one. When she transitioned to the front lines, she brought that perspective with her.</p>
+          <p>A graduate of The University of Virginia and The Ohio State University Moritz College of Law, Octavia began her career in Phoenix, Arizona. She gained rare judicial insight serving as a trial attorney and court officer — observing how cases are won and lost before ever stepping fully into the courtroom herself. When she transitioned to the front lines, she brought that perspective with her.</p>
           <p>As a felony prosecutor, she built cases the way institutional attorneys are trained not to: from evidence up, not conclusions backward. She later moved into complex civil litigation, handling high-stakes matters ranging from commercial trucking defense to complex medical malpractice — learning how corporations and institutions construct their defenses and where those defenses are vulnerable.</p>
 
           <h3>The Move to Texas</h3>
@@ -379,7 +384,7 @@
             <div class="cred-block__label">Background</div>
             <div class="cred-block__item">
               <strong>Role</strong>
-              Superior Court Bailiff &amp; Law Clerk
+              Trial Attorney &amp; Prosecutor
             </div>
             <div class="cred-block__item">
               <strong>Role</strong>
@@ -420,7 +425,7 @@
               Rio Grande Valley · Edinburg, TX
             </div>
           </div>
-          <a href="strategy-session.html" class="btn btn--primary" style="display:block;text-align:center;margin-top:4px;">Book a Strategy Session →</a>
+          <a href="tel:9564263550" class="btn btn--primary" style="display:block;text-align:center;margin-top:4px;">Call (956) 426-3550</a>
         </div>
       </div>
     </div>
@@ -482,8 +487,8 @@
           <p>The initial strategy session reviews your situation in depth, applies real legal analysis to your specific facts, and gives you actionable direction. <strong>You will leave knowing exactly where you stand and what your options are.</strong> Whether or not you retain this firm, that analysis is yours.</p>
           <p>The session is paid. It is not a commitment to further representation. It is an investment in understanding your situation clearly before you decide how to proceed.</p>
           <div class="about-cta-band__btns">
-            <a href="strategy-session.html" class="btn btn--primary">Book a Strategy Session →</a>
-            <a href="tel:9564263550" class="btn btn--ghost">Call (956) 426-3550</a>
+            <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+            <a href="strategy-session.html" class="btn btn--ghost">Book a Strategy Session →</a>
           </div>
         </div>
       </div>
@@ -494,9 +499,13 @@
   <section class="section about-review">
     <div class="container">
       <div class="about-review__inner reveal">
-        <div class="about-review__stars">★★★★★</div>
+        <div class="about-review__stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
         <div class="about-review__quote">"She pursues Right over Wrong, Justice over Injustice — and not just Win or Lose. I respect and admire her for that."</div>
         <div class="about-review__attr">M.P. · Texas · Google Review</div>
+        <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
+          <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+          <a href="strategy-session.html" class="btn btn--outline">Book a Strategy Session</a>
+        </div>
       </div>
     </div>
   </section>
@@ -518,17 +527,10 @@
           </div>
           <span class="about-practice__card-arrow">→</span>
         </a>
-        <a href="wills-and-poa.html" class="about-practice__card reveal">
+        <a href="medical-malpractice.html" class="about-practice__card reveal">
           <div>
-            <div class="about-practice__card-label">Estate Planning</div>
-            <div class="about-practice__card-title">Wills &amp; Power of Attorney</div>
-          </div>
-          <span class="about-practice__card-arrow">→</span>
-        </a>
-        <a href="employment-law.html" class="about-practice__card reveal">
-          <div>
-            <div class="about-practice__card-label">Workplace</div>
-            <div class="about-practice__card-title">Employment Law</div>
+            <div class="about-practice__card-label">Negligence &amp; Wrongful Death</div>
+            <div class="about-practice__card-title">Medical Malpractice</div>
           </div>
           <span class="about-practice__card-arrow">→</span>
         </a>
@@ -571,8 +573,8 @@
           <div class="about-corrective__card-label">Get an Assessment</div>
           <h3>One session. A clear picture of where your case stands and what corrective action looks like.</h3>
           <p>Paid session. Real legal analysis. Honest direction on whether we can help and how quickly we can move.</p>
-          <a href="https://octaviamartinezlaw.cliogrow.com/book/05558212793e35d7ef5df6a9349d47ae" target="_blank" rel="noopener noreferrer" class="btn btn--primary" style="display:block;text-align:center;margin-bottom:14px;">Book Online →</a>
-          <a href="tel:9564263550" style="display:block;text-align:center;font-family:var(--ff-serif);font-size:22px;color:var(--accent-lite);text-decoration:none;">(956) 426-3550</a>
+          <a href="tel:9564263550" class="btn btn--primary" style="display:block;text-align:center;margin-bottom:14px;">Call (956) 426-3550</a>
+          <a href="strategy-session.html" style="display:block;text-align:center;font-family:var(--ff-serif);font-size:18px;color:var(--accent-lite);text-decoration:none;">or Book a Strategy Session →</a>
         </div>
       </div>
     </div>
@@ -584,10 +586,10 @@
       <div class="reveal">
         <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:14px;">Octavia LaVon Martinez PLLC</div>
         <h2>Ready to work with an attorney<br><em>who will actually fight?</em></h2>
-        <p>One strategy session. One strategy session. Honest legal analysis applied to your specific situation — and clear direction on what to do next.</p>
+        <p>One strategy session. Honest legal analysis applied to your specific situation — and clear direction on what to do next.</p>
         <div class="about-final-cta__btns">
-          <a href="strategy-session.html" class="btn btn--primary">Book Your Strategy Session</a>
-          <a href="tel:9564263550" class="btn btn--outline">Call (956) 426-3550</a>
+          <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+          <a href="strategy-session.html" class="btn btn--outline">Book a Strategy Session</a>
         </div>
       </div>
     </div>
