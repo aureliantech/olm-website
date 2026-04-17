@@ -906,7 +906,7 @@ h1, h2, h3, h4 { font-family: var(--ff-serif); font-weight: 400; line-height: 1.
 @media (max-width: 768px) { .footer__grid { grid-template-columns: 1fr; gap: 32px; } .footer__legal { margin-left: 0; } }
 
 /* Body padding for fixed nav */
-body { padding-top: 68px; }
+/* body padding-top handled per-page in hero sections */
 
 /* ══════════════════════════════════════════════════════════
    PAGE TRANSITION — staggered horizontal strips
