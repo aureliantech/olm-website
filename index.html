@@ -2621,7 +2621,10 @@
     if (sessionStorage.getItem('olm_loader_seen')) {
       loader.style.display = 'none';
       document.body.classList.remove('loading');
-      document.dispatchEvent(new CustomEvent('loaderDone'));
+      // Small delay so all hero pre-hide JS and loaderDone listeners finish registering
+      setTimeout(function() {
+        document.dispatchEvent(new CustomEvent('loaderDone'));
+      }, 50);
       return;
     }
 
