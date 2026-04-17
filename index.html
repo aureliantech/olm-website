@@ -2614,13 +2614,25 @@
   <script>
   /* ── HOMEPAGE LOADER ── */
   (function() {
-    var loader     = document.getElementById('site-loader');
+    var loader = document.getElementById('site-loader');
+    if (!loader) return;
+
+    // If already seen this session, skip immediately
+    if (sessionStorage.getItem('olm_loader_seen')) {
+      loader.style.display = 'none';
+      document.body.classList.remove('loading');
+      document.dispatchEvent(new CustomEvent('loaderDone'));
+      return;
+    }
+
+    // Mark as seen for rest of session
+    sessionStorage.setItem('olm_loader_seen', '1');
+
     var firmEl     = document.getElementById('loaderFirm');
     var ruleEl     = document.getElementById('loaderRule');
     var labelEl    = document.getElementById('loaderLabel');
     var fillEl     = document.getElementById('loaderFill');
 
-    // Timings — crisp, not slow
     var T_FIRM     = 80;
     var T_RULE     = 380;
     var T_LABEL    = 800;
@@ -2629,28 +2641,17 @@
     var T_DISMISS  = T_FILL + T_FILL_DUR + 180;
     var T_GONE     = T_DISMISS + 700;
 
-    // 1. Wordmark clips up through mask
     setTimeout(function() { firmEl.classList.add('visible'); }, T_FIRM);
-
-    // 2. Rule expands from center
     setTimeout(function() { ruleEl.classList.add('visible'); }, T_RULE);
-
-    // 3. Progress label
     setTimeout(function() { labelEl.classList.add('visible'); }, T_LABEL);
-
-    // 5. Progress fill
     setTimeout(function() {
       fillEl.style.transition = 'width ' + T_FILL_DUR + 'ms cubic-bezier(0.4,0,0.15,1)';
       fillEl.style.width = '100%';
     }, T_FILL);
-
-    // 6. Fade out
     setTimeout(function() {
       loader.classList.add('dismiss');
       document.body.classList.remove('loading');
     }, T_DISMISS);
-
-    // 7. Gone — dispatch event so hero knows it's clear
     setTimeout(function() {
       loader.classList.add('gone');
       document.dispatchEvent(new CustomEvent('loaderDone'));

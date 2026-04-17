@@ -317,24 +317,6 @@
   injectPageTransition();
 
   /* ══════════════════════════════════════════
-     HOMEPAGE LOADER — skip if already seen this session
-  ══════════════════════════════════════════ */
-  (function() {
-    const loader = document.getElementById('site-loader');
-    if (!loader) return; // not on homepage
-
-    if (sessionStorage.getItem('olm_loader_seen')) {
-      // Skip loader entirely — hide immediately and fire loaderDone
-      loader.style.display = 'none';
-      document.body.classList.remove('loading');
-      document.dispatchEvent(new CustomEvent('loaderDone'));
-    } else {
-      // First visit this session — mark it so it won't show again
-      sessionStorage.setItem('olm_loader_seen', '1');
-    }
-  })();
-
-  /* ══════════════════════════════════════════
      APEX NAV BEHAVIOUR (works on all pages)
   ══════════════════════════════════════════ */
   document.addEventListener('DOMContentLoaded', () => {
