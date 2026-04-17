@@ -36,10 +36,10 @@
     .prob-hero__ctas{display:flex;flex-wrap:wrap;gap:14px}
     .prob-hero__trust{margin-top:28px;font-size:13px;color:rgba(250,246,240,0.35);letter-spacing:0.06em}
     .prob-hero__glance{display:flex;flex-direction:column;gap:2px}
-    .prob-hero__glance-item{background:rgba(43,36,56,0.55);border:1px solid rgba(201,184,154,0.1);border-left:3px solid var(--accent);padding:16px 20px;display:flex;align-items:flex-start;gap:14px}
-    .prob-hero__glance-icon{font-size:20px;flex-shrink:0;width:28px;text-align:center;margin-top:2px}
-    .prob-hero__glance-text{font-size:14px;font-weight:700;color:var(--bg);line-height:1.3}
-    .prob-hero__glance-sub{font-size:12px;color:rgba(250,246,240,0.45);margin-top:2px}
+    .prob-hero__glance-item{background:rgba(43,36,56,0.55);border:1px solid rgba(201,184,154,0.1);border-left:3px solid var(--accent);padding:20px 22px;display:flex;align-items:flex-start;gap:16px}
+    .prob-hero__glance-icon{font-family:var(--ff-serif);font-size:13px;color:rgba(232,114,42,0.6);flex-shrink:0;width:28px;padding-top:3px;letter-spacing:0.05em}
+    .prob-hero__glance-text{font-size:15px;font-weight:700;color:var(--bg);line-height:1.3}
+    .prob-hero__glance-sub{font-size:13px;color:rgba(250,246,240,0.55);margin-top:4px}
     @media(max-width:900px){.prob-hero__inner{grid-template-columns:1fr;gap:48px}}
 
     .prob-reframe{background:var(--accent);padding:22px var(--gutter)}
@@ -88,7 +88,8 @@
 
     .prob-review{background:var(--dark)}
     .prob-review__inner{max-width:760px;margin:0 auto;text-align:center}
-    .prob-review__stars{font-size:22px;color:var(--accent);letter-spacing:4px;margin-bottom:24px}
+    .prob-review__stars { display:flex; justify-content:center; gap:6px; margin-bottom:24px; }
+    .prob-review__stars span { font-size:20px; color:#F5C842; text-shadow:0 0 6px rgba(245,200,66,0.8),0 0 14px rgba(245,200,66,0.35); }
     .prob-review__quote{font-family:var(--ff-serif);font-size:clamp(18px,2.2vw,26px);color:var(--bg);line-height:1.5;font-style:italic;margin-bottom:28px}
     .prob-review__attr{font-size:14px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent)}
 
@@ -134,11 +135,11 @@
           <span style="width:32px;height:2px;background:var(--accent);display:inline-block;"></span>
           Complex Probate &amp; Estate · Texas
         </div>
-        <h1>Probate should be a transfer<br>of legacy — <em>not a<br>destruction of value.</em></h1>
-        <p class="prob-hero__lead">When estates are contested, assets have gone missing, administration has stalled, or a fiduciary is failing their duty — this firm intervenes. We do not wait for the truth to surface. <strong style="color:var(--bg);">We find it.</strong></p>
+        <h1>Probate should be a transfer of legacy — <em>not a destruction of value.</em></h1>
+        <p class="prob-hero__lead">Too often, the administration of an estate devolves into confusion. Assets vanish. Fiduciaries fail to communicate. Family disputes paralyze the process. We excel in high-conflict scenarios where the estate is at risk and immediate stabilization is required.</p>
         <div class="prob-hero__ctas">
-          <a href="strategy-session.html" class="btn btn--primary">Book a Strategy Session</a>
-          <a href="tel:9564263550" class="btn btn--outline">Call (956) 426-3550</a>
+          <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+          <a href="strategy-session.html" class="btn btn--outline">Book a Strategy Session</a>
         </div>
         <p class="prob-hero__trust">Virtual · Licensed in Texas &amp; Arizona · Serving All of Texas</p>
       </div>
@@ -160,29 +161,15 @@
         <div class="prob-hero__glance-item">
           <div class="prob-hero__glance-icon">03</div>
           <div>
-            <div class="prob-hero__glance-text">Heirship Determination</div>
-            <div class="prob-hero__glance-sub">Intestate estates · Texas &amp; Arizona law</div>
-          </div>
-        </div>
-        <div class="prob-hero__glance-item">
-          <div class="prob-hero__glance-icon">04</div>
-          <div>
             <div class="prob-hero__glance-text">Stalled &amp; Failed Administration</div>
             <div class="prob-hero__glance-sub">Years-open estates · Incomplete distribution</div>
           </div>
         </div>
         <div class="prob-hero__glance-item">
-          <div class="prob-hero__glance-icon">05</div>
+          <div class="prob-hero__glance-icon">04</div>
           <div>
-            <div class="prob-hero__glance-text">Beneficiary Disputes</div>
-            <div class="prob-hero__glance-sub">Asset valuation · Distribution · Real property</div>
-          </div>
-        </div>
-        <div class="prob-hero__glance-item">
-          <div class="prob-hero__glance-icon">06</div>
-          <div>
-            <div class="prob-hero__glance-text">Corrective Counsel</div>
-            <div class="prob-hero__glance-sub">Taking over stalled or mishandled matters</div>
+            <div class="prob-hero__glance-text">Missing or Undisclosed Assets</div>
+            <div class="prob-hero__glance-sub">Financial investigation · Subpoenas · Discovery</div>
           </div>
         </div>
       </div>
@@ -235,6 +222,10 @@
           <p class="prob-scope__card-body">When you suspect the estate inventory is incomplete — real property, financial accounts, business interests, or personal property not disclosed — we investigate and compel full accounting through subpoenas, depositions, and formal discovery.</p>
         </div>
       </div>
+      <div style="text-align:center;margin-top:48px;padding-top:40px;border-top:1px solid rgba(43,36,56,0.08);">
+        <p style="font-family:var(--ff-serif);font-size:clamp(18px,2vw,24px);color:var(--dark);margin-bottom:20px;font-style:italic;">Is your situation on this list? Don't wait — estates lose value every day the matter sits unresolved.</p>
+        <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+      </div>
     </div>
   </section>
 
@@ -273,6 +264,9 @@
   </section>
 
   <!-- ATTORNEY TRUST -->
+  <div style="background:var(--accent);padding:20px var(--gutter);text-align:center;">
+    <p style="font-family:var(--ff-serif);font-size:clamp(16px,1.8vw,21px);color:#fff;font-style:italic;margin:0;">The estate is losing value every day this goes unresolved. <a href="tel:9564263550" style="color:#fff;font-weight:700;font-style:normal;text-decoration:underline;">Call now — (956) 426-3550</a></p>
+  </div>
   <section class="section prob-attorney">
     <div class="container">
       <div class="prob-attorney__inner">
@@ -297,6 +291,7 @@
             <div class="prob-attorney__cred">Virtual firm · Serving all of Texas</div>
           </div>
           <a href="about.html" class="btn btn--ghost">Full Background →</a>
+          <a href="tel:9564263550" class="btn btn--primary" style="margin-left:12px;">Call to Discuss Your Case →</a>
         </div>
       </div>
     </div>
@@ -306,9 +301,13 @@
   <section class="section prob-review">
     <div class="container">
       <div class="prob-review__inner reveal">
-        <div class="prob-review__stars"></div>
-        <div class="prob-review__quote">"I cannot recommend Octavia enough. She is an incredible attorney who is both passionate about her work and deeply committed to her clients. What sets her apart is her rare combination of warmth and professionalism — a calming, reassuring presence while also being razor-sharp and thorough. You always know she truly cares and is fighting for the best possible outcome."</div>
-        <div class="prob-review__attr">Jenn · Texas · Google Review</div>
+        <div class="prob-review__stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="prob-review__quote">"Octavia handled our mother's affairs after her passing. She handled everything effectively and with care. We did not have to worry about dealing with creditors or any other of those tasks during such a difficult time. She took care of everything."</div>
+        <div class="prob-review__attr">M.M. · Texas · Google Review</div>
+        <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
+          <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+          <a href="strategy-session.html" class="btn btn--outline">Book a Strategy Session</a>
+        </div>
       </div>
     </div>
   </section>
@@ -330,7 +329,7 @@
           <div class="prob-geo__virtual">
             <p><strong style="color:var(--dark);">Fully virtual representation.</strong> No travel required. Strategy sessions, document review, court filings, and communication — all handled remotely without you needing to come to an office.</p>
           </div>
-          <a href="wills-and-poa.html" style="display:inline-block;margin-top:20px;color:var(--accent);font-size:14px;font-weight:700;">Need estate planning instead? See Wills &amp; POA →</a>
+          <a href="medical-malpractice.html" style="display:inline-block;margin-top:20px;color:var(--accent);font-size:14px;font-weight:700;">Facing medical negligence? See Medical Malpractice →</a>
         </div>
         <img src="images/rio-grande-valley-texas-probate-attorney.jpg" alt="Rio Grande river Texas — Complex Probate attorney serving Hidalgo Cameron Willacy County" class="prob-geo__img reveal" width="900" height="420" loading="lazy" />
       </div>
@@ -361,8 +360,8 @@
             <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:16px;">Get an Assessment</div>
             <p style="font-family:var(--ff-serif);font-size:22px;color:var(--bg);line-height:1.3;margin-bottom:20px;">One strategy session. A clear picture of where your probate stands and what corrective action looks like.</p>
             <p style="font-size:15px;color:rgba(250,246,240,0.6);margin-bottom:28px;line-height:1.65;">Paid session. No sales pitch. Real legal analysis applied to your specific case — and honest direction on whether we can help and how.</p>
-            <a href="https://octaviamartinezlaw.cliogrow.com/book/05558212793e35d7ef5df6a9349d47ae" target="_blank" rel="noopener noreferrer" class="btn btn--primary" style="display:block;text-align:center;margin-bottom:14px;">Book Online →</a>
-            <a href="tel:9564263550" style="display:block;text-align:center;font-family:var(--ff-serif);font-size:22px;color:var(--accent-lite);text-decoration:none;">(956) 426-3550</a>
+            <a href="tel:9564263550" class="btn btn--primary" style="display:block;text-align:center;margin-bottom:14px;">Call (956) 426-3550</a>
+            <a href="strategy-session.html" style="display:block;text-align:center;font-family:var(--ff-serif);font-size:18px;color:var(--accent-lite);text-decoration:none;">or Book a Strategy Session →</a>
           </div>
         </div>
       </div>
@@ -377,8 +376,8 @@
         <h2>The estate is losing value<br><em>every day this goes unresolved.</em></h2>
         <p>One strategy session. A frank assessment of your situation, what your legal options are, and what aggressive intervention looks like in practice.</p>
         <div class="prob-cta__btns">
-          <a href="strategy-session.html" class="btn btn--primary">Book Your Strategy Session</a>
-          <a href="tel:9564263550" class="btn btn--outline">Call (956) 426-3550</a>
+          <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+          <a href="strategy-session.html" class="btn btn--outline">Book a Strategy Session</a>
         </div>
       </div>
     </div>
