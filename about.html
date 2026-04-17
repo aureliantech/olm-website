@@ -193,36 +193,145 @@
       .about-story__sidebar { position: static; }
     }
 
-    /* PRINCIPLES */
-    .about-principles { background: var(--plum); color: var(--bg); }
-    .about-principles__header { text-align: center; max-width: 640px; margin: 0 auto 52px; }
-    .about-principles__header h2 { font-size: clamp(28px, 3.5vw, 44px); color: var(--bg); margin-bottom: 14px; }
-    .about-principles__header p { font-size: 16px; color: rgba(250,246,240,0.65); line-height: 1.75; }
-    .about-principles__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-    .about-principles__card {
-      background: rgba(26,18,33,0.5);
-      padding: 40px 32px;
-      border-top: 3px solid var(--accent);
+    /* PRINCIPLES — WORLD CLASS */
+    .about-principles {
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+      padding: clamp(80px, 10vw, 130px) var(--gutter);
     }
-    .about-principles__card-eyebrow {
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 14px;
+    .about-principles::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 100% 50%, rgba(232,114,42,0.05) 0%, transparent 60%);
+      pointer-events: none;
     }
-    .about-principles__card-title {
+    .about-principles__header {
+      max-width: var(--max-w);
+      margin: 0 auto clamp(56px, 7vw, 88px);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .about-principles__header-left {}
+    .about-principles__header h2 {
       font-family: var(--ff-serif);
-      font-size: clamp(22px, 2vw, 28px);
-      color: var(--bg); margin-bottom: 16px; line-height: 1.15;
+      font-size: clamp(30px, 4vw, 52px);
+      font-weight: 400;
+      color: var(--bg);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 0;
     }
-    .about-principles__card-subtitle {
-      font-size: 13px; font-weight: 700;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: rgba(250,246,240,0.45); margin-bottom: 14px;
+    .about-principles__header h2 em { font-style: italic; color: var(--accent-lite); }
+    .about-principles__header-sub {
+      font-size: 14px;
+      color: rgba(250,246,240,0.4);
+      line-height: 1.7;
+      max-width: 280px;
+      text-align: right;
+      flex-shrink: 0;
     }
-    .about-principles__card-body {
-      font-size: 15px; color: rgba(250,246,240,0.65); line-height: 1.75;
+    .about-principles__header-ctas {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      margin-top: 0;
+      flex-shrink: 0;
+      align-self: flex-end;
     }
-    @media (max-width: 768px) { .about-principles__grid { grid-template-columns: 1fr; } }
+
+    /* Principles list */
+    .about-principles__list {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .about-principles__item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 0;
+      border-top: 1px solid rgba(201,184,154,0.1);
+      position: relative;
+      transition: background 0.3s ease;
+    }
+    .about-principles__item:last-child { border-bottom: 1px solid rgba(201,184,154,0.1); }
+    .about-principles__item:hover { background: rgba(43,36,56,0.4); }
+
+    /* Animated left accent line */
+    .about-principles__item::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--accent);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.45s cubic-bezier(0.16,1,0.3,1);
+    }
+    .about-principles__item:hover::before { transform: scaleY(1); }
+
+    .about-principles__item-left {
+      padding: clamp(36px, 5vw, 56px) clamp(24px, 3vw, 40px) clamp(36px, 5vw, 56px) clamp(24px, 3vw, 40px);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      border-right: 1px solid rgba(201,184,154,0.08);
+    }
+    .about-principles__item-num {
+      font-family: var(--ff-serif);
+      font-size: clamp(56px, 8vw, 96px);
+      font-weight: 400;
+      color: rgba(250,246,240,0.04);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin-bottom: 16px;
+      transition: color 0.3s ease;
+    }
+    .about-principles__item:hover .about-principles__item-num { color: rgba(232,114,42,0.08); }
+    .about-principles__item-tag {
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .about-principles__item-right {
+      padding: clamp(36px, 5vw, 56px) clamp(32px, 4vw, 64px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .about-principles__item-title {
+      font-family: var(--ff-serif);
+      font-size: clamp(24px, 2.8vw, 36px);
+      font-weight: 400;
+      color: var(--bg);
+      line-height: 1.1;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .about-principles__item-sub {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(250,246,240,0.3);
+      margin-bottom: 20px;
+    }
+    .about-principles__item-body {
+      font-size: 15px;
+      color: rgba(250,246,240,0.55);
+      line-height: 1.8;
+      max-width: 620px;
+      transition: color 0.3s ease;
+    }
+    .about-principles__item:hover .about-principles__item-body { color: rgba(250,246,240,0.75); }
+
+    @media (max-width: 768px) {
+      .about-principles__item { grid-template-columns: 1fr; }
+      .about-principles__item-left { border-right: none; border-bottom: 1px solid rgba(201,184,154,0.08); padding-bottom: 20px; flex-direction: row; align-items: center; gap: 16px; }
+      .about-principles__item-num { font-size: 48px; margin-bottom: 0; }
+      .about-principles__header { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .about-principles__header-sub { text-align: left; }
+    }
 
     /* PHOTO + CTA BAND */
     .about-cta-band { background: var(--surface); }
@@ -350,21 +459,18 @@
     <div class="container">
       <div class="about-story__inner">
         <div class="reveal">
-          <h2>About Octavia L. Martinez</h2>
+          <h2>Octavia L. Martinez is a litigator, mother, and homesteader whose career is defined by a refusal to settle for the easy path.</h2>
 
           <h3>Professional Background</h3>
-          <p>A graduate of The University of Virginia and The Ohio State University Moritz College of Law, Octavia began her career in Phoenix, Arizona. She gained rare judicial insight serving as a trial attorney and court officer — observing how cases are won and lost before ever stepping fully into the courtroom herself. When she transitioned to the front lines, she brought that perspective with her.</p>
-          <p>As a felony prosecutor, she built cases the way institutional attorneys are trained not to: from evidence up, not conclusions backward. She later moved into complex civil litigation, handling high-stakes matters ranging from commercial trucking defense to complex medical malpractice — learning how corporations and institutions construct their defenses and where those defenses are vulnerable.</p>
+          <p>A graduate of The University of Virginia (Dean's List) and The Ohio State University Moritz College of Law, Octavia began her career in Phoenix, Arizona — including an early associateship at Squire Sanders &amp; Dempsey, one of the world's largest law firms. She gained rare judicial insight serving as a judicial clerk before transitioning to the front lines as a felony prosecutor at the Maricopa County Attorney's Office, Felony Criminal Trial Division.</p>
+          <p>She later moved into complex civil litigation at Renaud Cook Drury Mesaros, handling high-stakes matters ranging from commercial trucking defense to complex medical malpractice — learning how corporations and institutions construct their defenses and where those defenses are vulnerable.</p>
 
           <h3>The Move to Texas</h3>
-          <p>Bringing this experience to the Rio Grande Valley, Octavia expanded her practice to meet the border region's unique needs. South Texas has complex multigenerational family structures, multigenerational land ownership, a healthcare industry that intersects with licensing and employment law in ways most attorneys don't understand, and a client population that has historically had limited access to high-quality legal representation.</p>
-          <p><strong>She did not come to the Valley to practice generic law.</strong> She came to provide the level of representation that this community deserves and has rarely had access to. Her scope grew to cover employment law, defamation, specialized defense for medical providers — including physicians and licensed midwives — and complex estate matters where family, land, and legacy intersect.</p>
+          <p>Bringing this experience to the Rio Grande Valley, Octavia expanded her practice to meet the border region's unique needs. Her scope grew to cover defamation, specialized defense for medical providers — including physicians and licensed midwives — and complex estate matters where family, land, and legacy intersect.</p>
 
           <h3>Launch of the Firm</h3>
-          <p>Octavia later paused her legal career to focus on stewardship: homeschooling her children and managing her family's homestead farm. She did not plan to return to active practice on a full-time basis.</p>
-          <p>Then a client's legal matter stagnated under conventional representation — stalled, mishandled, and moving toward a bad outcome that could have been avoided. <strong>That crisis made the need undeniable.</strong> She reactivated her license, stepped in, and corrected what had gone wrong. The outcome that followed made clear there was a gap in this market that no one else was filling.</p>
-          <p>Octavia LaVon Martinez PLLC was launched to fill that gap — to be the firm that clients reach when they have been failed by passive representation, when their matter is too complex for a generalist, or when they simply need an attorney who will fight with the same conviction they feel about their own case.</p>
-          <p>Today the firm is fully virtual, licensed in Texas and Arizona, and serves clients across both states in matters that require genuine legal firepower — not volume processing.</p>
+          <p>Octavia later paused her legal career to focus on stewardship: homeschooling her children and managing her family's homestead farm. However, she reactivated her license to assist a client whose legal matters had stagnated under conventional representation. That crisis highlighted the urgent need for uncompromised advocacy, leading to the launch of Octavia LaVon Martinez PLLC.</p>
+          <p>Today she has become a resource for clients who seek an alternative to the status quo — fully virtual, licensed in Texas and Arizona, and serving clients across both states in matters that require genuine legal firepower.</p>
         </div>
 
         <!-- Credentials sidebar -->
@@ -373,7 +479,7 @@
             <div class="cred-block__label">Education</div>
             <div class="cred-block__item">
               <strong>Undergraduate</strong>
-              University of Virginia
+              University of Virginia · Dean's List
             </div>
             <div class="cred-block__item">
               <strong>Law School</strong>
@@ -383,31 +489,27 @@
           <div class="cred-block">
             <div class="cred-block__label">Background</div>
             <div class="cred-block__item">
-              <strong>Role</strong>
-              Trial Attorney &amp; Prosecutor
+              <strong>Big Firm</strong>
+              Squire Sanders &amp; Dempsey (now Squire Patton Boggs)
             </div>
             <div class="cred-block__item">
-              <strong>Role</strong>
-              Felony Prosecutor
+              <strong>Prosecutor</strong>
+              Maricopa County Attorney's Office · Felony Division
             </div>
             <div class="cred-block__item">
-              <strong>Role</strong>
-              Complex Civil Litigator
-            </div>
-            <div class="cred-block__item">
-              <strong>Role</strong>
-              Medical Malpractice Defense
+              <strong>Defense</strong>
+              Complex Civil &amp; Medical Malpractice Litigation
             </div>
           </div>
           <div class="cred-block">
             <div class="cred-block__label">Bar Admissions</div>
             <div class="cred-block__item">
-              <strong>State</strong>
-              Texas
+              <strong>Texas</strong>
+              Licensed 2016
             </div>
             <div class="cred-block__item">
-              <strong>State</strong>
-              Arizona
+              <strong>Arizona</strong>
+              Licensed 2009
             </div>
           </div>
           <div class="cred-block">
@@ -432,32 +534,57 @@
   </section>
 
   <!-- CORE PRINCIPLES -->
-  <section class="section about-principles">
+  <section class="about-principles">
     <div class="container">
       <div class="about-principles__header reveal">
-        <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:12px;">Core Principles</div>
-        <h2>We do not separate professional duty from moral obligation.</h2>
-        <p>These principles guide every case we accept — and every case we decline. They are not marketing language. They are the standard against which we hold our own work.</p>
+        <div class="about-principles__header-left">
+          <div class="eyebrow" style="color:var(--accent);margin-bottom:16px;">How We Operate</div>
+          <h2>We do not separate professional duty<br>from <em>moral obligation.</em></h2>
+        </div>
+        <div class="about-principles__header-ctas">
+          <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+          <a href="strategy-session.html" class="btn btn--outline">Request a Case Review</a>
+        </div>
       </div>
-      <div class="about-principles__grid">
-        <div class="about-principles__card reveal">
-          <div class="about-principles__card-eyebrow">Truth</div>
-          <div class="about-principles__card-title">Evidence Over Narrative</div>
-          <div class="about-principles__card-subtitle">Objective fact. Always.</div>
-          <p class="about-principles__card-body">We live in an era of relative truth, where facts are often twisted to fit a convenient narrative. We reject that. We believe in objective truth. Whether we are defending a license or litigating a complex contract, our strategy is built on digging for the facts and presenting them without varnish — because a case built on something other than the truth eventually collapses.</p>
+
+      <div class="about-principles__list">
+
+        <div class="about-principles__item reveal">
+          <div class="about-principles__item-left">
+            <div class="about-principles__item-num">01</div>
+            <div class="about-principles__item-tag">Truth</div>
+          </div>
+          <div class="about-principles__item-right">
+            <div class="about-principles__item-title">Evidence Over Narrative</div>
+            <div class="about-principles__item-sub">Objective fact. Always.</div>
+            <p class="about-principles__item-body">We live in an era of "relative truth," where facts are often twisted to fit a convenient narrative. We reject that. We believe in objective truth. Whether we are defending a license or litigating a complex contract, our strategy is built on digging for the facts and presenting them without varnish.</p>
+          </div>
         </div>
-        <div class="about-principles__card reveal">
-          <div class="about-principles__card-eyebrow">Courage</div>
-          <div class="about-principles__card-title">Standing in the Gap</div>
-          <div class="about-principles__card-subtitle">A spine is not optional.</div>
-          <p class="about-principles__card-body">True advocacy requires courage. It demands the bravery to stand alone when the mob is loud and the opposition is formidable. We frequently accept the cases that other attorneys find too messy or too difficult — because we are not intimidated by aggressive tactics, complex records, or political pressure. If the cause is just, we will stand in the gap for you.</p>
+
+        <div class="about-principles__item reveal">
+          <div class="about-principles__item-left">
+            <div class="about-principles__item-num">02</div>
+            <div class="about-principles__item-tag">Courage</div>
+          </div>
+          <div class="about-principles__item-right">
+            <div class="about-principles__item-title">Standing in the Gap</div>
+            <div class="about-principles__item-sub">A spine is not optional.</div>
+            <p class="about-principles__item-body">True advocacy requires a spine. It demands the bravery to stand alone when the mob is loud and the opposition is formidable. We frequently accept the cases that other attorneys find "too messy" or "too difficult" — because we are not intimidated by aggressive tactics, complex records, or political pressure. If the cause is just, we will stand in the gap for you.</p>
+          </div>
         </div>
-        <div class="about-principles__card reveal">
-          <div class="about-principles__card-eyebrow">Righteous Advocacy</div>
-          <div class="about-principles__card-title">A Moral Duty to Push Back</div>
-          <div class="about-principles__card-subtitle">Justice over convenience.</div>
-          <p class="about-principles__card-body">Too often, the legal system is used to bully the weak or silence the ethical. We view our advocacy as a moral duty to resist this injustice. We fight for the righteous outcome — not merely the convenient one — even when it means challenging powerful institutions to ensure that justice prevails. That is not a slogan. It is what we show up to do every day.</p>
+
+        <div class="about-principles__item reveal">
+          <div class="about-principles__item-left">
+            <div class="about-principles__item-num">03</div>
+            <div class="about-principles__item-tag">Righteous Advocacy</div>
+          </div>
+          <div class="about-principles__item-right">
+            <div class="about-principles__item-title">A Moral Duty to Push Back</div>
+            <div class="about-principles__item-sub">Justice over convenience.</div>
+            <p class="about-principles__item-body">Too often, the legal system is used to bully the weak or silence the ethical. We view our advocacy as a moral duty to resist this injustice. We fight for the righteous outcome — not merely the convenient one — even when it means challenging powerful institutions to ensure that justice prevails. That is not a slogan. It is what we show up to do every day.</p>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
