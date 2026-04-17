@@ -328,7 +328,109 @@
       .about-principles__header-sub { text-align: left; }
     }
 
-    /* PRACTICE AREAS — WORLD CLASS */
+    /* REVIEWS — HORIZONTAL LIGHT */
+    .about-reviews {
+      background: var(--bg);
+      overflow: hidden;
+      padding: clamp(64px, 8vw, 100px) 0;
+    }
+    .about-reviews__header {
+      max-width: var(--max-w);
+      margin: 0 auto clamp(40px, 5vw, 60px);
+      padding: 0 var(--gutter);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .about-reviews__header h2 {
+      font-size: clamp(24px, 3vw, 40px);
+      color: var(--dark);
+      margin: 0;
+      line-height: 1.05;
+    }
+    .about-reviews__header h2 em { font-style: italic; color: var(--accent); }
+    .about-reviews__nav { display: flex; gap: 8px; flex-shrink: 0; }
+    .about-reviews__btn {
+      width: 44px; height: 44px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--dark);
+      font-size: 18px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+      border-radius: 1px;
+    }
+    .about-reviews__btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+    /* Track */
+    .about-reviews__track-wrap {
+      overflow: hidden;
+      padding: 4px 0 24px;
+    }
+    .about-reviews__track {
+      display: flex;
+      gap: 20px;
+      padding: 0 var(--gutter);
+      transition: transform 0.55s cubic-bezier(0.16,1,0.3,1);
+      will-change: transform;
+    }
+
+    /* Cards */
+    .about-reviews__card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--accent);
+      padding: clamp(28px, 3vw, 40px);
+      min-width: clamp(300px, 38vw, 480px);
+      max-width: clamp(300px, 38vw, 480px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+      flex-shrink: 0;
+      box-shadow: 0 2px 20px rgba(43,36,56,0.06);
+    }
+    .about-reviews__stars { display: flex; gap: 5px; }
+    .about-reviews__stars span { font-size: 16px; color: #F5C842; text-shadow: 0 0 6px rgba(245,200,66,0.7); }
+    .about-reviews__quote {
+      font-family: var(--ff-serif);
+      font-size: clamp(16px, 1.6vw, 20px);
+      color: var(--dark);
+      line-height: 1.6;
+      font-style: italic;
+      flex-grow: 1;
+    }
+    .about-reviews__attr {
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent);
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Dots */
+    .about-reviews__dots {
+      display: flex; gap: 8px;
+      padding: 24px var(--gutter) 0;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .about-reviews__dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--border);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      border: none;
+      padding: 0;
+    }
+    .about-reviews__dot.active { background: var(--accent); transform: scale(1.4); }
+    @media (max-width: 768px) {
+      .about-reviews__card { min-width: 85vw; max-width: 85vw; }
+      .about-reviews__header { flex-direction: column; align-items: flex-start; }
+    }
     .about-practice { background: var(--dark); position: relative; overflow: hidden; }
     .about-practice::before {
       content: '';
@@ -599,6 +701,129 @@
       </div>
     </div>
   </section>
+
+  <!-- REVIEWS -->
+  <section class="about-reviews">
+    <div class="about-reviews__header reveal">
+      <h2>What clients say about <em>this firm.</em></h2>
+      <div class="about-reviews__nav">
+        <button class="about-reviews__btn" id="revPrev" aria-label="Previous">&#8592;</button>
+        <button class="about-reviews__btn" id="revNext" aria-label="Next">&#8594;</button>
+      </div>
+    </div>
+    <div class="about-reviews__track-wrap">
+      <div class="about-reviews__track" id="revTrack">
+
+        <div class="about-reviews__card">
+          <div class="about-reviews__stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <div class="about-reviews__quote">"I cannot recommend Octavia enough. She is an incredible attorney who is both passionate about her work and deeply committed to her clients. What sets her apart is her rare combination of warmth and professionalism. She has a calming, reassuring presence while also being razor-sharp and thorough in her work. You always know she truly cares and is fighting for the best possible outcome. Five stars isn't enough for the journey she has walked alongside me."</div>
+          <div class="about-reviews__attr">J.C. · Google Review · Verified · Texas</div>
+        </div>
+
+        <div class="about-reviews__card">
+          <div class="about-reviews__stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <div class="about-reviews__quote">"10/10 would hire again! Octavia is an exceptional attorney who demonstrates both strength and compassion in her practice. She is fierce and effective in advocating for her clients, while maintaining a genuine kindness and professionalism that sets her apart. Her dedication, attention to detail, and ability to navigate complex situations with confidence make her an invaluable advocate."</div>
+          <div class="about-reviews__attr">K.A. · Google Review · Verified · Texas</div>
+        </div>
+
+        <div class="about-reviews__card">
+          <div class="about-reviews__stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <div class="about-reviews__quote">"AMAZING!!!! Octavia is highly professional, efficient, and thorough. She is extremely knowledgeable and provided excellent advice on several complex defamation and libel cases. Her support was invaluable, and I truly felt like more than just a case number. I can't recommend Octavia enough for her genuine dedication."</div>
+          <div class="about-reviews__attr">N.M. · Google Review · Verified · Texas</div>
+        </div>
+
+        <div class="about-reviews__card">
+          <div class="about-reviews__stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <div class="about-reviews__quote">"Mrs. Martinez was highly professional, efficient, and knowledgeable in handling my case from the beginning. Thanks to her expertise and prompt attention, we were able to resolve the matter within just two weeks with the best possible outcome. She communicates with you every step of the way, and was always available when I needed to reach out. I wholeheartedly recommend her to anyone in need of legal counsel."</div>
+          <div class="about-reviews__attr">M.T. · Google Review · Verified · Texas</div>
+        </div>
+
+        <div class="about-reviews__card">
+          <div class="about-reviews__stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <div class="about-reviews__quote">"Octavia handled our mother's affairs after her passing. She handled everything effectively and with care. We did not have to worry about dealing with creditors or any other of those tasks during such a difficult time. She took care of everything."</div>
+          <div class="about-reviews__attr">M.M. · Google Review · Verified · Texas</div>
+        </div>
+
+        <div class="about-reviews__card">
+          <div class="about-reviews__stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <div class="about-reviews__quote">"Octavia has been amazing. I have been working with her for almost a year and she has been incredible the entire time — her passion, communication, professionalism, responsiveness, and willingness to explain things have been top notch. 10/10 would recommend her services."</div>
+          <div class="about-reviews__attr">E.F. · Google Review · Verified · Texas</div>
+        </div>
+
+        <div class="about-reviews__card">
+          <div class="about-reviews__stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <div class="about-reviews__quote">"Octavia is the 'opposite' attorney. She pursues Right over Wrong, Justice over Injustice — and not just Win or Lose. I respect and admire her for that."</div>
+          <div class="about-reviews__attr">M.P. · Google Review · Verified · Texas</div>
+        </div>
+
+        <div class="about-reviews__card">
+          <div class="about-reviews__stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <div class="about-reviews__quote">"Attorney Octavia Martinez has helped my family out on several occasions. I cannot say enough about how passionate Mrs. Martinez is about fighting for what's right. She is an incredibly competent attorney who I will highly recommend a million times over."</div>
+          <div class="about-reviews__attr">R.M.O. · Google Review · Verified · Texas</div>
+        </div>
+
+        <div class="about-reviews__card">
+          <div class="about-reviews__stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <div class="about-reviews__quote">"Very easy to deal with. Very thorough and precise. She is extremely intelligent and professional. I highly recommend her law firm for your legal situations."</div>
+          <div class="about-reviews__attr">G.E. · Google Review · Verified · Texas</div>
+        </div>
+
+        <div class="about-reviews__card">
+          <div class="about-reviews__stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <div class="about-reviews__quote">"Was very thorough, helpful in updating our wills and advising us. Would have no hesitation recommending her to others."</div>
+          <div class="about-reviews__attr">F.R. · Google Review · Verified · Texas</div>
+        </div>
+
+        <div class="about-reviews__card">
+          <div class="about-reviews__stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <div class="about-reviews__quote">"Thank you for your encouragement. Please keep fighting for midwifery in Texas."</div>
+          <div class="about-reviews__attr">S.G. · Google Review · Verified · Texas</div>
+        </div>
+
+      </div>
+    </div>
+    <div class="about-reviews__dots" id="revDots"></div>
+  </section>
+
+  <script>
+  (function() {
+    const track   = document.getElementById('revTrack');
+    const dotsEl  = document.getElementById('revDots');
+    const cards   = track ? Array.from(track.children) : [];
+    const total   = cards.length;
+    let current   = 0;
+
+    if (!track || !total) return;
+
+    // Build dots
+    cards.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'about-reviews__dot' + (i === 0 ? ' active' : '');
+      d.addEventListener('click', () => goTo(i));
+      dotsEl.appendChild(d);
+    });
+
+    function goTo(i) {
+      current = (i + total) % total;
+      const cardW = cards[0].offsetWidth + 20; // gap
+      track.style.transform = 'translateX(-' + (current * cardW) + 'px)';
+      dotsEl.querySelectorAll('.about-reviews__dot').forEach((d, idx) => {
+        d.classList.toggle('active', idx === current);
+      });
+    }
+
+    document.getElementById('revPrev').addEventListener('click', () => goTo(current - 1));
+    document.getElementById('revNext').addEventListener('click', () => goTo(current + 1));
+
+    // Touch/swipe
+    let startX = 0;
+    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', e => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+    }, { passive: true });
+  })();
+  </script>
 
   <!-- PRACTICE AREA LINKS -->
   <section class="section about-practice">
