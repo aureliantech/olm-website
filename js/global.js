@@ -304,6 +304,37 @@
   injectFooter();
 
   /* ══════════════════════════════════════════
+     PAGE TRANSITION — inject strips on all pages
+  ══════════════════════════════════════════ */
+  function injectPageTransition() {
+    if (document.getElementById('page-transition')) return; // already exists (homepage)
+    const el = document.createElement('div');
+    el.id = 'page-transition';
+    el.setAttribute('aria-hidden', 'true');
+    el.innerHTML = '<div class="pt-strip"></div><div class="pt-strip"></div><div class="pt-strip"></div><div class="pt-strip"></div><div class="pt-strip"></div>';
+    document.body.insertAdjacentElement('afterbegin', el);
+  }
+  injectPageTransition();
+
+  /* ══════════════════════════════════════════
+     HOMEPAGE LOADER — skip if already seen this session
+  ══════════════════════════════════════════ */
+  (function() {
+    const loader = document.getElementById('site-loader');
+    if (!loader) return; // not on homepage
+
+    if (sessionStorage.getItem('olm_loader_seen')) {
+      // Skip loader entirely — hide immediately and fire loaderDone
+      loader.style.display = 'none';
+      document.body.classList.remove('loading');
+      document.dispatchEvent(new CustomEvent('loaderDone'));
+    } else {
+      // First visit this session — mark it so it won't show again
+      sessionStorage.setItem('olm_loader_seen', '1');
+    }
+  })();
+
+  /* ══════════════════════════════════════════
      APEX NAV BEHAVIOUR (works on all pages)
   ══════════════════════════════════════════ */
   document.addEventListener('DOMContentLoaded', () => {
@@ -387,6 +418,22 @@
         tick = true;
       }
     });
+
+    /* ── PAGE TRANSITION ── */
+    const overlay = document.getElementById('page-transition');
+    if (overlay) {
+      document.querySelectorAll('a[href]').forEach(function(link) {
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('#') || href.startsWith('tel:') ||
+            href.startsWith('mailto:') || href.startsWith('http')) return;
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const dest = href;
+          overlay.classList.add('out');
+          setTimeout(function() { window.location.href = dest; }, 800);
+        });
+      });
+    }
 
     /* ── SCROLL REVEAL ── */
     const reveals = document.querySelectorAll('.reveal');
