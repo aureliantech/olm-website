@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Law Firm of Octavia LaVon Martinez PLLC | Texas Attorney — License Defense, Probate, Litigation</title>
-  <meta name="description" content="The Law Firm of Octavia LaVon Martinez PLLC. Fearless legal advocacy for medical professionals, families, and businesses in Texas. License defense, probate, wills, defamation, civil litigation." />
+  <meta name="description" content="The Law Firm of Octavia LaVon Martinez PLLC. Fearless legal advocacy for medical professionals, families, and businesses in Texas. License defense, probate, defamation, civil litigation." />
   <link rel="canonical" href="https://octaviamartinezlaw.com/" />
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
@@ -791,7 +791,7 @@
     "@context": "https://schema.org",
     "@type": "LegalService",
     "name": "The Law Firm of Octavia LaVon Martinez PLLC",
-    "description": "Full-service Texas law firm offering medical license defense, probate, wills, defamation, civil litigation, and employment law.",
+    "description": "Full-service Texas law firm offering medical license defense, probate, defamation, and civil litigation.",
     "url": "https://octaviamartinezlaw.com",
     "telephone": "+19564263550",
     "address": {
@@ -1129,90 +1129,54 @@
     }
 
 
-    /* ── PRACTICE AREAS GRID ── */
-    /* ═══════════════════════════════════════
-       PRACTICE AREAS — HORIZONTAL BAND
-       Concept: Ultra-compact dark strip. One
-       tight header row, then 6 equal columns
-       side-by-side. No descriptions. Pure
-       number + title. Hover: card flips to
-       full orange fill instantly.
-    ═══════════════════════════════════════ */
+    /* ══ PRACTICE AREAS — FINAL ══ */
     .gen-practice {
-      background: #FFFFFF;
+      background: var(--bg);
       position: relative;
-      overflow: hidden;
-      padding: clamp(56px,6vw,80px) var(--gutter);
-    }
-    .gen-practice::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg,
-        transparent 0%,
-        rgba(232,114,42,0.35) 20%,
-        rgba(232,114,42,0.35) 80%,
-        transparent 100%);
+      padding: clamp(64px, 8vw, 100px) var(--gutter);
     }
 
     .gen-practice__top {
       max-width: var(--max-w);
-      margin: 0 auto 36px;
+      margin: 0 auto clamp(40px, 5vw, 60px);
       display: flex;
       align-items: baseline;
       justify-content: space-between;
-      gap: 24px;
-      padding-bottom: 24px;
+      gap: 32px;
+      padding-bottom: 28px;
       border-bottom: 1px solid rgba(43,36,56,0.1);
     }
-    .gen-practice__top-left {
-      display: flex;
-      align-items: baseline;
-      gap: 20px;
-    }
+    .gen-practice__top-left { display: flex; align-items: baseline; gap: 20px; }
     .gen-practice__eyebrow {
       font-size: 9px; font-weight: 700;
       letter-spacing: 0.28em; text-transform: uppercase;
-      color: var(--accent);
-      white-space: nowrap;
+      color: var(--accent); white-space: nowrap;
     }
     .gen-practice__heading {
       font-family: var(--ff-serif);
       font-size: clamp(28px, 3.5vw, 48px);
-      color: var(--dark);
-      font-weight: 700;
-      white-space: nowrap;
+      color: var(--dark); font-weight: 700; white-space: nowrap;
     }
     .gen-practice__heading em { font-style: italic; color: var(--accent); }
     .gen-practice__top-note {
-      font-size: 15px;
-      color: var(--dark);
-      text-align: right;
-      max-width: 320px;
-      line-height: 1.6;
+      font-size: 15px; color: var(--dark);
+      text-align: right; max-width: 320px; line-height: 1.6;
     }
 
-    /* 6-column grid */
     .gen-practice__grid {
       max-width: var(--max-w);
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 16px;
     }
 
     .gen-practice__card {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      display: flex; flex-direction: column; justify-content: space-between;
       padding: 40px 36px 36px;
-      border: none;
-      border-top: 3px solid rgba(201,184,154,0.2);
-      text-decoration: none;
-      position: relative;
-      overflow: hidden;
-      min-height: 280px;
-      background: var(--plum);
+      border: none; border-top: 3px solid rgba(201,184,154,0.2);
+      text-decoration: none; position: relative; overflow: hidden;
+      min-height: 280px; background: var(--plum);
       transition: border-top-color 0.25s, box-shadow 0.3s, transform 0.3s cubic-bezier(0.16,1,0.3,1);
     }
     .gen-practice__card:hover {
@@ -1220,160 +1184,120 @@
       box-shadow: 0 12px 40px rgba(43,36,56,0.22);
       transform: translateY(-4px);
     }
-
-    /* Orange flood on hover */
     .gen-practice__card::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: var(--accent);
-      opacity: 0;
-      transition: opacity 0.25s ease;
-      z-index: 0;
+      content: ''; position: absolute; inset: 0;
+      background: var(--accent); opacity: 0;
+      transition: opacity 0.25s ease; z-index: 0;
     }
     .gen-practice__card:hover::before { opacity: 1; }
 
-    .gen-practice__card-top {
-      position: relative; z-index: 1;
-    }
+    .gen-practice__card-top { position: relative; z-index: 1; }
+
     .gen-practice__card-num {
-      font-family: var(--ff-serif);
-      font-size: 11px;
-      color: rgba(201,184,154,0.3);
-      letter-spacing: 0.1em;
-      margin-bottom: 20px;
-      display: block;
-      transition: color 0.18s;
+      font-family: var(--ff-serif); font-size: 11px;
+      color: rgba(201,184,154,0.3); letter-spacing: 0.1em;
+      margin-bottom: 20px; display: block; transition: color 0.18s;
     }
     .gen-practice__card:hover .gen-practice__card-num { color: rgba(255,255,255,0.4); }
 
     .gen-practice__card-label {
-      font-size: 9px; font-weight: 700;
-      letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--accent-lite);
-      margin-bottom: 12px;
-      transition: color 0.18s;
-      line-height: 1.4;
+      font-size: 9px; font-weight: 700; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--accent-lite);
+      margin-bottom: 12px; transition: color 0.18s; line-height: 1.4;
+      position: relative; z-index: 1;
     }
     .gen-practice__card:hover .gen-practice__card-label { color: rgba(255,255,255,0.65); }
 
     .gen-practice__card-title {
-      font-family: var(--ff-serif);
-      font-size: clamp(20px, 1.9vw, 26px);
-      font-weight: 700;
-      color: #FAF6F0;
-      line-height: 1.15;
-      margin-bottom: 16px;
-      transition: color 0.18s;
+      font-family: var(--ff-serif); font-size: clamp(22px, 2.2vw, 30px);
+      font-weight: 700; color: #FAF6F0; line-height: 1.15;
+      margin-bottom: 16px; transition: color 0.18s; position: relative; z-index: 1;
     }
     .gen-practice__card:hover .gen-practice__card-title { color: #fff; }
 
     .gen-practice__card-desc {
-      font-size: 13.5px;
-      font-weight: 400;
-      color: rgba(250,246,240,0.55);
-      line-height: 1.7;
-      position: relative; z-index: 1;
-      transition: color 0.18s;
-      flex-grow: 1;
+      font-size: 13.5px; color: rgba(250,246,240,0.55); line-height: 1.7;
+      position: relative; z-index: 1; flex-grow: 1; transition: color 0.18s;
     }
     .gen-practice__card:hover .gen-practice__card-desc { color: rgba(255,255,255,0.88); }
 
     .gen-practice__card-arrow {
-      position: relative; z-index: 1;
-      font-size: 18px;
-      color: var(--accent-lite);
-      opacity: 0.6;
+      position: relative; z-index: 1; font-size: 18px;
+      color: var(--accent-lite); opacity: 0.6;
       transition: color 0.18s, opacity 0.18s, transform 0.28s cubic-bezier(0.16,1,0.3,1);
-      align-self: flex-end;
-      margin-top: 24px;
+      align-self: flex-end; margin-top: 24px;
     }
     .gen-practice__card:hover .gen-practice__card-arrow {
-      color: #fff;
-      opacity: 1;
-      transform: translate(5px, -5px);
+      color: #fff; opacity: 1; transform: translate(5px, -5px);
     }
 
-    /* Medpro banner inside practice section */
+    /* Medpro banner */
     .gen-practice__medpro-banner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-      background: var(--plum);
-      border: none;
-      border-top: 3px solid var(--accent);
-      padding: 44px 52px;
-      margin-top: 0;
-      text-decoration: none;
-      position: relative; overflow: hidden;
-      transition: background 0.3s, box-shadow 0.3s, transform 0.3s cubic-bezier(0.16,1,0.3,1);
+      display: block;
+      max-width: var(--max-w);
+      margin: 16px auto 0;
+      text-decoration: none; position: relative; overflow: hidden;
+      background: var(--plum); border-top: 3px solid rgba(201,184,154,0.2);
+      transition: border-top-color 0.25s, box-shadow 0.3s, transform 0.3s cubic-bezier(0.16,1,0.3,1);
+    }
+    .gen-practice__medpro-banner:hover {
+      border-top-color: var(--accent);
+      box-shadow: 0 12px 40px rgba(43,36,56,0.22);
+      transform: translateY(-4px);
     }
     .gen-practice__medpro-banner::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: var(--accent);
-      opacity: 0;
-      transition: opacity 0.25s ease;
-      z-index: 0;
+      content: ''; position: absolute; inset: 0;
+      background: var(--accent); opacity: 0;
+      transition: opacity 0.25s ease; z-index: 0;
     }
     .gen-practice__medpro-banner:hover::before { opacity: 1; }
-    .gen-practice__medpro-banner:hover {
-      box-shadow: 0 12px 40px rgba(43,36,56,0.22);
-      transform: translateY(-3px);
-    }
-    .gen-practice__medpro-banner-left {
-      display: flex; flex-direction: column; gap: 8px;
+
+    .gen-practice__medpro-banner-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 48px; padding: clamp(36px, 4.5vw, 52px) clamp(36px, 4vw, 52px);
       position: relative; z-index: 1;
     }
+    .gen-practice__medpro-banner-left { display: flex; flex-direction: column; gap: 10px; }
     .gen-practice__medpro-banner-label {
-      font-size: 9px; font-weight: 700; letter-spacing: 0.24em;
+      font-size: 9px; font-weight: 700; letter-spacing: 0.28em;
       text-transform: uppercase; color: var(--accent-lite);
-      transition: color 0.2s;
+      position: relative; z-index: 1; transition: color 0.18s;
     }
     .gen-practice__medpro-banner:hover .gen-practice__medpro-banner-label { color: rgba(255,255,255,0.65); }
     .gen-practice__medpro-banner-title {
-      font-family: var(--ff-serif);
-      font-size: clamp(20px, 2.2vw, 28px);
-      font-weight: 700;
-      color: #FAF6F0;
-      line-height: 1.15;
-      transition: color 0.2s;
+      font-family: var(--ff-serif); font-size: clamp(20px, 2.2vw, 28px);
+      font-weight: 400; color: var(--bg); line-height: 1.2;
+      position: relative; z-index: 1; transition: color 0.18s;
     }
     .gen-practice__medpro-banner:hover .gen-practice__medpro-banner-title { color: #fff; }
     .gen-practice__medpro-banner-sub {
-      font-size: 14px; color: rgba(250,246,240,0.5);
-      line-height: 1.6; max-width: 560px;
-      transition: color 0.2s;
-    }
-    .gen-practice__medpro-banner:hover .gen-practice__medpro-banner-sub { color: rgba(255,255,255,0.85); }
-    .gen-practice__medpro-banner-cta {
-      flex-shrink: 0;
+      font-size: 13px; color: rgba(250,246,240,0.45);
+      line-height: 1.65; max-width: 520px; transition: color 0.18s;
       position: relative; z-index: 1;
+    }
+    .gen-practice__medpro-banner:hover .gen-practice__medpro-banner-sub { color: rgba(255,255,255,0.88); }
+    .gen-practice__medpro-banner-cta {
+      flex-shrink: 0; display: inline-flex; align-items: center; gap: 12px;
       background: var(--accent); color: #fff;
-      font-size: 12px; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; padding: 18px 32px;
-      white-space: nowrap;
-      display: flex; align-items: center; gap: 10px;
-      transition: background 0.25s, gap 0.25s, transform 0.3s cubic-bezier(0.16,1,0.3,1);
-      border: 2px solid rgba(255,255,255,0.25);
+      font-family: var(--ff-sans); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; padding: 18px 32px;
+      white-space: nowrap; box-shadow: 0 0 20px rgba(232,114,42,0.3);
+      transition: background 0.2s, gap 0.25s, box-shadow 0.3s;
+      position: relative; z-index: 1;
     }
     .gen-practice__medpro-banner:hover .gen-practice__medpro-banner-cta {
-      background: #fff;
-      color: var(--accent);
-      gap: 16px;
-      border-color: transparent;
+      background: rgba(255,255,255,0.2); gap: 18px; box-shadow: none;
     }
 
-    @media (max-width: 860px) {
-      .gen-practice__grid { grid-template-columns: repeat(2, 1fr); }
-      .gen-practice__medpro-banner { flex-direction: column; align-items: flex-start; gap: 24px; }
+    @media (max-width: 768px) {
+      .gen-practice__grid { grid-template-columns: 1fr; }
+      .gen-practice__top { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .gen-practice__top-note { text-align: left; }
+      .gen-practice__medpro-banner-inner { flex-direction: column; align-items: flex-start; gap: 24px; }
       .gen-practice__medpro-banner-cta { width: 100%; justify-content: center; }
     }
-    @media (max-width: 520px) {
-      .gen-practice__grid { grid-template-columns: 1fr; }
-    }
 
-    /* Medpro full-width banner */
+        /* Medpro full-width banner */
     /* ══ MEDPRO BANNER — CURTAIN WIPE REVEAL ══ */
     /* The section has two curtain panels that wipe away on scroll reveal.
        Panel 1 (dark plum) leads. Panel 2 (accent orange) trails behind it.
@@ -1991,7 +1915,7 @@
           <div class="apx__panel-left-content">
             <div class="apx__panel-eyebrow">Practice Areas</div>
             <div class="apx__panel-title">Full Service<br><em>Civil Practice</em></div>
-            <p class="apx__panel-desc">Texas statewide representation across probate, employment, defamation, and civil litigation.</p>
+            <p class="apx__panel-desc">Texas statewide representation across probate, defamation, and civil litigation.</p>
             <a href="practice-areas.html" class="apx__panel-pill">All Practice Areas →</a>
           </div>
         </div>
@@ -2017,22 +1941,8 @@
               <div class="apx__link-desc">Contested estates &amp; failed administration</div>
             </div>
           </a>
-          <a href="employment-law.html" class="apx__link">
-            <span class="apx__link-num">04</span>
-            <div class="apx__link-body">
-              <div class="apx__link-title">Employment Law</div>
-              <div class="apx__link-desc">Wrongful termination &amp; workplace disputes</div>
-            </div>
-          </a>
-          <a href="wills-and-poa.html" class="apx__link">
-            <span class="apx__link-num">05</span>
-            <div class="apx__link-body">
-              <div class="apx__link-title">Wills &amp; Power of Attorney</div>
-              <div class="apx__link-desc">Estate planning &amp; advance directives</div>
-            </div>
-          </a>
           <a href="breach-of-contract.html" class="apx__link">
-            <span class="apx__link-num">06</span>
+            <span class="apx__link-num">04</span>
             <div class="apx__link-body">
               <div class="apx__link-title">Breach of Contract</div>
               <div class="apx__link-desc">Business &amp; commercial litigation</div>
@@ -2148,8 +2058,6 @@
       <div class="apx__mobile" id="apxMobile">
         <a href="texas-medical-attorney/index.html">Medical Professional Services</a>
         <a href="probate.html">Complex Probate &amp; Estate</a>
-        <a href="wills-and-poa.html">Wills &amp; Power of Attorney</a>
-        <a href="employment-law.html">Employment Law</a>
         <a href="breach-of-contract.html">Breach of Contract</a>
         <a href="defamation.html">Defamation &amp; Libel</a>
         <a href="medical-malpractice.html">Medical Malpractice</a>
@@ -2214,13 +2122,6 @@
           <div class="gen-hero__card-left">
             <span class="gen-hero__card-label">Estate Administration</span>
             <span class="gen-hero__card-title">Complex Probate & Estate</span>
-          </div>
-          <span class="gen-hero__card-arrow">→</span>
-        </a>
-        <a href="employment-law.html" class="gen-hero__card">
-          <div class="gen-hero__card-left">
-            <span class="gen-hero__card-label">Workplace</span>
-            <span class="gen-hero__card-title">Employment Law</span>
           </div>
           <span class="gen-hero__card-arrow">→</span>
         </a>
@@ -2308,16 +2209,16 @@
   <!-- PRACTICE AREAS -->
   <section class="gen-practice">
 
-    <!-- Top header bar -->
+    <!-- Header -->
     <div class="gen-practice__top reveal">
       <div class="gen-practice__top-left">
-        <span class="gen-practice__eyebrow">Legal Capabilities</span>
-        <h2 class="gen-practice__heading">Areas of Practice</h2>
+        <div class="gen-practice__eyebrow">Legal Capabilities</div>
+        <h2 class="gen-practice__heading">Areas of <em>Practice</em></h2>
       </div>
       <p class="gen-practice__top-note">We limit our practice to high-stakes matters requiring specialized attention.</p>
     </div>
 
-    <!-- 6-column horizontal card grid -->
+    <!-- Practice grid -->
     <div class="gen-practice__grid">
       <a href="medical-malpractice.html" class="gen-practice__card">
         <div class="gen-practice__card-top">
@@ -2346,27 +2247,9 @@
         <p class="gen-practice__card-desc">Texas probate attorney handling contested estates, missing assets, and stalled administrations. When standard probate breaks down, this firm intervenes.</p>
         <div class="gen-practice__card-arrow">↗</div>
       </a>
-      <a href="employment-law.html" class="gen-practice__card">
-        <div class="gen-practice__card-top">
-          <span class="gen-practice__card-num">04</span>
-          <div class="gen-practice__card-label">Workplace</div>
-          <div class="gen-practice__card-title">Employment Law</div>
-        </div>
-        <p class="gen-practice__card-desc">Wrongful termination, workplace discrimination, retaliation claims, and non-compete disputes for Texas employees and employers statewide.</p>
-        <div class="gen-practice__card-arrow">↗</div>
-      </a>
-      <a href="wills-and-poa.html" class="gen-practice__card">
-        <div class="gen-practice__card-top">
-          <span class="gen-practice__card-num">05</span>
-          <div class="gen-practice__card-label">Estate Planning</div>
-          <div class="gen-practice__card-title">Wills &amp; Power of Attorney</div>
-        </div>
-        <p class="gen-practice__card-desc">Drafting enforceable Texas wills, durable powers of attorney, and medical directives that hold up when families need them most.</p>
-        <div class="gen-practice__card-arrow">↗</div>
-      </a>
       <a href="breach-of-contract.html" class="gen-practice__card">
         <div class="gen-practice__card-top">
-          <span class="gen-practice__card-num">06</span>
+          <span class="gen-practice__card-num">04</span>
           <div class="gen-practice__card-label">Civil Litigation</div>
           <div class="gen-practice__card-title">Breach of Contract</div>
         </div>
@@ -2376,8 +2259,8 @@
     </div>
 
     <!-- Medical Professional Banner -->
-    <div style="max-width:var(--max-w);margin:48px auto 0;padding:0 var(--gutter);position:relative;z-index:1;">
-      <a href="texas-medical-attorney/index.html" class="gen-practice__medpro-banner reveal-scale delay-3">
+    <a href="texas-medical-attorney/index.html" class="gen-practice__medpro-banner reveal delay-3">
+      <div class="gen-practice__medpro-banner-inner">
         <div class="gen-practice__medpro-banner-left">
           <div class="gen-practice__medpro-banner-label">Healthcare Practitioners</div>
           <div class="gen-practice__medpro-banner-title">Are you a physician, midwife, or licensed healthcare provider?</div>
@@ -2386,8 +2269,8 @@
         <div class="gen-practice__medpro-banner-cta">
           Dedicated Legal Representation &nbsp;→
         </div>
-      </a>
-    </div>
+      </div>
+    </a>
   </section>
 
   <!-- CORRECTIVE COUNSEL -->
@@ -2697,8 +2580,6 @@
           <nav class="footer__links" aria-label="Practice area links">
             <a href="texas-medical-attorney/index.html">Healthcare License Defense</a>
             <a href="probate.html">Complex Probate & Estate</a>
-            <a href="wills-and-poa.html">Wills & Power of Attorney</a>
-            <a href="employment-law.html">Employment Law</a>
             <a href="breach-of-contract.html">Breach of Contract</a>
             <a href="defamation.html">Defamation</a>
             <a href="medical-malpractice.html">Medical Malpractice</a>
