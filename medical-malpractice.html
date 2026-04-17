@@ -109,6 +109,16 @@
     .mal-cta h2 em { color: var(--accent-lite); }
     .mal-cta p { font-size: 16px; color: rgba(250,246,240,0.6); max-width: 520px; margin: 0 auto 32px; line-height: 1.7; }
     .mal-cta__btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+
+    /* CORRECTIVE COUNSEL */
+    .mal-corrective { background: var(--surface); }
+    .mal-corrective__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .mal-corrective h2 { font-size: clamp(24px, 2.8vw, 36px); color: var(--dark); margin-bottom: 16px; line-height: 1.1; }
+    .mal-corrective h2 em { font-style: italic; color: var(--accent); }
+    .mal-corrective p { font-size: 16px; color: var(--mid); line-height: 1.8; margin-bottom: 14px; }
+    .mal-corrective strong { color: var(--dark); }
+    .mal-corrective__img { width: 100%; height: 420px; object-fit: cover; filter: brightness(0.75) saturate(0.8); }
+    @media (max-width: 768px) { .mal-corrective__inner { grid-template-columns: 1fr; gap: 40px; } }
   </style>
 </head>
 <body>
@@ -202,30 +212,53 @@
     <div class="container">
       <div class="mal-strategy__inner">
         <div class="mal-strategy__left reveal">
-          <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:14px;">Our Approach</div>
+          <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:14px;">Our Strategy</div>
           <div class="rule"></div>
-          <h2>A pre-litigation file review.<br><em>Every time.</em></h2>
-          <p>Unlike high-volume settlement mills, this firm does not take every case presented. Medical malpractice litigation is expensive, time-consuming, and requires expert witness involvement from the outset. <strong>We protect clients from investing in cases that cannot be won.</strong></p>
-          <p>Octavia LaVon Martinez brings a prosecutor's discipline to malpractice work — building the record from evidence up, confirming the deviation from standard of care before filing, and preparing every case as if it will go to trial. Because it might.</p>
-          <p>She also brings a personal perspective: as a survivor of life-threatening medical negligence during childbirth, she understands the physical and emotional toll of a preventable error in a way that shapes how she approaches this work.</p>
+          <h2>We utilize a Pre-Litigation<br><em>File Review process.</em></h2>
+          <p>Unlike high-volume "settlement mills," we do not take every case.</p>
+          <p style="font-size:14px;color:rgba(250,246,240,0.45);font-style:italic;border-top:1px solid rgba(201,184,154,0.15);padding-top:16px;margin-top:8px;">Note: Malpractice cases are complex and costly. This rigorous screening process protects clients from investing time and money into cases that cannot be won.</p>
         </div>
         <div class="mal-strategy__steps reveal">
           <div class="mal-strategy__step">
-            <div class="mal-strategy__step-label">Step One</div>
+            <div class="mal-strategy__step-label">1. Audit</div>
             <div class="mal-strategy__step-title">File Review</div>
-            <p class="mal-strategy__step-body">Before any lawsuit is filed, we review the medical records in full to determine whether a viable claim exists. This includes identifying the specific deviation from standard of care, the causal chain connecting that deviation to the harm, and the damages that resulted.</p>
+            <p class="mal-strategy__step-body">Before a lawsuit is filed, we review medical records to determine if a viable claim exists.</p>
           </div>
           <div class="mal-strategy__step">
-            <div class="mal-strategy__step-label">Step Two</div>
+            <div class="mal-strategy__step-label">2. Experts</div>
             <div class="mal-strategy__step-title">Expert Consultation</div>
-            <p class="mal-strategy__step-body">We consult with independent medical specialists in the relevant field to confirm that the standard of care was breached and that the breach caused the harm. In Texas, an expert report is a statutory requirement — we retain qualified experts before filing, not after.</p>
+            <p class="mal-strategy__step-body">We consult with independent medical specialists to confirm that the standard of care was breached.</p>
           </div>
           <div class="mal-strategy__step">
-            <div class="mal-strategy__step-label">Step Three</div>
+            <div class="mal-strategy__step-label">3. Action</div>
             <div class="mal-strategy__step-title">Litigation</div>
-            <p class="mal-strategy__step-body">Once negligence is confirmed and the expert report is secured, we file with a strategy designed to survive the mandatory dismissal window and prevail at trial. Every filing decision is made with the end in mind — what does this case look like to a jury?</p>
+            <p class="mal-strategy__step-body">Once negligence is confirmed, we file suit with a strategy designed to survive dismissal and win at trial.</p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORRECTIVE COUNSEL -->
+  <section class="section mal-corrective">
+    <div class="container">
+      <div class="mal-corrective__inner">
+        <div class="reveal">
+          <div class="eyebrow" style="margin-bottom:14px;">Corrective Counsel</div>
+          <div class="rule"></div>
+          <h2>Has your case <em>stalled?</em></h2>
+          <p>We frequently inherit cases from attorneys who are unable to handle the complexity.</p>
+          <p>If your current counsel is failing to communicate, missing deadlines, or allowing the opposition to seize the momentum, you need corrective counsel.</p>
+          <p>We conduct an audit of your case, identify where the strategy is failing, and move immediately to rectify the errors.</p>
+          <p><strong>Do not let a passive attorney cost you your outcome.</strong></p>
+          <a href="tel:9564263550" class="btn btn--ghost" style="margin-top:8px;">Discuss Your Case →</a>
+        </div>
+        <img
+          src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=900&q=80&fit=crop&auto=format"
+          alt="Attorney reviewing legal documents — corrective counsel"
+          class="mal-corrective__img reveal"
+          loading="lazy"
+        />
       </div>
     </div>
   </section>
@@ -246,7 +279,7 @@
           <div class="rule"></div>
           <h2>A litigator who has been on both sides of the medical record.</h2>
           <p>Before founding this firm, Octavia was a complex medical malpractice litigator — working both sides of the record, understanding how institutional defendants construct their defenses, where expert witnesses are most effective, and what separates cases that settle for fair value from cases that go to trial and win.</p>
-          <p><strong>She also brings something most malpractice attorneys cannot:</strong> a survivor's perspective. She experienced life-threatening medical negligence during childbirth. She understands what it means to trust a provider completely, to have that trust violated, and to face consequences that are permanent. That understanding drives the conviction with which she pursues these cases.</p>
+          <p>Octavia brings a distinct perspective to this practice area. <strong>As a survivor of life-threatening medical negligence during childbirth,</strong> she understands the profound physical and emotional toll of a preventable error. This experience drives the firm's commitment: <em>when the facts show negligence, we litigate without fear.</em></p>
           <div class="mal-attorney__creds">
             <div class="mal-attorney__cred">University of Virginia · Ohio State Moritz College of Law</div>
             <div class="mal-attorney__cred">Former Felony Prosecutor</div>
@@ -265,7 +298,7 @@
     <div class="container">
       <div class="mal-review__inner reveal">
         <div class="mal-review__stars">★★★★★</div>
-        <div class="mal-review__quote">"I cannot recommend Octavia enough. She is an incredible attorney who is both passionate about her work and deeply committed to her clients. What sets her apart is her rare combination of warmth and professionalism — a calming, reassuring presence while also being razor-sharp and thorough. You always know she truly cares and is fighting for the best possible outcome."</div>
+        <div class="mal-review__quote">"I cannot recommend Octavia enough. She is an incredible attorney who is both passionate about her work and deeply committed to her clients. What sets her apart is her rare combination of warmth and professionalism. She has a calming, reassuring presence while also being razor-sharp and thorough in her work. You always know she truly cares and is fighting for the best possible outcome. Five stars isn't enough for the journey she has walked alongside me."</div>
         <div class="mal-review__attr">Jenn · Texas · Google Review</div>
       </div>
     </div>
