@@ -23,9 +23,9 @@
   </script>
   <style>
     /* HERO */
-    .boc-hero { background: var(--dark); padding: 140px var(--gutter) 90px; position: relative; overflow: hidden; }
+    .boc-hero { background: var(--dark); min-height: 100svh; display: flex; align-items: center; padding: 120px var(--gutter) 80px; position: relative; overflow: hidden; }
     .boc-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 60% at 90% 10%, rgba(232,114,42,0.07) 0%, transparent 55%), linear-gradient(150deg, #0a0806 0%, #1A1221 55%, #2B2438 100%); }
-    .boc-hero__inner { position: relative; z-index: 2; max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .boc-hero__inner { position: relative; z-index: 2; width: 100%; max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
     .boc-hero h1 { font-size: clamp(34px, 4.8vw, 60px); color: var(--bg); line-height: 1.06; margin-bottom: 22px; }
     .boc-hero h1 em { color: var(--accent-lite); font-style: italic; }
     .boc-hero__lead { font-size: clamp(16px, 1.8vw, 19px); color: rgba(250,246,240,0.7); line-height: 1.75; margin-bottom: 32px; max-width: 520px; }
@@ -102,7 +102,8 @@
     /* REVIEW */
     .boc-review { background: var(--plum); }
     .boc-review__inner { max-width: 760px; margin: 0 auto; text-align: center; }
-    .boc-review__stars { font-size: 22px; color: var(--accent-lite); letter-spacing: 4px; margin-bottom: 24px; }
+    .boc-review__stars { display:flex; justify-content:center; gap:6px; margin-bottom:24px; }
+    .boc-review__stars span { font-size:20px; color:#F5C842; text-shadow:0 0 6px rgba(245,200,66,0.8),0 0 14px rgba(245,200,66,0.35); }
     .boc-review__quote { font-family: var(--ff-serif); font-size: clamp(18px, 2.2vw, 26px); color: var(--bg); line-height: 1.5; font-style: italic; margin-bottom: 28px; }
     .boc-review__attr { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-lite); }
 
@@ -153,11 +154,11 @@
           <span style="width:32px;height:2px;background:var(--accent);display:inline-block;"></span>
           Breach of Contract · Texas
         </div>
-        <h1>A contract is only as strong<br>as its <em>enforcement.</em></h1>
+        <h1>A contract is only as strong as its <em>enforcement.</em></h1>
         <p class="boc-hero__lead">In business and private matters, agreements are often broken because one party believes the other lacks the will to fight back. When negotiation stalls and diplomacy fails, litigation becomes the necessary leverage. This firm applies it.</p>
         <div class="boc-hero__ctas">
-          <a href="strategy-session.html" class="btn btn--primary">Book a Strategy Session</a>
-          <a href="tel:9564263550" class="btn btn--outline">Call (956) 426-3550</a>
+          <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+          <a href="strategy-session.html" class="btn btn--outline">Book a Strategy Session</a>
         </div>
         <p class="boc-hero__trust">Virtual · Licensed in Texas &amp; Arizona · Serving All of Texas</p>
       </div>
@@ -224,6 +225,10 @@
           <p class="boc-scope__card-body">Unpaid promissory notes, disputed loan terms, and failed repayment agreements between parties. Written promises are enforceable — and we document and pursue them with the same rigor we apply to any other contractual obligation.</p>
         </div>
       </div>
+      <div style="text-align:center;margin-top:48px;padding-top:40px;border-top:1px solid rgba(43,36,56,0.08);">
+        <p style="font-family:var(--ff-serif);font-size:clamp(18px,2vw,24px);color:var(--dark);margin-bottom:20px;font-style:italic;">Not sure if your situation qualifies? One call will tell you exactly where you stand.</p>
+        <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+      </div>
     </div>
   </section>
 
@@ -237,7 +242,7 @@
           <h2>Four elements. Every breach of contract case in Texas.</h2>
           <p>To win a breach of contract claim in Texas, you must prove four things. Simple in theory — complex in practice, especially when the other party disputes the contract's terms, claims performance, or argues your damages are overstated.</p>
           <p><strong>This firm builds breach of contract cases the way a prosecutor builds a criminal case</strong> — with documented evidence, a clear narrative, and no reliance on the other side doing the right thing. We anticipate their defenses and dismantle them before they are raised.</p>
-          <a href="strategy-session.html" class="btn btn--primary" style="margin-top:8px;">Get a Case Assessment →</a>
+          <a href="tel:9564263550" class="btn btn--primary" style="margin-top:8px;">Call (956) 426-3550 →</a>
         </div>
         <div class="reveal">
           <div class="boc-law__elements">
@@ -302,6 +307,9 @@
   </section>
 
   <!-- ATTORNEY -->
+  <div style="background:var(--accent);padding:20px var(--gutter);text-align:center;">
+    <p style="font-family:var(--ff-serif);font-size:clamp(16px,1.8vw,21px);color:#fff;font-style:italic;margin:0;">Every day without action is leverage you are giving the other side. <a href="tel:9564263550" style="color:#fff;font-weight:700;font-style:normal;text-decoration:underline;">Call now — (956) 426-3550</a></p>
+  </div>
   <section class="section boc-attorney">
     <div class="container">
       <div class="boc-attorney__inner">
@@ -326,6 +334,7 @@
             <div class="boc-attorney__cred">Virtual · Serving all of Texas</div>
           </div>
           <a href="about.html" class="btn btn--ghost">Full Background →</a>
+          <a href="tel:9564263550" class="btn btn--primary" style="margin-left:12px;">Call to Discuss Your Case →</a>
         </div>
       </div>
     </div>
@@ -335,9 +344,42 @@
   <section class="section boc-review">
     <div class="container">
       <div class="boc-review__inner reveal">
-        <div class="boc-review__stars">★★★★★</div>
-        <div class="boc-review__quote">"I cannot recommend Octavia enough. She is an incredible attorney who is both passionate about her work and deeply committed to her clients. What sets her apart is her rare combination of warmth and professionalism — a calming, reassuring presence while also being razor-sharp and thorough. You always know she truly cares and is fighting for the best possible outcome."</div>
-        <div class="boc-review__attr">Jenn · Texas · Google Review</div>
+        <div class="boc-review__stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="boc-review__quote">"Mrs. Martinez was highly professional, efficient, and knowledgeable in handling my case from the beginning. Thanks to her expertise and prompt attention, we were able to resolve the matter within just two weeks with the best possible outcome. She communicates with you every step of the way, and was always available when I needed to reach out. I wholeheartedly recommend her to anyone in need of legal counsel."</div>
+        <div class="boc-review__attr">M.T. · Texas · Google Review</div>
+        <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
+          <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+          <a href="strategy-session.html" class="btn btn--outline">Book a Strategy Session</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GEOGRAPHY -->
+  <section class="section boc-geo">
+    <div class="container">
+      <div class="boc-geo__inner">
+        <div class="reveal">
+          <div class="eyebrow" style="margin-bottom:14px;">Where We Serve</div>
+          <div class="rule"></div>
+          <h2>Breach of contract litigation across all of Texas.</h2>
+          <p>Contract disputes do not require you to be in the same city as your attorney. This firm is fully virtual and accepts civil litigation matters statewide.</p>
+          <div style="margin:20px 0;">
+            <span class="boc-geo__tag">All of Texas</span>
+          </div>
+          <div class="boc-geo__virtual">
+            <p><strong style="color:var(--dark);">Fully virtual representation.</strong> Contract review, demand letters, court filings, and litigation strategy — all handled remotely without requiring an office visit at any stage.</p>
+          </div>
+          <a href="defamation.html" style="display:inline-block;margin-top:20px;color:var(--accent);font-size:14px;font-weight:700;">Reputation under attack? See Defamation Defense →</a>
+        </div>
+        <img
+          src="images/texas-employment-law-attorney.jpg"
+          alt="Texas flags — Breach of contract attorney serving all of Texas"
+          class="boc-geo__img reveal"
+          width="900"
+          height="420"
+          loading="lazy"
+        />
       </div>
     </div>
   </section>
@@ -364,38 +406,9 @@
           <div class="boc-corrective__card-label">Get an Assessment</div>
           <h3>One strategy session. A clear picture of where your case stands and what corrective action looks like.</h3>
           <p>Paid session. No sales pitch. Real legal analysis applied to your specific facts — and honest direction on whether we can help and how quickly we can move.</p>
-          <a href="https://octaviamartinezlaw.cliogrow.com/book/05558212793e35d7ef5df6a9349d47ae" target="_blank" rel="noopener noreferrer" class="btn btn--primary" style="display:block;text-align:center;margin-bottom:14px;">Book Online →</a>
-          <a href="tel:9564263550" style="display:block;text-align:center;font-family:var(--ff-serif);font-size:22px;color:var(--accent);text-decoration:none;">(956) 426-3550</a>
+          <a href="tel:9564263550" class="btn btn--primary" style="display:block;text-align:center;margin-bottom:14px;">Call (956) 426-3550</a>
+          <a href="strategy-session.html" style="display:block;text-align:center;font-family:var(--ff-serif);font-size:18px;color:var(--accent);text-decoration:none;">or Book a Strategy Session →</a>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GEOGRAPHY -->
-  <section class="section boc-geo">
-    <div class="container">
-      <div class="boc-geo__inner">
-        <div class="reveal">
-          <div class="eyebrow" style="margin-bottom:14px;">Where We Serve</div>
-          <div class="rule"></div>
-          <h2>Breach of contract litigation across all of Texas.</h2>
-          <p>Contract disputes do not require you to be in the same city as your attorney. This firm is fully virtual and accepts civil litigation matters statewide.</p>
-          <div style="margin:20px 0;">
-            <span class="boc-geo__tag">All of Texas</span>
-          </div>
-          <div class="boc-geo__virtual">
-            <p><strong style="color:var(--dark);">Fully virtual representation.</strong> Contract review, demand letters, court filings, and litigation strategy — all handled remotely without requiring an office visit at any stage.</p>
-          </div>
-          <a href="employment-law.html" style="display:inline-block;margin-top:20px;color:var(--accent);font-size:14px;font-weight:700;">Employment contract dispute instead? See Employment Law →</a>
-        </div>
-        <img
-          src="images/texas-employment-law-attorney.jpg"
-          alt="Texas flags — Breach of contract attorney serving all of Texas"
-          class="boc-geo__img reveal"
-          width="900"
-          height="420"
-          loading="lazy"
-        />
       </div>
     </div>
   </section>
@@ -408,8 +421,8 @@
         <h2>Know where you stand<br><em>before you decide how to move.</em></h2>
         <p>One strategy session. A frank assessment of your contract, your damages, and the most effective path forward.</p>
         <div class="boc-cta__btns">
-          <a href="strategy-session.html" class="btn btn--primary">Book Your Strategy Session</a>
-          <a href="tel:9564263550" class="btn btn--outline">Call (956) 426-3550</a>
+          <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+          <a href="strategy-session.html" class="btn btn--outline">Book a Strategy Session</a>
         </div>
       </div>
     </div>
