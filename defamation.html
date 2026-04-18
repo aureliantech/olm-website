@@ -142,6 +142,21 @@
     .def-cta h2 em { color: var(--accent-lite); }
     .def-cta p { font-size: 16px; color: rgba(250,246,240,0.6); max-width: 520px; margin: 0 auto 32px; line-height: 1.7; }
     .def-cta__btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+
+    /* LUX WORD SPLIT */
+    .lux-word { display: inline-block; }
+    .lux-word--em em {
+      background: linear-gradient(90deg, var(--accent-lite), var(--accent), var(--accent-lite));
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmerText 4s linear 2s infinite;
+    }
+    @keyframes shimmerText {
+      0%   { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
   </style>
 </head>
 <body>
@@ -436,5 +451,174 @@
   <!-- FOOTER -->
   <div id="site-footer"></div>
   <script src="js/global.js"></script>
+  <script>
+  /* ── LUXURY TEXT ANIMATIONS ── */
+  (function() {
+    'use strict';
+
+    function luxSplitWords(el, baseDelay, wordGap, fromY, blurAmt) {
+      fromY   = fromY   !== undefined ? fromY   : 14;
+      blurAmt = blurAmt !== undefined ? blurAmt : 5;
+      wordGap = wordGap !== undefined ? wordGap : 0.09;
+
+      function processNodes(parent, container) {
+        Array.from(parent.childNodes).forEach(function(node) {
+          if (node.nodeType === Node.TEXT_NODE) {
+            node.textContent.split(/\s+/).filter(Boolean).forEach(function(word) {
+              var span = document.createElement('span');
+              span.className = 'lux-word';
+              span.textContent = word;
+              container.appendChild(span);
+              container.appendChild(document.createTextNode(' '));
+            });
+          } else if (node.nodeName === 'BR') {
+            container.appendChild(document.createElement('br'));
+          } else if (node.nodeName === 'EM' || node.nodeName === 'STRONG') {
+            var wrapper = document.createElement('span');
+            wrapper.className = 'lux-word lux-word--em';
+            var tag = document.createElement(node.nodeName.toLowerCase());
+            tag.innerHTML = node.innerHTML;
+            wrapper.appendChild(tag);
+            container.appendChild(wrapper);
+            container.appendChild(document.createTextNode(' '));
+          } else if (node.nodeName === 'A') {
+            var clone = node.cloneNode(false);
+            processNodes(node, clone);
+            container.appendChild(clone);
+          } else {
+            container.appendChild(node.cloneNode(true));
+          }
+        });
+      }
+
+      var frag = document.createDocumentFragment();
+      processNodes(el, frag);
+      el.innerHTML = '';
+      el.appendChild(frag);
+
+      var words = el.querySelectorAll('.lux-word');
+      words.forEach(function(w, i) {
+        w.style.opacity   = '0';
+        w.style.filter    = 'blur(' + blurAmt + 'px)';
+        w.style.transform = 'translateY(' + fromY + 'px)';
+        w.style.display   = 'inline-block';
+        var d = baseDelay + i * wordGap;
+        w.style.transition =
+          'opacity 1.05s cubic-bezier(0.25,0.46,0.45,0.94) ' + d + 's,' +
+          'transform 1.15s cubic-bezier(0.16,1,0.3,1) '       + d + 's,' +
+          'filter 1.0s cubic-bezier(0.25,0.46,0.45,0.94) '    + d + 's';
+      });
+      return words;
+    }
+
+    function luxRevealWords(words) {
+      requestAnimationFrame(function() { requestAnimationFrame(function() {
+        words.forEach(function(w) {
+          w.style.opacity   = '1';
+          w.style.transform = 'translateY(0)';
+          w.style.filter    = 'blur(0px)';
+        });
+      }); });
+    }
+
+    function luxRevealEl(el, delay, fromX) {
+      el.style.opacity   = '0';
+      el.style.filter    = 'blur(5px)';
+      el.style.transform = fromX ? 'translateX(' + fromX + 'px)' : 'translateY(14px)';
+      el.style.transition =
+        'opacity 1.1s cubic-bezier(0.25,0.46,0.45,0.94) ' + delay + 's,' +
+        'transform 1.2s cubic-bezier(0.16,1,0.3,1) '       + delay + 's,' +
+        'filter 1.0s cubic-bezier(0.25,0.46,0.45,0.94) '   + delay + 's';
+      requestAnimationFrame(function() { requestAnimationFrame(function() {
+        el.style.opacity   = '1';
+        el.style.transform = 'none';
+        el.style.filter    = 'blur(0px)';
+      }); });
+    }
+
+    /* Hero: animate on DOMContentLoaded */
+    document.addEventListener('DOMContentLoaded', function() {
+      var hero   = document.querySelector('[class*="-hero"]');
+      if (!hero) return;
+      var eyebrow = hero.querySelector('.eyebrow');
+      var h1      = hero.querySelector('h1');
+      var lead    = hero.querySelector('[class*="__lead"], [class*="__sub"]');
+      var ctas    = hero.querySelector('[class*="__ctas"]');
+      var panel   = hero.querySelector('[class*="__checklist"], [class*="__glance"]');
+
+      if (eyebrow) { var ew = luxSplitWords(eyebrow, 0.1, 0.06, 8,  3); luxRevealWords(ew); }
+      if (h1)      { var hw = luxSplitWords(h1,      0.3, 0.09, 18, 7); luxRevealWords(hw); }
+      if (lead)    { var lw = luxSplitWords(lead,    0.6, 0.04, 10, 4); luxRevealWords(lw); }
+      if (ctas)    luxRevealEl(ctas,  0.85, 0);
+      if (panel)   luxRevealEl(panel, 0.5,  20);
+    });
+
+    /* Scroll: all .reveal elements */
+    var revealEls = document.querySelectorAll('.reveal');
+    var luxIO = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        luxIO.unobserve(el);
+
+        var sectionDelay = 0;
+        if (el.classList.contains('delay-1')) sectionDelay = 0.05;
+        if (el.classList.contains('delay-2')) sectionDelay = 0.12;
+        if (el.classList.contains('delay-3')) sectionDelay = 0.20;
+
+        var h2s  = el.matches('h2')  ? [el] : Array.from(el.querySelectorAll('h2'));
+        var h3s  = el.matches('h3')  ? [el] : Array.from(el.querySelectorAll('h3'));
+        var eybs = el.classList.contains('eyebrow') ? [el] : Array.from(el.querySelectorAll('.eyebrow'));
+        var pars = el.matches('p')   ? [el] : Array.from(el.querySelectorAll('p'));
+
+        var cursor = sectionDelay;
+
+        eybs.forEach(function(e) {
+          var w = luxSplitWords(e, cursor, 0.07, 10, 3);
+          luxRevealWords(w); cursor += 0.05;
+        });
+        h2s.forEach(function(h) {
+          var w = luxSplitWords(h, cursor, 0.1, 16, 6);
+          luxRevealWords(w); cursor += w.length * 0.1 + 0.05;
+        });
+        h3s.forEach(function(h) {
+          var w = luxSplitWords(h, cursor, 0.09, 14, 5);
+          luxRevealWords(w); cursor += w.length * 0.09 + 0.04;
+        });
+        pars.forEach(function(p) {
+          var w = luxSplitWords(p, cursor, 0.04, 10, 4);
+          luxRevealWords(w); cursor += 0.12;
+        });
+
+        var hasText = h2s.length || h3s.length || eybs.length || pars.length;
+        if (!hasText) {
+          var fromX = el.classList.contains('reveal-left') ? -28 :
+                      el.classList.contains('reveal-right') ? 28 : 0;
+          el.style.opacity   = '0';
+          el.style.filter    = 'blur(6px)';
+          el.style.transform = fromX ? 'translateX(' + fromX + 'px)' : 'translateY(20px)';
+          el.style.transition =
+            'opacity 1.1s cubic-bezier(0.25,0.46,0.45,0.94) ' + sectionDelay + 's,' +
+            'transform 1.2s cubic-bezier(0.16,1,0.3,1) '       + sectionDelay + 's,' +
+            'filter 1.0s cubic-bezier(0.25,0.46,0.45,0.94) '   + sectionDelay + 's';
+          requestAnimationFrame(function() { requestAnimationFrame(function() {
+            el.style.opacity   = '1';
+            el.style.transform = 'none';
+            el.style.filter    = 'blur(0px)';
+          }); });
+        }
+        el.classList.add('visible');
+      });
+    }, { threshold: 0.07, rootMargin: '0px 0px -20px 0px' });
+
+    revealEls.forEach(function(el) { luxIO.observe(el); });
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('[class*="-hero"] h1, [class*="-hero"] .eyebrow, [class*="-hero__lead"], [class*="-hero__sub"]').forEach(function(el) {
+        el.style.opacity = '1'; el.style.transform = 'none'; el.style.animation = 'none';
+      });
+    }
+  })();
+  </script>
 </body>
 </html>
