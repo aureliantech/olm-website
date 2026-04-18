@@ -11,13 +11,37 @@
   <link rel="stylesheet" href="css/global.css" />
   <style>
     /* HERO */
-    .ss-hero { background: var(--dark); padding: 140px var(--gutter) 90px; position: relative; overflow: hidden; }
+    .ss-hero { background: var(--dark); min-height: 100svh; display: flex; align-items: center; padding: 120px var(--gutter) 80px; position: relative; overflow: hidden; }
     .ss-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 100% 0%, rgba(232,114,42,0.07) 0%, transparent 55%), linear-gradient(150deg, #0a0806 0%, #1A1221 55%, #2B2438 100%); }
-    .ss-hero__inner { position: relative; z-index: 2; max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .ss-hero__inner { position: relative; z-index: 2; width: 100%; max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
     .ss-hero h1 { font-size: clamp(32px, 4.5vw, 56px); color: var(--bg); line-height: 1.06; margin-bottom: 22px; }
-    .ss-hero h1 em { color: var(--accent-lite); font-style: italic; }
+    .ss-hero h1 em {
+      font-style: italic;
+      background: linear-gradient(90deg, var(--accent-lite), var(--accent), var(--accent-lite));
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmerText 4s linear 2s infinite;
+    }
+    @keyframes shimmerText {
+      0%   { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
     .ss-hero__lead { font-size: clamp(16px, 1.8vw, 19px); color: rgba(250,246,240,0.7); line-height: 1.75; margin-bottom: 32px; max-width: 520px; }
     .ss-hero__trust { margin-top: 24px; font-size: 13px; color: rgba(250,246,240,0.35); letter-spacing: 0.06em; }
+
+
+    /* LUX WORD SPLIT */
+    .lux-word { display: inline-block; }
+    .lux-word--em em {
+      background: linear-gradient(90deg, var(--accent-lite), var(--accent), var(--accent-lite));
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmerText 4s linear 2s infinite;
+    }
 
     /* Booking card — matches medpro design */
     .ss-booking-card {
@@ -158,7 +182,7 @@
 
     /* ATTORNEY + FINAL BOOK */
     .ss-close { background: var(--dark); }
-    .ss-close__inner { display: grid; grid-template-columns: 280px 1fr; gap: 64px; align-items: center; }
+    .ss-close__inner { width: 100%; display: grid; grid-template-columns: 280px 1fr; gap: 64px; align-items: center; }
     .ss-close__photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center top; }
     .ss-close__badge { background: rgba(43,36,56,0.8); padding: 14px 20px; }
     .ss-close__badge-name { font-family: var(--ff-serif); font-size: 17px; color: var(--bg); }
@@ -182,17 +206,17 @@
           <span style="width:32px;height:2px;background:var(--accent);display:inline-block;"></span>
           Strategy Session
         </div>
-        <h1>The strategy session is not<br>a sales call.<br><em>It's the first hour<br>of your case.</em></h1>
-        <p class="ss-hero__lead">We do not offer free strategy sessions. The strategy session is one hour of real legal analysis applied to your specific situation. You leave knowing exactly where you stand and what your options are.</p>
-        <p class="ss-hero__trust">Virtual · Paid · No commitment to further representation</p>
+        <h1>The strategy session is not a sales call. <em>It's the first 30 minutes of your case.</em></h1>
+        <p class="ss-hero__lead">We do not offer free strategy sessions. This is 30 minutes of real legal analysis applied to your specific situation — at a discounted rate for first-time clients. You leave knowing exactly where you stand and what your options are.</p>
+        <p class="ss-hero__trust">Virtual · 30 Minutes · Discounted First-Session Rate · No commitment to further representation</p>
       </div>
 
       <div class="ss-booking-card reveal">
         <div class="ss-booking-card__price-badge">
           <span class="ss-booking-card__price-amount">$150</span>
-          <span class="ss-booking-card__price-label">Strategy Session</span>
+          <span class="ss-booking-card__price-label">· 30-Min Strategy Session</span>
         </div>
-        <p class="ss-booking-card__credit">Credited in full toward your retainer if you proceed.</p>
+        <p class="ss-booking-card__credit">Discounted first-session rate. Credited in full toward your retainer if you proceed.</p>
         <h2>Book Online Now</h2>
         <p>Select a time that works. The attorney reviews your situation before the session.</p>
         <a href="https://octaviamartinezlaw.cliogrow.com/book/05558212793e35d7ef5df6a9349d47ae" target="_blank" rel="noopener noreferrer" class="ss-booking-card__cta">Schedule My Strategy Session →</a>
@@ -212,7 +236,7 @@
         <div class="eyebrow" style="margin-bottom:12px;">What the Session Delivers</div>
         <div class="rule rule--center"></div>
         <h2>Exactly what you receive — no varnish.</h2>
-        <p>One session. Real analysis. Clear direction. Whether or not you retain this firm afterward, what you learn in this session is yours.</p>
+        <p>30 minutes. Real analysis. Clear direction. Whether or not you retain this firm afterward, what you learn in this session is yours.</p>
       </div>
       <div class="ss-deliverables__grid">
         <div class="ss-deliverable reveal">
@@ -339,8 +363,8 @@
           <p>This firm does not have an onboarding queue, a junior associate review period, or a waiting room between retention and action. The session is the assessment. If you decide to retain this firm, work starts the same day.</p>
           <p>For urgent matters — active investigations, imminent hearings, situations where evidence needs to be preserved — communicate the urgency when booking and it will be addressed in the session.</p>
           <div class="ss-close__btns">
-            <a href="https://octaviamartinezlaw.cliogrow.com/book/05558212793e35d7ef5df6a9349d47ae" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Book Online Now →</a>
-            <a href="tel:9564263550" class="btn btn--outline">Call (956) 426-3550</a>
+            <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+            <a href="https://octaviamartinezlaw.cliogrow.com/book/05558212793e35d7ef5df6a9349d47ae" target="_blank" rel="noopener noreferrer" class="btn btn--outline">Book Online →</a>
           </div>
         </div>
       </div>
@@ -349,5 +373,54 @@
 
   <div id="site-footer"></div>
   <script src="js/global.js"></script>
+  <script>
+  (function() {
+    'use strict';
+    function luxSplitWords(el, baseDelay, wordGap, fromY, blurAmt) {
+      fromY=fromY!==undefined?fromY:14; blurAmt=blurAmt!==undefined?blurAmt:5; wordGap=wordGap!==undefined?wordGap:0.09;
+      function processNodes(parent,container){Array.from(parent.childNodes).forEach(function(node){if(node.nodeType===Node.TEXT_NODE){node.textContent.split(/\s+/).filter(Boolean).forEach(function(word){var span=document.createElement('span');span.className='lux-word';span.textContent=word;container.appendChild(span);container.appendChild(document.createTextNode(' '));});}else if(node.nodeName==='BR'){container.appendChild(document.createElement('br'));}else if(node.nodeName==='EM'||node.nodeName==='STRONG'){var wrapper=document.createElement('span');wrapper.className='lux-word lux-word--em';var tag=document.createElement(node.nodeName.toLowerCase());tag.innerHTML=node.innerHTML;wrapper.appendChild(tag);container.appendChild(wrapper);container.appendChild(document.createTextNode(' '));}else if(node.nodeName==='A'){var clone=node.cloneNode(false);processNodes(node,clone);container.appendChild(clone);}else{container.appendChild(node.cloneNode(true));}});}
+      var frag=document.createDocumentFragment(); processNodes(el,frag); el.innerHTML=''; el.appendChild(frag);
+      var words=el.querySelectorAll('.lux-word');
+      words.forEach(function(w,i){w.style.opacity='0';w.style.filter='blur('+blurAmt+'px)';w.style.transform='translateY('+fromY+'px)';w.style.display='inline-block';var d=baseDelay+i*wordGap;w.style.transition='opacity 1.05s cubic-bezier(0.25,0.46,0.45,0.94) '+d+'s,transform 1.15s cubic-bezier(0.16,1,0.3,1) '+d+'s,filter 1.0s cubic-bezier(0.25,0.46,0.45,0.94) '+d+'s';});
+      return words;
+    }
+    function luxRevealWords(words){requestAnimationFrame(function(){requestAnimationFrame(function(){words.forEach(function(w){w.style.opacity='1';w.style.transform='translateY(0)';w.style.filter='blur(0px)';});});});}
+    function luxRevealEl(el,delay,fromX){el.style.opacity='0';el.style.filter='blur(5px)';el.style.transform=fromX?'translateX('+fromX+'px)':'translateY(14px)';el.style.transition='opacity 1.1s cubic-bezier(0.25,0.46,0.45,0.94) '+delay+'s,transform 1.2s cubic-bezier(0.16,1,0.3,1) '+delay+'s,filter 1.0s cubic-bezier(0.25,0.46,0.45,0.94) '+delay+'s';requestAnimationFrame(function(){requestAnimationFrame(function(){el.style.opacity='1';el.style.transform='none';el.style.filter='blur(0px)';});});}
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var hero = document.querySelector('.ss-hero');
+      if (!hero) return;
+      var eyebrow = hero.querySelector('.eyebrow');
+      var h1 = hero.querySelector('h1');
+      var lead = hero.querySelector('.ss-hero__lead');
+      var trust = hero.querySelector('.ss-hero__trust');
+      var card = hero.querySelector('.ss-booking-card');
+      if (eyebrow) { var ew = luxSplitWords(eyebrow, 0.1, 0.06, 8, 3); luxRevealWords(ew); }
+      if (h1)      { var hw = luxSplitWords(h1, 0.3, 0.09, 18, 7); luxRevealWords(hw); }
+      if (lead)    { var lw = luxSplitWords(lead, 0.65, 0.04, 10, 4); luxRevealWords(lw); }
+      if (trust)   luxRevealEl(trust, 0.9, 0);
+      if (card)    luxRevealEl(card, 0.4, 20);
+    });
+
+    var revealEls = document.querySelectorAll('.reveal');
+    var luxIO = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target; luxIO.unobserve(el);
+        var h2s=el.matches('h2')?[el]:Array.from(el.querySelectorAll('h2'));
+        var eybs=el.classList.contains('eyebrow')?[el]:Array.from(el.querySelectorAll('.eyebrow'));
+        var pars=el.matches('p')?[el]:Array.from(el.querySelectorAll('p'));
+        var cursor=0;
+        eybs.forEach(function(e){var w=luxSplitWords(e,cursor,0.07,10,3);luxRevealWords(w);cursor+=0.05;});
+        h2s.forEach(function(h){var w=luxSplitWords(h,cursor,0.1,16,6);luxRevealWords(w);cursor+=w.length*0.1+0.05;});
+        pars.forEach(function(p){var w=luxSplitWords(p,cursor,0.04,10,4);luxRevealWords(w);cursor+=0.12;});
+        var hasText=h2s.length||eybs.length||pars.length;
+        if(!hasText){el.style.opacity='0';el.style.filter='blur(6px)';el.style.transform='translateY(20px)';el.style.transition='opacity 1.1s cubic-bezier(0.25,0.46,0.45,0.94) 0s,transform 1.2s cubic-bezier(0.16,1,0.3,1) 0s,filter 1.0s cubic-bezier(0.25,0.46,0.45,0.94) 0s';requestAnimationFrame(function(){requestAnimationFrame(function(){el.style.opacity='1';el.style.transform='none';el.style.filter='blur(0px)';});});}
+        el.classList.add('visible');
+      });
+    }, { threshold: 0.07, rootMargin: '0px 0px -20px 0px' });
+    revealEls.forEach(function(el){luxIO.observe(el);});
+  })();
+  </script>
 </body>
 </html>
