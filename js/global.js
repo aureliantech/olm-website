@@ -149,18 +149,18 @@
             <div class="apx__link-desc">What happens &amp; when to act</div>
           </div>
         </a>
+        <a href="/texas-medical-attorney/index.html" class="apx__link apx__link--cta" style="background:rgba(232,114,42,0.12);border-left:3px solid var(--accent);">
+          <span class="apx__link-num" style="color:var(--accent);">→</span>
+          <div class="apx__link-body">
+            <div class="apx__link-title" style="color:var(--accent-lite);">View All Medical Professional Services</div>
+            <div class="apx__link-desc">View the full scope of representation</div>
+          </div>
+        </a>
         <a href="/transfer-your-case.html" class="apx__link apx__link--cta">
           <span class="apx__link-num">→</span>
           <div class="apx__link-body">
             <div class="apx__link-title">Transfer Your Case</div>
             <div class="apx__link-desc">Prior counsel failed you? We intervene</div>
-          </div>
-        </a>
-        <a href="/texas-medical-attorney/index.html" class="apx__link apx__link--cta">
-          <span class="apx__link-num">→</span>
-          <div class="apx__link-body">
-            <div class="apx__link-title">View All Medical Professional Services</div>
-            <div class="apx__link-desc">View the full scope of representation</div>
           </div>
         </a>
       </div>
@@ -269,10 +269,10 @@
           <div class="footer__heading">Firm</div>
           <nav class="footer__links" aria-label="Firm links">
             <a href="/about.html">About Octavia</a>
-            <a href="/transfer-your-case.html">Transfer Your Case</a>
             <a href="/faq.html">FAQ</a>
             <a href="/strategy-session.html">Book Strategy Session</a>
             <a href="/contact.html">Contact</a>
+            <a href="/transfer-your-case.html" style="color:var(--accent);font-weight:700;">Transfer Your Case →</a>
           </nav>
         </div>
       </div>
