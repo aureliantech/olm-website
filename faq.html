@@ -10,12 +10,37 @@
   <link rel="apple-touch-icon" href="favicon.png">
   <link rel="stylesheet" href="css/global.css" />
   <style>
-    .faq-hero { background: var(--dark); padding: 140px var(--gutter) 80px; position: relative; overflow: hidden; }
+    .faq-hero { background: var(--dark); min-height: 100svh; display: flex; align-items: center; padding: 120px var(--gutter) 80px; position: relative; overflow: hidden; }
     .faq-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 100% 0%, rgba(232,114,42,0.07) 0%, transparent 55%), linear-gradient(150deg, #0a0806 0%, #1A1221 55%, #2B2438 100%); }
-    .faq-hero__inner { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; }
+    .faq-hero__inner { position: relative; z-index: 2; width: 100%; max-width: 720px; margin: 0 auto; }
     .faq-hero h1 { font-size: clamp(34px, 4.5vw, 58px); color: var(--bg); line-height: 1.06; margin-bottom: 20px; }
-    .faq-hero h1 em { color: var(--accent-lite); font-style: italic; }
-    .faq-hero__sub { font-size: clamp(16px, 1.8vw, 19px); color: rgba(250,246,240,0.7); line-height: 1.75; max-width: 560px; }
+    .faq-hero h1 em {
+      font-style: italic;
+      background: linear-gradient(90deg, var(--accent-lite), var(--accent), var(--accent-lite));
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmerText 4s linear 2s infinite;
+    }
+    @keyframes shimmerText {
+      0%   { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+    .faq-hero__sub { font-size: clamp(16px, 1.8vw, 19px); color: rgba(250,246,240,0.7); line-height: 1.75; max-width: 560px; margin-bottom: 36px; }
+    .faq-hero__ctas { display: flex; flex-wrap: wrap; gap: 14px; }
+
+
+    /* LUX WORD SPLIT */
+    .lux-word { display: inline-block; }
+    .lux-word--em em {
+      background: linear-gradient(90deg, var(--accent-lite), var(--accent), var(--accent-lite));
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmerText 4s linear 2s infinite;
+    }
 
     /* FAQ BODY */
     .faq-body { background: var(--bg); }
@@ -83,8 +108,12 @@
         <span style="width:32px;height:2px;background:var(--accent);display:inline-block;"></span>
         Frequently Asked Questions
       </div>
-      <h1>Everything you need to know<br>before you <em>decide.</em></h1>
+      <h1>Everything you need to know before you <em>decide.</em></h1>
       <p class="faq-hero__sub">If your question is not answered here, the strategy session will address it directly. That is what it is for.</p>
+      <div class="faq-hero__ctas">
+        <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+        <a href="strategy-session.html" class="btn btn--outline">Book a Strategy Session</a>
+      </div>
     </div>
   </section>
 
@@ -202,7 +231,7 @@
               <div class="faq-answer">
                 <div class="faq-answer__inner">
                   <p>This firm is licensed in Texas and Arizona and serves clients across both states. The virtual model means your location within either state is not a limitation — we handle matters in Dallas, Houston, San Antonio, Phoenix, Tucson, and everywhere in between.</p>
-                  <p>Some practice areas have more limited geographic scope — probate and estate planning services are primarily concentrated in the Rio Grande Valley (Hidalgo, Cameron, and Willacy County). Employment law, civil litigation, defamation, and business matters are handled statewide across Texas and Arizona.</p>
+                  <p>Some practice areas have more limited geographic scope — probate and estate matters are primarily concentrated in the Rio Grande Valley (Hidalgo, Cameron, and Willacy County). Civil litigation, defamation, medical malpractice, and business matters are handled statewide across Texas and Arizona.</p>
                 </div>
               </div>
             </div>
@@ -245,7 +274,7 @@
               </button>
               <div class="faq-answer">
                 <div class="faq-answer__inner">
-                  <p>No. This firm does not handle family law (divorce, custody, child support), criminal defense, or traffic matters. The firm's practice is limited to civil litigation, employment law, defamation, estate matters, and medical professional defense.</p>
+                  <p>No. This firm does not handle family law (divorce, custody, child support), criminal defense, or traffic matters. The firm's practice is limited to civil litigation, defamation, medical malpractice, estate matters, and medical professional defense.</p>
                   <p>If you are unsure whether your matter falls within our scope, the fastest way to find out is to call — we will tell you directly whether we can help or refer you to someone who can.</p>
                 </div>
               </div>
@@ -276,17 +305,17 @@
           </div>
           <div class="faq-sidebar-card">
             <h3>What We Handle</h3>
-            <p>Complex Probate &amp; Estate · Wills &amp; POA · Employment Law · Breach of Contract · Defamation · Medical Professional Defense</p>
+            <p>Medical Malpractice · Complex Probate &amp; Estate · Breach of Contract · Defamation &amp; Libel · Medical Professional Defense</p>
           </div>
           <div class="faq-sidebar-card">
             <h3>What We Don't Handle</h3>
-            <p>Divorce · Child custody · Criminal defense · Traffic matters · Personal injury</p>
+            <p>Divorce · Child custody · Criminal defense · Traffic matters</p>
           </div>
           <div class="faq-sidebar-cta">
             <h3>Ready to get started?</h3>
             <p>Book a paid strategy session — the first step of real legal work.</p>
-            <a href="strategy-session.html" class="btn btn--primary" style="display:block;text-align:center;margin-bottom:12px;">Book a Strategy Session →</a>
-            <a href="tel:9564263550" style="display:block;font-family:var(--ff-serif);font-size:20px;color:var(--accent-lite);text-decoration:none;text-align:center;">(956) 426-3550</a>
+            <a href="tel:9564263550" class="btn btn--primary" style="display:block;text-align:center;margin-bottom:12px;">Call (956) 426-3550</a>
+            <a href="strategy-session.html" style="display:block;font-family:var(--ff-serif);font-size:18px;color:var(--accent-lite);text-decoration:none;text-align:center;">or Book a Strategy Session →</a>
           </div>
         </div>
       </div>
@@ -301,8 +330,8 @@
         <h2>The fastest answer is<br><em>a direct conversation.</em></h2>
         <p>The strategy session is specifically designed to address your situation — not a general overview of the law. Book one and leave with clarity.</p>
         <div class="faq-cta__btns">
-          <a href="strategy-session.html" class="btn btn--primary">Book a Strategy Session</a>
-          <a href="tel:9564263550" class="btn btn--outline">Call (956) 426-3550</a>
+          <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+          <a href="strategy-session.html" class="btn btn--outline">Book a Strategy Session</a>
         </div>
       </div>
     </div>
@@ -325,6 +354,138 @@
         }
       });
     });
+  </script>
+  <script>
+  /* ── LUXURY TEXT ANIMATIONS ── */
+  (function() {
+    'use strict';
+
+    function luxSplitWords(el, baseDelay, wordGap, fromY, blurAmt) {
+      fromY   = fromY   !== undefined ? fromY   : 14;
+      blurAmt = blurAmt !== undefined ? blurAmt : 5;
+      wordGap = wordGap !== undefined ? wordGap : 0.09;
+
+      function processNodes(parent, container) {
+        Array.from(parent.childNodes).forEach(function(node) {
+          if (node.nodeType === Node.TEXT_NODE) {
+            node.textContent.split(/\s+/).filter(Boolean).forEach(function(word) {
+              var span = document.createElement('span');
+              span.className = 'lux-word';
+              span.textContent = word;
+              container.appendChild(span);
+              container.appendChild(document.createTextNode(' '));
+            });
+          } else if (node.nodeName === 'BR') {
+            container.appendChild(document.createElement('br'));
+          } else if (node.nodeName === 'EM' || node.nodeName === 'STRONG') {
+            var wrapper = document.createElement('span');
+            wrapper.className = 'lux-word lux-word--em';
+            var tag = document.createElement(node.nodeName.toLowerCase());
+            tag.innerHTML = node.innerHTML;
+            wrapper.appendChild(tag);
+            container.appendChild(wrapper);
+            container.appendChild(document.createTextNode(' '));
+          } else if (node.nodeName === 'A') {
+            var clone = node.cloneNode(false);
+            processNodes(node, clone);
+            container.appendChild(clone);
+          } else {
+            container.appendChild(node.cloneNode(true));
+          }
+        });
+      }
+
+      var frag = document.createDocumentFragment();
+      processNodes(el, frag);
+      el.innerHTML = '';
+      el.appendChild(frag);
+
+      var words = el.querySelectorAll('.lux-word');
+      words.forEach(function(w, i) {
+        w.style.opacity   = '0';
+        w.style.filter    = 'blur(' + blurAmt + 'px)';
+        w.style.transform = 'translateY(' + fromY + 'px)';
+        w.style.display   = 'inline-block';
+        var d = baseDelay + i * wordGap;
+        w.style.transition =
+          'opacity 1.05s cubic-bezier(0.25,0.46,0.45,0.94) ' + d + 's,' +
+          'transform 1.15s cubic-bezier(0.16,1,0.3,1) '       + d + 's,' +
+          'filter 1.0s cubic-bezier(0.25,0.46,0.45,0.94) '    + d + 's';
+      });
+      return words;
+    }
+
+    function luxRevealWords(words) {
+      requestAnimationFrame(function() { requestAnimationFrame(function() {
+        words.forEach(function(w) {
+          w.style.opacity   = '1';
+          w.style.transform = 'translateY(0)';
+          w.style.filter    = 'blur(0px)';
+        });
+      }); });
+    }
+
+    function luxRevealEl(el, delay, fromX) {
+      el.style.opacity   = '0';
+      el.style.filter    = 'blur(5px)';
+      el.style.transform = fromX ? 'translateX(' + fromX + 'px)' : 'translateY(14px)';
+      el.style.transition =
+        'opacity 1.1s cubic-bezier(0.25,0.46,0.45,0.94) ' + delay + 's,' +
+        'transform 1.2s cubic-bezier(0.16,1,0.3,1) '       + delay + 's,' +
+        'filter 1.0s cubic-bezier(0.25,0.46,0.45,0.94) '   + delay + 's';
+      requestAnimationFrame(function() { requestAnimationFrame(function() {
+        el.style.opacity   = '1';
+        el.style.transform = 'none';
+        el.style.filter    = 'blur(0px)';
+      }); });
+    }
+
+    /* Hero on DOMContentLoaded */
+    document.addEventListener('DOMContentLoaded', function() {
+      var hero = document.querySelector('.faq-hero');
+      if (!hero) return;
+      var eyebrow = hero.querySelector('.eyebrow');
+      var h1      = hero.querySelector('h1');
+      var sub     = hero.querySelector('.faq-hero__sub');
+      var ctas    = hero.querySelector('.faq-hero__ctas');
+
+      if (eyebrow) { var ew = luxSplitWords(eyebrow, 0.1, 0.06, 8,  3); luxRevealWords(ew); }
+      if (h1)      { var hw = luxSplitWords(h1,      0.3, 0.09, 18, 7); luxRevealWords(hw); }
+      if (sub)     { var sw = luxSplitWords(sub,      0.65, 0.04, 10, 4); luxRevealWords(sw); }
+      if (ctas)    luxRevealEl(ctas, 0.9, 0);
+    });
+
+    /* Scroll reveal */
+    var revealEls = document.querySelectorAll('.reveal');
+    var luxIO = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        luxIO.unobserve(el);
+
+        var sectionDelay = 0;
+        var h2s  = el.matches('h2')  ? [el] : Array.from(el.querySelectorAll('h2'));
+        var h3s  = el.matches('h3')  ? [el] : Array.from(el.querySelectorAll('h3'));
+        var eybs = el.classList.contains('eyebrow') ? [el] : Array.from(el.querySelectorAll('.eyebrow'));
+        var pars = el.matches('p')   ? [el] : Array.from(el.querySelectorAll('p'));
+
+        var cursor = sectionDelay;
+        eybs.forEach(function(e) { var w = luxSplitWords(e, cursor, 0.07, 10, 3); luxRevealWords(w); cursor += 0.05; });
+        h2s.forEach(function(h)  { var w = luxSplitWords(h, cursor, 0.1, 16, 6);  luxRevealWords(w); cursor += w.length * 0.1 + 0.05; });
+        h3s.forEach(function(h)  { var w = luxSplitWords(h, cursor, 0.09, 14, 5); luxRevealWords(w); cursor += w.length * 0.09 + 0.04; });
+        pars.forEach(function(p) { var w = luxSplitWords(p, cursor, 0.04, 10, 4); luxRevealWords(w); cursor += 0.12; });
+
+        var hasText = h2s.length || h3s.length || eybs.length || pars.length;
+        if (!hasText) {
+          el.style.opacity = '0'; el.style.filter = 'blur(6px)'; el.style.transform = 'translateY(20px)';
+          el.style.transition = 'opacity 1.1s cubic-bezier(0.25,0.46,0.45,0.94) 0s,transform 1.2s cubic-bezier(0.16,1,0.3,1) 0s,filter 1.0s cubic-bezier(0.25,0.46,0.45,0.94) 0s';
+          requestAnimationFrame(function() { requestAnimationFrame(function() { el.style.opacity = '1'; el.style.transform = 'none'; el.style.filter = 'blur(0px)'; }); });
+        }
+        el.classList.add('visible');
+      });
+    }, { threshold: 0.07, rootMargin: '0px 0px -20px 0px' });
+    revealEls.forEach(function(el) { luxIO.observe(el); });
+  })();
   </script>
 </body>
 </html>
