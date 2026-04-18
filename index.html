@@ -706,15 +706,28 @@
     }
     .apx__link:hover::before { transform: scaleY(1); }
 
-    /* Restore medpro shimmer sweep — overrides the bar above */
-    .apx__link--medpro-cta { opacity: 1 !important; transform: none !important; }
+    /* Restore medpro shimmer — exempt from all homepage link animation */
+    .apx__link--medpro-cta,
+    .apx__panel.open .apx__link--medpro-cta,
+    .apx__panel.open .apx__link--medpro-cta:nth-child(1),
+    .apx__panel.open .apx__link--medpro-cta:nth-child(2),
+    .apx__panel.open .apx__link--medpro-cta:nth-child(3),
+    .apx__panel.open .apx__link--medpro-cta:nth-child(4),
+    .apx__panel.open .apx__link--medpro-cta:nth-child(5),
+    .apx__panel.open .apx__link--medpro-cta:nth-child(6),
+    .apx__panel.open .apx__link--medpro-cta:nth-child(7) {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: background 0.4s ease, box-shadow 0.4s ease !important;
+      transition-delay: 0s !important;
+    }
     .apx__link--medpro-cta::before {
       content: ''; position: absolute;
-      top: 0; left: -120%; bottom: 0; width: 70%;
+      top: 0; left: -120%; bottom: 0;
       background: linear-gradient(105deg, transparent 15%, rgba(232,114,42,0.08) 35%, rgba(240,169,108,0.22) 50%, rgba(232,114,42,0.08) 65%, transparent 85%);
       animation: medproShimmer 2.6s cubic-bezier(0.4,0,0.6,1) 0s infinite;
-      transform: none; transform-origin: unset;
-      transition: none;
+      transform: none !important; transform-origin: unset;
+      transition: none !important;
       width: 70%; height: 100%;
       pointer-events: none; z-index: 0;
     }
