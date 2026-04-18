@@ -40,42 +40,68 @@
   }
   </script>
   <style>
-    /* HERO */
+    /* HERO — WORLD CLASS */
     .about-hero {
       background: var(--dark);
       min-height: 100svh;
-      display: flex;
-      align-items: center;
-      padding: 120px var(--gutter) 80px;
+      display: grid;
+      grid-template-columns: 1fr 42%;
       position: relative;
       overflow: hidden;
     }
-    .about-hero::before {
-      content: '';
+
+    /* Ghost serif watermark */
+    .about-hero::after {
+      content: 'OLM';
       position: absolute;
-      inset: 0;
+      right: 38%;
+      bottom: -0.15em;
+      font-family: var(--ff-serif);
+      font-size: clamp(160px, 22vw, 300px);
+      font-weight: 700;
+      color: rgba(250,246,240,0.025);
+      line-height: 1;
+      pointer-events: none;
+      z-index: 1;
+      letter-spacing: -0.05em;
+      user-select: none;
+    }
+
+    /* Atmospheric gradient */
+    .about-hero__bg {
+      position: absolute; inset: 0; z-index: 0;
       background:
-        radial-gradient(ellipse 60% 70% at 100% 0%, rgba(232,114,42,0.07) 0%, transparent 55%),
-        linear-gradient(150deg, #0a0806 0%, #1A1221 55%, #2B2438 100%);
+        radial-gradient(ellipse 55% 65% at 0% 60%, rgba(232,114,42,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 50% at 100% 0%, rgba(43,36,56,0.9) 0%, transparent 70%),
+        linear-gradient(135deg, #0a0806 0%, #1A1221 50%, #2B2438 100%);
     }
-    .about-hero__inner {
+
+    /* Left content pane */
+    .about-hero__left {
       position: relative;
-      z-index: 2;
-      width: 100%;
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 360px;
-      gap: 80px;
-      align-items: end;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 140px var(--gutter) 72px clamp(32px, 5vw, 80px);
     }
+
+    .about-hero .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
     .about-hero h1 {
-      font-size: clamp(34px, 4.5vw, 58px);
+      font-size: clamp(38px, 5.5vw, 72px);
       color: var(--bg);
-      line-height: 1.06;
-      margin-bottom: 20px;
+      line-height: 1.03;
+      margin-bottom: 28px;
+      letter-spacing: -0.02em;
     }
     .about-hero h1 em {
+      display: block;
       font-style: italic;
       background: linear-gradient(90deg, var(--accent-lite), var(--accent), var(--accent-lite));
       background-size: 200% auto;
@@ -88,61 +114,97 @@
       0%   { background-position: 0% center; }
       100% { background-position: 200% center; }
     }
+
     .about-hero__sub {
-      font-size: clamp(16px, 1.8vw, 19px);
-      color: rgba(250,246,240,0.7);
-      line-height: 1.75;
-      max-width: 540px;
-      margin-bottom: 32px;
-    }
-    .about-hero__tags { display: flex; flex-wrap: wrap; gap: 8px; }
-    .about-hero__tag {
-      font-size: 12px; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; padding: 6px 14px;
-      border: 1px solid rgba(232,114,42,0.4);
-      color: var(--accent-lite); border-radius: 1px;
+      font-size: clamp(15px, 1.6vw, 18px);
+      color: rgba(250,246,240,0.6);
+      line-height: 1.8;
+      max-width: 480px;
+      margin-bottom: 36px;
     }
 
-    /* Hero right — photo + cred card */
-    .about-hero__photo-wrap { position: relative; }
+    .about-hero__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 40px;
+    }
+    .about-hero__tag {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; padding: 7px 14px;
+      border: 1px solid rgba(232,114,42,0.3);
+      color: rgba(232,114,42,0.7); border-radius: 1px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .about-hero__tag:hover { border-color: var(--accent); color: var(--accent-lite); }
+
+    .about-hero__ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    /* Right photo pane — full bleed */
+    .about-hero__right {
+      position: relative;
+      z-index: 2;
+    }
     .about-hero__photo {
       width: 100%;
-      aspect-ratio: 3/4;
+      height: 100%;
       object-fit: cover;
       object-position: center top;
       display: block;
+      filter: brightness(0.88) saturate(0.9);
     }
-    .about-hero__cred-card {
+
+    /* Gradient fade on photo left edge — blends into dark bg */
+    .about-hero__right::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, var(--dark) 0%, transparent 30%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Vertical credential strip — overlaid on photo bottom */
+    .about-hero__cred-strip {
       position: absolute;
       bottom: 0; left: 0; right: 0;
-      background: rgba(26,18,33,0.95);
-      padding: 20px 24px;
-      border-top: 2px solid var(--accent);
+      z-index: 2;
+      background: linear-gradient(to top, rgba(10,8,6,0.97) 0%, rgba(10,8,6,0.7) 70%, transparent 100%);
+      padding: 48px 32px 32px;
     }
     .about-hero__cred-name {
       font-family: var(--ff-serif);
-      font-size: 20px;
+      font-size: clamp(18px, 1.8vw, 24px);
       color: var(--bg);
       margin-bottom: 4px;
+      letter-spacing: -0.01em;
     }
     .about-hero__cred-title {
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
       color: var(--accent);
+      margin-bottom: 16px;
     }
-    .about-hero__cred-items {
-      display: flex; flex-direction: column;
-      gap: 0; margin-top: 12px;
-      border-top: 1px solid rgba(201,184,154,0.15);
-      padding-top: 12px;
+    .about-hero__cred-rule {
+      width: 32px; height: 1px;
+      background: var(--accent);
+      margin-bottom: 14px;
+      opacity: 0.6;
     }
+    .about-hero__cred-items { display: flex; flex-direction: column; gap: 5px; }
     .about-hero__cred-item {
-      font-size: 12px; color: rgba(250,246,240,0.55);
-      padding: 4px 0; line-height: 1.4;
+      font-size: 12px;
+      color: rgba(250,246,240,0.45);
+      line-height: 1.4;
     }
+
     @media (max-width: 900px) {
-      .about-hero__inner { grid-template-columns: 1fr; }
-      .about-hero__photo { aspect-ratio: 4/3; }
+      .about-hero {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 55vw;
+      }
+      .about-hero__left { padding: 120px var(--gutter) 40px; justify-content: flex-end; }
+      .about-hero::after { display: none; }
     }
 
     /* REFRAME */
@@ -556,38 +618,48 @@
 
   <!-- HERO -->
   <section class="about-hero">
-    <div class="about-hero__inner">
-      <div>
-        <div class="eyebrow" style="margin-bottom:16px;display:flex;align-items:center;gap:12px;">
-          <span style="width:32px;height:2px;background:var(--accent);display:inline-block;"></span>
-          Founder &amp; Principal Attorney
-        </div>
-        <h1>Uncompromised counsel. <em>Fearless advocacy.</em></h1>
-        <p class="about-hero__sub">A litigator with a national perspective and a homesteader's grit. Octavia L. Martinez provides advocacy that operates outside of the status quo — for clients who need an attorney who will actually fight.</p>
-        <div class="about-hero__tags">
-          <span class="about-hero__tag">Former Felony Prosecutor</span>
-          <span class="about-hero__tag">Trial Attorney</span>
-          <span class="about-hero__tag">Texas · Arizona</span>
-          <span class="about-hero__tag">Rio Grande Valley</span>
-          <span class="about-hero__tag">Virtual · Statewide</span>
-        </div>
+    <div class="about-hero__bg"></div>
+
+    <!-- Left: content -->
+    <div class="about-hero__left">
+      <div class="eyebrow" style="color:rgba(232,114,42,0.7);">
+        <span style="width:32px;height:1px;background:var(--accent);display:inline-block;opacity:0.6;"></span>
+        Founder &amp; Principal Attorney
       </div>
-      <div class="about-hero__photo-wrap reveal">
-        <img
-          src="octavia-headshot.png"
-          alt="Octavia LaVon Martinez — Texas and Arizona Attorney"
-          class="about-hero__photo"
-          width="360"
-          height="480"
-        />
-        <div class="about-hero__cred-card">
-          <div class="about-hero__cred-name">Octavia LaVon Martinez</div>
-          <div class="about-hero__cred-title">Founder &amp; Principal Attorney</div>
-          <div class="about-hero__cred-items">
-            <div class="about-hero__cred-item">University of Virginia · Ohio State Moritz College of Law</div>
-            <div class="about-hero__cred-item">Licensed in Texas &amp; Arizona</div>
-            <div class="about-hero__cred-item">Virtual · Serving All of Texas</div>
-          </div>
+      <h1>Uncompromised counsel.<em>Fearless advocacy.</em></h1>
+      <p class="about-hero__sub">A litigator with a national perspective and a homesteader's grit. Octavia L. Martinez provides advocacy that operates outside of the status quo — for clients who need an attorney who will actually fight.</p>
+      <div class="about-hero__tags">
+        <span class="about-hero__tag">Former Felony Prosecutor</span>
+        <span class="about-hero__tag">Trial Attorney</span>
+        <span class="about-hero__tag">Texas · Arizona</span>
+        <span class="about-hero__tag">Rio Grande Valley</span>
+        <span class="about-hero__tag">Virtual · Statewide</span>
+      </div>
+      <div class="about-hero__ctas">
+        <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+        <a href="strategy-session.html" class="btn btn--outline">Book a Strategy Session</a>
+      </div>
+    </div>
+
+    <!-- Right: full-bleed photo -->
+    <div class="about-hero__right">
+      <img
+        src="octavia-headshot.png"
+        alt="Octavia LaVon Martinez — Texas and Arizona Attorney"
+        class="about-hero__photo"
+        width="800"
+        height="1000"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="about-hero__cred-strip">
+        <div class="about-hero__cred-name">Octavia LaVon Martinez</div>
+        <div class="about-hero__cred-title">Founder &amp; Principal Attorney</div>
+        <div class="about-hero__cred-rule"></div>
+        <div class="about-hero__cred-items">
+          <div class="about-hero__cred-item">University of Virginia · Ohio State Moritz College of Law</div>
+          <div class="about-hero__cred-item">Licensed in Texas (2016) &amp; Arizona (2009)</div>
+          <div class="about-hero__cred-item">U.S. Supreme Court · Fifth Circuit · S.D. Texas</div>
         </div>
       </div>
     </div>
@@ -1055,13 +1127,17 @@
       var h1      = document.querySelector('.about-hero h1');
       var sub     = document.querySelector('.about-hero__sub');
       var tags    = document.querySelector('.about-hero__tags');
-      var photo   = document.querySelector('.about-hero__photo-wrap');
+      var ctas    = document.querySelector('.about-hero__ctas');
+      var photo   = document.querySelector('.about-hero__right');
+      var strip   = document.querySelector('.about-hero__cred-strip');
 
-      if (eyebrow) { var ew = luxSplitWords(eyebrow, 0.1, 0.06, 8, 3);  luxRevealWords(ew); }
+      if (eyebrow) { var ew = luxSplitWords(eyebrow, 0.1, 0.06, 8,  3); luxRevealWords(ew); }
       if (h1)      { var hw = luxSplitWords(h1,      0.3, 0.09, 18, 7); luxRevealWords(hw); }
-      if (sub)     { var sw = luxSplitWords(sub,      0.6, 0.04, 10, 4); luxRevealWords(sw); }
-      if (tags)    luxRevealEl(tags,  0.85, 0);
-      if (photo)   luxRevealEl(photo, 0.25, 20);
+      if (sub)     { var sw = luxSplitWords(sub,      0.65, 0.04, 10, 4); luxRevealWords(sw); }
+      if (tags)    luxRevealEl(tags,  0.9,  0);
+      if (ctas)    luxRevealEl(ctas,  1.05, 0);
+      if (photo)   luxRevealEl(photo, 0.2,  30);
+      if (strip)   luxRevealEl(strip, 0.7,  0);
     });
 
     /* ── SCROLL: reveal all .reveal elements ── */
