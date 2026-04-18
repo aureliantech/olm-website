@@ -90,6 +90,13 @@
             <div class="apx__link-desc">Business &amp; commercial litigation</div>
           </div>
         </a>
+        <a href="/transfer-your-case.html" class="apx__link apx__link--cta">
+          <span class="apx__link-num">→</span>
+          <div class="apx__link-body">
+            <div class="apx__link-title">Transfer Your Case</div>
+            <div class="apx__link-desc">Case stalled? We intervene immediately</div>
+          </div>
+        </a>
       </div>
     </div>
 
@@ -142,6 +149,13 @@
             <div class="apx__link-desc">What happens &amp; when to act</div>
           </div>
         </a>
+        <a href="/transfer-your-case.html" class="apx__link apx__link--cta">
+          <span class="apx__link-num">→</span>
+          <div class="apx__link-body">
+            <div class="apx__link-title">Transfer Your Case</div>
+            <div class="apx__link-desc">Prior counsel failed you? We intervene</div>
+          </div>
+        </a>
         <a href="/texas-medical-attorney/index.html" class="apx__link apx__link--cta">
           <span class="apx__link-num">→</span>
           <div class="apx__link-body">
@@ -191,6 +205,13 @@
           <div class="apx__link-body">
             <div class="apx__link-title">Contact</div>
             <div class="apx__link-desc">(956) 426-3550 · Virtual · All of Texas</div>
+          </div>
+        </a>
+        <a href="/transfer-your-case.html" class="apx__link apx__link--cta">
+          <span class="apx__link-num">→</span>
+          <div class="apx__link-body">
+            <div class="apx__link-title">Transfer Your Case</div>
+            <div class="apx__link-desc">Already represented but case has stalled?</div>
           </div>
         </a>
       </div>
