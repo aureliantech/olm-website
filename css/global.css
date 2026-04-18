@@ -884,7 +884,7 @@ h1, h2, h3, h4 { font-family: var(--ff-serif); font-weight: 400; line-height: 1.
   transform: none !important;
   transition-delay: 0s !important;
 }
-/* Sweeping shimmer — plays immediately, continuously */
+/* Sweeping shimmer — starts after link fades in, then loops forever */
 .apx__link--medpro-cta::before {
   content: '' !important;
   position: absolute !important;
@@ -899,12 +899,25 @@ h1, h2, h3, h4 { font-family: var(--ff-serif); font-weight: 400; line-height: 1.
     rgba(232,114,42,0.08) 65%,
     transparent 85%
   ) !important;
-  animation: medproShimmer 2.6s cubic-bezier(0.4,0,0.6,1) 0s infinite !important;
+  animation: medproShimmer 2.4s cubic-bezier(0.4,0,0.6,1) 0.8s infinite !important;
   transform: none !important;
   transform-origin: unset !important;
   transition: none !important;
   pointer-events: none;
   z-index: 0;
+}
+/* On hover — brighter sweep, faster */
+.apx__link--medpro-cta:hover::before {
+  background: linear-gradient(
+    105deg,
+    transparent 15%,
+    rgba(232,114,42,0.18) 35%,
+    rgba(240,169,108,0.45) 50%,
+    rgba(232,114,42,0.18) 65%,
+    transparent 85%
+  ) !important;
+  animation-duration: 1.2s !important;
+  animation-delay: 0s !important;
 }
 @keyframes medproShimmer {
   0%   { left: -120%; }
