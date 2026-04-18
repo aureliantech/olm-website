@@ -237,11 +237,11 @@
         <div>
           <div class="footer__heading">Practice Areas</div>
           <nav class="footer__links" aria-label="Practice area links">
-            <a href="/texas-medical-attorney/index.html">Healthcare License Defense</a>
+            <a href="/medical-malpractice.html">Medical Malpractice</a>
+            <a href="/defamation.html">Defamation &amp; Libel</a>
             <a href="/probate.html">Complex Probate &amp; Estate</a>
             <a href="/breach-of-contract.html">Breach of Contract</a>
-            <a href="/defamation.html">Defamation</a>
-            <a href="/medical-malpractice.html">Medical Malpractice</a>
+            <a href="/texas-medical-attorney/index.html">Medical Professionals</a>
           </nav>
         </div>
         <div>
