@@ -113,6 +113,27 @@
     .faq-sidebar-cta h3 { font-family: var(--ff-serif); font-size: 20px; color: var(--bg); margin-bottom: 8px; }
     .faq-sidebar-cta p { font-size: 14px; color: rgba(250,246,240,0.6); margin-bottom: 18px; line-height: 1.6; }
 
+    /* Group CTA */
+    .faq-group-cta {
+      margin-top: 24px;
+      padding: 20px 24px;
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .faq-group-cta p {
+      font-size: 15px;
+      color: var(--mid);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .faq-group-cta p strong { color: var(--dark); }
+    .faq-group-cta__btns { display: flex; gap: 10px; flex-wrap: wrap; flex-shrink: 0; }
+
     /* CTA */
     .faq-cta { background: var(--dark); text-align: center; }
     .faq-cta h2 { font-size: clamp(26px, 3vw, 40px); color: var(--bg); margin-bottom: 14px; }
@@ -165,7 +186,7 @@
       <div class="faq-body__inner">
         <div>
 
-          <!-- Group: Consultations & Fees -->
+          <!-- Group: Strategy Sessions & Fees -->
           <div class="faq-group reveal">
             <div class="faq-group-label">Strategy Sessions &amp; Fees</div>
 
@@ -174,12 +195,10 @@
                 <span class="faq-q-text">Do you offer free strategy sessions?</span>
                 <span class="faq-icon">+</span>
               </button>
-              <div class="faq-answer">
-                <div class="faq-answer__inner">
-                  <p>No. We believe that high-quality legal advice requires dedicated time and honest analysis. Our initial strategy sessions are paid where we review your situation in depth and provide actionable direction.</p>
-                  <p>We do not view strategy sessions as sales calls. We view them as the first hour of legal work — and we treat them accordingly. You will leave with a clear understanding of your situation, your options, and what pursuing any of them would require.</p>
-                </div>
-              </div>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>No. We believe that high-quality legal advice requires dedicated time and honest analysis. Our initial strategy sessions are paid — we review your situation in depth and provide actionable direction.</p>
+                <p>We do not view strategy sessions as sales calls. We view them as the first hour of legal work. You will leave with a clear understanding of your situation, your options, and what pursuing any of them would require. <a href="strategy-session.html">Learn more about the strategy session →</a></p>
+              </div></div>
             </div>
 
             <div class="faq-item">
@@ -187,12 +206,21 @@
                 <span class="faq-q-text">What does the strategy session include?</span>
                 <span class="faq-icon">+</span>
               </button>
-              <div class="faq-answer">
-                <div class="faq-answer__inner">
-                  <p>A focused review of your specific situation — your facts, your documents, your timeline. Real legal analysis applied to what you actually have, not generic advice about what the law says in theory.</p>
-                  <p>At the end, you will know: what your legal position is, what your realistic options are, what each option would require, and whether this firm is the right fit for your matter. Whether or not you retain us, that analysis is yours.</p>
-                </div>
-              </div>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>A focused review of your specific situation — your facts, your documents, your timeline. Real legal analysis applied to what you actually have, not generic advice about what the law says in theory.</p>
+                <p>At the end, you will know: what your legal position is, what your realistic options are, what each option would require, and whether this firm is the right fit. Whether or not you retain us, that analysis is yours. <a href="strategy-session.html">Book a strategy session →</a></p>
+              </div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span class="faq-q-text">What should I bring or prepare for the strategy session?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Bring whatever is most relevant to your situation — medical records, contracts, correspondence, court filings, photographs, screenshots of online statements. The more specific the materials, the more specific the analysis.</p>
+                <p>You do not need to have everything organized. Come with what you have and a clear timeline of what happened. We will work through the rest.</p>
+              </div></div>
             </div>
 
             <div class="faq-item">
@@ -200,12 +228,19 @@
                 <span class="faq-q-text">How do you structure fees after the strategy session?</span>
                 <span class="faq-icon">+</span>
               </button>
-              <div class="faq-answer">
-                <div class="faq-answer__inner">
-                  <p>Fee structure depends on the matter. Most litigation and complex matters are handled on retainer, with the retainer amount set based on the scope and complexity of the case. Flat fees are available for defined-scope matters such as wills, powers of attorney, and contract review.</p>
-                  <p>We discuss fees directly and without vagueness during or immediately after the strategy session. You will know exactly what representation would cost before you make any commitment.</p>
-                </div>
-              </div>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Fee structure depends on the matter. Most litigation and complex matters are handled on retainer, with the retainer amount set based on scope and complexity. We discuss fees directly during or immediately after the strategy session. You will know exactly what representation would cost before making any commitment.</p>
+              </div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span class="faq-q-text">Do you take cases on contingency?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Contingency arrangements are evaluated on a case-by-case basis for certain civil litigation matters. This is discussed during the strategy session once we have assessed the strength and value of the claim. We do not offer contingency representation for every case type.</p>
+              </div></div>
             </div>
 
             <div class="faq-item">
@@ -213,11 +248,16 @@
                 <span class="faq-q-text">How do I book a strategy session?</span>
                 <span class="faq-icon">+</span>
               </button>
-              <div class="faq-answer">
-                <div class="faq-answer__inner">
-                  <p>You can book directly online at any time — no waiting for a call back. Use the booking link on the <a href="strategy-session.html">Strategy Session page</a>, select a time that works, and the confirmation and payment instructions will come to you by email.</p>
-                  <p>You can also call <a href="tel:9564263550">(956) 426-3550</a> Monday through Friday, 8AM to 6PM CST.</p>
-                </div>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Call <a href="tel:9564263550">(956) 426-3550</a> Monday through Friday, 8AM to 6PM CST — or book online via the <a href="strategy-session.html">Strategy Session page</a>.</p>
+              </div></div>
+            </div>
+
+            <div class="faq-group-cta">
+              <p><strong>Ready to get started?</strong> The strategy session is the first step of real legal work — not a sales call.</p>
+              <div class="faq-group-cta__btns">
+                <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+                <a href="strategy-session.html" class="btn btn--outline">Book a Session</a>
               </div>
             </div>
           </div>
@@ -231,12 +271,20 @@
                 <span class="faq-q-text">Is the firm really fully virtual?</span>
                 <span class="faq-icon">+</span>
               </button>
-              <div class="faq-answer">
-                <div class="faq-answer__inner">
-                  <p>Yes. This firm operates exclusively as a virtual practice. There is no physical office you need to visit. Strategy sessions are conducted remotely, documents are exchanged electronically, and all communication is handled by phone and email.</p>
-                  <p>This is intentional — it eliminates overhead costs that would otherwise be passed to clients, and it allows the firm to serve clients across all of Texas and Arizona without geographic restriction.</p>
-                </div>
-              </div>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Yes. There is no physical office you need to visit. Strategy sessions are conducted remotely, documents are exchanged electronically, and all communication is handled by phone and email. This is intentional — it allows the firm to serve clients across all of Texas and Arizona without geographic restriction.</p>
+              </div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span class="faq-q-text">Do I need a lawyer in person, or can I work with one remotely in Texas?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>You do not need to meet your attorney in person. Texas law does not require in-person meetings for legal representation. Documents can be signed electronically, hearings can be attended remotely (depending on the matter), and all strategy and communication can be handled by phone and email.</p>
+                <p>The virtual model is not a limitation — it is a feature. It means faster response times, no geographic restriction, and no wasted time in waiting rooms.</p>
+              </div></div>
             </div>
 
             <div class="faq-item">
@@ -244,12 +292,20 @@
                 <span class="faq-q-text">How quickly does the firm move after retention?</span>
                 <span class="faq-icon">+</span>
               </button>
-              <div class="faq-answer">
-                <div class="faq-answer__inner">
-                  <p>Immediately. This firm does not have an intake queue, an onboarding process, or a waiting period before work begins. Once a retainer agreement is signed and the retainer is funded, the work starts.</p>
-                  <p>For urgent matters — active board complaints, imminent hearings, situations where evidence needs to be preserved quickly — urgency is communicated at the consultation stage and addressed accordingly.</p>
-                </div>
-              </div>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Immediately. Once a retainer agreement is signed and funded, the work starts. There is no intake queue, onboarding process, or waiting period. For urgent matters — active board complaints, imminent hearings, situations where evidence needs to be preserved — urgency is communicated at the consultation and addressed accordingly.</p>
+              </div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span class="faq-q-text">Do you have referral relationships or conflicts with local firms?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>No. This firm operates independently — with no referral networks, no institutional relationships, and no affiliations that create conflicts of interest. Every case is evaluated on its merits alone, without regard for who is on the other side.</p>
+                <p>That independence is intentional. It means we can take on opposing counsel, institutions, or local entities that other firms might be reluctant to challenge. <a href="about.html">Learn more about how this firm operates →</a></p>
+              </div></div>
             </div>
 
             <div class="faq-item">
@@ -257,12 +313,9 @@
                 <span class="faq-q-text">Will my inquiry and case details be kept confidential?</span>
                 <span class="faq-icon">+</span>
               </button>
-              <div class="faq-answer">
-                <div class="faq-answer__inner">
-                  <p>Your inquiry is treated with confidentiality from the first contact. Once attorney-client privilege is formally established through a retainer agreement, all communications are fully privileged.</p>
-                  <p><strong>Note:</strong> Please do not include sensitive, confidential, or incriminating details in initial web inquiries before privilege has been established. A phone call or the strategy session itself is the appropriate place for those details.</p>
-                </div>
-              </div>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Your inquiry is treated with confidentiality from the first contact. Once attorney-client privilege is formally established through a retainer agreement, all communications are fully privileged. <strong>Note:</strong> Do not include sensitive details in initial web inquiries. A phone call or the strategy session is the appropriate place for those details.</p>
+              </div></div>
             </div>
 
             <div class="faq-item">
@@ -270,56 +323,271 @@
                 <span class="faq-q-text">Where do you serve — can you handle my case if I'm not in South Texas?</span>
                 <span class="faq-icon">+</span>
               </button>
-              <div class="faq-answer">
-                <div class="faq-answer__inner">
-                  <p>This firm is licensed in Texas and Arizona and serves clients across both states. The virtual model means your location within either state is not a limitation — we handle matters in Dallas, Houston, San Antonio, Phoenix, Tucson, and everywhere in between.</p>
-                  <p>Some practice areas have more limited geographic scope — probate and estate matters are primarily concentrated in the Rio Grande Valley (Hidalgo, Cameron, and Willacy County). Civil litigation, defamation, medical malpractice, and business matters are handled statewide across Texas and Arizona.</p>
-                </div>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>This firm is licensed in Texas and Arizona and serves clients across both states. The virtual model means your location is not a limitation — we handle matters in Dallas, Houston, San Antonio, Phoenix, Tucson, and everywhere in between.</p>
+                <p>Probate and estate matters are primarily concentrated in the Rio Grande Valley. Civil litigation, defamation, medical malpractice, and business matters are handled statewide.</p>
+              </div></div>
+            </div>
+
+            <div class="faq-group-cta">
+              <p><strong>Questions about how we work?</strong> The fastest answer is a direct conversation.</p>
+              <div class="faq-group-cta__btns">
+                <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
               </div>
             </div>
           </div>
 
-          <!-- Group: Case Scenarios -->
+          <!-- Group: Medical Malpractice -->
           <div class="faq-group reveal">
-            <div class="faq-group-label">Case Scenarios</div>
+            <div class="faq-group-label">Medical Malpractice</div>
 
             <div class="faq-item">
               <button class="faq-question" aria-expanded="false">
-                <span class="faq-q-text">My current attorney has stopped communicating. Can you take over?</span>
+                <span class="faq-q-text">How do I know if what happened to me is malpractice or just a bad outcome?</span>
                 <span class="faq-icon">+</span>
               </button>
-              <div class="faq-answer">
-                <div class="faq-answer__inner">
-                  <p>Yes. This firm regularly accepts cases mid-stream from clients whose representation has stalled. The first step is a case assessment — we review what has been done, what has been missed, and what the current posture of the matter is.</p>
-                  <p>If we can help and believe intervention will make a difference, we will tell you directly. If the situation has deteriorated to a point where options are limited, we will be honest about that too. Either way, you will have a clear picture after the assessment.</p>
-                </div>
-              </div>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>This is the central question in every malpractice case. A bad outcome — even a devastating one — is not automatically malpractice. The legal standard requires proving that the provider deviated from the accepted standard of care, and that the deviation caused your harm.</p>
+                <p>The strategy session is specifically designed to answer this question for your situation. We review what happened, apply the legal standard, and tell you directly whether there is a viable claim. <a href="medical-malpractice.html">See how we approach medical malpractice →</a></p>
+              </div></div>
             </div>
 
             <div class="faq-item">
               <button class="faq-question" aria-expanded="false">
-                <span class="faq-q-text">What is a pre-litigation file review?</span>
+                <span class="faq-q-text">How long do I have to file a medical malpractice lawsuit in Texas?</span>
                 <span class="faq-icon">+</span>
               </button>
-              <div class="faq-answer">
-                <div class="faq-answer__inner">
-                  <p>Before filing a lawsuit or making a formal demand, this firm conducts a review of the facts, the documents, and the legal theory to determine whether the claim is viable and whether the cost of pursuing it is justified by the likely recovery.</p>
-                  <p>This is not a courtesy step — it is how we protect clients from investing time and money into matters that cannot be won, and how we ensure that when we do file, the case is built to survive dismissal and prevail at trial.</p>
-                </div>
-              </div>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>In Texas, the statute of limitations for medical malpractice is <strong>two years</strong> from the date the negligence occurred, or from the date it was discovered (or reasonably should have been discovered). There is also an absolute ten-year cap regardless of discovery.</p>
+                <p>For minors, different rules apply. If you are unsure where you stand on the timeline, do not wait — <a href="tel:9564263550">call now</a>. Missing the deadline permanently bars your claim regardless of how strong it is.</p>
+              </div></div>
             </div>
 
             <div class="faq-item">
               <button class="faq-question" aria-expanded="false">
-                <span class="faq-q-text">Do you handle divorce, child custody, or criminal defense?</span>
+                <span class="faq-q-text">Can I sue a hospital for medical malpractice in Texas?</span>
                 <span class="faq-icon">+</span>
               </button>
-              <div class="faq-answer">
-                <div class="faq-answer__inner">
-                  <p>No. This firm does not handle family law (divorce, custody, child support), criminal defense, or traffic matters. The firm's practice is limited to civil litigation, defamation, medical malpractice, estate matters, and medical professional defense.</p>
-                  <p>If you are unsure whether your matter falls within our scope, the fastest way to find out is to call — we will tell you directly whether we can help or refer you to someone who can.</p>
-                </div>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Yes. Hospitals can be held liable for the negligence of their employees, for negligent credentialing, and for systemic failures in patient care. However, physicians are often independent contractors, which can limit hospital liability depending on the circumstances.</p>
+                <p>Determining who bears liability — the physician, the hospital, or both — is part of the <a href="medical-malpractice.html">pre-litigation file review</a> we conduct before filing any claim.</p>
+              </div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span class="faq-q-text">Do you need an expert witness for a medical malpractice case in Texas?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Yes — Texas law requires an expert report from a qualified physician within 120 days of filing suit. The report must identify the standard of care, explain how it was breached, and connect the breach to the harm. Failure to file a compliant expert report results in mandatory dismissal.</p>
+                <p>This is why we conduct a <a href="medical-malpractice.html">pre-litigation file review</a> and retain qualified experts before filing — not after. Cases that cannot meet this requirement should not be filed.</p>
+              </div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span class="faq-q-text">How much does a medical malpractice case cost to pursue?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Medical malpractice litigation is expensive. Expert witnesses, medical record review, depositions, and trial preparation can involve significant costs. This is precisely why we screen cases rigorously before filing — to ensure the likely recovery justifies the investment.</p>
+                <p>We discuss costs and fee structure transparently during the <a href="strategy-session.html">strategy session</a>. You will not be surprised.</p>
+              </div></div>
+            </div>
+
+            <div class="faq-group-cta">
+              <p><strong>Think you may have a malpractice claim?</strong> The strategy session will tell you directly whether the standard of care was breached and whether your case can be won.</p>
+              <div class="faq-group-cta__btns">
+                <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+                <a href="medical-malpractice.html" class="btn btn--outline">Medical Malpractice →</a>
               </div>
+            </div>
+          </div>
+
+          <!-- Group: Defamation -->
+          <div class="faq-group reveal">
+            <div class="faq-group-label">Defamation &amp; Libel</div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span class="faq-q-text">Can I sue someone for a bad online review?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>It depends on what the review says. A negative opinion ("I didn't like the service") is generally protected speech. A false statement of fact ("This doctor committed fraud") that is published to others and causes real harm may be actionable defamation.</p>
+                <p>The distinction between opinion and false fact is often the central issue in online defamation cases — and it requires legal analysis of the specific statement and context. <a href="defamation.html">See our defamation practice →</a></p>
+              </div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span class="faq-q-text">Can you sue someone for defamation on social media in Texas?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Yes. Texas defamation law applies equally to statements made on social media, in posts, in comments, in direct messages that were forwarded, and in online reviews. The platform does not provide immunity to the person who made the false statement.</p>
+                <p>Social media defamation cases also have a time-sensitive evidence component — posts get deleted. If you believe you have been defamed online, <a href="tel:9564263550">contact us</a> before the evidence disappears. <a href="defamation.html">Learn about our defamation approach →</a></p>
+              </div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span class="faq-q-text">Is it defamation if the statement is an opinion?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Pure opinion is generally not actionable. But the line between opinion and false fact is not always clear. Courts look at whether the statement implies an underlying false fact — "In my opinion, she stole from clients" implies a factual allegation and may be actionable even though it begins with "in my opinion."</p>
+                <p>This analysis is case-specific and requires review of the exact statement and the context in which it was made. <a href="defamation.html">See defamation defense →</a></p>
+              </div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span class="faq-q-text">How much can you sue for defamation in Texas?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Texas allows recovery for actual damages (lost income, lost business, reputational harm), mental anguish, and — where the conduct was malicious or grossly negligent — exemplary (punitive) damages. There is no fixed cap on defamation damages in Texas for private individuals.</p>
+                <p>The value of a defamation claim depends heavily on the evidence of actual harm caused by the false statement. This is assessed during the <a href="strategy-session.html">strategy session</a>.</p>
+              </div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span class="faq-q-text">Does it matter if the defamation happened in another state?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Not necessarily. This firm is licensed in both Texas and Arizona, and can handle <a href="defamation.html">defamation matters in both states</a> without local co-counsel. Where the statement originated is less important than where you are located and where the harm occurred.</p>
+              </div></div>
+            </div>
+
+            <div class="faq-group-cta">
+              <p><strong>False statements are causing you harm.</strong> Every day they remain up is another day of documented damage.</p>
+              <div class="faq-group-cta__btns">
+                <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+                <a href="defamation.html" class="btn btn--outline">Defamation Defense →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Group: Probate -->
+          <div class="faq-group reveal">
+            <div class="faq-group-label">Probate &amp; Estate</div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span class="faq-q-text">How long does probate take in Texas?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>An uncontested, straightforward Texas probate can be completed in as little as a few months. Complex or contested estates — involving disputed wills, missing assets, executor misconduct, or multiple beneficiary disputes — can take years without aggressive representation.</p>
+                <p>The single biggest factor in how long probate takes is whether someone is actively pushing it forward. A passive attorney is often the reason estates drag on for years unresolved. <a href="probate.html">See our approach to complex probate →</a></p>
+              </div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span class="faq-q-text">Can a will be contested in Texas?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Yes. In Texas, a will can be contested on grounds including: lack of testamentary capacity (the decedent did not understand what they were signing), undue influence (someone pressured the decedent into signing), fraud, and improper execution.</p>
+                <p>Will contests are litigation — not paperwork. They require a litigator, not a form-filer. <a href="probate.html">This firm handles contested will matters</a> in the Rio Grande Valley and across Texas.</p>
+              </div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span class="faq-q-text">What happens if someone dies without a will in Texas?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>When someone dies without a will (intestate), Texas law determines who inherits based on the family structure. Surviving spouses, children, and other relatives inherit in a specific order defined by statute — but the application of these rules to complex family structures (blended families, estranged relatives, undocumented property) often requires a formal heirship determination proceeding.</p>
+                <p>We handle <a href="probate.html">heirship determination proceedings</a> to establish rightful heirs and prevent unauthorized claimants from seizing assets.</p>
+              </div></div>
+            </div>
+
+            <div class="faq-group-cta">
+              <p><strong>Estate stalled or contested?</strong> The estate is losing value every day this goes unresolved.</p>
+              <div class="faq-group-cta__btns">
+                <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+                <a href="probate.html" class="btn btn--outline">Complex Probate →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Group: Breach of Contract -->
+          <div class="faq-group reveal">
+            <div class="faq-group-label">Breach of Contract</div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span class="faq-q-text">Can I sue for breach of a verbal contract in Texas?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Yes — oral contracts are enforceable in Texas, with some exceptions. Certain agreements (real estate transactions, contracts lasting more than one year) must be in writing to be enforceable. But many business arrangements and personal agreements made verbally are valid contracts that can be litigated.</p>
+                <p>The challenge with verbal contracts is proof. Without a written record, the dispute becomes a credibility and evidence battle — which is exactly where a prosecutorial approach to building a case matters most. <a href="breach-of-contract.html">See how we approach contract disputes →</a></p>
+              </div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span class="faq-q-text">What damages can I recover for breach of contract in Texas?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Texas allows recovery of actual damages (the economic loss caused by the breach), consequential damages (foreseeable downstream losses), and in some cases attorney's fees. Punitive damages are generally not available for pure contract claims.</p>
+                <p>Where a contract breach also involves fraud or misrepresentation, additional remedies — including exemplary damages — may be available under the Texas DTPA. <a href="breach-of-contract.html">Learn more about breach of contract →</a></p>
+              </div></div>
+            </div>
+
+            <div class="faq-group-cta">
+              <p><strong>Contract breached?</strong> Every day without action is leverage you are giving the other side.</p>
+              <div class="faq-group-cta__btns">
+                <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+                <a href="breach-of-contract.html" class="btn btn--outline">Breach of Contract →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Group: Medical Professionals -->
+          <div class="faq-group reveal">
+            <div class="faq-group-label">Medical Professionals &amp; Licensing</div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span class="faq-q-text">What happens when the Texas Medical Board opens an investigation?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>When the TMB opens an investigation, you will receive a written notice of complaint. You will be given an opportunity to respond — and that response is one of the most important documents in your case. An unrepresented response that is too detailed, too defensive, or inadvertently inconsistent can seriously damage your position.</p>
+                <p>The moment you receive a TMB complaint notice, you should <a href="tel:9564263550">contact an attorney</a> before responding to anything. <a href="texas-medical-attorney/index.html">See our medical professional defense →</a></p>
+              </div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span class="faq-q-text">How long does a Texas Medical Board investigation take?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>TMB investigations vary significantly in length — from a few months for straightforward matters to well over a year for complex cases. The timeline depends on the nature of the complaint, the responsiveness of the parties, and whether the matter proceeds to a formal hearing.</p>
+                <p>Having counsel who moves aggressively — preparing a parallel investigation and not simply reacting — can significantly affect both the timeline and the outcome. <a href="texas-medical-attorney/index.html">Learn about our approach to TMB defense →</a></p>
+              </div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span class="faq-q-text">Can a TMB complaint affect my hospital privileges?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Yes. A TMB complaint — even an unresolved one — may trigger reporting obligations to the National Practitioner Data Bank (NPDB), which hospitals and credentialing bodies routinely query. This can affect hospital privileges, credentialing with insurers, and employment opportunities.</p>
+                <p>Managing the NPDB implications of a TMB matter is part of how we approach <a href="texas-medical-attorney/index.html">medical professional defense</a>. It is not just about the complaint — it is about protecting the entire career.</p>
+              </div></div>
             </div>
 
             <div class="faq-item">
@@ -327,11 +595,70 @@
                 <span class="faq-q-text">Are you a medical professional with a licensing question?</span>
                 <span class="faq-icon">+</span>
               </button>
-              <div class="faq-answer">
-                <div class="faq-answer__inner">
-                  <p>This firm has a dedicated practice area specifically for healthcare professionals — physicians, CNMs, and licensed providers facing Texas Medical Board complaints, hospital privilege disputes, NPDB concerns, and healthcare employment matters.</p>
-                  <p>The medpro practice has its own dedicated section of this website with detailed information on the process, the strategy, and what representation looks like. <a href="texas-medical-attorney/index.html">Enter the medical professional experience →</a></p>
-                </div>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>This firm has a dedicated practice area specifically for healthcare professionals — physicians, CNMs, and licensed providers facing TMB complaints, hospital privilege disputes, NPDB concerns, and healthcare employment matters. <a href="texas-medical-attorney/index.html">Enter the medical professional experience →</a></p>
+              </div></div>
+            </div>
+
+            <div class="faq-group-cta">
+              <p><strong>Received a TMB complaint?</strong> Do not respond without counsel. Contact us before submitting anything.</p>
+              <div class="faq-group-cta__btns">
+                <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+                <a href="texas-medical-attorney/index.html" class="btn btn--outline">Medical Professionals →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Group: Corrective Counsel & Case Scenarios -->
+          <div class="faq-group reveal">
+            <div class="faq-group-label">Corrective Counsel</div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span class="faq-q-text">Can you take over my case if I already have an attorney?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Yes. You have the right to change attorneys at any stage of a legal matter. This firm regularly accepts cases mid-stream from clients whose representation has stalled, deteriorated, or simply failed to perform.</p>
+                <p>The first step is a case audit — we review what has been done, what has been missed, and what the current posture of the matter is. We then tell you directly whether intervention can make a difference. <a href="about.html">Learn about corrective counsel →</a></p>
+              </div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span class="faq-q-text">What does it mean to "audit" a case?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>A case audit is a structured review of everything that has happened in your legal matter — filings, correspondence, deadlines, discovery, strategy, and the current legal posture. We identify where errors were made, where momentum was lost, and what options remain available.</p>
+                <p>The audit tells you where you stand and what corrective action, if any, is possible. It is honest analysis, not a sales pitch.</p>
+              </div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span class="faq-q-text">What is a pre-litigation file review?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Before filing a lawsuit or making a formal demand, this firm reviews the facts, documents, and legal theory to determine whether the claim is viable and whether the cost of pursuing it is justified by the likely recovery. This protects clients from investing time and money into matters that cannot be won. <a href="strategy-session.html">Start with a strategy session →</a></p>
+              </div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span class="faq-q-text">Do you handle divorce, child custody, or criminal defense?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>No. This firm's practice is limited to <a href="breach-of-contract.html">civil litigation</a>, <a href="defamation.html">defamation</a>, <a href="medical-malpractice.html">medical malpractice</a>, <a href="probate.html">estate matters</a>, and <a href="texas-medical-attorney/index.html">medical professional defense</a>. If you are unsure whether your matter falls within our scope, call — we will tell you directly whether we can help or refer you to someone who can.</p>
+              </div></div>
+            </div>
+
+            <div class="faq-group-cta">
+              <p><strong>Case stalled under current counsel?</strong> The earlier we intervene, the more options remain available.</p>
+              <div class="faq-group-cta__btns">
+                <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
               </div>
             </div>
           </div>
