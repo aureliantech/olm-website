@@ -355,6 +355,45 @@
       nav.classList.add('has-open');
       if (backdrop) backdrop.classList.add('open');
       current = id;
+
+      // Drive shimmer via JS span animation — avoids all CSS cascade issues
+      if (id === 'mp') {
+        const el = panel.querySelector('.apx__link--medpro-cta');
+        if (el) {
+          // Remove any existing shimmer span
+          const old = el.querySelector('.apx__medpro-shimmer');
+          if (old) old.remove();
+          // Inject fresh span
+          const span = document.createElement('span');
+          span.className = 'apx__medpro-shimmer';
+          span.style.cssText = 'position:absolute;top:0;bottom:0;width:55%;pointer-events:none;z-index:0;left:-60%;';
+          el.appendChild(span);
+          // Animate it across
+          let start = null;
+          const duration = 2400;
+          const gap = 1000; // pause between sweeps
+          let phase = 'sweep'; // 'sweep' | 'wait'
+          let phaseStart = null;
+
+          function step(ts) {
+            if (!el.closest('.apx__panel.open')) { span.remove(); return; }
+            if (!start) { start = ts; phaseStart = ts; }
+            const elapsed = ts - phaseStart;
+
+            if (phase === 'sweep') {
+              const p = Math.min(elapsed / duration, 1);
+              const ease = p < 0.5 ? 2*p*p : -1+(4-2*p)*p;
+              span.style.left = (-60 + ease * 220) + '%';
+              if (p >= 1) { phase = 'wait'; phaseStart = ts; }
+            } else {
+              span.style.left = '160%';
+              if (elapsed >= gap) { phase = 'sweep'; phaseStart = ts; span.style.left = '-60%'; }
+            }
+            requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+        }
+      }
     }
 
     function closeAll() {
