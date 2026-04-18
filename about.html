@@ -296,6 +296,22 @@
       background: radial-gradient(ellipse 60% 50% at 100% 50%, rgba(232,114,42,0.05) 0%, transparent 60%);
       pointer-events: none;
     }
+    .about-principles::after {
+      content: 'Core Values';
+      position: absolute;
+      top: clamp(40px, 5vw, 72px);
+      right: var(--gutter);
+      font-family: var(--ff-serif);
+      font-size: clamp(48px, 5vw, 80px);
+      font-weight: 400;
+      font-style: italic;
+      color: rgba(250,246,240,0.04);
+      letter-spacing: -0.01em;
+      pointer-events: none;
+      z-index: 0;
+      user-select: none;
+      line-height: 1;
+    }
     .about-principles__header {
       max-width: var(--max-w);
       margin: 0 auto clamp(56px, 7vw, 88px);
