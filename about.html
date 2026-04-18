@@ -75,7 +75,19 @@
       line-height: 1.06;
       margin-bottom: 20px;
     }
-    .about-hero h1 em { color: var(--accent-lite); font-style: italic; }
+    .about-hero h1 em {
+      font-style: italic;
+      background: linear-gradient(90deg, var(--accent-lite), var(--accent), var(--accent-lite));
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmerText 4s linear 2s infinite;
+    }
+    @keyframes shimmerText {
+      0%   { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
     .about-hero__sub {
       font-size: clamp(16px, 1.8vw, 19px);
       color: rgba(250,246,240,0.7);
@@ -518,6 +530,17 @@
     .about-corrective__card p { font-size: 15px; color: var(--mid); line-height: 1.7; margin-bottom: 20px; }
     @media (max-width: 768px) { .about-corrective__inner { grid-template-columns: 1fr; gap: 40px; } }
 
+    /* LUX WORD SPLIT */
+    .lux-word { display: inline-block; }
+    .lux-word--em em {
+      background: linear-gradient(90deg, var(--accent-lite), var(--accent), var(--accent-lite));
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmerText 4s linear 2s infinite;
+    }
+
     /* FINAL CTA */
     .about-final-cta { background: var(--dark); text-align: center; }
     .about-final-cta h2 { font-size: clamp(28px, 3.5vw, 48px); color: var(--bg); margin-bottom: 14px; line-height: 1.1; }
@@ -933,5 +956,189 @@
   <!-- FOOTER -->
   <div id="site-footer"></div>
   <script src="js/global.js"></script>
+
+  <script>
+  /* ── ABOUT PAGE — LUXURY TEXT ANIMATIONS ── */
+  (function() {
+    'use strict';
+
+    /* ── CORE: word-split animator ── */
+    function luxSplitWords(el, baseDelay, wordGap, fromY, blurAmt) {
+      fromY   = fromY   !== undefined ? fromY   : 14;
+      blurAmt = blurAmt !== undefined ? blurAmt : 5;
+      wordGap = wordGap !== undefined ? wordGap : 0.09;
+
+      function processNodes(parent, container) {
+        Array.from(parent.childNodes).forEach(function(node) {
+          if (node.nodeType === Node.TEXT_NODE) {
+            node.textContent.split(/\s+/).filter(Boolean).forEach(function(word) {
+              const span = document.createElement('span');
+              span.className = 'lux-word';
+              span.textContent = word;
+              container.appendChild(span);
+              container.appendChild(document.createTextNode(' '));
+            });
+          } else if (node.nodeName === 'BR') {
+            container.appendChild(document.createElement('br'));
+          } else if (node.nodeName === 'EM' || node.nodeName === 'STRONG') {
+            const wrapper = document.createElement('span');
+            wrapper.className = 'lux-word lux-word--em';
+            const tag = document.createElement(node.nodeName.toLowerCase());
+            tag.innerHTML = node.innerHTML;
+            wrapper.appendChild(tag);
+            container.appendChild(wrapper);
+            container.appendChild(document.createTextNode(' '));
+          } else if (node.nodeName === 'SPAN') {
+            // Preserve styled spans (like the underline effect)
+            const clone = node.cloneNode(true);
+            clone.className = (clone.className || '') + ' lux-word';
+            container.appendChild(clone);
+            container.appendChild(document.createTextNode(' '));
+          } else if (node.nodeName === 'A') {
+            const clone = node.cloneNode(false);
+            processNodes(node, clone);
+            container.appendChild(clone);
+          } else {
+            container.appendChild(node.cloneNode(true));
+          }
+        });
+      }
+
+      const frag = document.createDocumentFragment();
+      processNodes(el, frag);
+      el.innerHTML = '';
+      el.appendChild(frag);
+
+      const words = el.querySelectorAll('.lux-word');
+      words.forEach(function(w, i) {
+        w.style.opacity   = '0';
+        w.style.filter    = 'blur(' + blurAmt + 'px)';
+        w.style.transform = 'translateY(' + fromY + 'px)';
+        w.style.display   = 'inline-block';
+        const d = baseDelay + i * wordGap;
+        w.style.transition =
+          'opacity 1.05s cubic-bezier(0.25,0.46,0.45,0.94) ' + d + 's,' +
+          'transform 1.15s cubic-bezier(0.16,1,0.3,1) '       + d + 's,' +
+          'filter 1.0s cubic-bezier(0.25,0.46,0.45,0.94) '    + d + 's';
+      });
+      return words;
+    }
+
+    function luxRevealWords(words) {
+      requestAnimationFrame(function() { requestAnimationFrame(function() {
+        words.forEach(function(w) {
+          w.style.opacity   = '1';
+          w.style.transform = 'translateY(0)';
+          w.style.filter    = 'blur(0px)';
+        });
+      }); });
+    }
+
+    function luxRevealEl(el, delay, fromX) {
+      el.style.opacity   = '0';
+      el.style.filter    = 'blur(5px)';
+      el.style.transform = fromX ? 'translateX(' + fromX + 'px)' : 'translateY(14px)';
+      el.style.transition =
+        'opacity 1.1s cubic-bezier(0.25,0.46,0.45,0.94) ' + delay + 's,' +
+        'transform 1.2s cubic-bezier(0.16,1,0.3,1) '       + delay + 's,' +
+        'filter 1.0s cubic-bezier(0.25,0.46,0.45,0.94) '   + delay + 's';
+      requestAnimationFrame(function() { requestAnimationFrame(function() {
+        el.style.opacity   = '1';
+        el.style.transform = 'none';
+        el.style.filter    = 'blur(0px)';
+      }); });
+    }
+
+    /* ── HERO: animate on DOMContentLoaded ── */
+    document.addEventListener('DOMContentLoaded', function() {
+      var eyebrow = document.querySelector('.about-hero .eyebrow');
+      var h1      = document.querySelector('.about-hero h1');
+      var sub     = document.querySelector('.about-hero__sub');
+      var tags    = document.querySelector('.about-hero__tags');
+      var photo   = document.querySelector('.about-hero__photo-wrap');
+
+      if (eyebrow) { var ew = luxSplitWords(eyebrow, 0.1, 0.06, 8, 3);  luxRevealWords(ew); }
+      if (h1)      { var hw = luxSplitWords(h1,      0.3, 0.09, 18, 7); luxRevealWords(hw); }
+      if (sub)     { var sw = luxSplitWords(sub,      0.6, 0.04, 10, 4); luxRevealWords(sw); }
+      if (tags)    luxRevealEl(tags,  0.85, 0);
+      if (photo)   luxRevealEl(photo, 0.25, 20);
+    });
+
+    /* ── SCROLL: reveal all .reveal elements ── */
+    var revealEls = document.querySelectorAll('.reveal');
+
+    var luxIO = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        luxIO.unobserve(el);
+
+        var sectionDelay = 0;
+        if (el.classList.contains('delay-1')) sectionDelay = 0.05;
+        if (el.classList.contains('delay-2')) sectionDelay = 0.12;
+        if (el.classList.contains('delay-3')) sectionDelay = 0.20;
+
+        var h2s  = el.matches('h2')  ? [el] : Array.from(el.querySelectorAll('h2'));
+        var h3s  = el.matches('h3')  ? [el] : Array.from(el.querySelectorAll('h3'));
+        var eybs = el.classList.contains('eyebrow') ? [el] : Array.from(el.querySelectorAll('.eyebrow'));
+        var pars = el.matches('p')   ? [el] : Array.from(el.querySelectorAll('p'));
+
+        var cursor = sectionDelay;
+
+        eybs.forEach(function(e) {
+          var w = luxSplitWords(e, cursor, 0.07, 10, 3);
+          luxRevealWords(w);
+          cursor += 0.05;
+        });
+        h2s.forEach(function(h) {
+          var w = luxSplitWords(h, cursor, 0.1, 16, 6);
+          luxRevealWords(w);
+          cursor += w.length * 0.1 + 0.05;
+        });
+        h3s.forEach(function(h) {
+          var w = luxSplitWords(h, cursor, 0.09, 14, 5);
+          luxRevealWords(w);
+          cursor += w.length * 0.09 + 0.04;
+        });
+        pars.forEach(function(p) {
+          var w = luxSplitWords(p, cursor, 0.04, 10, 4);
+          luxRevealWords(w);
+          cursor += 0.12;
+        });
+
+        var hasText = h2s.length || h3s.length || eybs.length || pars.length;
+        if (!hasText) {
+          var fromX = el.classList.contains('reveal-left') ? -28 :
+                      el.classList.contains('reveal-right') ? 28 : 0;
+          el.style.opacity   = '0';
+          el.style.filter    = 'blur(6px)';
+          el.style.transform = fromX ? 'translateX(' + fromX + 'px)' : 'translateY(20px)';
+          el.style.transition =
+            'opacity 1.1s cubic-bezier(0.25,0.46,0.45,0.94) ' + sectionDelay + 's,' +
+            'transform 1.2s cubic-bezier(0.16,1,0.3,1) '       + sectionDelay + 's,' +
+            'filter 1.0s cubic-bezier(0.25,0.46,0.45,0.94) '   + sectionDelay + 's';
+          requestAnimationFrame(function() { requestAnimationFrame(function() {
+            el.style.opacity   = '1';
+            el.style.transform = 'none';
+            el.style.filter    = 'blur(0px)';
+          }); });
+        }
+
+        el.classList.add('visible');
+      });
+    }, { threshold: 0.07, rootMargin: '0px 0px -20px 0px' });
+
+    revealEls.forEach(function(el) { luxIO.observe(el); });
+
+    /* Reduced motion fallback */
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('.about-hero h1, .about-hero__sub, .about-hero .eyebrow, .about-hero__tags').forEach(function(el) {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+        el.style.animation = 'none';
+      });
+    }
+  })();
+  </script>
 </body>
 </html>
