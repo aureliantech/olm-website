@@ -858,7 +858,6 @@ h1, h2, h3, h4 { font-family: var(--ff-serif); font-weight: 400; line-height: 1.
 .apx__link--cta .apx__link-num { color: rgba(232,114,42,0.18); }
 .apx__link--cta:hover { background: rgba(232,114,42,0.14); }
 
-/* MEDPRO — Luxury shimmer CTA */
 .apx__link--medpro-cta {
   grid-column: 1 / -1;
   grid-row: auto;
@@ -868,14 +867,30 @@ h1, h2, h3, h4 { font-family: var(--ff-serif); font-weight: 400; line-height: 1.
   border-top: 1px solid rgba(232,114,42,0.25) !important;
   border-left: 3px solid var(--accent) !important;
   border-right: none;
-  transition: background 0.4s ease, box-shadow 0.4s ease;
+  opacity: 1 !important;
+  transform: none !important;
+  transition: background 0.4s ease, box-shadow 0.4s ease !important;
+  transition-delay: 0s !important;
 }
-/* Sweeping shimmer — plays immediately, continuously, no hover required */
+.apx__panel.open .apx__link--medpro-cta,
+.apx__panel.open .apx__link--medpro-cta:nth-child(1),
+.apx__panel.open .apx__link--medpro-cta:nth-child(2),
+.apx__panel.open .apx__link--medpro-cta:nth-child(3),
+.apx__panel.open .apx__link--medpro-cta:nth-child(4),
+.apx__panel.open .apx__link--medpro-cta:nth-child(5),
+.apx__panel.open .apx__link--medpro-cta:nth-child(6),
+.apx__panel.open .apx__link--medpro-cta:nth-child(7) {
+  opacity: 1 !important;
+  transform: none !important;
+  transition-delay: 0s !important;
+}
+/* Sweeping shimmer — plays immediately, continuously */
 .apx__link--medpro-cta::before {
-  content: '';
-  position: absolute;
-  top: 0; left: -120%; bottom: 0;
-  width: 70%;
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important; left: -120% !important; bottom: 0 !important;
+  width: 70% !important;
+  height: 100% !important;
   background: linear-gradient(
     105deg,
     transparent 15%,
@@ -883,8 +898,11 @@ h1, h2, h3, h4 { font-family: var(--ff-serif); font-weight: 400; line-height: 1.
     rgba(240,169,108,0.22) 50%,
     rgba(232,114,42,0.08) 65%,
     transparent 85%
-  );
-  animation: medproShimmer 2.6s cubic-bezier(0.4,0,0.6,1) 0s infinite;
+  ) !important;
+  animation: medproShimmer 2.6s cubic-bezier(0.4,0,0.6,1) 0s infinite !important;
+  transform: none !important;
+  transform-origin: unset !important;
+  transition: none !important;
   pointer-events: none;
   z-index: 0;
 }
