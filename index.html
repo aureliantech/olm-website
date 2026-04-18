@@ -706,6 +706,27 @@
     }
     .apx__link:hover::before { transform: scaleY(1); }
 
+    /* Restore medpro shimmer sweep — overrides the bar above */
+    .apx__link--medpro-cta { opacity: 1 !important; transform: none !important; }
+    .apx__link--medpro-cta::before {
+      content: ''; position: absolute;
+      top: 0; left: -120%; bottom: 0; width: 70%;
+      background: linear-gradient(105deg, transparent 15%, rgba(232,114,42,0.08) 35%, rgba(240,169,108,0.22) 50%, rgba(232,114,42,0.08) 65%, transparent 85%);
+      animation: medproShimmer 2.6s cubic-bezier(0.4,0,0.6,1) 0s infinite;
+      transform: none; transform-origin: unset;
+      transition: none;
+      width: 70%; height: 100%;
+      pointer-events: none; z-index: 0;
+    }
+    .apx__link--medpro-cta:hover::before {
+      background: linear-gradient(105deg, transparent 15%, rgba(232,114,42,0.15) 35%, rgba(240,169,108,0.40) 50%, rgba(232,114,42,0.15) 65%, transparent 85%);
+      animation-duration: 1.4s;
+    }
+    @keyframes medproShimmer {
+      0%   { left: -120%; }
+      100% { left: 160%; }
+    }
+
     .apx__link-num {
       font-family: 'Playfair Display', serif;
       font-size: 26px; font-weight: 400;
