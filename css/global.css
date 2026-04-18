@@ -861,6 +861,7 @@ h1, h2, h3, h4 { font-family: var(--ff-serif); font-weight: 400; line-height: 1.
 /* MEDPRO — Luxury shimmer CTA */
 .apx__link--medpro-cta {
   grid-column: 1 / -1;
+  grid-row: auto;
   position: relative;
   overflow: hidden;
   background: rgba(232,114,42,0.08);
@@ -869,7 +870,7 @@ h1, h2, h3, h4 { font-family: var(--ff-serif); font-weight: 400; line-height: 1.
   border-right: none;
   transition: background 0.4s ease, box-shadow 0.4s ease;
 }
-/* Sweeping shimmer — plays continuously, no hover required */
+/* Sweeping shimmer — plays immediately, continuously, no hover required */
 .apx__link--medpro-cta::before {
   content: '';
   position: absolute;
@@ -879,11 +880,11 @@ h1, h2, h3, h4 { font-family: var(--ff-serif); font-weight: 400; line-height: 1.
     105deg,
     transparent 15%,
     rgba(232,114,42,0.08) 35%,
-    rgba(240,169,108,0.2) 50%,
+    rgba(240,169,108,0.22) 50%,
     rgba(232,114,42,0.08) 65%,
     transparent 85%
   );
-  animation: medproShimmer 2.6s cubic-bezier(0.4,0,0.6,1) 1s infinite;
+  animation: medproShimmer 2.6s cubic-bezier(0.4,0,0.6,1) 0s infinite;
   pointer-events: none;
   z-index: 0;
 }
@@ -891,7 +892,7 @@ h1, h2, h3, h4 { font-family: var(--ff-serif); font-weight: 400; line-height: 1.
   0%   { left: -120%; }
   100% { left: 160%; }
 }
-/* On hover — glow brighter, background intensifies */
+/* On hover — glow brighter, sweep faster */
 .apx__link--medpro-cta:hover {
   background: rgba(232,114,42,0.18);
   box-shadow: inset 0 0 40px rgba(232,114,42,0.08), 0 0 0 1px rgba(232,114,42,0.3);
@@ -901,11 +902,11 @@ h1, h2, h3, h4 { font-family: var(--ff-serif); font-weight: 400; line-height: 1.
     105deg,
     transparent 15%,
     rgba(232,114,42,0.15) 35%,
-    rgba(240,169,108,0.38) 50%,
+    rgba(240,169,108,0.40) 50%,
     rgba(232,114,42,0.15) 65%,
     transparent 85%
   );
-  animation-duration: 1.6s;
+  animation-duration: 1.4s;
 }
 .apx__link--medpro-cta .apx__link-title {
   position: relative; z-index: 1;
@@ -915,7 +916,7 @@ h1, h2, h3, h4 { font-family: var(--ff-serif); font-weight: 400; line-height: 1.
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: medproTextShimmer 3s linear 1s infinite;
+  animation: medproTextShimmer 3s linear 0s infinite;
 }
 @keyframes medproTextShimmer {
   0%   { background-position: 0% center; }

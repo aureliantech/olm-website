@@ -149,6 +149,7 @@
             <div class="apx__link-desc">What happens &amp; when to act</div>
           </div>
         </a>
+        <div style="border-bottom:1px solid rgba(201,184,154,0.06);border-right:1px solid rgba(201,184,154,0.06);"></div>
         <a href="/texas-medical-attorney/index.html" class="apx__link apx__link--medpro-cta">
           <span class="apx__link-num">→</span>
           <div class="apx__link-body">
