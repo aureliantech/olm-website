@@ -858,6 +858,56 @@ h1, h2, h3, h4 { font-family: var(--ff-serif); font-weight: 400; line-height: 1.
 .apx__link--cta .apx__link-num { color: rgba(232,114,42,0.18); }
 .apx__link--cta:hover { background: rgba(232,114,42,0.14); }
 
+/* MEDPRO — Luxury shimmer CTA */
+.apx__link--medpro-cta {
+  grid-column: 1 / -1;
+  position: relative;
+  overflow: hidden;
+  background: rgba(232,114,42,0.08);
+  border-top: 1px solid rgba(232,114,42,0.25) !important;
+  border-left: 3px solid var(--accent) !important;
+  border-right: none;
+}
+/* Sweeping shimmer layer */
+.apx__link--medpro-cta::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; bottom: 0;
+  width: 60%;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(232,114,42,0.12) 40%,
+    rgba(240,169,108,0.22) 50%,
+    rgba(232,114,42,0.12) 60%,
+    transparent 80%
+  );
+  animation: medproShimmer 2.8s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes medproShimmer {
+  0%   { left: -100%; opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { left: 160%; opacity: 0; }
+}
+.apx__link--medpro-cta .apx__link-title {
+  color: var(--accent-lite);
+  font-size: 16px;
+  background: linear-gradient(90deg, var(--accent-lite), var(--accent), var(--accent-lite));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: medproTextShimmer 3s linear 1s infinite;
+}
+@keyframes medproTextShimmer {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+.apx__link--medpro-cta .apx__link-num { color: var(--accent); opacity: 0.6; }
+.apx__link--medpro-cta:hover { background: rgba(232,114,42,0.16); }
+
 .apx__mobile {
   display: none; flex-direction: column;
   background: #1A1221; padding: 8px clamp(24px,5vw,80px) 28px;

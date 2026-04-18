@@ -149,10 +149,10 @@
             <div class="apx__link-desc">What happens &amp; when to act</div>
           </div>
         </a>
-        <a href="/texas-medical-attorney/index.html" class="apx__link apx__link--cta" style="background:rgba(232,114,42,0.12);border-left:3px solid var(--accent);">
-          <span class="apx__link-num" style="color:var(--accent);">→</span>
+        <a href="/texas-medical-attorney/index.html" class="apx__link apx__link--medpro-cta">
+          <span class="apx__link-num">→</span>
           <div class="apx__link-body">
-            <div class="apx__link-title" style="color:var(--accent-lite);">View All Medical Professional Services</div>
+            <div class="apx__link-title">View All Medical Professional Services</div>
             <div class="apx__link-desc">View the full scope of representation</div>
           </div>
         </a>
