@@ -3,235 +3,971 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Texas Medical Board Complaint Process | What Happens & When to Act</title>
-  <meta name="description" content="A complete guide to the Texas Medical Board complaint and investigation process — timelines, stages, common mistakes, and when to hire a license defense attorney." />
+  <title>Texas Medical Board Complaint Process: Stages, Timeline &amp; What to Do | Octavia LaVon Martinez PLLC</title>
+  <meta name="description" content="Complete guide to the Texas Medical Board complaint investigation process — 6 stages, typical timelines, common physician mistakes, and when to hire a license defense attorney." />
   <link rel="canonical" href="https://octaviamartinezlaw.com/texas-medical-attorney/texas-medical-board" />
   <link rel="icon" type="image/png" href="../favicon.png">
   <link rel="apple-touch-icon" href="../favicon.png">
   <link rel="stylesheet" href="../css/global.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"How long does a Texas Medical Board investigation take?","acceptedAnswer":{"@type":"Answer","text":"A TMB investigation typically takes 6–18 months from the date of complaint acceptance to ISC or SOAH referral. If the case proceeds to a formal SOAH hearing, total resolution can take 2–3 years."}},
+      {"@type":"Question","name":"What happens when the Texas Medical Board receives a complaint?","acceptedAnswer":{"@type":"Answer","text":"The TMB screens the complaint and, if accepted, begins an investigation before notifying you. Investigators gather records, interview witnesses, and consult expert reviewers. You receive formal notice with a deadline to respond in writing."}},
+      {"@type":"Question","name":"Do I need an attorney to respond to a TMB complaint?","acceptedAnswer":{"@type":"Answer","text":"You are not legally required to have an attorney, but the initial written response is the most critical document in your defense. Unrepresented responses frequently include admissions that the board uses to build the case forward. Retaining an attorney immediately is strongly advised."}},
+      {"@type":"Question","name":"Can a TMB complaint be dismissed?","acceptedAnswer":{"@type":"Answer","text":"Yes. A well-constructed, evidence-anchored initial written response can force a dismissal decision before the case proceeds to an ISC or SOAH hearing. The Counter Protocol is specifically designed to achieve dismissal at this stage."}},
+      {"@type":"Question","name":"What is an Informal Settlement Conference (ISC) with the Texas Medical Board?","acceptedAnswer":{"@type":"Answer","text":"An ISC is a pre-hearing negotiation where the TMB proposes a resolution — which may include reprimands, probation, or restrictions. ISC outcomes are binding if agreed to and are reported to the NPDB. You should never attend an ISC without experienced defense counsel."}}
+    ]
+  }
+  </script>
   <style>
-    .resource-hero {
+    /* ── KEYFRAMES ─────────────────────────────────────────── */
+/* ── KEYFRAMES ─────────────────────────────────────────── */
+    @keyframes shimmerText {
+      0%   { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+    @keyframes borderPulse {
+      0%   { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); filter: blur(4px); }
+      to   { opacity: 1; transform: translateY(0);    filter: blur(0);   }
+    }
+    @keyframes countUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes stageBarIn {
+      from { width: 0; }
+      to   { width: 100%; }
+    }
+    @keyframes stageNodeIn {
+      from { opacity: 0; transform: scale(0.4); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    @keyframes blockSlideIn {
+      from { opacity: 0; transform: translateX(-20px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes mistakeIn {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes faqOpen {
+      from { opacity: 0; transform: translateY(-8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    /* ── HERO ──────────────────────────────────────────────── */
+    .tmb-hero {
       background: var(--dark);
-      padding: 140px var(--gutter) 80px;
+      min-height: 100svh;
+      display: flex; align-items: center;
+      padding: clamp(80px,8vh,110px) clamp(40px,6vw,100px) clamp(48px,5vh,72px);
+      position: relative; overflow: hidden;
     }
-    .resource-hero__inner { max-width: 680px; margin: 0 auto; }
-    .resource-hero h1 { font-size: clamp(30px, 4vw, 50px); color: var(--bg); margin-bottom: 16px; }
-    .resource-hero h1 em { color: var(--accent-lite); }
-    .resource-hero p { font-size: 17px; color: rgba(250,246,240,0.7); line-height: 1.7; }
-
-    .resource-body { background: var(--bg); }
-    .resource-inner { max-width: 760px; margin: 0 auto; }
-    .resource-inner h2 { font-size: clamp(22px, 2.5vw, 32px); margin: 48px 0 16px; color: var(--dark); }
-    .resource-inner h2:first-of-type { margin-top: 0; }
-    .resource-inner h3 { font-family: var(--ff-sans); font-size: 17px; font-weight: 700; color: var(--dark); margin: 24px 0 8px; }
-    .resource-inner p { font-size: 16px; color: var(--mid); line-height: 1.8; margin-bottom: 14px; }
-    .resource-inner strong { color: var(--dark); }
-    .resource-inner ul { margin: 12px 0 20px 20px; }
-    .resource-inner li { font-size: 16px; color: var(--mid); line-height: 1.75; margin-bottom: 8px; list-style: disc; }
-
-    .callout {
-      background: var(--surface);
-      border-left: 4px solid var(--accent);
-      padding: 24px 28px;
-      margin: 28px 0;
-      border-radius: 0 2px 2px 0;
+    /* Atmospheric background image */
+    .tmb-hero__bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1800&q=80&fit=crop&auto=format');
+      background-size: cover; background-position: center 30%;
+      opacity: 0.06; filter: grayscale(100%) contrast(1.3);
     }
-    .callout p { margin-bottom: 0; font-size: 16px; color: var(--dark); line-height: 1.7; }
-    .callout strong { color: var(--accent-dark); }
-
-    .stage-block {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      padding: 24px 28px;
-      margin-bottom: 12px;
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
+    .tmb-hero__gradient {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 90% at 80% 50%, rgba(232,114,42,0.09) 0%, transparent 60%),
+        linear-gradient(160deg, #1A1221 0%, #2B2438 60%, #1A1221 100%);
     }
-    .stage-num {
+    /* Large faint watermark */
+    .tmb-hero::after {
+      content: 'TMB';
+      position: absolute; right: -0.04em; bottom: -0.15em;
       font-family: var(--ff-serif);
-      font-size: 32px;
-      color: var(--accent);
-      opacity: 0.5;
-      line-height: 1;
-      flex-shrink: 0;
-      width: 36px;
+      font-size: clamp(180px,26vw,380px); font-weight: 700;
+      color: rgba(232,114,42,0.05); line-height: 1;
+      letter-spacing: -0.04em;
+      pointer-events: none; user-select: none;
     }
-    .stage-title { font-family: var(--ff-sans); font-size: 17px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
-    .stage-body { font-size: 16px; color: var(--mid); line-height: 1.7; }
-
-    .mistake-list { display: flex; flex-direction: column; gap: 12px; margin: 20px 0; }
-    .mistake-item {
-      display: flex;
-      gap: 14px;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--ember);
-      padding: 16px 20px;
-      border-radius: 0 2px 2px 0;
-    }
-    .mistake-icon { color: var(--ember); font-size: 18px; flex-shrink: 0; }
-    .mistake-title { font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
-    .mistake-body { font-size: 15px; color: var(--muted); line-height: 1.6; }
-
-    .inline-cta {
-      background: var(--plum);
-      color: var(--bg);
-      border-radius: 2px;
-      padding: 32px 36px;
-      margin: 40px 0;
-      display: flex;
-      justify-content: space-between;
+    .tmb-hero__inner {
+      position: relative; z-index: 2; width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: clamp(48px,7vw,96px);
       align-items: center;
-      flex-wrap: wrap;
-      gap: 24px;
     }
-    .inline-cta h3 { font-size: 22px; color: var(--bg); margin-bottom: 8px; }
-    .inline-cta p { font-size: 16px; color: rgba(250,246,240,0.75); line-height: 1.6; max-width: 460px; }
+    .tmb-hero__kicker {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 22px;
+    }
+    .tmb-hero__kicker::before { content:''; width:28px; height:2px; background:var(--accent); }
+    .tmb-hero__kicker-text {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent);
+    }
+    .tmb-hero h1 {
+      font-family: var(--ff-serif);
+      font-size: clamp(30px,3.4vw,48px);
+      color: var(--bg); line-height: 1.08;
+      letter-spacing: -0.025em; margin-bottom: 20px;
+    }
+    .tmb-hero h1 em {
+      display: block; font-style: italic;
+      background: linear-gradient(90deg, var(--accent-lite), var(--accent), var(--accent-lite));
+      background-size: 200% auto;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmerText 4s linear 1.5s infinite;
+    }
+    .tmb-hero__sub {
+      font-size: clamp(15px,1.5vw,18px);
+      color: rgba(250,246,240,0.65);
+      line-height: 1.72; margin-bottom: 32px; max-width: 480px;
+    }
+    .tmb-hero__ctas { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:20px; }
+    .tmb-hero__jump {
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .tmb-hero__jump a {
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(250,246,240,0.45); text-decoration: none;
+      padding: 5px 10px;
+      border: 1px solid rgba(201,184,154,0.15);
+      transition: color .2s, border-color .2s;
+    }
+    .tmb-hero__jump a:hover { color: var(--accent); border-color: rgba(232,114,42,0.4); }
+
+    /* Right: stat card */
+    .tmb-stat-card {
+      background: rgba(16,12,24,0.88);
+      border: 1px solid rgba(201,184,154,0.12);
+      border-top: 3px solid var(--accent);
+    }
+    .tmb-stat-card__header {
+      padding: 14px 20px;
+      border-bottom: 1px solid rgba(201,184,154,0.12);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--accent);
+    }
+    .tmb-stat-row {
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: center; padding: 12px 20px;
+      border-bottom: 1px solid rgba(201,184,154,0.07);
+    }
+    .tmb-stat-row:last-of-type { border-bottom: none; }
+    .tmb-stat-row__label { font-size: 13px; color: rgba(250,246,240,0.78); line-height: 1.3; }
+    .tmb-stat-row__val {
+      font-family: var(--ff-serif); font-size: 14px; font-weight: 700;
+      color: var(--accent-lite); text-align: right; padding-left: 16px; white-space: nowrap;
+    }
+    .tmb-stat-row--alert .tmb-stat-row__label { color:#fff; font-weight:700; }
+    .tmb-stat-row--alert .tmb-stat-row__val { color: #f08060; }
+    .tmb-stat-card__footer {
+      padding: 14px 20px;
+      background: rgba(232,114,42,0.1);
+      border-top: 1px solid rgba(232,114,42,0.2);
+      font-size: 13px; color: rgba(250,246,240,0.82);
+      font-weight: 600; line-height: 1.55;
+    }
+    .tmb-stat-card__footer em { font-style:normal; color: var(--accent-lite); }
+    @media (max-width:900px) {
+      .tmb-hero__inner { grid-template-columns:1fr; }
+      .tmb-stat-card { max-width:480px; }
+    }
+    /* ── JUMP NAV ───────────────────────────────────────────── */
+    .tmb-jumpnav {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 72px; z-index: 50;
+    }
+    .tmb-jumpnav__inner {
+      display: flex; align-items: center; gap: 0;
+      overflow-x: auto; padding: 0 clamp(20px,4vw,48px);
+      scrollbar-width: none;
+    }
+    .tmb-jumpnav__inner::-webkit-scrollbar { display:none; }
+    .tmb-jumpnav a {
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none;
+      padding: 14px 20px;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+    .tmb-jumpnav a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+    /* ── VISUAL TIMELINE ─────────────────────────────────────── */
+    .tmb-timeline {
+      background: var(--dark);
+      overflow: hidden;
+    }
+    .tmb-timeline.section { padding: clamp(56px,7vw,88px) clamp(40px,6vw,100px); }
+    .tmb-timeline__header {
+      text-align: center; margin-bottom: clamp(40px,5vw,60px);
+      opacity: 0; transform: translateY(12px);
+      transition: opacity .6s ease, transform .6s cubic-bezier(.16,1,.3,1);
+    }
+    .tmb-timeline.tl-entered .tmb-timeline__header { opacity:1; transform:translateY(0); }
+    .tmb-timeline__headline {
+      font-family: var(--ff-serif);
+      font-size: clamp(26px,2.8vw,40px);
+      color: var(--bg); letter-spacing: -0.02em; line-height: 1.1;
+    }
+    .tmb-timeline__sub {
+      font-size: 15px; color: rgba(250,246,240,0.55);
+      margin-top: 10px; line-height: 1.6;
+    }
+    /* The track */
+    .tmb-track {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(6,1fr);
+      gap: 0;
+      margin-bottom: 0;
+    }
+    /* Connecting line behind nodes */
+    .tmb-track::before {
+      content: '';
+      position: absolute;
+      top: 16px; left: calc(100%/12); right: calc(100%/12);
+      height: 1px; background: rgba(201,184,154,0.15);
+      z-index: 0;
+    }
+    /* Animated fill line */
+    .tmb-track__fill {
+      position: absolute;
+      top: 16px; left: calc(100%/12);
+      width: 0; height: 1px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-lite));
+      z-index: 1;
+      transition: width 1.8s cubic-bezier(.16,1,.3,1) .3s;
+    }
+    .tmb-timeline.tl-entered .tmb-track__fill {
+      width: calc(100% - 100%/6);
+    }
+    .tmb-stage {
+      display: flex; flex-direction: column; align-items: center;
+      padding: 0 8px; position: relative; z-index: 2;
+      opacity: 0;
+    }
+    .tmb-timeline.tl-entered .tmb-stage:nth-child(2){animation:stageNodeIn .5s cubic-bezier(.16,1,.3,1) .2s forwards}
+    .tmb-timeline.tl-entered .tmb-stage:nth-child(3){animation:stageNodeIn .5s cubic-bezier(.16,1,.3,1) .4s forwards}
+    .tmb-timeline.tl-entered .tmb-stage:nth-child(4){animation:stageNodeIn .5s cubic-bezier(.16,1,.3,1) .6s forwards}
+    .tmb-timeline.tl-entered .tmb-stage:nth-child(5){animation:stageNodeIn .5s cubic-bezier(.16,1,.3,1) .8s forwards}
+    .tmb-timeline.tl-entered .tmb-stage:nth-child(6){animation:stageNodeIn .5s cubic-bezier(.16,1,.3,1) 1.0s forwards}
+    .tmb-timeline.tl-entered .tmb-stage:nth-child(7){animation:stageNodeIn .5s cubic-bezier(.16,1,.3,1) 1.2s forwards}
+    .tmb-stage__node {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: rgba(201,184,154,0.1);
+      border: 2px solid rgba(201,184,154,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--ff-serif); font-size: 13px;
+      color: rgba(250,246,240,0.5);
+      margin-bottom: 14px;
+      transition: background .3s, border-color .3s;
+    }
+    .tmb-stage:hover .tmb-stage__node {
+      background: rgba(232,114,42,0.15);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .tmb-stage__label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(250,246,240,0.55);
+      text-align: center; line-height: 1.35;
+      margin-bottom: 6px;
+    }
+    .tmb-stage__time {
+      font-size: 11px; color: var(--accent);
+      text-align: center; font-weight: 700;
+      letter-spacing: 0.06em;
+    }
+    @media (max-width:768px) {
+      .tmb-track { grid-template-columns: repeat(3,1fr); row-gap: 32px; }
+      .tmb-track::before,.tmb-track__fill { display:none; }
+      .tmb-timeline { overflow: visible; }
+    }
+    /* ── STAGES ──────────────────────────────────────────────── */
+    .tmb-stages { background: var(--bg); }
+    .tmb-stages.section { padding: clamp(56px,7vw,88px) clamp(40px,6vw,100px); }
+    .tmb-stages__inner { max-width: 860px; margin: 0 auto; }
+    .tmb-stages__warning {
+      background: rgba(232,114,42,0.07);
+      border: 1px solid rgba(232,114,42,0.25);
+      border-left: 4px solid var(--accent);
+      padding: 20px 24px; margin-bottom: 40px;
+      font-size: 15px; color: var(--dark); line-height: 1.65;
+    }
+    .tmb-stages__warning strong { color: var(--accent-dark, #b8531a); }
+    .tmb-stages__warning a { color: var(--accent); }
+    .tmb-stages__header {
+      margin-bottom: clamp(28px,3.5vw,44px);
+    }
+    .tmb-stages__headline {
+      font-family: var(--ff-serif);
+      font-size: clamp(24px,2.6vw,36px);
+      color: var(--dark); line-height: 1.1; letter-spacing: -0.02em;
+    }
+    /* Stage blocks */
+    .tmb-stage-block {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 0 24px;
+      padding: clamp(20px,2.5vw,28px) 0;
+      border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
+      cursor: default;
+      opacity: 0; transform: translateX(-20px);
+    }
+    .tmb-stage-block:first-of-type { border-top: 1px solid var(--border); }
+    .tmb-stage-block::before {
+      content:''; position:absolute; top:0; left:0; bottom:0;
+      width:0; background: var(--accent);
+      transition: width .35s cubic-bezier(.16,1,.3,1);
+    }
+    .tmb-stage-block:hover::before { width:3px; }
+    .tmb-stage-block:hover { background: rgba(232,114,42,0.018); }
+    .tmb-stages.stages-entered .tmb-stage-block:nth-child(1){animation:blockSlideIn .55s cubic-bezier(.16,1,.3,1) .05s forwards}
+    .tmb-stages.stages-entered .tmb-stage-block:nth-child(2){animation:blockSlideIn .55s cubic-bezier(.16,1,.3,1) .13s forwards}
+    .tmb-stages.stages-entered .tmb-stage-block:nth-child(3){animation:blockSlideIn .55s cubic-bezier(.16,1,.3,1) .21s forwards}
+    .tmb-stages.stages-entered .tmb-stage-block:nth-child(4){animation:blockSlideIn .55s cubic-bezier(.16,1,.3,1) .29s forwards}
+    .tmb-stages.stages-entered .tmb-stage-block:nth-child(5){animation:blockSlideIn .55s cubic-bezier(.16,1,.3,1) .37s forwards}
+    .tmb-stages.stages-entered .tmb-stage-block:nth-child(6){animation:blockSlideIn .55s cubic-bezier(.16,1,.3,1) .45s forwards}
+    .tmb-stage-block__num {
+      font-family: var(--ff-serif);
+      font-size: clamp(32px,3.5vw,48px);
+      color: rgba(232,114,42,0.18);
+      line-height: 1; letter-spacing: -0.04em;
+      padding-top: 4px;
+      transition: color .3s;
+    }
+    .tmb-stage-block:hover .tmb-stage-block__num { color: rgba(232,114,42,0.5); }
+    .tmb-stage-block__label {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 6px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .tmb-stage-block__label-time {
+      color: rgba(26,18,33,0.35);
+      font-size: 10px; letter-spacing: 0.1em;
+    }
+    .tmb-stage-block__title {
+      font-family: var(--ff-serif);
+      font-size: clamp(17px,1.7vw,22px);
+      color: var(--dark); line-height: 1.2; margin-bottom: 8px;
+    }
+    .tmb-stage-block--critical .tmb-stage-block__title { color: var(--accent-dark, #b8531a); }
+    .tmb-stage-block__body { font-size: 15px; color: var(--mid); line-height: 1.72; }
+    .tmb-stage-block__body strong { color: var(--dark); }
+    /* Inline mid-page CTA */
+    .tmb-inline-cta {
+      background: var(--dark); padding: clamp(24px,3vw,36px) clamp(24px,3vw,36px);
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: center; gap: 24px; margin: 40px 0;
+      opacity: 0; transform: translateY(12px);
+      transition: opacity .6s ease .3s, transform .6s cubic-bezier(.16,1,.3,1) .3s;
+    }
+    .tmb-stages.stages-entered .tmb-inline-cta { opacity:1; transform:translateY(0); }
+    .tmb-inline-cta__text {
+      font-size: 15px; color: rgba(250,246,240,0.88);
+      font-weight: 600; line-height: 1.55;
+    }
+    .tmb-inline-cta__text em { font-style:normal; color: var(--accent-lite); }
+    @media (max-width:768px) {
+      .tmb-stage-block { opacity:1; transform:none; }
+      .tmb-stages.stages-entered .tmb-stage-block { animation:none; }
+      .tmb-inline-cta { grid-template-columns:1fr; }
+    }
+    /* ── MISTAKES ────────────────────────────────────────────── */
+    .tmb-mistakes { background: var(--surface); }
+    .tmb-mistakes.section { padding: clamp(56px,7vw,88px) clamp(40px,6vw,100px); }
+    .tmb-mistakes__inner { max-width: 860px; margin: 0 auto; }
+    .tmb-mistakes__headline {
+      font-family: var(--ff-serif);
+      font-size: clamp(24px,2.6vw,36px);
+      color: var(--dark); letter-spacing: -0.02em; line-height: 1.1;
+      margin-bottom: clamp(28px,3.5vw,44px);
+    }
+    .tmb-mistake {
+      display: grid; grid-template-columns: 56px 1fr;
+      gap: 0 20px; padding: clamp(18px,2.2vw,26px) 0;
+      border-bottom: 1px solid var(--border);
+      cursor: default; position: relative; overflow: hidden;
+      opacity: 0; transform: translateY(14px);
+    }
+    .tmb-mistake:first-of-type { border-top: 1px solid var(--border); }
+    .tmb-mistake::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:1px;
+      background: var(--accent);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .45s cubic-bezier(.16,1,.3,1);
+    }
+    .tmb-mistake:hover::before { transform: scaleX(1); }
+    .tmb-mistake:hover { background: rgba(232,114,42,0.02); }
+    .tmb-mistakes.mistakes-entered .tmb-mistake:nth-child(1){animation:mistakeIn .55s cubic-bezier(.16,1,.3,1) .05s forwards}
+    .tmb-mistakes.mistakes-entered .tmb-mistake:nth-child(2){animation:mistakeIn .55s cubic-bezier(.16,1,.3,1) .12s forwards}
+    .tmb-mistakes.mistakes-entered .tmb-mistake:nth-child(3){animation:mistakeIn .55s cubic-bezier(.16,1,.3,1) .19s forwards}
+    .tmb-mistakes.mistakes-entered .tmb-mistake:nth-child(4){animation:mistakeIn .55s cubic-bezier(.16,1,.3,1) .26s forwards}
+    .tmb-mistakes.mistakes-entered .tmb-mistake:nth-child(5){animation:mistakeIn .55s cubic-bezier(.16,1,.3,1) .33s forwards}
+    .tmb-mistake__x {
+      font-family: var(--ff-serif);
+      font-size: clamp(28px,3vw,40px);
+      color: rgba(192,57,43,0.25);
+      line-height: 1; padding-top: 4px;
+      transition: color .3s;
+    }
+    .tmb-mistake:hover .tmb-mistake__x { color: rgba(192,57,43,0.5); }
+    .tmb-mistake__title {
+      font-family: var(--ff-serif);
+      font-size: clamp(16px,1.6vw,20px);
+      color: var(--dark); line-height: 1.2; margin-bottom: 8px;
+    }
+    .tmb-mistake__body { font-size: 14px; color: var(--mid); line-height: 1.7; }
+    /* ── FAQ ─────────────────────────────────────────────────── */
+    .tmb-faq { background: var(--bg); }
+    .tmb-faq.section { padding: clamp(56px,7vw,88px) clamp(40px,6vw,100px); }
+    .tmb-faq__inner { max-width: 860px; margin: 0 auto; }
+    .tmb-faq__headline {
+      font-family: var(--ff-serif);
+      font-size: clamp(24px,2.6vw,36px);
+      color: var(--dark); letter-spacing:-0.02em; line-height:1.1;
+      margin-bottom: clamp(28px,3.5vw,44px);
+    }
+    .tmb-faq__item {
+      border-bottom: 1px solid var(--border);
+    }
+    .tmb-faq__item:first-of-type { border-top: 1px solid var(--border); }
+    .tmb-faq__question {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px; padding: clamp(16px,2vw,22px) 0;
+      cursor: pointer; user-select: none;
+    }
+    .tmb-faq__q-text {
+      font-family: var(--ff-serif);
+      font-size: clamp(16px,1.6vw,20px);
+      color: var(--dark); line-height: 1.3;
+    }
+    .tmb-faq__chevron {
+      width: 20px; height: 20px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent); font-size: 13px;
+      transition: transform .3s cubic-bezier(.16,1,.3,1);
+    }
+    .tmb-faq__item.open .tmb-faq__chevron { transform: rotate(180deg); }
+    .tmb-faq__answer {
+      font-size: 15px; color: var(--mid); line-height: 1.75;
+      max-height: 0; overflow: hidden;
+      transition: max-height .45s cubic-bezier(.16,1,.3,1), padding .3s ease;
+      padding-bottom: 0;
+    }
+    .tmb-faq__answer strong { color: var(--dark); }
+    .tmb-faq__answer a { color: var(--accent); }
+    .tmb-faq__item.open .tmb-faq__answer {
+      max-height: 400px;
+      padding-bottom: clamp(14px,2vw,22px);
+    }
+    .tmb-faq__disclaimer {
+      font-size: 13px; color: var(--muted); line-height: 1.6;
+      margin-top: 32px; font-style: italic;
+    }
+    .tmb-faq__disclaimer a { color: var(--accent); }
+/* ── FINAL CTA ──────────────────────────────────────────── */
+    .tmb-final-cta {
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .tmb-final-cta::before {
+      content: 'TMB';
+      position: absolute;
+      bottom: -0.08em; right: -0.04em;
+      font-family: var(--ff-serif);
+      font-size: clamp(160px, 22vw, 320px);
+      font-weight: 700;
+      color: rgba(250,246,240,0.018);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      pointer-events: none;
+      user-select: none;
+    }
+    .tmb-final-cta__inner {
+      position: relative; z-index: 2;
+      max-width: 660px;
+      margin: 0 auto;
+    }
+    .tmb-final-cta h2 {
+      font-size: clamp(28px, 3.4vw, 46px);
+      color: var(--bg);
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+    .tmb-final-cta h2 em { color: var(--accent-lite); font-style: italic; }
+    .tmb-final-cta p {
+      font-size: 17px;
+      color: rgba(250,246,240,0.6);
+      line-height: 1.72;
+      margin-bottom: 32px;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .tmb-final-cta__ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+    .tmb-final-cta__meta {
+      font-size: 12px;
+      color: rgba(250,246,240,0.28);
+      letter-spacing: 0.06em;
+    }
+    .tmb-final-cta__meta a { color: rgba(250,246,240,0.45); }
+
+    /* ── LUX WORD ───────────────────────────────────────────── */
+    .lux-word { display: inline-block; }
+    .lux-word--em em {
+      background: linear-gradient(90deg, var(--accent-lite), var(--accent), var(--accent-lite));
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmerText 4s linear 2s infinite;
+    }
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   </style>
 </head>
 <body>
   <div id="site-nav"></div>
-    <section class="resource-hero">
-    <div class="resource-hero__inner">
-      <div class="eyebrow" style="margin-bottom:14px;">Texas Medical Board · Process Guide</div>
-      <h1>The TMB complaint process — <em>what actually happens</em> and when to act.</h1>
-      <p>A factual guide to how the Texas Medical Board investigates and resolves complaints against licensed physicians. If you have received notice of a complaint, read this first — then call us.</p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════════════════════════ -->
+  <section class="tmb-hero" aria-labelledby="tmb-h1">
+    <div class="tmb-hero__bg" aria-hidden="true"></div>
+    <div class="tmb-hero__gradient" aria-hidden="true"></div>
+    <div class="tmb-hero__inner">
+      <div>
+        <div class="tmb-hero__kicker">
+          <span class="tmb-hero__kicker-text">Texas Medical Board · Process Guide</span>
+        </div>
+        <h1 id="tmb-h1">The TMB complaint process —
+          <em>what actually happens, and when to act.</em>
+        </h1>
+        <p class="tmb-hero__sub">A factual guide to how the Texas Medical Board investigates and resolves complaints against licensed physicians. Six stages, real timelines, and the most common mistakes that cost physicians their defense.</p>
+        <div class="tmb-hero__ctas">
+          <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+          <a href="strategy-session.html" class="btn btn--outline">Book a Strategy Session</a>
+        </div>
+        <nav class="tmb-hero__jump" aria-label="Page sections">
+          <a href="#tmb-overview">Overview</a>
+          <a href="#tmb-stages">6 Stages</a>
+          <a href="#tmb-mistakes">Common Mistakes</a>
+          <a href="#tmb-when">When to Hire</a>
+          <a href="#tmb-faq">FAQ</a>
+        </nav>
+      </div>
+      <div class="tmb-stat-card" role="complementary" aria-label="TMB complaint key facts">
+        <div class="tmb-stat-card__header">TMB Complaint — Key Facts</div>
+        <div class="tmb-stat-row">
+          <span class="tmb-stat-row__label">Board begins investigation</span>
+          <span class="tmb-stat-row__val">Before you're notified</span>
+        </div>
+        <div class="tmb-stat-row">
+          <span class="tmb-stat-row__label">Initial response window</span>
+          <span class="tmb-stat-row__val">30–60 days</span>
+        </div>
+        <div class="tmb-stat-row">
+          <span class="tmb-stat-row__label">Investigation timeline</span>
+          <span class="tmb-stat-row__val">6–18 months</span>
+        </div>
+        <div class="tmb-stat-row">
+          <span class="tmb-stat-row__label">SOAH hearing resolution</span>
+          <span class="tmb-stat-row__val">12–24+ months</span>
+        </div>
+        <div class="tmb-stat-row">
+          <span class="tmb-stat-row__label">NPDB filing if action taken</span>
+          <span class="tmb-stat-row__val">Permanent</span>
+        </div>
+        <div class="tmb-stat-row tmb-stat-row--alert">
+          <span class="tmb-stat-row__label">Most critical phase</span>
+          <span class="tmb-stat-row__val">Stage 2 — Initial Response</span>
+        </div>
+        <div class="tmb-stat-card__footer">The initial written response is the single most important document in your defense. <em>Do not file it without experienced counsel.</em></div>
+      </div>
     </div>
   </section>
 
-  <section class="section resource-body">
+  <!-- ═══════════════════════════════════════════════════════════
+       JUMP NAV
+  ════════════════════════════════════════════════════════════ -->
+  <nav class="tmb-jumpnav" aria-label="Page navigation">
+    <div class="tmb-jumpnav__inner">
+      <a href="#tmb-overview">Overview</a>
+      <a href="#tmb-stages">The 6 Stages</a>
+      <a href="#tmb-mistakes">Common Mistakes</a>
+      <a href="#tmb-when">When to Hire</a>
+      <a href="#tmb-faq">FAQ</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VISUAL TIMELINE
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section tmb-timeline" id="tmb-overview" aria-labelledby="tmb-tl-h2">
     <div class="container">
-      <div class="resource-inner">
+      <div class="tmb-timeline__header">
+        <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:12px;">At a Glance</div>
+        <h2 id="tmb-tl-h2" class="tmb-timeline__headline">Six stages from complaint to resolution</h2>
+        <p class="tmb-timeline__sub">Click any stage below to jump to the full description.</p>
+      </div>
+      <div class="tmb-track">
+        <div class="tmb-track__fill" aria-hidden="true"></div>
+        <div class="tmb-stage"><a href="#stage-1" style="text-decoration:none;display:contents;"><div class="tmb-stage__node">1</div><div class="tmb-stage__label">Complaint Filed</div><div class="tmb-stage__time">Day 1</div></a></div>
+        <div class="tmb-stage"><a href="#stage-2" style="text-decoration:none;display:contents;"><div class="tmb-stage__node">2</div><div class="tmb-stage__label">Notice &amp; Response</div><div class="tmb-stage__time">30–60 days</div></a></div>
+        <div class="tmb-stage"><a href="#stage-3" style="text-decoration:none;display:contents;"><div class="tmb-stage__node">3</div><div class="tmb-stage__label">Investigation</div><div class="tmb-stage__time">6–18 months</div></a></div>
+        <div class="tmb-stage"><a href="#stage-4" style="text-decoration:none;display:contents;"><div class="tmb-stage__node">4</div><div class="tmb-stage__label">ISC or Dismissal</div><div class="tmb-stage__time">Varies</div></a></div>
+        <div class="tmb-stage"><a href="#stage-5" style="text-decoration:none;display:contents;"><div class="tmb-stage__node">5</div><div class="tmb-stage__label">SOAH Hearing</div><div class="tmb-stage__time">12–24+ months</div></a></div>
+        <div class="tmb-stage"><a href="#stage-6" style="text-decoration:none;display:contents;"><div class="tmb-stage__node">6</div><div class="tmb-stage__label">Board Action &amp; NPDB</div><div class="tmb-stage__time">Permanent</div></a></div>
+      </div>
+    </div>
+  </section>
 
-        <div class="callout reveal">
-          <p><strong>If you have received notice of a TMB complaint, do not wait to read this in full.</strong> The initial written response window is the most important phase of your defense. Call <a href="tel:9564263550">(956) 426-3550</a> or <a href="strategy-session.html">book a Strategy Session</a> now.</p>
-        </div>
+  <!-- ═══════════════════════════════════════════════════════════
+       STAGES
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section tmb-stages" id="tmb-stages" aria-labelledby="tmb-stages-h2">
+    <div class="tmb-stages__inner">
+      <div class="tmb-stages__warning">
+        <strong>If you have received notice of a TMB complaint, do not wait.</strong> The initial written response window is the most important phase of your defense. Call <a href="tel:9564263550">(956) 426-3550</a> or <a href="strategy-session.html">book a Strategy Session</a> now.
+      </div>
+      <div class="tmb-stages__header">
+        <div class="eyebrow" style="margin-bottom:12px;">Stage by Stage</div>
+        <div class="rule"></div>
+        <h2 id="tmb-stages-h2" class="tmb-stages__headline">How the Texas Medical Board complaint process works</h2>
+      </div>
 
-        <h2 class="reveal">How the Texas Medical Board receives and investigates complaints</h2>
-        <p class="reveal">The Texas Medical Board (TMB) is the state agency responsible for licensing and regulating physicians and certain other healthcare providers in Texas. It receives complaints from patients, family members, employers, other healthcare providers, malpractice insurance carriers, and even anonymously. The board is required to investigate all complaints that allege a violation of the Medical Practice Act or board rules.</p>
-        <p class="reveal">Unlike a civil lawsuit, a TMB investigation does not require the complainant to meet a legal burden before the board acts. The investigation begins the moment the complaint is accepted — which means the board is gathering information about you before you have any formal opportunity to respond.</p>
+      <div id="stage-1" class="tmb-stage-block">
+        <div class="tmb-stage-block__num" aria-hidden="true">01</div>
+        <div>
+          <div class="tmb-stage-block__label">Stage 1 <span class="tmb-stage-block__label-time">· Day 1</span></div>
+          <div class="tmb-stage-block__title">Complaint Filed &amp; Accepted</div>
+          <p class="tmb-stage-block__body">Anyone can file a complaint against a licensed physician — patients, family members, employers, other healthcare providers, malpractice insurers, or anonymous complainants. The TMB screens complaints and accepts those that allege a potential violation of the Medical Practice Act. <strong>You may not be notified immediately — the board can begin gathering information before formal notice is sent.</strong></p>
+        </div>
+      </div>
 
-        <h2 class="reveal">The TMB complaint process — stage by stage</h2>
+      <div id="stage-2" class="tmb-stage-block tmb-stage-block--critical">
+        <div class="tmb-stage-block__num" aria-hidden="true">02</div>
+        <div>
+          <div class="tmb-stage-block__label">Stage 2 — Most Critical <span class="tmb-stage-block__label-time">· 30–60 day window</span></div>
+          <div class="tmb-stage-block__title">Notice of Complaint &amp; Initial Written Response</div>
+          <p class="tmb-stage-block__body">You receive formal written notice that a complaint has been filed — a summary of the allegation and a deadline for your written response. <strong>This is the most critical moment in the entire process. Your written response sets the record.</strong> A passive response allows the board to continue building. An evidence-anchored counter-response forces a dismissal decision. Most attorneys file a form. The Counter Protocol files a rebuttal.</p>
+        </div>
+      </div>
 
-        <div class="stage-block reveal">
-          <div class="stage-num">1</div>
-          <div>
-            <div class="stage-title">Complaint Filed &amp; Accepted</div>
-            <p class="stage-body">Anyone can file a complaint against a licensed physician. The TMB screens complaints and accepts those that allege a potential violation. You may not be notified immediately — the board can begin gathering information before formal notice is sent.</p>
-          </div>
+      <div id="stage-3" class="tmb-stage-block">
+        <div class="tmb-stage-block__num" aria-hidden="true">03</div>
+        <div>
+          <div class="tmb-stage-block__label">Stage 3 <span class="tmb-stage-block__label-time">· 6–18 months</span></div>
+          <div class="tmb-stage-block__title">Investigation</div>
+          <p class="tmb-stage-block__body">TMB staff investigators gather information — requesting and reviewing medical records, interviewing witnesses, consulting expert reviewers. The board is building the record that will determine whether the case proceeds. <strong>Parallel defense investigation during this phase is critical.</strong> If you are not actively building a counter-record while the board builds its case, you will arrive at the ISC or hearing fighting a record that has been hardening for months.</p>
         </div>
-        <div class="stage-block reveal">
-          <div class="stage-num">2</div>
-          <div>
-            <div class="stage-title">Notice of Complaint Sent to Physician</div>
-            <p class="stage-body">You receive formal written notice that a complaint has been filed. This notice will typically include a summary of the allegation and a request for your written response within a specified deadline. <strong>This is the most critical moment in the entire process. Your written response here sets the record.</strong></p>
-          </div>
-        </div>
-        <div class="stage-block reveal">
-          <div class="stage-num">3</div>
-          <div>
-            <div class="stage-title">Investigation</div>
-            <p class="stage-body">TMB staff investigators gather information — requesting and reviewing medical records, interviewing witnesses, consulting with expert reviewers. The investigation can take 6–12 months or longer. During this period, the board is building the record that will determine whether the case proceeds.</p>
-          </div>
-        </div>
-        <div class="stage-block reveal">
-          <div class="stage-num">4</div>
-          <div>
-            <div class="stage-title">Informal Settlement Conference (ISC) or Dismissal</div>
-            <p class="stage-body">After investigation, the board can dismiss the complaint, offer an Informal Settlement Conference (a pre-hearing negotiation), or refer the case to SOAH (State Office of Administrative Hearings) for a formal hearing. ISCs are not trials, but the outcomes — including reprimands, probation, or license restrictions — are binding if agreed to.</p>
-          </div>
-        </div>
-        <div class="stage-block reveal">
-          <div class="stage-num">5</div>
-          <div>
-            <div class="stage-title">Formal Administrative Hearing (SOAH)</div>
-            <p class="stage-body">If the matter is not resolved at the ISC stage, the case proceeds to a formal contested case hearing before the State Office of Administrative Hearings. This is a full administrative trial — with witnesses, expert testimony, cross-examination, and a presiding administrative law judge. Resolution at this stage averages 12–24+ months from referral.</p>
-          </div>
-        </div>
-        <div class="stage-block reveal">
-          <div class="stage-num">6</div>
-          <div>
-            <div class="stage-title">Board Action &amp; NPDB Reporting</div>
-            <p class="stage-body">If the board takes disciplinary action — including reprimands, restrictions, probation, or revocation — the action is reported to the National Practitioner Data Bank (NPDB), which is permanent and accessible to every credentialing entity, hospital, and insurance panel in the country.</p>
-          </div>
-        </div>
+      </div>
 
-        <div class="inline-cta reveal">
-          <div>
-            <h3>You are somewhere in this process right now.</h3>
-            <p>The earlier you move, the more options you have. The initial written response window — Stage 2 — is when most cases can be pushed toward dismissal. If you're past that stage, we can still help.</p>
-          </div>
-          <a href="strategy-session.html" class="btn btn--primary" style="white-space:nowrap;">Book a Strategy Session →</a>
+      <div id="stage-4" class="tmb-stage-block">
+        <div class="tmb-stage-block__num" aria-hidden="true">04</div>
+        <div>
+          <div class="tmb-stage-block__label">Stage 4 <span class="tmb-stage-block__label-time">· Varies</span></div>
+          <div class="tmb-stage-block__title">Informal Settlement Conference (ISC) or Dismissal</div>
+          <p class="tmb-stage-block__body">After investigation, the board can dismiss the complaint, offer an ISC, or refer to SOAH. ISCs are not trials, but outcomes — reprimands, probation, license restrictions — are binding and NPDB-reportable if agreed to. <strong>Many physicians accept ISC resolutions without realizing dismissal was still achievable.</strong> Once signed, it cannot be undone. We attend prepared to advocate for dismissal — and we never accept a resolution the facts do not require.</p>
         </div>
+      </div>
 
-        <h2 class="reveal">The most common mistakes physicians make</h2>
-        <div class="mistake-list">
-          <div class="mistake-item reveal">
-            <span class="mistake-icon">✗</span>
-            <div>
-              <div class="mistake-title">Responding to the complaint without an attorney</div>
-              <p class="mistake-body">Physicians often believe that if they explain the situation clearly, the board will understand. The board is not an advocate — it is an investigator. Unrepresented responses frequently include admissions or framing that the board uses to build the case forward.</p>
-            </div>
-          </div>
-          <div class="mistake-item reveal">
-            <span class="mistake-icon">✗</span>
-            <div>
-              <div class="mistake-title">Waiting weeks before retaining counsel</div>
-              <p class="mistake-body">The response deadline is fixed. Every day spent researching attorneys, waiting for callbacks, or second-guessing the decision is a day the board builds its record unopposed. Urgency is not panic — it is strategy.</p>
-            </div>
-          </div>
-          <div class="mistake-item reveal">
-            <span class="mistake-icon">✗</span>
-            <div>
-              <div class="mistake-title">Hiring an attorney who is not focused on license defense</div>
-              <p class="mistake-body">General practice attorneys and civil litigators who occasionally handle board matters are not the same as attorneys whose practice is dedicated to medical license defense. The TMB process, the SOAH hearing rules, and the NPDB implications require focused, dedicated knowledge.</p>
-            </div>
-          </div>
-          <div class="mistake-item reveal">
-            <span class="mistake-icon">✗</span>
-            <div>
-              <div class="mistake-title">Treating the initial response as a formality</div>
-              <p class="mistake-body">Many attorneys file a brief written response acknowledging the complaint and requesting time to gather records. This is a passive response that tells the board the case is uncontested. An evidence-anchored counter-response forces a dismissal decision.</p>
-            </div>
-          </div>
-          <div class="mistake-item reveal">
-            <span class="mistake-icon">✗</span>
-            <div>
-              <div class="mistake-title">Agreeing to an Informal Settlement Conference without considering dismissal first</div>
-              <p class="mistake-body">ISC outcomes are binding. Physicians who accept ISC resolutions often do so without understanding that dismissal was still achievable — and that the ISC outcome will be reported to the NPDB. Once you sign, you cannot undo it.</p>
-            </div>
-          </div>
+      <div id="stage-5" class="tmb-stage-block">
+        <div class="tmb-stage-block__num" aria-hidden="true">05</div>
+        <div>
+          <div class="tmb-stage-block__label">Stage 5 <span class="tmb-stage-block__label-time">· 12–24+ months</span></div>
+          <div class="tmb-stage-block__title">Formal Administrative Hearing (SOAH)</div>
+          <p class="tmb-stage-block__body">If the matter is not resolved at ISC, the case proceeds to a contested case hearing before the State Office of Administrative Hearings — with witnesses, expert testimony, cross-examination, and a presiding administrative law judge. Resolution at this stage averages 12–24 months from referral. We litigate SOAH hearings with criminal defense rigor, not administrative routine.</p>
         </div>
+      </div>
 
-        <h2 class="reveal">When to hire a medical license defense attorney</h2>
-        <p class="reveal"><strong>The day you receive notification of a complaint or investigation.</strong> Not after you've had time to think about it. Not after you've called a friend who knows a lawyer. The moment you are notified.</p>
-        <p class="reveal">If you have already responded to the complaint without representation, or if your current attorney has been passive, it is not too late — but the options narrow at every stage. Call us and we will give you an honest assessment of where you stand and what is still possible.</p>
+      <div id="stage-6" class="tmb-stage-block">
+        <div class="tmb-stage-block__num" aria-hidden="true">06</div>
+        <div>
+          <div class="tmb-stage-block__label">Stage 6 <span class="tmb-stage-block__label-time">· Permanent</span></div>
+          <div class="tmb-stage-block__title">Board Action &amp; NPDB Reporting</div>
+          <p class="tmb-stage-block__body">If the board takes disciplinary action — including reprimands, restrictions, probation, or revocation — the action is reported to the National Practitioner Data Bank. <strong>NPDB entries are permanent and accessible to every credentialing entity, hospital, and insurance panel in the country.</strong> This is why the goal at every prior stage is dismissal — not mitigation of the eventual record.</p>
+        </div>
+      </div>
 
-        <div class="callout reveal">
-          <p>This guide is for informational purposes only and does not constitute legal advice. Every complaint is different, and the specific facts of your case determine your options. For a frank assessment of your specific situation, <a href="strategy-session.html">book a Strategy Session</a> or call <a href="tel:9564263550">(956) 426-3550</a>.</p>
+      <div class="tmb-inline-cta">
+        <p class="tmb-inline-cta__text">You are somewhere in this process right now. The earlier you move, the more options you have. <em>Stage 2 is when most cases can be pushed toward dismissal.</em></p>
+        <a href="strategy-session.html" class="btn btn--primary" style="flex-shrink:0;white-space:nowrap;">Book a Strategy Session</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       COMMON MISTAKES
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section tmb-mistakes" id="tmb-mistakes" aria-labelledby="tmb-mistakes-h2">
+    <div class="tmb-mistakes__inner">
+      <div class="eyebrow" style="margin-bottom:12px;">What to Avoid</div>
+      <div class="rule"></div>
+      <h2 id="tmb-mistakes-h2" class="tmb-mistakes__headline">Common mistakes physicians make when responding to a TMB complaint</h2>
+
+      <div class="tmb-mistake">
+        <div class="tmb-mistake__x" aria-hidden="true">✗</div>
+        <div>
+          <div class="tmb-mistake__title">Responding to the complaint without an attorney</div>
+          <p class="tmb-mistake__body">Physicians often believe that if they explain the situation clearly, the board will understand. The board is not an advocate — it is an investigator. Unrepresented responses frequently include admissions or framing that the board uses to build the case forward.</p>
+        </div>
+      </div>
+
+      <div class="tmb-mistake">
+        <div class="tmb-mistake__x" aria-hidden="true">✗</div>
+        <div>
+          <div class="tmb-mistake__title">Waiting weeks before retaining counsel</div>
+          <p class="tmb-mistake__body">The response deadline is fixed. Every day spent researching attorneys, waiting for callbacks, or second-guessing the decision is a day the board builds its record unopposed. Urgency is not panic — it is strategy.</p>
+        </div>
+      </div>
+
+      <div class="tmb-mistake">
+        <div class="tmb-mistake__x" aria-hidden="true">✗</div>
+        <div>
+          <div class="tmb-mistake__title">Hiring an attorney who is not focused on license defense</div>
+          <p class="tmb-mistake__body">General practice attorneys and civil litigators who occasionally handle board matters are not the same as attorneys whose practice is dedicated to medical license defense. The TMB process, SOAH hearing rules, and NPDB implications require focused, dedicated knowledge.</p>
+        </div>
+      </div>
+
+      <div class="tmb-mistake">
+        <div class="tmb-mistake__x" aria-hidden="true">✗</div>
+        <div>
+          <div class="tmb-mistake__title">Treating the initial response as a formality</div>
+          <p class="tmb-mistake__body">Many attorneys file a brief written response acknowledging the complaint and requesting time to gather records. This tells the board the case is uncontested. An evidence-anchored counter-response forces a dismissal decision — most attorneys never apply that pressure.</p>
+        </div>
+      </div>
+
+      <div class="tmb-mistake">
+        <div class="tmb-mistake__x" aria-hidden="true">✗</div>
+        <div>
+          <div class="tmb-mistake__title">Agreeing to an ISC without considering dismissal first</div>
+          <p class="tmb-mistake__body">ISC outcomes are binding and NPDB-reportable. Physicians who accept ISC resolutions often do so without understanding that dismissal was still achievable. Once you sign, you cannot undo it.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="section" style="background:var(--dark);text-align:center;">
-    <div class="container">
-      <div style="max-width:600px;margin:0 auto;" class="reveal">
-        <div class="eyebrow" style="margin-bottom:14px;">Ready to Talk</div>
-        <h2 style="font-size:clamp(26px,3vw,40px);color:var(--bg);margin-bottom:16px;">Get a frank read on where your case stands.</h2>
-        <p style="font-size:16px;color:rgba(250,246,240,0.65);line-height:1.7;margin-bottom:32px;">Virtual · All of Texas · No intake queue · The Counter Protocol activates the day you retain us.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
-          <a href="strategy-session.html" class="btn btn--primary">Book Your Strategy Session</a>
-          <a href="tel:9564263550" class="btn btn--outline">Call (956) 426-3550</a>
-        </div>
+  <!-- ═══════════════════════════════════════════════════════════
+       WHEN TO HIRE
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section tmb-stages" id="tmb-when" style="background:var(--dark);" aria-labelledby="tmb-when-h2">
+    <div class="tmb-stages__inner">
+      <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:12px;">The Answer Is Always The Same</div>
+      <div class="rule"></div>
+      <h2 id="tmb-when-h2" class="tmb-stages__headline" style="color:var(--bg);">When to hire a Texas Medical Board defense attorney</h2>
+      <p style="font-size:17px;color:rgba(250,246,240,0.82);line-height:1.78;margin:24px 0;max-width:680px;"><strong style="color:var(--bg);">The day you receive notification of a complaint or investigation.</strong> Not after you've had time to think about it. Not after you've called a friend who knows a lawyer. The moment you are notified is the moment your defense window begins — and that window has a deadline.</p>
+      <p style="font-size:16px;color:rgba(250,246,240,0.65);line-height:1.78;max-width:680px;margin-bottom:32px;">If you have already responded to the complaint without representation, or if your current attorney has been passive, it is not too late — but the options narrow at every stage. Call us and we will give you an honest assessment of where you stand and what is still possible.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+        <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+        <a href="strategy-session.html" class="btn btn--outline" style="border-color:rgba(201,184,154,0.3);color:rgba(250,246,240,0.85);">Book a Strategy Session</a>
       </div>
     </div>
   </section>
 
-  <script src="../js/medical-nav.js" defer></script>
+  <!-- ═══════════════════════════════════════════════════════════
+       FAQ
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section tmb-faq" id="tmb-faq" aria-labelledby="tmb-faq-h2">
+    <div class="tmb-faq__inner">
+      <div class="eyebrow" style="margin-bottom:12px;">Frequently Asked Questions</div>
+      <div class="rule"></div>
+      <h2 id="tmb-faq-h2" class="tmb-faq__headline">Texas Medical Board complaint — common questions</h2>
+
+      <div class="tmb-faq__item">
+        <div class="tmb-faq__question" role="button" aria-expanded="false" tabindex="0">
+          <span class="tmb-faq__q-text">How long does a Texas Medical Board investigation take?</span>
+          <span class="tmb-faq__chevron" aria-hidden="true">▾</span>
+        </div>
+        <div class="tmb-faq__answer">A TMB investigation typically takes <strong>6–18 months</strong> from complaint acceptance to ISC or SOAH referral. If the case proceeds to a formal SOAH hearing, total resolution can take 2–3 years from the original complaint. The initial written response phase — the first 30–60 days — is where the most leverage exists to push toward early dismissal.</div>
+      </div>
+
+      <div class="tmb-faq__item">
+        <div class="tmb-faq__question" role="button" aria-expanded="false" tabindex="0">
+          <span class="tmb-faq__q-text">What happens when the Texas Medical Board receives a complaint?</span>
+          <span class="tmb-faq__chevron" aria-hidden="true">▾</span>
+        </div>
+        <div class="tmb-faq__answer">The TMB screens the complaint and, if accepted, begins an investigation before notifying you. Investigators gather records, interview witnesses, and consult expert reviewers. You then receive formal notice with a deadline to provide a written response. <strong>The board is building its case before you are formally aware the complaint exists.</strong></div>
+      </div>
+
+      <div class="tmb-faq__item">
+        <div class="tmb-faq__question" role="button" aria-expanded="false" tabindex="0">
+          <span class="tmb-faq__q-text">Do I need an attorney to respond to a TMB complaint?</span>
+          <span class="tmb-faq__chevron" aria-hidden="true">▾</span>
+        </div>
+        <div class="tmb-faq__answer">You are not legally required to have an attorney, but the initial written response is the most critical document in your defense. Unrepresented responses frequently include admissions or framing the board uses to build the case forward. <strong>Retaining experienced license defense counsel immediately is strongly advised.</strong> <a href="strategy-session.html">Book a strategy session →</a></div>
+      </div>
+
+      <div class="tmb-faq__item">
+        <div class="tmb-faq__question" role="button" aria-expanded="false" tabindex="0">
+          <span class="tmb-faq__q-text">Can a TMB complaint be dismissed?</span>
+          <span class="tmb-faq__chevron" aria-hidden="true">▾</span>
+        </div>
+        <div class="tmb-faq__answer">Yes. A well-constructed, evidence-anchored initial written response can force a dismissal decision before the case proceeds to an ISC or SOAH hearing. <strong>The goal of The Counter Protocol is always dismissal</strong> — not mitigation of the eventual record. Early action dramatically increases the likelihood of dismissal at Stage 2.</div>
+      </div>
+
+      <div class="tmb-faq__item">
+        <div class="tmb-faq__question" role="button" aria-expanded="false" tabindex="0">
+          <span class="tmb-faq__q-text">What is an Informal Settlement Conference (ISC) with the Texas Medical Board?</span>
+          <span class="tmb-faq__chevron" aria-hidden="true">▾</span>
+        </div>
+        <div class="tmb-faq__answer">An ISC is a pre-hearing negotiation where the TMB proposes a resolution — which may include reprimands, probation, or license restrictions. ISC outcomes are <strong>binding if agreed to and are reported to the NPDB permanently.</strong> You should never attend an ISC without experienced defense counsel. Many physicians accept ISC resolutions without realizing dismissal was still achievable.</div>
+      </div>
+
+      <div class="tmb-faq__item">
+        <div class="tmb-faq__question" role="button" aria-expanded="false" tabindex="0">
+          <span class="tmb-faq__q-text">Is a TMB complaint public record?</span>
+          <span class="tmb-faq__chevron" aria-hidden="true">▾</span>
+        </div>
+        <div class="tmb-faq__answer">The TMB's disciplinary actions — including reprimands, probation, restrictions, and revocations — are public and searchable on the TMB's website. However, <strong>active investigations and dismissed complaints are generally not public.</strong> Any disciplinary action that results in board action is also reported to the NPDB, which is accessible to credentialing entities nationwide.</div>
+      </div>
+
+      <p class="tmb-faq__disclaimer">This guide is for informational purposes only and does not constitute legal advice. Every complaint is different. For a frank assessment of your specific situation, <a href="strategy-session.html">book a strategy session</a> or call <a href="tel:9564263550">(956) 426-3550</a>.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FINAL CTA
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section tmb-final-cta" aria-labelledby="tmb-finalcta-h2">
+    <div class="container">
+      <div class="tmb-final-cta__inner">
+        <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:14px;">The First Step</div>
+        <h2 id="tmb-finalcta-h2">The board has already started. <em>So should you.</em></h2>
+        <p>One strategy session. A frank read on where your case stands, what the board is building, and what happens the moment you retain us. Octavia reviews your complaint directly — no intake form, no paralegal.</p>
+        <div class="tmb-final-cta__ctas">
+          <a href="strategy-session.html" class="btn btn--primary">Book a Strategy Session</a>
+          <a href="tel:9564263550" class="btn btn--outline" style="border-color:rgba(250,246,240,0.3);color:rgba(250,246,240,0.85);">Call (956) 426-3550</a>
+        </div>
+        <p class="tmb-final-cta__meta">Virtual · All of Texas · Monday–Friday 8AM–6PM CST · <a href="physician-license-defense.html">Physician License Defense →</a></p>
+      </div>
+    </div>
+  </section>
+
   <div id="site-footer"></div>
+  <script src="../js/medical-nav.js" defer></script>
+  <script>
+  (function() {
+    'use strict';
+
+    function luxSplitWords(el, baseDelay, wordGap, fromY, blurAmt) {
+      fromY=fromY!==undefined?fromY:14; blurAmt=blurAmt!==undefined?blurAmt:5; wordGap=wordGap!==undefined?wordGap:0.09;
+      function processNodes(parent, container) {
+        Array.from(parent.childNodes).forEach(function(node) {
+          if (node.nodeType===Node.TEXT_NODE) {
+            node.textContent.split(/\s+/).filter(Boolean).forEach(function(word){
+              var s=document.createElement('span'); s.className='lux-word'; s.textContent=word;
+              container.appendChild(s); container.appendChild(document.createTextNode(' '));
+            });
+          } else if (node.nodeName==='BR') {
+            container.appendChild(document.createElement('br'));
+          } else if (node.nodeName==='EM'||node.nodeName==='STRONG') {
+            var w=document.createElement('span'); w.className='lux-word lux-word--em';
+            var t=document.createElement(node.nodeName.toLowerCase()); t.innerHTML=node.innerHTML;
+            w.appendChild(t); container.appendChild(w); container.appendChild(document.createTextNode(' '));
+          } else { container.appendChild(node.cloneNode(true)); }
+        });
+      }
+      var frag=document.createDocumentFragment(); processNodes(el,frag); el.innerHTML=''; el.appendChild(frag);
+      var words=el.querySelectorAll('.lux-word');
+      words.forEach(function(w,i){
+        w.style.opacity='0'; w.style.filter='blur('+blurAmt+'px)';
+        w.style.transform='translateY('+fromY+'px)'; w.style.display='inline-block';
+        var d=baseDelay+i*wordGap;
+        w.style.transition='opacity 1.05s cubic-bezier(0.25,0.46,0.45,0.94) '+d+'s,transform 1.15s cubic-bezier(0.16,1,0.3,1) '+d+'s,filter 1.0s cubic-bezier(0.25,0.46,0.45,0.94) '+d+'s';
+      });
+      return words;
+    }
+    function luxRevealWords(words) {
+      requestAnimationFrame(function(){requestAnimationFrame(function(){
+        words.forEach(function(w){w.style.opacity='1';w.style.transform='translateY(0)';w.style.filter='blur(0px)';});
+      });});
+    }
+    function luxRevealEl(el,delay,fromX) {
+      el.style.opacity='0'; el.style.filter='blur(5px)';
+      el.style.transform=fromX?'translateX('+fromX+'px)':'translateY(16px)';
+      el.style.transition='opacity 1.1s cubic-bezier(0.25,0.46,0.45,0.94) '+delay+'s,transform 1.2s cubic-bezier(0.16,1,0.3,1) '+delay+'s,filter 1.0s cubic-bezier(0.25,0.46,0.45,0.94) '+delay+'s';
+      requestAnimationFrame(function(){requestAnimationFrame(function(){
+        el.style.opacity='1'; el.style.transform='none'; el.style.filter='blur(0px)';
+      });});
+    }
+
+    /* Hero entrance */
+    document.addEventListener('DOMContentLoaded', function() {
+      var hero = document.querySelector('.tmb-hero');
+      if (!hero) return;
+      var h1   = hero.querySelector('h1');
+      var sub  = hero.querySelector('.tmb-hero__sub');
+      var ctas = hero.querySelector('.tmb-hero__ctas');
+      var jump = hero.querySelector('.tmb-hero__jump');
+      var card = hero.querySelector('.tmb-stat-card');
+      if (h1)   { var hw=luxSplitWords(h1,0.2,0.08,18,7); luxRevealWords(hw); }
+      if (sub)  luxRevealEl(sub,0.6,0);
+      if (ctas) luxRevealEl(ctas,0.8,0);
+      if (jump) luxRevealEl(jump,0.95,0);
+      if (card) luxRevealEl(card,0.3,24);
+    });
+
+    /* Timeline */
+    (function(){
+      var sec=document.getElementById('tmb-overview');
+      if (!sec) return;
+      new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting) sec.classList.add('tl-entered'); });
+      },{threshold:0.1}).observe(sec);
+    })();
+
+    /* Stages */
+    (function(){
+      var sec=document.querySelector('.tmb-stages');
+      if (!sec) return;
+      new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting) sec.classList.add('stages-entered'); });
+      },{threshold:0.05}).observe(sec);
+    })();
+
+    /* Mistakes */
+    (function(){
+      var sec=document.querySelector('.tmb-mistakes');
+      if (!sec) return;
+      new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting) sec.classList.add('mistakes-entered'); });
+      },{threshold:0.05}).observe(sec);
+    })();
+
+    /* FAQ accordion */
+    document.querySelectorAll('.tmb-faq__question').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var item=btn.closest('.tmb-faq__item');
+        var isOpen=item.classList.contains('open');
+        document.querySelectorAll('.tmb-faq__item').forEach(function(i){ i.classList.remove('open'); i.querySelector('.tmb-faq__question').setAttribute('aria-expanded','false'); });
+        if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+      });
+      btn.addEventListener('keydown',function(e){
+        if(e.key==='Enter'||e.key===' '){ e.preventDefault(); btn.click(); }
+      });
+    });
+
+  })();
+  </script>
 </body>
 </html>
