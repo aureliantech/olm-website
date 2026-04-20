@@ -94,11 +94,11 @@
       color: var(--accent);
     }
     .pld-hero h1 {
-      font-size: clamp(28px, 3.6vw, 50px);
+      font-size: clamp(32px, 4vw, 54px);
       color: var(--bg);
-      line-height: 1.09;
-      letter-spacing: -0.02em;
-      margin-bottom: 10px;
+      line-height: 1.06;
+      letter-spacing: -0.025em;
+      margin-bottom: 14px;
     }
     @media (max-width: 768px) {
       .pld-hero h1 br { display: none; }
@@ -216,9 +216,9 @@
       letter-spacing: 0.01em;
     }
     .pld-threat-item__sub {
-      font-size: 12px;
-      color: rgba(250,246,240,0.38);
-      line-height: 1.45;
+      font-size: 14px;
+      color: rgba(250,246,240,0.7);
+      line-height: 1.5;
     }
     .pld-threat-card__footer {
       padding: 16px 22px;
@@ -285,7 +285,8 @@
     }
     .pld-exposure-table__head {
       display: grid;
-      grid-template-columns: 1fr auto;
+      grid-template-columns: 1fr auto auto;
+      gap: 16px;
       padding: 14px 24px;
       border-bottom: 1px solid rgba(201,184,154,0.1);
     }
@@ -296,9 +297,10 @@
     }
     .pld-exposure-row {
       display: grid;
-      grid-template-columns: 1fr auto;
+      grid-template-columns: 1fr auto auto;
+      gap: 16px;
       align-items: center;
-      padding: 14px 24px;
+      padding: 13px 24px;
       border-bottom: 1px solid rgba(201,184,154,0.07);
       transition: background 0.15s;
     }
@@ -337,8 +339,8 @@
     }
 
     .pld-why {
-      background: var(--dark);
-      color: var(--bg);
+      background: var(--bg);
+      color: var(--dark);
       min-height: 100svh;
       display: flex;
       align-items: center;
@@ -361,7 +363,7 @@
     .pld-why__headline {
       font-family: var(--ff-serif);
       font-size: clamp(32px, 4.5vw, 62px);
-      color: var(--bg);
+      color: var(--dark);
       line-height: 1.08;
       letter-spacing: -0.025em;
       margin-bottom: 18px;
@@ -385,7 +387,7 @@
 
     .pld-why__sub {
       font-size: clamp(15px, 1.5vw, 17px);
-      color: rgba(250,246,240,0.65);
+      color: var(--mid);
       line-height: 1.72;
       max-width: 600px;
       margin: 0 auto;
@@ -399,7 +401,7 @@
     }
 
     .pld-why__card {
-      background: rgba(26,18,33,0.6);
+      background: var(--surface);
       padding: 36px 32px;
       position: relative;
       overflow: hidden;
@@ -408,7 +410,7 @@
       transition: background 0.35s ease, transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s ease;
     }
     .pld-why__card:hover {
-      background: rgba(43,36,56,0.85);
+      background: var(--bg);
       transform: translateY(-4px);
       box-shadow: 0 20px 60px rgba(0,0,0,0.4);
       z-index: 2;
@@ -438,7 +440,7 @@
       transform: translateX(-50%);
       width: 200px; height: 200px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(232,114,42,0.1) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(232,114,42,0.08) 0%, transparent 70%);
       opacity: 0;
       transition: opacity 0.4s ease, transform 0.5s ease;
     }
@@ -450,7 +452,7 @@
     .pld-why__card-num {
       font-family: var(--ff-serif);
       font-size: clamp(64px, 8vw, 100px);
-      color: rgba(232,114,42,0.07);
+      color: rgba(232,114,42,0.12);
       line-height: 0.9;
       letter-spacing: -0.04em;
       margin-bottom: 20px;
@@ -459,37 +461,37 @@
       display: block;
     }
     .pld-why__card:hover .pld-why__card-num {
-      color: rgba(232,114,42,0.2);
+      color: rgba(232,114,42,0.28);
     }
 
     .pld-why__card-title {
       font-family: var(--ff-serif);
       font-size: clamp(20px, 2vw, 26px);
-      color: var(--bg);
+      color: var(--dark);
       line-height: 1.2;
       margin-bottom: 14px;
       letter-spacing: -0.01em;
       transition: color 0.2s;
     }
     .pld-why__card:hover .pld-why__card-title {
-      color: #fff;
+      color: var(--dark);
     }
 
     /* Hook line — always visible, one sentence */
     .pld-why__card-hook {
       font-size: 15px;
-      color: rgba(250,246,240,0.58);
+      color: var(--mid);
       line-height: 1.65;
       transition: color 0.3s;
     }
     .pld-why__card:hover .pld-why__card-hook {
-      color: rgba(250,246,240,0.78);
+      color: var(--dark);
     }
 
     /* Full body — hidden at rest, reveals on hover */
     .pld-why__card-body {
       font-size: 15px;
-      color: rgba(250,246,240,0.7);
+      color: var(--mid);
       line-height: 1.72;
       max-height: 0;
       overflow: hidden;
@@ -505,7 +507,7 @@
       margin-top: 12px;
     }
     .pld-why__card-body strong {
-      color: rgba(250,246,240,0.95);
+      color: var(--dark);
       font-weight: 700;
     }
 
@@ -515,13 +517,13 @@
       transform: translateY(24px);
     }
     .pld-why.why-entered .pld-why__card:nth-child(1) {
-      animation: cardEnter 0.65s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;
+      animation: cardEnter 0.7s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;
     }
     .pld-why.why-entered .pld-why__card:nth-child(2) {
-      animation: cardEnter 0.65s cubic-bezier(0.16,1,0.3,1) 0.22s forwards;
+      animation: cardEnter 0.7s cubic-bezier(0.16,1,0.3,1) 0.22s forwards;
     }
     .pld-why.why-entered .pld-why__card:nth-child(3) {
-      animation: cardEnter 0.65s cubic-bezier(0.16,1,0.3,1) 0.34s forwards;
+      animation: cardEnter 0.7s cubic-bezier(0.16,1,0.3,1) 0.34s forwards;
     }
     @keyframes cardEnter {
       from { opacity: 0; transform: translateY(24px); }
@@ -539,93 +541,163 @@
       .pld-why__card-body { max-height: 200px; opacity: 1; margin-top: 12px; }
       .pld-why.why-entered .pld-why__card { animation: none; }
     }
-    /* ── COUNTER PROTOCOL BRIDGE ────────────────────────────── */
+    /* ── COUNTER PROTOCOL — light, editorial split ─────────── */
     .pld-protocol {
-      background: var(--plum);
-      color: var(--bg);
+      background: var(--surface);
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
     }
+    .pld-protocol.section { padding: clamp(56px, 8vw, 96px) var(--gutter); }
+
     .pld-protocol__inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 80px;
+      gap: clamp(48px, 7vw, 96px);
       align-items: center;
+      width: 100%;
     }
-    .pld-protocol h2 {
-      font-size: clamp(26px, 3vw, 40px);
-      color: var(--bg);
+
+    /* LEFT copy */
+    .pld-protocol__copy {}
+    .pld-protocol__copy h2 {
+      font-family: var(--ff-serif);
+      font-size: clamp(28px, 3.2vw, 44px);
+      color: var(--dark);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
       margin-bottom: 20px;
-      line-height: 1.1;
     }
-    .pld-protocol h2 em { color: var(--accent-lite); }
-    .pld-protocol p {
+    .pld-protocol__copy h2 em {
+      font-style: italic;
+      background: linear-gradient(90deg, var(--accent-lite), var(--accent), var(--accent-lite));
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmerText 4s linear 2s infinite;
+    }
+    .pld-protocol__copy p {
       font-size: 16px;
-      color: rgba(250,246,240,0.7);
+      color: var(--mid);
       line-height: 1.78;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
-    .pld-protocol strong { color: var(--bg); }
+    .pld-protocol__copy strong { color: var(--dark); }
     .pld-protocol__link {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       font-family: var(--ff-sans);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent-lite);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--accent);
       text-decoration: none;
-      margin-top: 8px;
+      margin-top: 12px;
       transition: gap 0.2s;
     }
     .pld-protocol__link:hover { gap: 14px; }
 
-    /* Timeline visual */
-    .pld-timeline {
-      background: rgba(10,7,16,0.5);
-      border: 1px solid rgba(201,184,154,0.1);
-      padding: 32px;
-    }
-    .pld-timeline__label {
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: rgba(250,246,240,0.35);
-      margin-bottom: 24px;
-    }
-    .pld-timeline__item {
+    /* RIGHT: three comparison rows — punchy */
+    .pld-protocol__compare {
       display: flex;
-      gap: 18px;
-      align-items: flex-start;
-      padding: 14px 0;
-      border-bottom: 1px solid rgba(201,184,154,0.07);
+      flex-direction: column;
+      border: 1px solid var(--border);
+      border-bottom: none;
     }
-    .pld-timeline__item:last-child { border-bottom: none; }
-    .pld-timeline__dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      margin-top: 6px;
-      flex-shrink: 0;
+    .pld-protocol__row {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      transition: background 0.25s;
     }
-    .pld-timeline__dot--board { background: rgba(250,246,240,0.25); }
-    .pld-timeline__dot--us { background: var(--accent); }
-    .pld-timeline__dot--them { background: rgba(250,246,240,0.1); }
-    .pld-timeline__actor {
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      width: 72px; flex-shrink: 0;
-      padding-top: 2px;
+    .pld-protocol__row::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 0;
+      background: var(--accent);
+      transition: width 0.35s cubic-bezier(0.16,1,0.3,1);
     }
-    .pld-timeline__actor--board { color: rgba(250,246,240,0.35); }
-    .pld-timeline__actor--us { color: var(--accent); }
-    .pld-timeline__actor--them { color: rgba(250,246,240,0.18); }
-    .pld-timeline__action {
-      font-size: 14px;
-      color: rgba(250,246,240,0.55);
-      line-height: 1.5;
-    }
-    .pld-timeline__action--us { color: rgba(250,246,240,0.88); }
-    @media (max-width: 768px) { .pld-protocol__inner { grid-template-columns: 1fr; gap: 40px; } }
+    .pld-protocol__row:hover { background: rgba(232,114,42,0.04); }
+    .pld-protocol__row:hover::before { width: 3px; }
 
+    .pld-protocol__row-actor {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 12px;
+      border-right: 1px solid var(--border);
+    }
+    .pld-protocol__row-actor span {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      writing-mode: vertical-lr;
+      text-orientation: mixed;
+      transform: rotate(180deg);
+    }
+    .pld-protocol__row--board .pld-protocol__row-actor span { color: var(--muted); }
+    .pld-protocol__row--us .pld-protocol__row-actor span { color: var(--accent); }
+    .pld-protocol__row--them .pld-protocol__row-actor span { color: var(--muted); opacity: 0.5; }
+    .pld-protocol__row--us .pld-protocol__row-actor { background: rgba(232,114,42,0.06); }
+
+    .pld-protocol__row-content {
+      padding: 18px 22px;
+    }
+    .pld-protocol__row-title {
+      font-family: var(--ff-sans);
+      font-size: 14px; font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 5px;
+      line-height: 1.3;
+    }
+    .pld-protocol__row--them .pld-protocol__row-title { color: var(--muted); }
+    .pld-protocol__row--us .pld-protocol__row-title { color: var(--accent-dark, #b8531a); }
+    .pld-protocol__row-desc {
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+    .pld-protocol__row--them .pld-protocol__row-desc { color: var(--muted); }
+    .pld-protocol__row--us .pld-protocol__row-desc { color: var(--mid); }
+
+    /* Day-zero label */
+    .pld-protocol__label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted);
+      padding: 12px 22px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      border-top: 1px solid var(--border);
+    }
+
+    /* Slide in on scroll */
+    .pld-protocol__copy {
+      transform: translateX(-20px);
+      opacity: 0;
+      transition: transform 0.8s cubic-bezier(0.16,1,0.3,1), opacity 0.65s ease;
+    }
+    .pld-protocol__compare {
+      transform: translateX(20px);
+      opacity: 0;
+      transition: transform 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s, opacity 0.65s ease 0.1s;
+    }
+    .pld-protocol.protocol-entered .pld-protocol__copy,
+    .pld-protocol.protocol-entered .pld-protocol__compare {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 900px) {
+      .pld-protocol { min-height: auto; }
+      .pld-protocol__inner { grid-template-columns: 1fr; }
+      .pld-protocol__copy, .pld-protocol__compare { transform: none; opacity: 1; }
+    }
     /* ── WHAT WE HANDLE — one viewport tab interface ─────── */
     @keyframes panelIn {
       from { opacity: 0; transform: translateY(14px); filter: blur(3px); }
@@ -717,9 +789,17 @@
       padding: 12px 16px;
       cursor: pointer;
       border-left: 2px solid transparent;
+      border-top: none;
+      border-right: none;
+      border-bottom: none;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      text-align: left;
       transition: border-color 0.2s, background 0.2s;
       border-radius: 0;
       position: relative;
+      width: 100%;
     }
     .pld-handles__tab:hover {
       background: rgba(232,114,42,0.05);
@@ -871,7 +951,7 @@
     .pld-handles__panel-next {
       width: 40px; height: 40px;
       border: 1px solid rgba(201,184,154,0.2);
-      background: none;
+      background: transparent;
       color: rgba(250,246,240,0.5);
       font-size: 16px;
       cursor: pointer;
@@ -1796,64 +1876,61 @@
           <div class="rule"></div>
           <h2 id="stakes-h2">Your license is not the only thing on the line.</h2>
           <p>
-            A Texas Medical Board complaint threatens every system that depends on your license — your income, your hospital affiliations, your prescribing authority, and the career trajectory you've spent a decade or more building. The NPDB filing that follows any disciplinary action is permanent and visible to every credentialing body in the country.
+            A board complaint threatens your income, hospital privileges, prescribing authority, and every career opportunity you haven't yet reached. The NPDB filing that follows any disciplinary action is permanent — visible to every credentialing body in the country, forever.
           </p>
           <p>
-            <strong>For early-career physicians, the stakes are compounded.</strong> A complaint before age 40 doesn't just affect this year's income — it forecloses opportunities, faculty appointments, and leadership roles that have not yet materialized. The career earnings exposure runs into the millions.
+            <strong>For early-career physicians, the stakes compound.</strong> A complaint before 40 doesn't just threaten this year's income — it forecloses faculty appointments, leadership roles, and opportunities not yet realized.
           </p>
-          <p>
-            For physicians in private practice, an active investigation can disrupt the patient relationships, referral networks, and staff stability that took years to build — before any ruling is made.
-          </p>
-          <a href="strategy-session.html" class="btn btn--primary" style="margin-top:10px;">Get a Frank Assessment →</a>
+          <a href="strategy-session.html" class="btn btn--primary" style="margin-top:16px;">Get a Frank Assessment →</a>
         </div>
 
         <div class="pld-exposure-table reveal" aria-label="Physician financial exposure table">
           <div class="pld-exposure-table__head">
-            <span>Financial Exposure</span>
-            <span>Physician Estimate</span>
+            <span>What Is at Stake</span>
+            <span>Physician (Avg)</span>
+            <span style="text-align:right;">High-Earning</span>
           </div>
           <div class="pld-exposure-row">
-            <span class="pld-exposure-row__label">Median physician salary (TX)</span>
-            <span class="pld-exposure-row__value">$290–330K</span>
+            <span class="pld-exposure-row__label">Annual salary</span>
+            <span class="pld-exposure-row__value">$374,000+</span>
+            <span class="pld-exposure-row__value">$564,000+</span>
           </div>
           <div class="pld-exposure-row">
-            <span class="pld-exposure-row__label">Specialist median (TX)</span>
-            <span class="pld-exposure-row__value">$380–450K</span>
+            <span class="pld-exposure-row__label">Practice value</span>
+            <span class="pld-exposure-row__value">$500K–$2M+</span>
+            <span class="pld-exposure-row__value">$500K–$2M+</span>
           </div>
           <div class="pld-exposure-row">
-            <span class="pld-exposure-row__label">Private practice value</span>
-            <span class="pld-exposure-row__value">$400K–$1.2M+</span>
-          </div>
-          <div class="pld-exposure-row">
-            <span class="pld-exposure-row__label">Career earnings (20 yr remaining)</span>
-            <span class="pld-exposure-row__value">$5M–$9M+</span>
+            <span class="pld-exposure-row__label">Foregone earnings (20-yr career)</span>
+            <span class="pld-exposure-row__value">$7.5M+</span>
+            <span class="pld-exposure-row__value">$11M+</span>
           </div>
           <div class="pld-exposure-row">
             <span class="pld-exposure-row__label">Medical school debt — survives revocation</span>
-            <span class="pld-exposure-row__value">$200–$350K</span>
+            <span class="pld-exposure-row__value">$200–300K</span>
+            <span class="pld-exposure-row__value">$200–300K</span>
+          </div>
+          <div class="pld-exposure-row">
+            <span class="pld-exposure-row__label">Training years invested</span>
+            <span class="pld-exposure-row__value">8–12 years</span>
+            <span class="pld-exposure-row__value">8–12 years</span>
           </div>
           <div class="pld-exposure-row pld-exposure-row--alert">
             <span class="pld-exposure-row__label">NPDB filing</span>
             <span class="pld-exposure-row__value">Permanent</span>
+            <span class="pld-exposure-row__value">Permanent</span>
           </div>
-          <div class="pld-exposure-row pld-exposure-row--alert">
-            <span class="pld-exposure-row__label">SOAH hearing timeline</span>
-            <span class="pld-exposure-row__value">12–24 months</span>
-          </div>
-          <div class="pld-exposure-table__note">Source: MGMA, AAMC salary surveys. Estimates; individual cases vary.</div>
+          <div class="pld-exposure-table__note">Source: AAMC, MGMA physician compensation data.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       WHY HER — one viewport, headline + 3 expanding cards
-  ════════════════════════════════════════════════════════════ -->
-  <section class="section pld-why" aria-labelledby="why-h2" id="whySection">
+    <section class="section pld-why" aria-labelledby="why-h2" id="whySection">
     <div class="container">
 
       <div class="pld-why__top">
-        <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:14px;">Why It Matters Who Defends You</div>
+        <div class="eyebrow" style="margin-bottom:14px;">Why It Matters Who Defends You</div>
         <div class="rule rule--center"></div>
         <h2 id="why-h2" class="pld-why__headline" id="whyHeadline">The attorney across from the board needs to think like a <em>prosecutor.</em></h2>
         <p class="pld-why__sub">Most attorneys who handle board matters are trained to wait — to respond, to attend, to negotiate. Octavia was trained to build cases that force a decision. That is a different posture entirely.</p>
@@ -1889,51 +1966,51 @@
     <!-- ═══════════════════════════════════════════════════════════
        THE COUNTER PROTOCOL BRIDGE
   ════════════════════════════════════════════════════════════ -->
-  <section class="section pld-protocol" aria-labelledby="protocol-h2">
+  <section class="section pld-protocol" aria-labelledby="protocol-h2" id="protocolSection">
     <div class="container">
       <div class="pld-protocol__inner">
-        <div class="reveal">
-          <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:14px;">The Defense Strategy</div>
+
+        <div class="pld-protocol__copy">
+          <div class="eyebrow" style="margin-bottom:14px;">The Defense Strategy</div>
           <div class="rule"></div>
-          <h2 id="protocol-h2">The Counter Protocol: we build our record <em>before</em> they build theirs.</h2>
-          <p>
-            Most attorneys wait for the board to move. They receive the complaint, draft a brief acknowledgment, and begin preparing for the eventual hearing. By the time they're ready, the board has had months to build its record — unopposed.
-          </p>
-          <p>
-            <strong>The Counter Protocol activates the day you retain us.</strong> We launch an independent parallel investigation immediately — gathering exculpatory evidence, building the factual timeline, and constructing an evidence-anchored rebuttal designed to force a dismissal decision before a hearing is ever scheduled.
-          </p>
-          <p>
-            The initial written response to the board is the single most consequential document in your defense. A passive response is a missed opportunity that cannot be recovered. An evidence-anchored rebuttal forces the board to make a decision.
-          </p>
-          <a href="the-counter-protocol.html" class="pld-protocol__link">
-            How The Counter Protocol Works — Full Detail →
-          </a>
+          <h2 id="protocol-h2">We build our record <em>before</em> they build theirs.</h2>
+          <p>Most attorneys wait for the board to move. By the time they're ready, the board has had months to build its record — unopposed. <strong>The Counter Protocol activates the day you retain us.</strong> Parallel investigation begins immediately. The initial written response is built to force a dismissal decision — not to acknowledge and wait.</p>
+          <a href="the-counter-protocol.html" class="pld-protocol__link">Full detail on how it works →</a>
         </div>
 
-        <div class="pld-timeline reveal" aria-label="Day of retention comparison">
-          <div class="pld-timeline__label">Day of Retention — Who Is Building?</div>
+        <div class="pld-protocol__compare">
+          <div class="pld-protocol__label">Day of retention — who is already building?</div>
 
-          <div class="pld-timeline__item">
-            <div class="pld-timeline__dot pld-timeline__dot--board"></div>
-            <span class="pld-timeline__actor pld-timeline__actor--board">The Board</span>
-            <span class="pld-timeline__action">Assigning investigators, requesting records, building case timeline, retaining expert reviewers</span>
+          <div class="pld-protocol__row pld-protocol__row--board">
+            <div class="pld-protocol__row-actor"><span>The Board</span></div>
+            <div class="pld-protocol__row-content">
+              <div class="pld-protocol__row-title">Assigning investigators. Requesting records. Building timeline.</div>
+              <div class="pld-protocol__row-desc">Started the day the complaint was accepted — before you were notified.</div>
+            </div>
           </div>
-          <div class="pld-timeline__item">
-            <div class="pld-timeline__dot pld-timeline__dot--us"></div>
-            <span class="pld-timeline__actor pld-timeline__actor--us">Our Firm</span>
-            <span class="pld-timeline__action pld-timeline__action--us">Parallel investigation launched. Exculpatory evidence gathered. Rebuttal construction begins — same day.</span>
+
+          <div class="pld-protocol__row pld-protocol__row--us">
+            <div class="pld-protocol__row-actor"><span>Our Firm</span></div>
+            <div class="pld-protocol__row-content">
+              <div class="pld-protocol__row-title">Parallel investigation launched. Rebuttal construction begins.</div>
+              <div class="pld-protocol__row-desc">Same day you retain us. No queue. No delay. The counter-record starts immediately.</div>
+            </div>
           </div>
-          <div class="pld-timeline__item">
-            <div class="pld-timeline__dot pld-timeline__dot--them"></div>
-            <span class="pld-timeline__actor pld-timeline__actor--them">Typical Firm</span>
-            <span class="pld-timeline__action">Reviewing the complaint, requesting records, drafting a standard acknowledgment response, awaiting the board's next move</span>
+
+          <div class="pld-protocol__row pld-protocol__row--them">
+            <div class="pld-protocol__row-actor"><span>Typical Firm</span></div>
+            <div class="pld-protocol__row-content">
+              <div class="pld-protocol__row-title">Reviewing complaint. Requesting records. Drafting acknowledgment.</div>
+              <div class="pld-protocol__row-desc">Waiting for the board's next move while the board's record builds unopposed.</div>
+            </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════════════
+    <!-- ═══════════════════════════════════════════════════════════
        WHAT WE HANDLE — one viewport tab interface
   ════════════════════════════════════════════════════════════ -->
   <section class="section pld-handles" aria-labelledby="handles-h2" id="handlesSection">
@@ -2522,6 +2599,18 @@
       }, { threshold: 0.3 });
       handlesIO.observe(handlesSection);
     }
+
+        /* Protocol — scroll entry */
+    (function() {
+      var sec = document.getElementById('protocolSection');
+      if (!sec) return;
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) { sec.classList.add('protocol-entered'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      io.observe(sec);
+    })();
 
         /* Why Her — scroll entry: char reveal headline + card stagger */
     (function() {
