@@ -387,78 +387,154 @@
     }
     .pld-reframe strong { font-style: normal; font-weight: 700; }
 
-    /* ── STAKES SECTION ─────────────────────────────────────── */
-    .pld-stakes { background: var(--surface); }
-    .pld-stakes__inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 72px;
-      align-items: start;
+    /* ── STAKES — exposure report masterpiece ───────────────── */
+    @keyframes statIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
-    .pld-stakes h2 {
-      font-size: clamp(24px, 2.8vw, 38px);
-      color: var(--dark);
-      margin-bottom: 18px;
-      line-height: 1.1;
+    @keyframes barFill {
+      from { width: 0; }
+      to   { width: 100%; }
     }
-    .pld-stakes p {
-      font-size: 16px;
-      color: var(--mid);
-      line-height: 1.82;
-      margin-bottom: 14px;
+    @keyframes dotLive {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.4; transform: scale(0.7); }
     }
-    .pld-stakes strong { color: var(--dark); }
 
-    /* Financial exposure table */
-    .pld-exposure-table {
-      background: var(--dark);
-      border-top: 3px solid var(--accent);
-    }
-    .pld-exposure-table__head {
-      display: grid;
-      grid-template-columns: 1fr auto auto;
-      gap: 16px;
-      padding: 14px 24px;
-      border-bottom: 1px solid rgba(201,184,154,0.1);
-    }
-    .pld-exposure-table__head span {
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--accent-lite);
-    }
-    .pld-exposure-row {
-      display: grid;
-      grid-template-columns: 1fr auto auto;
-      gap: 16px;
+    .pld-stakes {
+      background: var(--surface);
+      min-height: 100svh;
+      display: flex;
       align-items: center;
-      padding: 13px 24px;
-      border-bottom: 1px solid rgba(201,184,154,0.07);
-      transition: background 0.15s;
+      position: relative;
+      overflow: hidden;
     }
-    .pld-exposure-row:hover { background: rgba(232,114,42,0.05); }
-    .pld-exposure-row:last-of-type { border-bottom: none; }
-    .pld-exposure-row__label {
-      font-size: 15px;
-      color: rgba(250,246,240,0.7);
+    .pld-stakes.section {
+      padding: clamp(56px,7vw,88px) clamp(40px,6vw,100px);
     }
-    .pld-exposure-row__value {
+    .pld-stakes::before {
+      content: '$';
+      position: absolute; right: -0.05em; bottom: -0.2em;
       font-family: var(--ff-serif);
-      font-size: 16px;
-      color: var(--accent-lite);
-      text-align: right;
-      font-style: italic;
+      font-size: clamp(280px,38vw,520px); font-weight: 700;
+      color: rgba(232,114,42,0.04); line-height: 1;
+      pointer-events: none; user-select: none;
     }
-    .pld-exposure-row--alert .pld-exposure-row__label { color: rgba(250,246,240,0.88); }
-    .pld-exposure-row--alert .pld-exposure-row__value { color: #e87a5a; }
-    .pld-exposure-table__note {
-      padding: 12px 24px;
-      border-top: 1px solid rgba(201,184,154,0.07);
-      font-size: 12px;
-      color: rgba(250,246,240,0.3);
-      font-style: italic;
-    }
-    @media (max-width: 768px) { .pld-stakes__inner { grid-template-columns: 1fr; } }
+    .pld-stakes__inner { width: 100%; position: relative; z-index: 1; }
 
+    /* Header */
+    .pld-stakes__header {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: clamp(32px,5vw,80px); align-items: end;
+      margin-bottom: clamp(36px,4vw,52px);
+      padding-bottom: clamp(24px,3vw,36px);
+      border-bottom: 1px solid var(--border);
+    }
+    .pld-stakes__headline {
+      font-family: var(--ff-serif);
+      font-size: clamp(26px,2.8vw,40px);
+      color: var(--dark); line-height: 1.08; letter-spacing: -0.02em;
+    }
+    .pld-stakes__sub { font-size: 16px; color: var(--mid); line-height: 1.72; }
+    .pld-stakes__sub strong { color: var(--dark); }
+
+    /* Body grid */
+    .pld-stakes__body {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: clamp(40px,5vw,72px); align-items: start;
+    }
+
+    /* Column headers */
+    .pld-stakes__col-label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .pld-stakes__col-label::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+
+    /* Stat rows */
+    .pld-stakes__stat {
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: baseline; gap: 12px;
+      padding: 13px 0; border-bottom: 1px solid var(--border);
+      opacity: 0; transform: translateY(14px);
+    }
+    .pld-stakes__stat:first-of-type { border-top: 1px solid var(--border); }
+    .pld-stakes.stakes-entered .pld-stakes__stat:nth-child(1){animation:statIn .55s cubic-bezier(.16,1,.3,1) .08s forwards}
+    .pld-stakes.stakes-entered .pld-stakes__stat:nth-child(2){animation:statIn .55s cubic-bezier(.16,1,.3,1) .16s forwards}
+    .pld-stakes.stakes-entered .pld-stakes__stat:nth-child(3){animation:statIn .55s cubic-bezier(.16,1,.3,1) .24s forwards}
+    .pld-stakes.stakes-entered .pld-stakes__stat:nth-child(4){animation:statIn .55s cubic-bezier(.16,1,.3,1) .32s forwards}
+    .pld-stakes.stakes-entered .pld-stakes__stat:nth-child(5){animation:statIn .55s cubic-bezier(.16,1,.3,1) .40s forwards}
+    .pld-stakes.stakes-entered .pld-stakes__stat:nth-child(6){animation:statIn .55s cubic-bezier(.16,1,.3,1) .48s forwards}
+    .pld-stakes__stat-label { font-size: 15px; color: var(--mid); line-height: 1.3; }
+    .pld-stakes__stat-val {
+      font-family: var(--ff-serif); font-size: 18px;
+      color: var(--accent); white-space: nowrap; text-align: right;
+    }
+    .pld-stakes__stat--alert .pld-stakes__stat-label { color: var(--dark); font-weight: 700; }
+    .pld-stakes__stat--alert .pld-stakes__stat-val { color: #c0392b; font-weight: 700; }
+    .pld-stakes__source { font-size: 12px; color: var(--muted); margin-top: 10px; font-style: italic; }
+    .pld-stakes__cta { margin-top: 20px; }
+
+    /* Trigger rows */
+    .pld-stakes__trigger {
+      padding: 14px 0; border-bottom: 1px solid var(--border);
+      cursor: default; transition: background 0.2s;
+    }
+    .pld-stakes__trigger:first-of-type { border-top: 1px solid var(--border); }
+    .pld-stakes__trigger:hover { background: rgba(232,114,42,0.02); }
+    .pld-stakes__trigger-header {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
+    }
+    .pld-stakes__trigger-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent); flex-shrink: 0;
+      animation: dotLive 2.2s ease-in-out infinite;
+    }
+    .pld-stakes__trigger:nth-child(2) .pld-stakes__trigger-dot{animation-delay:.4s}
+    .pld-stakes__trigger:nth-child(3) .pld-stakes__trigger-dot{animation-delay:.8s}
+    .pld-stakes__trigger:nth-child(4) .pld-stakes__trigger-dot{animation-delay:1.2s}
+    .pld-stakes__trigger:nth-child(5) .pld-stakes__trigger-dot{animation-delay:1.6s}
+    .pld-stakes__trigger-num { font-size: 11px; color: rgba(26,18,33,0.3); font-family: var(--ff-serif); }
+    .pld-stakes__trigger-title { font-size: 15px; font-weight: 700; color: var(--dark); flex: 1; transition: color 0.2s; }
+    .pld-stakes__trigger:hover .pld-stakes__trigger-title { color: var(--accent-dark, #b8531a); }
+    .pld-stakes__trigger-status {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .pld-stakes.stakes-entered .pld-stakes__trigger-status { opacity: 1; }
+    .pld-stakes__trigger-track { height: 2px; background: var(--border); overflow: hidden; margin-left: 28px; }
+    .pld-stakes__trigger-bar { height: 100%; width: 0; background: linear-gradient(90deg, var(--accent), var(--accent-lite)); }
+    .pld-stakes__trigger-sub {
+      font-size: 13px; color: var(--mid); line-height: 1.6;
+      margin-left: 28px; max-height: 0; overflow: hidden; opacity: 0; margin-top: 0;
+      transition: max-height .4s cubic-bezier(.16,1,.3,1), opacity .3s ease .05s, margin-top .3s ease;
+    }
+    .pld-stakes__trigger:hover .pld-stakes__trigger-sub { max-height: 60px; opacity: 1; margin-top: 8px; }
+
+    /* Footer */
+    .pld-stakes__footer {
+      margin-top: clamp(28px,3.5vw,44px);
+      background: var(--dark); padding: 20px 28px;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+      opacity: 0; transform: translateY(12px);
+      transition: opacity .6s ease .5s, transform .6s cubic-bezier(.16,1,.3,1) .5s;
+    }
+    .pld-stakes.stakes-entered .pld-stakes__footer { opacity: 1; transform: translateY(0); }
+    .pld-stakes__footer-text { font-size: 15px; color: rgba(250,246,240,.92); font-weight: 600; line-height: 1.5; }
+    .pld-stakes__footer-text em { font-style: normal; color: var(--accent-lite); }
+
+    @media (max-width:900px) {
+      .pld-stakes { min-height: auto; }
+      .pld-stakes__header,.pld-stakes__body { grid-template-columns: 1fr; }
+      .pld-stakes__stat { opacity:1; transform:none; }
+      .pld-stakes.stakes-entered .pld-stakes__stat { animation:none; }
+      .pld-stakes__footer { flex-direction:column; align-items:flex-start; }
+    }
     /* ── WHY HER — one viewport, headline + 3 expanding cards ── */
     @keyframes borderDraw {
       from { background-position: 200% center; }
@@ -2129,69 +2205,63 @@
   <!-- ═══════════════════════════════════════════════════════════
        STAKES — WITH FINANCIAL EXPOSURE TABLE
   ════════════════════════════════════════════════════════════ -->
-  <section class="section pld-stakes" aria-labelledby="stakes-h2">
-    <div class="container">
-      <div class="pld-stakes__inner">
-        <div class="reveal">
-          <div class="eyebrow" style="margin-bottom:14px;">What's Actually at Stake</div>
+  <section class="section pld-stakes" aria-labelledby="stakes-h2" id="stakesSection">
+    <div class="pld-stakes__inner">
+      <div class="pld-stakes__header">
+        <div>
+          <div class="eyebrow" style="margin-bottom:12px;">What's Actually at Stake</div>
           <div class="rule"></div>
-          <h2 id="stakes-h2">Your license is not the only thing on the line.</h2>
-          <p>
-            A board complaint threatens your income, hospital privileges, prescribing authority, and every career opportunity you haven't yet reached. The NPDB filing is permanent — visible to every credentialing body in the country, forever. <strong>For early-career physicians, a complaint before 40 forecloses opportunities that haven't materialized yet.</strong>
-          </p>
-          <a href="strategy-session.html" class="btn btn--primary" style="margin-top:16px;">Book a Strategy Session →</a>
+          <h2 id="stakes-h2" class="pld-stakes__headline">Your license is not the only thing on the line.</h2>
         </div>
-
-        <div class="pld-stakes-triggers reveal" aria-label="What a TMB complaint triggers">
-          <div class="pld-stakes-triggers__head">
-            <span class="pld-stakes-triggers__label">What Triggers the Moment a Complaint Is Filed</span>
-            <span class="pld-stakes-triggers__badge">Immediate</span>
+        <p class="pld-stakes__sub">A board complaint threatens every system that depends on your license. The NPDB filing that follows any disciplinary action is permanent. <strong>Visible to every credentialing body in the country, forever.</strong></p>
+      </div>
+      <div class="pld-stakes__body">
+        <div class="pld-stakes__left">
+          <div class="pld-stakes__col-label">Financial Exposure</div>
+          <div class="pld-stakes__stat"><span class="pld-stakes__stat-label">Annual salary</span><span class="pld-stakes__stat-val">$374K – $564K+</span></div>
+          <div class="pld-stakes__stat"><span class="pld-stakes__stat-label">Practice value</span><span class="pld-stakes__stat-val">$500K – $2M+</span></div>
+          <div class="pld-stakes__stat"><span class="pld-stakes__stat-label">Career earnings (20 yr)</span><span class="pld-stakes__stat-val">$7.5M – $11M+</span></div>
+          <div class="pld-stakes__stat"><span class="pld-stakes__stat-label">Med school debt — survives revocation</span><span class="pld-stakes__stat-val">$200–300K</span></div>
+          <div class="pld-stakes__stat pld-stakes__stat--alert"><span class="pld-stakes__stat-label">NPDB filing</span><span class="pld-stakes__stat-val">Permanent</span></div>
+          <div class="pld-stakes__stat pld-stakes__stat--alert"><span class="pld-stakes__stat-label">SOAH hearing timeline</span><span class="pld-stakes__stat-val">12–24 months</span></div>
+          <p class="pld-stakes__source">Estimates: AAMC &amp; MGMA data. Individual cases vary.</p>
+          <div class="pld-stakes__cta"><a href="strategy-session.html" class="btn btn--primary">Book a Strategy Session →</a></div>
+        </div>
+        <div class="pld-stakes__right">
+          <div class="pld-stakes__col-label">What Triggers Immediately</div>
+          <div class="pld-stakes__trigger">
+            <div class="pld-stakes__trigger-header"><div class="pld-stakes__trigger-dot" aria-hidden="true"></div><span class="pld-stakes__trigger-num">01</span><span class="pld-stakes__trigger-title">NPDB Reporting Obligation</span><span class="pld-stakes__trigger-status">Active</span></div>
+            <div class="pld-stakes__trigger-track"><div class="pld-stakes__trigger-bar" data-delay="0"></div></div>
+            <p class="pld-stakes__trigger-sub">Any disciplinary action is permanent. Visible to every future credentialing body in the country.</p>
           </div>
-          <div class="pld-stakes-trigger">
-            <span class="pld-stakes-trigger__num">1</span>
-            <div>
-              <div class="pld-stakes-trigger__title">NPDB Reporting Obligation</div>
-              <div class="pld-stakes-trigger__sub">Any disciplinary action is permanent. Visible to every future credentialing body in the country.</div>
-            </div>
+          <div class="pld-stakes__trigger">
+            <div class="pld-stakes__trigger-header"><div class="pld-stakes__trigger-dot" aria-hidden="true"></div><span class="pld-stakes__trigger-num">02</span><span class="pld-stakes__trigger-title">Hospital Privilege Review</span><span class="pld-stakes__trigger-status">Active</span></div>
+            <div class="pld-stakes__trigger-track"><div class="pld-stakes__trigger-bar" data-delay="120"></div></div>
+            <p class="pld-stakes__trigger-sub">Affiliated institutions are triggered simultaneously. A complaint does not stay contained.</p>
           </div>
-          <div class="pld-stakes-trigger">
-            <span class="pld-stakes-trigger__num">2</span>
-            <div>
-              <div class="pld-stakes-trigger__title">Hospital Privilege Review</div>
-              <div class="pld-stakes-trigger__sub">Affiliated institutions are triggered simultaneously. A complaint does not stay contained.</div>
-            </div>
+          <div class="pld-stakes__trigger">
+            <div class="pld-stakes__trigger-header"><div class="pld-stakes__trigger-dot" aria-hidden="true"></div><span class="pld-stakes__trigger-num">03</span><span class="pld-stakes__trigger-title">DEA Registration Risk</span><span class="pld-stakes__trigger-status">Active</span></div>
+            <div class="pld-stakes__trigger-track"><div class="pld-stakes__trigger-bar" data-delay="240"></div></div>
+            <p class="pld-stakes__trigger-sub">Prescribing privileges are a separate but adjacent vulnerability an active investigation exposes.</p>
           </div>
-          <div class="pld-stakes-trigger">
-            <span class="pld-stakes-trigger__num">3</span>
-            <div>
-              <div class="pld-stakes-trigger__title">DEA Registration Risk</div>
-              <div class="pld-stakes-trigger__sub">Prescribing privileges are a separate but adjacent vulnerability that an active investigation exposes.</div>
-            </div>
+          <div class="pld-stakes__trigger">
+            <div class="pld-stakes__trigger-header"><div class="pld-stakes__trigger-dot" aria-hidden="true"></div><span class="pld-stakes__trigger-num">04</span><span class="pld-stakes__trigger-title">Insurance Panel Disruption</span><span class="pld-stakes__trigger-status">Active</span></div>
+            <div class="pld-stakes__trigger-track"><div class="pld-stakes__trigger-bar" data-delay="360"></div></div>
+            <p class="pld-stakes__trigger-sub">Carrier credentialing requires disclosure of pending board actions. Revenue exposure begins immediately.</p>
           </div>
-          <div class="pld-stakes-trigger">
-            <span class="pld-stakes-trigger__num">4</span>
-            <div>
-              <div class="pld-stakes-trigger__title">Insurance Panel Disruption</div>
-              <div class="pld-stakes-trigger__sub">Carrier credentialing requires disclosure of pending board actions. Revenue exposure begins immediately.</div>
-            </div>
-          </div>
-          <div class="pld-stakes-trigger">
-            <span class="pld-stakes-trigger__num">5</span>
-            <div>
-              <div class="pld-stakes-trigger__title">12–24 Month Hearing Timeline</div>
-              <div class="pld-stakes-trigger__sub">If the complaint reaches SOAH, resolution averages one to two years — with your license in limbo throughout.</div>
-            </div>
-          </div>
-          <div class="pld-stakes-triggers__footer">
-            <p>Every day without a defense strategy is a day the board builds unopposed.</p>
+          <div class="pld-stakes__trigger">
+            <div class="pld-stakes__trigger-header"><div class="pld-stakes__trigger-dot" aria-hidden="true"></div><span class="pld-stakes__trigger-num">05</span><span class="pld-stakes__trigger-title">12–24 Month Hearing Timeline</span><span class="pld-stakes__trigger-status">Active</span></div>
+            <div class="pld-stakes__trigger-track"><div class="pld-stakes__trigger-bar" data-delay="480"></div></div>
+            <p class="pld-stakes__trigger-sub">If the complaint reaches SOAH, resolution averages one to two years — with your license in limbo throughout.</p>
           </div>
         </div>
-
-
+      </div>
+      <div class="pld-stakes__footer">
+        <p class="pld-stakes__footer-text">Every day without a defense strategy is a day the board builds <em>unopposed.</em></p>
+        <a href="tel:9564263550" class="btn btn--primary" style="flex-shrink:0;">Call (956) 426-3550</a>
       </div>
     </div>
   </section>
-
     <section class="section pld-why" aria-labelledby="why-h2" id="whySection">
     <div class="container">
 
@@ -2852,6 +2922,28 @@
       var io = new IntersectionObserver(function(entries) {
         entries.forEach(function(e) {
           if (e.isIntersecting) { sec.classList.add('corr-entered'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.1 });
+      io.observe(sec);
+    })();
+
+        /* Stakes — scroll entry + bar animation */
+    (function() {
+      var sec = document.getElementById('stakesSection');
+      if (!sec) return;
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (!entry.isIntersecting) return;
+          sec.classList.add('stakes-entered');
+          // Animate trigger bars
+          sec.querySelectorAll('.pld-stakes__trigger-bar').forEach(function(bar) {
+            var delay = parseInt(bar.dataset.delay || 0);
+            setTimeout(function() {
+              bar.style.transition = 'width 0.7s cubic-bezier(0.16,1,0.3,1)';
+              bar.style.width = '100%';
+            }, delay + 200);
+          });
+          io.unobserve(entry.target);
         });
       }, { threshold: 0.1 });
       io.observe(sec);
