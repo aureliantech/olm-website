@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Texas Midwife License Defense | CNM &amp; Licensed Midwife Board Complaint Attorney — Octavia LaVon Martinez PLLC</title>
-  <meta name="description" content="Facing a complaint before the Texas Midwifery Board or Texas Board of Nursing? Octavia LaVon Martinez defends Certified Nurse Midwives and Licensed Midwives using The Counter Protocol — built to fight for dismissal from day one." />
+  <title>Texas Midwife License Defense | Midwife Board Complaint Attorney — Octavia LaVon Martinez PLLC</title>
+  <meta name="description" content="Facing a complaint before the Texas Midwifery Board or Texas Board of Nursing? Octavia LaVon Martinez defends licensed midwives using The Counter Protocol — built to fight for dismissal from day one." />
   <link rel="canonical" href="https://octaviamartinezlaw.com/texas-medical-attorney/midwife-license-defense" />
   <link rel="icon" type="image/png" href="../favicon.png">
   <link rel="apple-touch-icon" href="../favicon.png">
@@ -762,58 +762,62 @@
     @media (max-width:768px) {
       .mld-review__inner { grid-template-columns:1fr; }
     }
-    /* ── CORRECTIVE — midwife case transfer ─────────────────── */
-    @keyframes mldCorrRowIn {
-      from { opacity: 0; transform: translateX(-20px); }
+    /* ── CORRECTIVE — midwife case transfer, one viewport ───── */
+    @keyframes mldCorrSlideL {
+      from { opacity: 0; transform: translateX(-28px); }
       to   { opacity: 1; transform: translateX(0); }
     }
-    @keyframes mldCorrRuleIn {
-      from { transform: scaleX(0); }
-      to   { transform: scaleX(1); }
+    @keyframes mldCorrSlideR {
+      from { opacity: 0; transform: translateX(28px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes mldSignalIn {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     .mld-corrective {
-      background: var(--surface);
+      background: var(--dark);
       min-height: 100svh;
       display: flex;
-      align-items: center;
+      align-items: stretch;
       position: relative;
       overflow: hidden;
     }
-    .mld-corrective.section {
-      padding: clamp(56px,7vw,88px) clamp(40px,6vw,100px);
-    }
+    .mld-corrective.section { padding: 0; }
 
-    /* Legal-pad ruled lines — same as physician corrective */
-    .mld-corrective::before {
-      content: '';
-      position: absolute; inset: 0;
-      background-image: repeating-linear-gradient(
-        to bottom, transparent, transparent 55px,
-        rgba(232,114,42,0.04) 55px, rgba(232,114,42,0.04) 56px
-      );
-      pointer-events: none;
-    }
-
-    .mld-corrective__inner { width: 100%; position: relative; z-index: 1; }
-
-    /* ── HEADER ── */
-    .mld-corrective__header {
+    .mld-corrective__layout {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: clamp(32px,5vw,80px);
-      align-items: end;
-      padding-bottom: clamp(24px,3vw,40px);
-      opacity: 0; transform: translateY(14px);
-      transition: opacity .65s ease, transform .65s cubic-bezier(.16,1,.3,1);
+      width: 100%;
+      min-height: 100svh;
     }
-    .mld-corrective.corr-entered .mld-corrective__header {
-      opacity: 1; transform: translateY(0);
+
+    /* ── LEFT: editorial content ── */
+    .mld-corrective__left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(52px,6vw,80px) clamp(40px,5vw,72px) clamp(52px,6vw,80px) clamp(40px,6vw,100px);
+      position: relative; z-index: 1;
+      border-right: 1px solid rgba(201,184,154,0.1);
+      opacity: 0; transform: translateX(-28px);
+      transition: opacity .75s ease, transform .75s cubic-bezier(.16,1,.3,1);
+    }
+    .mld-corrective.corr-entered .mld-corrective__left {
+      opacity: 1; transform: translateX(0);
+    }
+
+    .mld-corrective__eyebrow {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 14px;
     }
     .mld-corrective__headline {
       font-family: var(--ff-serif);
-      font-size: clamp(26px,2.8vw,40px);
-      color: var(--dark); line-height: 1.1; letter-spacing: -0.02em;
+      font-size: clamp(24px,2.6vw,38px);
+      color: var(--bg); line-height: 1.1;
+      letter-spacing: -0.02em; margin-bottom: 16px;
     }
     .mld-corrective__headline em {
       font-style: italic;
@@ -824,163 +828,165 @@
       animation: shimmerText 4s linear 2s infinite;
     }
     .mld-corrective__intro {
-      font-size: 16px; color: var(--mid); line-height: 1.75;
+      font-size: 15px; color: rgba(250,246,240,0.65);
+      line-height: 1.72; margin-bottom: 32px;
     }
-    .mld-corrective__intro strong { color: var(--dark); }
+    .mld-corrective__intro strong { color: rgba(250,246,240,0.9); }
 
-    /* Stat callout in header-right */
-    .mld-corrective__stat-block {
-      background: var(--dark);
-      padding: 24px 28px;
+    /* Signal strips */
+    .mld-corrective__signals {
+      border-top: 1px solid rgba(201,184,154,0.1);
+      margin-bottom: 28px;
     }
-    .mld-corrective__stat-label {
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 14px;
-    }
-    .mld-corrective__stat-item {
-      display: flex; gap: 14px; align-items: flex-start;
-      padding: 12px 0; border-bottom: 1px solid rgba(201,184,154,0.1);
-    }
-    .mld-corrective__stat-item:last-of-type { border-bottom: none; }
-    .mld-corrective__stat-num {
-      font-family: var(--ff-serif);
-      font-size: 28px; color: var(--accent);
-      line-height: 1; letter-spacing: -0.03em; flex-shrink: 0;
-    }
-    .mld-corrective__stat-text {
-      font-size: 14px; color: rgba(250,246,240,0.82); line-height: 1.55;
-    }
-    .mld-corrective__stat-text strong { color: rgba(250,246,240,0.95); }
-
-    /* Dividing rule */
-    .mld-corrective__rule {
-      height: 1px; background: var(--border);
-      transform: scaleX(0); transform-origin: left;
-      transition: transform .9s cubic-bezier(.16,1,.3,1) .15s;
-      margin-bottom: clamp(28px,3.5vw,44px);
-    }
-    .mld-corrective.corr-entered .mld-corrective__rule { transform: scaleX(1); }
-
-    /* ── THREE WARNING ROWS ── */
-    .mld-corrective__rows {
-      border-top: 1px solid var(--border);
-      margin-bottom: clamp(32px,4vw,48px);
-    }
-
-    .mld-corrective__row {
+    .mld-corrective__signal {
       display: grid;
-      grid-template-columns: 64px 1fr 1fr;
-      gap: 0 clamp(24px,3vw,48px);
-      align-items: start;
-      padding: clamp(20px,2.5vw,28px) 0;
-      border-bottom: 1px solid var(--border);
-      position: relative; overflow: hidden;
-      cursor: default;
-      opacity: 0; transform: translateY(20px);
+      grid-template-columns: 44px 1fr;
+      align-items: center;
+      gap: 0 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(201,184,154,0.1);
+      cursor: default; position: relative;
+      opacity: 0; transform: translateY(14px);
     }
-
-    /* Hover accent bar */
-    .mld-corrective__row::before {
+    .mld-corrective__signal::before {
       content: '';
       position: absolute; left:0; top:0; bottom:0;
       width: 0; background: var(--accent);
-      transition: width .35s cubic-bezier(.16,1,.3,1);
+      transition: width .3s cubic-bezier(.16,1,.3,1);
     }
-    .mld-corrective__row:hover::before { width: 3px; }
-    .mld-corrective__row:hover { background: rgba(232,114,42,0.025); }
+    .mld-corrective__signal:hover::before { width: 2px; }
+    .mld-corrective__signal:hover { background: rgba(232,114,42,0.04); }
 
-    /* Stagger entry */
-    .mld-corrective.corr-entered .mld-corrective__row:nth-child(1){animation:mldCorrRowIn .65s cubic-bezier(.16,1,.3,1) .2s forwards}
-    .mld-corrective.corr-entered .mld-corrective__row:nth-child(2){animation:mldCorrRowIn .65s cubic-bezier(.16,1,.3,1) .33s forwards}
-    .mld-corrective.corr-entered .mld-corrective__row:nth-child(3){animation:mldCorrRowIn .65s cubic-bezier(.16,1,.3,1) .46s forwards}
+    .mld-corrective.corr-entered .mld-corrective__signal:nth-child(1){animation:mldSignalIn .5s cubic-bezier(.16,1,.3,1) .3s forwards}
+    .mld-corrective.corr-entered .mld-corrective__signal:nth-child(2){animation:mldSignalIn .5s cubic-bezier(.16,1,.3,1) .38s forwards}
+    .mld-corrective.corr-entered .mld-corrective__signal:nth-child(3){animation:mldSignalIn .5s cubic-bezier(.16,1,.3,1) .46s forwards}
 
-    .mld-corrective__row-num {
+    .mld-corrective__signal-num {
       font-family: var(--ff-serif);
-      font-size: clamp(36px,4vw,54px);
-      color: rgba(232,114,42,0.15);
-      line-height: 1; letter-spacing: -0.04em;
-      padding-top: 4px;
-      transition: color .3s;
+      font-size: 28px; letter-spacing: -0.04em;
+      color: rgba(232,114,42,0.2); line-height: 1;
+      transition: color .25s;
     }
-    .mld-corrective__row:hover .mld-corrective__row-num { color: rgba(232,114,42,0.45); }
+    .mld-corrective__signal:hover .mld-corrective__signal-num { color: rgba(232,114,42,0.5); }
 
-    .mld-corrective__row-left {}
-    .mld-corrective__row-signal {
-      font-size: 10px; font-weight: 700;
+    .mld-corrective__signal-body {}
+    .mld-corrective__signal-label {
+      font-size: 9px; font-weight: 700;
       letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 8px;
-      display: flex; align-items: center; gap: 8px;
+      color: var(--accent); margin-bottom: 4px;
+      display: flex; align-items: center; gap: 6px;
     }
-    .mld-corrective__row-signal::before {
+    .mld-corrective__signal-label::before {
       content: '';
-      width: 5px; height: 5px; border-radius: 50%;
+      width: 4px; height: 4px; border-radius: 50%;
       background: var(--accent); flex-shrink: 0;
       animation: warnPulse 2.5s ease-in-out infinite;
     }
-    .mld-corrective__row-title {
-      font-family: var(--ff-serif);
-      font-size: clamp(17px,1.6vw,22px);
-      color: var(--dark); line-height: 1.2;
+    .mld-corrective__signal-title {
+      font-size: clamp(14px,1.3vw,16px);
+      color: rgba(250,246,240,0.92);
+      line-height: 1.3; font-weight: 600;
     }
 
-    .mld-corrective__row-desc {
-      font-size: 15px; color: var(--mid); line-height: 1.75;
-      padding-top: 6px;
+    /* CTA row */
+    .mld-corrective__cta {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      opacity: 0; transform: translateY(10px);
+      transition: opacity .5s ease .55s, transform .5s cubic-bezier(.16,1,.3,1) .55s;
     }
-
-    /* ── CTA BLOCK ── */
-    .mld-corrective__cta-block {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: clamp(24px,3vw,48px); align-items: center;
-      opacity: 0; transform: translateY(14px);
-      transition: opacity .6s ease .5s, transform .6s cubic-bezier(.16,1,.3,1) .5s;
-    }
-    .mld-corrective.corr-entered .mld-corrective__cta-block {
+    .mld-corrective.corr-entered .mld-corrective__cta {
       opacity: 1; transform: translateY(0);
     }
-    .mld-corrective__cta-urgency {
-      font-size: 15px; color: var(--dark);
-      font-weight: 600; line-height: 1.55; margin-bottom: 20px;
-    }
-    .mld-corrective__cta-urgency em { font-style: normal; color: var(--accent); }
-    .mld-corrective__cta-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
     .mld-corrective__transfer {
-      font-size: 13px; color: var(--mid);
+      display: flex; align-items: center;
+      font-size: 13px; color: rgba(250,246,240,0.45);
     }
     .mld-corrective__transfer a {
-      color: var(--accent); text-decoration: none;
-      border-bottom: 1px solid rgba(232,114,42,0.35); padding-bottom: 1px;
-      transition: border-color .2s;
+      color: var(--accent-lite); text-decoration: none; margin-left: 6px;
+      border-bottom: 1px solid rgba(232,114,42,0.3);
+      transition: color .2s, border-color .2s;
     }
-    .mld-corrective__transfer a:hover { border-color: var(--accent); }
+    .mld-corrective__transfer a:hover { color: #fff; border-color: var(--accent); }
 
-    .mld-corrective__quote-box {
-      border-left: 3px solid var(--accent);
-      padding: 20px 24px;
-      background: var(--bg);
+    /* ── RIGHT: image + stat overlay ── */
+    .mld-corrective__right {
+      position: relative; overflow: hidden;
+      opacity: 0; transform: translateX(28px);
+      transition: opacity .75s ease .1s, transform .75s cubic-bezier(.16,1,.3,1) .1s;
     }
-    .mld-corrective__quote-text {
+    .mld-corrective.corr-entered .mld-corrective__right {
+      opacity: 1; transform: translateX(0);
+    }
+    .mld-corrective__img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      display: block;
+      filter: grayscale(40%) contrast(1.1);
+      animation: kBurns 14s ease-out forwards;
+    }
+    /* Dark overlay — heavier at bottom for stat readability */
+    .mld-corrective__img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(10,7,16,0.4) 0%,
+        rgba(10,7,16,0.5) 40%,
+        rgba(10,7,16,0.88) 100%
+      );
+    }
+    /* Left fade to blend with left panel */
+    .mld-corrective__img-overlay::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(10,7,16,0.5) 0%,
+        transparent 35%
+      );
+    }
+    /* Stat block sits over image at bottom */
+    .mld-corrective__stats {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: clamp(28px,4vw,48px);
+    }
+    .mld-corrective__stats-label {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 18px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .mld-corrective__stats-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: rgba(201,184,154,0.2);
+    }
+    .mld-corrective__stat-item {
+      display: grid; grid-template-columns: 44px 1fr;
+      gap: 0 14px; align-items: start;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(201,184,154,0.1);
+    }
+    .mld-corrective__stat-item:last-child { border-bottom: none; }
+    .mld-corrective__stat-num {
       font-family: var(--ff-serif);
-      font-size: clamp(16px,1.6vw,20px);
-      color: var(--dark); font-style: italic;
-      line-height: 1.5; margin-bottom: 12px;
+      font-size: 22px; color: var(--accent);
+      line-height: 1; letter-spacing: -0.03em;
     }
-    .mld-corrective__quote-attr {
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 0.16em; text-transform: uppercase;
-      color: var(--accent);
+    .mld-corrective__stat-text {
+      font-size: 14px; color: rgba(250,246,240,0.82);
+      line-height: 1.55;
     }
+    .mld-corrective__stat-text strong { color: rgba(250,246,240,0.95); }
 
     @media (max-width:900px) {
-      .mld-corrective { min-height: auto; }
-      .mld-corrective__header { grid-template-columns: 1fr; opacity:1; transform:none; }
-      .mld-corrective__row { grid-template-columns: 48px 1fr; opacity:1; transform:none; }
-      .mld-corrective__row-desc { grid-column: 2; }
-      .mld-corrective.corr-entered .mld-corrective__row { animation: none; }
-      .mld-corrective__cta-block { grid-template-columns: 1fr; opacity:1; transform:none; }
+      .mld-corrective__layout { grid-template-columns: 1fr; }
+      .mld-corrective__right { min-height: 320px; }
+      .mld-corrective__left,
+      .mld-corrective__right { opacity:1; transform:none; }
+      .mld-corrective__signal { opacity:1; transform:none; }
+      .mld-corrective.corr-entered .mld-corrective__signal { animation:none; }
+      .mld-corrective__cta { opacity:1; transform:none; }
     }
-
     /* ── ABOUT — dark split, contained photo, bracket frame ── */
     .mld-about {
       background: var(--dark);
@@ -1840,7 +1846,7 @@
       <div class="mld-risk-card" role="complementary" aria-label="What a midwife complaint triggers">
         <div class="mld-risk-card__header">
           <span class="mld-risk-card__label">What triggers immediately</span>
-          <span class="mld-risk-card__badge">CNM / LM</span>
+          <span class="mld-risk-card__badge">Texas Midwives</span>
         </div>
         <div class="mld-risk-row">
           <span class="mld-risk-row__label">Collaborative agreement — can be pulled</span>
@@ -1867,7 +1873,7 @@
           <span class="mld-risk-row__val">2–3 years</span>
         </div>
         <div class="mld-risk-card__footer">
-          <p>Estimates: ACNM data. <strong>Your debt does not disappear if your license is revoked.</strong></p>
+          <p>Estimates based on ACNM/AMCB data. <strong>Your debt does not disappear if your license is revoked.</strong></p>
         </div>
       </div>
 
@@ -1893,7 +1899,7 @@
           <div class="rule"></div>
           <h2 id="context-h2" class="mld-context__headline">Midwifery complaints carry unique vulnerabilities that most attorneys do not understand.</h2>
         </div>
-        <p class="mld-context__sub">CNMs and Licensed Midwives operate in one of the most politically contested spaces in Texas healthcare. <strong>A complaint framed as a clinical concern may be driven by an agenda that has nothing to do with your care.</strong></p>
+        <p class="mld-context__sub">Midwives operate in one of the most politically contested spaces in Texas healthcare. <strong>A complaint framed as a clinical concern may be driven by an agenda that has nothing to do with your care.</strong></p>
       </div>
 
       <div class="mld-context__rule" aria-hidden="true"></div>
@@ -1926,7 +1932,7 @@
           <div class="mld-context__label-row">
             <span class="mld-context__card-label">Timeline Reality</span>
           </div>
-          <div class="mld-context__card-title">CNM cases run two to three years</div>
+          <div class="mld-context__card-title">Midwife cases run two to three years</div>
           <p class="mld-context__card-hook">If your case reaches a hearing, resolution averages two to three years — your credential in limbo throughout.</p>
           <p class="mld-context__card-body">Your collaborative physician agreement is at risk for every month of that process. Your income, your practice, and your birth center operating status remain unresolved. <strong>The only way to contain it is aggressive, early action.</strong></p>
         </div>
@@ -1968,7 +1974,7 @@
           <div class="mld-stakes__stat"><span class="mld-stakes__stat-label">School debt — survives revocation</span><span class="mld-stakes__stat-val">$40–150K</span></div>
           <div class="mld-stakes__stat mld-stakes__stat--alert"><span class="mld-stakes__stat-label">NPDB filing</span><span class="mld-stakes__stat-val">Permanent</span></div>
           <div class="mld-stakes__stat mld-stakes__stat--alert"><span class="mld-stakes__stat-label">Hearing timeline</span><span class="mld-stakes__stat-val">2–3 years</span></div>
-          <p class="mld-stakes__source">Source: ACNM salary surveys. Estimates; individual cases vary.</p>
+          <p class="mld-stakes__source">Source: ACNM/AMCB salary surveys. Estimates; individual cases vary.</p>
           <div class="mld-stakes__cta"><a href="strategy-session.html" class="btn btn--primary">Book a Strategy Session →</a></div>
         </div>
         <div class="mld-stakes__right">
@@ -1991,7 +1997,7 @@
               <span class="mld-stakes__trigger-status">Active</span>
             </div>
             <div class="mld-stakes__trigger-track"><div class="mld-stakes__trigger-bar" data-delay="120"></div></div>
-            <p class="mld-stakes__trigger-sub">If you own or serve as the designated CNM, the facility's operating license can be pulled into review simultaneously.</p>
+            <p class="mld-stakes__trigger-sub">If you own or operate a licensed birth center, the facility's operating license can be pulled into review simultaneously.</p>
           </div>
           <div class="mld-stakes__trigger">
             <div class="mld-stakes__trigger-header">
@@ -2029,10 +2035,10 @@
     <div class="mld-workhorse__inner">
 
       <div class="mld-workhorse__copy">
-        <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:14px;">What a CNM Complaint Actually Triggers</div>
+        <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:14px;">What a Midwife Complaint Actually Triggers</div>
         <div class="rule"></div>
         <h2 id="workhorse-h2">The consequences begin <em>before any ruling is made.</em></h2>
-        <p>A complaint before the Texas Midwifery Board or the Texas Board of Nursing does not wait for a hearing to cause harm. From the moment an investigation opens, the consequences are immediate — and for CNMs, they are categorically different from physician complaints in ways most attorneys do not understand.</p>
+        <p>A complaint before the Texas Midwifery Board or the Texas Board of Nursing does not wait for a hearing to cause harm. From the moment an investigation opens, the consequences are immediate — and for midwives, they are categorically different from physician complaints in ways most attorneys do not understand.</p>
         <p><strong>The initial written response is still the most critical document in your defense.</strong> The board begins building its record before you have a formal opportunity to respond. A passive response — or no attorney at all — allows that record to set unchallenged.</p>
         <a href="the-counter-protocol.html" class="mld-workhorse__link">How The Counter Protocol Works →</a>
       </div>
@@ -2044,7 +2050,7 @@
           <div class="mld-consequence__num" aria-hidden="true">01</div>
           <div class="mld-consequence__body">
             <div class="mld-consequence__title">Collaborative Agreement at Risk</div>
-            <p class="mld-consequence__desc">Texas CNMs practicing independently operate under a physician collaborative agreement. A board complaint can cause that physician to pull the agreement immediately — shutting down your practice entirely before any board ruling, with no notice required.</p>
+            <p class="mld-consequence__desc">Texas midwives practicing independently operate under a physician collaborative agreement. A board complaint can cause that physician to pull the agreement immediately — shutting down your practice entirely before any board ruling, with no notice required.</p>
           </div>
         </div>
 
@@ -2052,7 +2058,7 @@
           <div class="mld-consequence__num" aria-hidden="true">02</div>
           <div class="mld-consequence__body">
             <div class="mld-consequence__title">Birth Center Operating Status</div>
-            <p class="mld-consequence__desc">If you own or serve as the designated CNM for a licensed birth center, a complaint can trigger review of the facility's operating license. Your credential and your facility's existence are tied together in ways that amplify the stakes of every complaint.</p>
+            <p class="mld-consequence__desc">If you own or serve as the designated midwife for a licensed birth center, a complaint can trigger review of the facility's operating license. Your credential and your facility's existence are tied together in ways that amplify the stakes of every complaint.</p>
           </div>
         </div>
 
@@ -2155,77 +2161,69 @@
        CORRECTIVE COUNSEL — midwife case transfer
   ════════════════════════════════════════════════════════════ -->
   <section class="section mld-corrective" aria-labelledby="mld-corrective-h2" id="mldCorrectiveSection">
-    <div class="mld-corrective__inner">
+    <div class="mld-corrective__layout">
 
-      <div class="mld-corrective__header">
-        <div>
-          <div class="eyebrow" style="margin-bottom:14px;">If You Already Have an Attorney</div>
-          <div class="rule"></div>
-          <h2 id="mld-corrective-h2" class="mld-corrective__headline">The wrong attorney is <em>worse than no attorney at all.</em></h2>
-          <p class="mld-corrective__intro">Midwives who transfer their cases to us almost always describe the same two failures: <strong>months of billing with no visible progress</strong>, and an attorney who treated a politically-motivated complaint like a routine clinical matter. Both failures cost you time the board used to build its record unopposed.</p>
+      <!-- LEFT: editorial -->
+      <div class="mld-corrective__left">
+        <div class="mld-corrective__eyebrow">If You Already Have an Attorney</div>
+        <div class="rule"></div>
+        <h2 id="mld-corrective-h2" class="mld-corrective__headline">The wrong attorney is <em>worse than no attorney at all.</em></h2>
+        <p class="mld-corrective__intro">Midwives who transfer to us describe the same two failures: <strong>months of billing with no visible progress</strong>, and an attorney who treated a politically-motivated complaint like a routine clinical matter. Every passive month is time the board used to build its record against you.</p>
+
+        <div class="mld-corrective__signals">
+          <div class="mld-corrective__signal">
+            <div class="mld-corrective__signal-num" aria-hidden="true">01</div>
+            <div class="mld-corrective__signal-body">
+              <div class="mld-corrective__signal-label">Warning Signal</div>
+              <div class="mld-corrective__signal-title">Months of billing. No counter-evidence filed.</div>
+            </div>
+          </div>
+          <div class="mld-corrective__signal">
+            <div class="mld-corrective__signal-num" aria-hidden="true">02</div>
+            <div class="mld-corrective__signal-body">
+              <div class="mld-corrective__signal-label">Warning Signal</div>
+              <div class="mld-corrective__signal-title">Your attorney is reading a political complaint as a clinical one.</div>
+            </div>
+          </div>
+          <div class="mld-corrective__signal">
+            <div class="mld-corrective__signal-num" aria-hidden="true">03</div>
+            <div class="mld-corrective__signal-body">
+              <div class="mld-corrective__signal-label">Warning Signal</div>
+              <div class="mld-corrective__signal-title">Your collaborative agreement is exposed. No one is acting with urgency.</div>
+            </div>
+          </div>
         </div>
-        <div class="mld-corrective__stat-block">
-          <div class="mld-corrective__stat-label">Why Midwives Transfer Cases to Us</div>
+
+        <div class="mld-corrective__cta">
+          <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+          <a href="strategy-session.html" class="btn btn--outline" style="border-color:rgba(201,184,154,0.3);color:rgba(250,246,240,0.85);">Book a Strategy Session</a>
+          <span class="mld-corrective__transfer">Need to switch? <a href="transfer-your-case.html">Transfer your case →</a></span>
+        </div>
+      </div>
+
+      <!-- RIGHT: image with stat overlay -->
+      <div class="mld-corrective__right">
+        <img
+          src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=960&q=80&fit=crop&crop=center&auto=format"
+          alt="Legal defense — case transfer"
+          class="mld-corrective__img"
+          loading="lazy"
+        />
+        <div class="mld-corrective__img-overlay" aria-hidden="true"></div>
+        <div class="mld-corrective__stats">
+          <div class="mld-corrective__stats-label">Why Midwives Transfer Cases to Us</div>
           <div class="mld-corrective__stat-item">
             <div class="mld-corrective__stat-num">01</div>
-            <div class="mld-corrective__stat-text"><strong>Excessive billing, no progress.</strong> Months of retainer charges with no counter-evidence filed, no parallel investigation launched, no pressure applied to the board.</div>
+            <div class="mld-corrective__stat-text"><strong>Excessive billing, no progress.</strong> Retainer charges accumulating with no counter-evidence, no parallel investigation, no pressure on the board.</div>
           </div>
           <div class="mld-corrective__stat-item">
             <div class="mld-corrective__stat-num">02</div>
-            <div class="mld-corrective__stat-text"><strong>Attorney didn't understand the fight.</strong> A general healthcare attorney who read the complaint as clinical — and missed the political agenda behind it entirely.</div>
+            <div class="mld-corrective__stat-text"><strong>Didn't understand the fight.</strong> A general attorney who read the complaint as clinical — and missed the political agenda entirely.</div>
           </div>
           <div class="mld-corrective__stat-item">
             <div class="mld-corrective__stat-num">03</div>
-            <div class="mld-corrective__stat-text"><strong>Passive posture while the board built unopposed.</strong> Acknowledgment letters instead of evidence-anchored rebuttals. Waiting instead of counter-investigating.</div>
+            <div class="mld-corrective__stat-text"><strong>Passive while the board built unopposed.</strong> Acknowledgment letters. No rebuttal. Weeks lost that cannot be recovered.</div>
           </div>
-        </div>
-      </div>
-
-      <div class="mld-corrective__rule" aria-hidden="true"></div>
-
-      <div class="mld-corrective__rows">
-
-        <div class="mld-corrective__row">
-          <div class="mld-corrective__row-num" aria-hidden="true">01</div>
-          <div class="mld-corrective__row-left">
-            <div class="mld-corrective__row-signal">Warning Signal</div>
-            <div class="mld-corrective__row-title">You are being billed but nothing is moving.</div>
-          </div>
-          <p class="mld-corrective__row-desc">Weeks pass. Invoices arrive. But no counter-evidence has been filed, no independent investigation has been launched, and you have not been told what the board has built against you. In a board proceeding, the clock runs in the board's favor — every passive month is a month of unopposed record-building you cannot recover.</p>
-        </div>
-
-        <div class="mld-corrective__row">
-          <div class="mld-corrective__row-num" aria-hidden="true">02</div>
-          <div class="mld-corrective__row-left">
-            <div class="mld-corrective__row-signal">Warning Signal</div>
-            <div class="mld-corrective__row-title">Your attorney doesn't understand the political nature of the complaint.</div>
-          </div>
-          <p class="mld-corrective__row-desc">Your complaint may have nothing to do with clinical error — and everything to do with institutional pressure, a competing interest, or an advocacy agenda targeting independent midwifery practice. An attorney who doesn't recognize this will build a clinical defense against a political attack. That is the wrong fight entirely.</p>
-        </div>
-
-        <div class="mld-corrective__row">
-          <div class="mld-corrective__row-num" aria-hidden="true">03</div>
-          <div class="mld-corrective__row-left">
-            <div class="mld-corrective__row-signal">Warning Signal</div>
-            <div class="mld-corrective__row-title">Your collaborative agreement is at risk and no one is acting with urgency.</div>
-          </div>
-          <p class="mld-corrective__row-desc">The collaborative physician agreement that allows you to practice can be pulled at any time during an open investigation — with no notice required. If your attorney is advising patience while that exposure sits unaddressed, the damage may arrive before any hearing is scheduled. Urgency is not optional in a CNM case.</p>
-        </div>
-
-      </div>
-
-      <div class="mld-corrective__cta-block">
-        <div>
-          <p class="mld-corrective__cta-urgency">We conduct a forensic review of where your case stands — and tell you <em>directly</em> what has been missed and what is still recoverable. Work begins the same day.</p>
-          <div class="mld-corrective__cta-btns">
-            <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
-            <a href="strategy-session.html" class="btn btn--outline">Book a Strategy Session</a>
-          </div>
-          <p class="mld-corrective__transfer">Already working with another attorney? <a href="transfer-your-case.html">Transfer your case →</a></p>
-        </div>
-        <div class="mld-corrective__quote-box">
-          <p class="mld-corrective__quote-text">"Thank you for your encouragement. Please keep fighting for midwifery in Texas."</p>
-          <div class="mld-corrective__quote-attr">S.G. · Google Review · Verified Midwifery Client</div>
         </div>
       </div>
 
@@ -2249,13 +2247,13 @@
             <em>Fearless advocacy.</em>
           </h2>
           <p class="mld-about__desc">
-            A former felony prosecutor and complex medical malpractice litigator, Octavia LaVon Martinez defends CNMs and Licensed Midwives the way a prosecutor builds a case — aggressively, from day one, with the goal of forcing a dismissal before any hearing is scheduled.
+            A former felony prosecutor and complex medical malpractice litigator, Octavia LaVon Martinez defends midwives the way a prosecutor builds a case — aggressively, from day one, with the goal of forcing a dismissal before any hearing is scheduled.
           </p>
           <div class="mld-about__tags">
             <span class="mld-about__tag mld-about__tag--accent">Former Felony Prosecutor</span>
             <span class="mld-about__tag">Trial Attorney</span>
             <span class="mld-about__tag">Texas · Arizona</span>
-            <span class="mld-about__tag">CNM &amp; LM Defense</span>
+            <span class="mld-about__tag">Midwife License Defense</span>
             <span class="mld-about__tag">Virtual · Statewide</span>
           </div>
           <div class="mld-about__ctas">
