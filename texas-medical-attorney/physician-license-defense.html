@@ -299,10 +299,10 @@
     .pld-stakes-triggers__badge {
       font-size: 10px; font-weight: 700;
       letter-spacing: 0.14em; text-transform: uppercase;
-      color: rgba(250,246,240,0.9);
-      border: 1px solid rgba(201,184,154,0.6);
+      color: rgba(250,246,240,0.95);
+      border: 1px solid rgba(201,184,154,0.8);
       padding: 4px 10px;
-      background: rgba(201,184,154,0.1);
+      background: rgba(201,184,154,0.15);
     }
     .pld-stakes-trigger {
       display: flex;
@@ -342,7 +342,7 @@
     }
     .pld-stakes-triggers__footer p {
       font-size: 14px;
-      color: var(--accent-lite);
+      color: rgba(250,246,240,0.92);
       font-weight: 600;
       line-height: 1.5;
     }
@@ -754,9 +754,9 @@
       text-orientation: mixed;
       transform: rotate(180deg);
     }
-    .pld-protocol__row--board .pld-protocol__row-actor span { color: var(--muted); }
+    .pld-protocol__row--board .pld-protocol__row-actor span { color: var(--mid); }
     .pld-protocol__row--us .pld-protocol__row-actor span { color: var(--accent); }
-    .pld-protocol__row--them .pld-protocol__row-actor span { color: var(--muted); opacity: 0.5; }
+    .pld-protocol__row--them .pld-protocol__row-actor span { color: var(--mid); opacity: 1; }
     .pld-protocol__row--us .pld-protocol__row-actor { background: rgba(232,114,42,0.06); }
 
     .pld-protocol__row-content {
@@ -769,14 +769,14 @@
       margin-bottom: 5px;
       line-height: 1.3;
     }
-    .pld-protocol__row--them .pld-protocol__row-title { color: var(--muted); }
+    .pld-protocol__row--them .pld-protocol__row-title { color: var(--mid); }
     .pld-protocol__row--us .pld-protocol__row-title { color: var(--accent-dark, #b8531a); }
     .pld-protocol__row-desc {
       font-size: 14px;
       color: var(--mid);
       line-height: 1.6;
     }
-    .pld-protocol__row--them .pld-protocol__row-desc { color: var(--muted); }
+    .pld-protocol__row--them .pld-protocol__row-desc { color: var(--mid); }
     .pld-protocol__row--us .pld-protocol__row-desc { color: var(--mid); }
 
     /* Day-zero label */
@@ -854,7 +854,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 56px 40px;
+      padding: 56px 40px 56px clamp(40px, 6vw, 100px);
       border-right: 1px solid rgba(201,184,154,0.1);
       background: rgba(10,7,16,0.4);
     }
@@ -925,7 +925,7 @@
     .pld-handles__tab-num {
       font-family: var(--ff-serif);
       font-size: 13px;
-      color: rgba(250,246,240,0.3);
+      color: rgba(250,246,240,0.65);
       width: 24px;
       flex-shrink: 0;
       transition: color 0.2s;
@@ -938,7 +938,7 @@
       font-family: var(--ff-sans);
       font-size: 14px;
       font-weight: 600;
-      color: rgba(250,246,240,0.55);
+      color: rgba(250,246,240,0.82);
       transition: color 0.2s;
       line-height: 1.3;
     }
@@ -1118,10 +1118,10 @@
     .pld-reviews::before {
       content: '“';
       position: absolute;
-      top: -0.25em; left: -0.06em;
+      top: -0.1em; left: -0.02em;
       font-family: var(--ff-serif);
-      font-size: clamp(280px, 38vw, 520px);
-      color: rgba(232,114,42,0.04);
+      font-size: clamp(160px, 18vw, 260px);
+      color: rgba(232,114,42,0.05);
       line-height: 1;
       pointer-events: none;
       user-select: none;
@@ -1170,9 +1170,9 @@
 
     .pld-reviews__feature-quote {
       font-family: var(--ff-serif);
-      font-size: clamp(20px, 2.4vw, 32px);
+      font-size: clamp(17px, 1.5vw, 22px);
       color: var(--dark);
-      line-height: 1.45;
+      line-height: 1.6;
       font-style: italic;
       letter-spacing: -0.01em;
       margin-bottom: 24px;
@@ -1290,8 +1290,8 @@
 
     .pld-about__inner {
       display: grid;
-      grid-template-columns: 1fr 400px;
-      gap: clamp(48px, 7vw, 100px);
+      grid-template-columns: 1fr 300px;
+      gap: clamp(40px, 6vw, 80px);
       align-items: center;
       width: 100%;
       position: relative; z-index: 1;
@@ -1317,11 +1317,11 @@
 
     .pld-about__headline {
       font-family: var(--ff-serif);
-      font-size: clamp(30px, 3.8vw, 54px);
+      font-size: clamp(26px, 2.8vw, 40px);
       color: var(--bg);
-      line-height: 1.05;
+      line-height: 1.08;
       letter-spacing: -0.025em;
-      margin-bottom: 22px;
+      margin-bottom: 18px;
     }
     .pld-about__headline em {
       display: block;
@@ -1336,7 +1336,7 @@
 
     .pld-about__desc {
       font-size: clamp(15px, 1.5vw, 17px);
-      color: rgba(250,246,240,0.85);
+      color: rgba(250,246,240,0.92);
       line-height: 1.75;
       max-width: 520px;
       margin-bottom: 32px;
@@ -1407,7 +1407,7 @@
       height: auto;
       display: block;
       object-fit: cover;
-      object-position: center 10%;
+      object-position: center 5%;
       transition: transform 0.7s cubic-bezier(0.16,1,0.3,1);
       max-height: 420px;
     }
@@ -1457,8 +1457,8 @@
     }
     .pld-about__card-fact {
       font-size: 14px;
-      color: rgba(250,246,240,0.85);
-      line-height: 1.4;
+      color: rgba(250,246,240,0.92);
+      line-height: 1.5;
     }
 
     /* Slide-in on scroll entry */
@@ -1487,14 +1487,22 @@
       .pld-about__right { transform: none; opacity: 1; }
       .pld-about__photo { max-height: 320px; }
     }
-    /* ── COMPLAINT TYPES — one viewport accordion split ────── */
-    @keyframes accentLineIn {
-      from { transform: scaleY(0); }
-      to   { transform: scaleY(1); }
+    /* ── COMPLAINT TYPES — masterpiece redesign ────────────── */
+    @keyframes rowLineIn {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+    @keyframes rowIn {
+      from { opacity: 0; transform: translateX(-20px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateX(20px); }
+      to   { opacity: 1; transform: translateX(0); }
     }
 
     .pld-complaints {
-      background: var(--surface);
+      background: var(--bg);
       min-height: 100svh;
       display: flex;
       align-items: center;
@@ -1502,215 +1510,264 @@
       overflow: hidden;
     }
     .pld-complaints.section {
-      padding: clamp(56px, 8vw, 100px) var(--gutter);
+      padding: clamp(56px, 7vw, 88px) clamp(40px, 6vw, 100px);
+    }
+
+    /* Ghost ? behind entire section */
+    .pld-complaints::after {
+      content: '?';
+      position: absolute;
+      right: 380px; bottom: -0.15em;
+      font-family: var(--ff-serif);
+      font-size: clamp(240px, 32vw, 480px);
+      font-weight: 700;
+      color: rgba(232,114,42,0.04);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
     }
 
     .pld-complaints__inner {
       display: grid;
-      grid-template-columns: 1fr 380px;
-      gap: clamp(48px, 7vw, 96px);
-      align-items: start;
+      grid-template-columns: 1fr 340px;
+      gap: clamp(40px, 5vw, 72px);
       width: 100%;
+      position: relative;
+      z-index: 1;
     }
 
-    /* ── LEFT ── */
+    /* ── LEFT: headline + rows ── */
     .pld-complaints__left {}
 
-    .pld-complaints__headline {
+    /* Headline */
+    .pld-complaints__hl {
       font-family: var(--ff-serif);
-      font-size: clamp(30px, 3.8vw, 52px);
+      font-size: clamp(26px, 2.8vw, 40px);
       color: var(--dark);
-      line-height: 1.08;
+      line-height: 1.1;
       letter-spacing: -0.02em;
       margin-bottom: 36px;
+      max-width: 560px;
     }
 
-    /* Stagger reveal — JS adds .cw-revealed to each .cw-word */
-    .cw-word {
-      display: inline-block;
-      opacity: 0;
-      transform: translateY(18px);
-      filter: blur(4px);
-      transition: opacity 0.55s ease, transform 0.6s cubic-bezier(0.16,1,0.3,1), filter 0.5s ease;
-    }
-    .cw-word.cw-revealed {
-      opacity: 1;
-      transform: translateY(0);
-      filter: blur(0);
-    }
-
-    /* Accordion list */
-    .pld-complaints__list {
-      display: flex;
-      flex-direction: column;
+    /* Row list */
+    .pld-complaints__rows {
       border-top: 1px solid var(--border);
     }
 
-    .pld-complaint-item {
-      border-bottom: 1px solid var(--border);
+    .pld-complaint-row {
       position: relative;
+      border-bottom: 1px solid var(--border);
       cursor: default;
       overflow: hidden;
     }
 
-    /* Animated left accent bar */
-    .pld-complaint-item::before {
+    /* Accent line — draws across on hover */
+    .pld-complaint-row::before {
       content: '';
       position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 2px;
+      top: 0; left: 0; right: 0;
+      height: 1px;
       background: var(--accent);
-      transform: scaleY(0);
-      transform-origin: top;
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 2;
     }
-    .pld-complaint-item:hover::before {
-      transform: scaleY(1);
+    .pld-complaint-row:hover::before {
+      transform: scaleX(1);
+    }
+
+    /* Ghost number behind row content */
+    .pld-complaint-row__ghost {
+      position: absolute;
+      right: 12px; top: 50%;
+      transform: translateY(-50%) scale(0.88);
+      font-family: var(--ff-serif);
+      font-size: 88px;
+      font-weight: 700;
+      color: rgba(232,114,42,0.06);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      pointer-events: none;
+      user-select: none;
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1),
+                  color 0.3s ease,
+                  opacity 0.3s ease;
+      z-index: 0;
+    }
+    .pld-complaint-row:hover .pld-complaint-row__ghost {
+      transform: translateY(-50%) scale(1);
+      color: rgba(232,114,42,0.1);
     }
 
     /* Row header — always visible */
-    .pld-complaint-item__header {
-      display: flex;
+    .pld-complaint-row__header {
+      display: grid;
+      grid-template-columns: 36px 1fr 20px;
       align-items: center;
-      gap: 14px;
-      padding: 15px 0 15px 16px;
-      transition: padding 0.3s ease;
+      gap: 16px;
+      padding: 18px 0;
+      position: relative;
+      z-index: 1;
+      transition: background 0.2s;
     }
-    .pld-complaint-item:hover .pld-complaint-item__header {
-      padding-left: 20px;
+    .pld-complaint-row:hover .pld-complaint-row__header {
+      background: rgba(232,114,42,0.02);
     }
 
-    .pld-complaint-item__arrow {
-      font-size: 14px;
+    .pld-complaint-row__num {
+      font-family: var(--ff-serif);
+      font-size: 13px;
       color: rgba(var(--dark-rgb, 26,18,33), 0.25);
-      flex-shrink: 0;
-      transition: color 0.25s, transform 0.35s cubic-bezier(0.16,1,0.3,1);
+      transition: color 0.25s;
+      text-align: right;
     }
-    .pld-complaint-item:hover .pld-complaint-item__arrow {
+    .pld-complaint-row:hover .pld-complaint-row__num {
       color: var(--accent);
-      transform: translateX(4px);
     }
 
-    .pld-complaint-item__title {
+    .pld-complaint-row__title {
       font-family: var(--ff-sans);
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 700;
       color: var(--dark);
       line-height: 1.3;
       transition: color 0.2s;
     }
-    .pld-complaint-item:hover .pld-complaint-item__title {
-      color: var(--accent-dark, #c45e1a);
+    .pld-complaint-row:hover .pld-complaint-row__title {
+      color: var(--accent-dark, #b8531a);
     }
 
-    /* Body — hidden at rest, expands on hover */
-    .pld-complaint-item__body {
+    .pld-complaint-row__arrow {
+      font-size: 14px;
+      color: rgba(var(--dark-rgb, 26,18,33), 0.2);
+      transition: color 0.25s, transform 0.3s cubic-bezier(0.16,1,0.3,1);
+    }
+    .pld-complaint-row:hover .pld-complaint-row__arrow {
+      color: var(--accent);
+      transform: translateX(4px);
+    }
+
+    /* Body — expands on hover */
+    .pld-complaint-row__body {
       font-size: 15px;
       color: var(--mid);
-      line-height: 1.7;
+      line-height: 1.72;
       max-height: 0;
       overflow: hidden;
       opacity: 0;
-      padding: 0 0 0 44px;
-      transition: max-height 0.45s cubic-bezier(0.16,1,0.3,1),
-                  opacity 0.35s ease 0.05s,
+      padding: 0 0 0 52px;
+      transition: max-height 0.5s cubic-bezier(0.16,1,0.3,1),
+                  opacity 0.35s ease 0.06s,
                   padding-bottom 0.35s ease;
+      position: relative;
+      z-index: 1;
     }
-    .pld-complaint-item:hover .pld-complaint-item__body {
-      max-height: 100px;
+    .pld-complaint-row:hover .pld-complaint-row__body {
+      max-height: 120px;
       opacity: 1;
-      padding-bottom: 15px;
+      padding-bottom: 18px;
     }
 
-    /* ── RIGHT ── */
+    /* Scroll entry stagger */
+    .pld-complaint-row {
+      opacity: 0;
+      transform: translateX(-16px);
+    }
+    .pld-complaints.complaints-entered .pld-complaint-row:nth-child(1) { animation: rowIn 0.6s cubic-bezier(0.16,1,0.3,1) 0.05s forwards; }
+    .pld-complaints.complaints-entered .pld-complaint-row:nth-child(2) { animation: rowIn 0.6s cubic-bezier(0.16,1,0.3,1) 0.12s forwards; }
+    .pld-complaints.complaints-entered .pld-complaint-row:nth-child(3) { animation: rowIn 0.6s cubic-bezier(0.16,1,0.3,1) 0.19s forwards; }
+    .pld-complaints.complaints-entered .pld-complaint-row:nth-child(4) { animation: rowIn 0.6s cubic-bezier(0.16,1,0.3,1) 0.26s forwards; }
+    .pld-complaints.complaints-entered .pld-complaint-row:nth-child(5) { animation: rowIn 0.6s cubic-bezier(0.16,1,0.3,1) 0.33s forwards; }
+    .pld-complaints.complaints-entered .pld-complaint-row:nth-child(6) { animation: rowIn 0.6s cubic-bezier(0.16,1,0.3,1) 0.40s forwards; }
+
+    /* ── RIGHT: callout cards ── */
     .pld-complaints__right {
       display: flex;
       flex-direction: column;
       gap: 16px;
-      padding-top: 8px;
-    }
-
-    /* Slide in from right on scroll */
-    .pld-complaints__right {
-      transform: translateX(24px);
+      padding-top: 76px; /* align with rows */
       opacity: 0;
-      transition: transform 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s,
-                  opacity 0.6s ease 0.2s;
+      transform: translateX(20px);
+      transition: opacity 0.7s ease 0.2s, transform 0.7s cubic-bezier(0.16,1,0.3,1) 0.2s;
     }
     .pld-complaints.complaints-entered .pld-complaints__right {
-      transform: translateX(0);
       opacity: 1;
-    }
-    .pld-complaints__left {
-      transform: translateX(-16px);
-      opacity: 0;
-      transition: transform 0.8s cubic-bezier(0.16,1,0.3,1),
-                  opacity 0.6s ease;
-    }
-    .pld-complaints.complaints-entered .pld-complaints__left {
       transform: translateX(0);
-      opacity: 1;
     }
 
-    .pld-complaints__card {
-      background: var(--dark);
-      padding: 28px 30px;
+    .pld-complaint-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-left: 3px solid var(--accent);
+      padding: 26px 28px;
+      transition: box-shadow 0.3s ease, transform 0.3s cubic-bezier(0.16,1,0.3,1), border-left-width 0.25s;
       position: relative;
       overflow: hidden;
-      transition: border-left-width 0.25s;
     }
-    .pld-complaints__card:hover {
-      border-left-width: 5px;
-    }
-    /* Subtle glow sweep on hover */
-    .pld-complaints__card::after {
+    .pld-complaint-card::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(232,114,42,0.06) 0%, transparent 60%);
+      background: linear-gradient(135deg, rgba(232,114,42,0.04) 0%, transparent 55%);
       opacity: 0;
-      transition: opacity 0.4s ease;
+      transition: opacity 0.3s ease;
     }
-    .pld-complaints__card:hover::after {
-      opacity: 1;
+    .pld-complaint-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+      border-left-width: 4px;
     }
+    .pld-complaint-card:hover::after { opacity: 1; }
 
-    .pld-complaints__card h3 {
+    .pld-complaint-card h3 {
       font-family: var(--ff-serif);
       font-size: 18px;
-      color: var(--bg);
-      margin-bottom: 12px;
+      color: var(--dark);
       line-height: 1.25;
+      margin-bottom: 12px;
       position: relative; z-index: 1;
     }
-    .pld-complaints__card p {
+    .pld-complaint-card p {
       font-size: 15px;
-      color: rgba(250,246,240,0.72);
+      color: var(--mid);
       line-height: 1.7;
       margin-bottom: 10px;
       position: relative; z-index: 1;
     }
-    .pld-complaints__card p:last-child { margin-bottom: 0; }
-    .pld-complaints__card a {
-      color: var(--accent-lite);
+    .pld-complaint-card p:last-child { margin-bottom: 0; }
+    .pld-complaint-card a {
+      color: var(--accent);
       text-decoration: none;
-      border-bottom: 1px solid rgba(232,114,42,0.35);
+      font-weight: 600;
+      border-bottom: 1px solid rgba(232,114,42,0.3);
       padding-bottom: 1px;
-      transition: color 0.2s, border-color 0.2s;
+      transition: border-color 0.2s;
       position: relative; z-index: 1;
     }
-    .pld-complaints__card a:hover {
-      color: #fff;
-      border-color: var(--accent);
+    .pld-complaint-card a:hover { border-color: var(--accent); }
+
+    /* Headline scroll entry */
+    .pld-complaints__hl .cw-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(14px);
+      filter: blur(3px);
+      transition: opacity 0.5s ease, transform 0.55s cubic-bezier(0.16,1,0.3,1), filter 0.45s ease;
+    }
+    .pld-complaints__hl .cw-word.cw-revealed {
+      opacity: 1; transform: translateY(0); filter: blur(0);
     }
 
     @media (max-width: 900px) {
       .pld-complaints { min-height: auto; }
       .pld-complaints__inner { grid-template-columns: 1fr; }
-      .pld-complaints__left,
-      .pld-complaints__right { transform: none; opacity: 1; }
-      .pld-complaint-item__body { max-height: 120px; opacity: 1; padding-bottom: 14px; }
+      .pld-complaints__right { padding-top: 0; transform: none; opacity: 1; }
+      .pld-complaint-row { opacity: 1; transform: none; }
+      .pld-complaints.complaints-entered .pld-complaint-row { animation: none; }
+      .pld-complaint-row__body { max-height: 150px; opacity: 1; padding-bottom: 16px; }
     }
     /* ── CORRECTIVE COUNSEL — light, editorial, world-class ── */
     @keyframes warnPulse {
@@ -2044,10 +2101,7 @@
           <div class="rule"></div>
           <h2 id="stakes-h2">Your license is not the only thing on the line.</h2>
           <p>
-            A board complaint threatens your income, hospital privileges, prescribing authority, and every career opportunity you haven't yet reached. The NPDB filing that follows any disciplinary action is permanent — visible to every credentialing body in the country, forever.
-          </p>
-          <p>
-            <strong>For early-career physicians, the stakes compound.</strong> A complaint before 40 doesn't just threaten this year's income — it forecloses faculty appointments, leadership roles, and opportunities not yet realized.
+            A board complaint threatens your income, hospital privileges, prescribing authority, and every career opportunity you haven't yet reached. The NPDB filing is permanent — visible to every credentialing body in the country, forever. <strong>For early-career physicians, a complaint before 40 forecloses opportunities that haven't materialized yet.</strong>
           </p>
           <a href="strategy-session.html" class="btn btn--primary" style="margin-top:16px;">Get a Frank Assessment →</a>
         </div>
@@ -2440,85 +2494,94 @@
   </section>
 
     <!-- ═══════════════════════════════════════════════════════════
-       COMPLAINT TYPES — one viewport accordion
+       COMPLAINT TYPES — masterpiece redesign
   ════════════════════════════════════════════════════════════ -->
   <section class="section pld-complaints" aria-labelledby="complaints-h2" id="complaintsSection">
-    <div class="container">
-      <div class="pld-complaints__inner">
+    <div class="pld-complaints__inner">
 
-        <!-- LEFT: headline + accordion -->
-        <div class="pld-complaints__left">
-          <div class="eyebrow" style="margin-bottom:14px;">What Triggers a Complaint</div>
-          <div class="rule"></div>
-          <h2 id="complaints-h2" class="pld-complaints__headline">The complaint does not have to be meritorious to be dangerous.</h2>
+      <!-- LEFT: headline + rows -->
+      <div class="pld-complaints__left">
+        <div class="eyebrow" style="margin-bottom:14px;">What Triggers a Complaint</div>
+        <div class="rule"></div>
+        <h2 id="complaints-h2" class="pld-complaints__hl">The complaint does not have to be meritorious to be dangerous.</h2>
 
-          <div class="pld-complaints__list" role="list">
+        <div class="pld-complaints__rows" role="list">
 
-            <div class="pld-complaint-item" role="listitem">
-              <div class="pld-complaint-item__header">
-                <span class="pld-complaint-item__arrow" aria-hidden="true">→</span>
-                <span class="pld-complaint-item__title">Standard of Care Allegations</span>
-              </div>
-              <p class="pld-complaint-item__body">Patient outcome complaints — the most common complaint type, and the one most dependent on the quality of the initial written response.</p>
+          <div class="pld-complaint-row" role="listitem">
+            <div class="pld-complaint-row__ghost" aria-hidden="true">01</div>
+            <div class="pld-complaint-row__header">
+              <span class="pld-complaint-row__num">01</span>
+              <span class="pld-complaint-row__title">Standard of Care Allegations</span>
+              <span class="pld-complaint-row__arrow" aria-hidden="true">→</span>
             </div>
-
-            <div class="pld-complaint-item" role="listitem">
-              <div class="pld-complaint-item__header">
-                <span class="pld-complaint-item__arrow" aria-hidden="true">→</span>
-                <span class="pld-complaint-item__title">Prescribing Practice Complaints</span>
-              </div>
-              <p class="pld-complaint-item__body">Controlled substance prescribing patterns, opioid-related complaints, and DEA referrals to the TMB — frequently triggered by audit algorithms, not individual complaints.</p>
-            </div>
-
-            <div class="pld-complaint-item" role="listitem">
-              <div class="pld-complaint-item__header">
-                <span class="pld-complaint-item__arrow" aria-hidden="true">→</span>
-                <span class="pld-complaint-item__title">Hospital-Initiated Complaints</span>
-              </div>
-              <p class="pld-complaint-item__body">Complaints filed by or at the direction of employers, health systems, or credentialing committees — often coinciding with employment disputes or peer review actions.</p>
-            </div>
-
-            <div class="pld-complaint-item" role="listitem">
-              <div class="pld-complaint-item__header">
-                <span class="pld-complaint-item__arrow" aria-hidden="true">→</span>
-                <span class="pld-complaint-item__title">Boundary &amp; Conduct Complaints</span>
-              </div>
-              <p class="pld-complaint-item__body">Allegations of unprofessional conduct, boundary violations, or inappropriate communication — often the hardest to disprove without an aggressive, evidence-first response strategy.</p>
-            </div>
-
-            <div class="pld-complaint-item" role="listitem">
-              <div class="pld-complaint-item__header">
-                <span class="pld-complaint-item__arrow" aria-hidden="true">→</span>
-                <span class="pld-complaint-item__title">Documentation &amp; Billing Irregularities</span>
-              </div>
-              <p class="pld-complaint-item__body">Incomplete records, billing practice concerns, or upcoding allegations — where the documentary record itself becomes the defense.</p>
-            </div>
-
-            <div class="pld-complaint-item" role="listitem">
-              <div class="pld-complaint-item__header">
-                <span class="pld-complaint-item__arrow" aria-hidden="true">→</span>
-                <span class="pld-complaint-item__title">Impairment Allegations</span>
-              </div>
-              <p class="pld-complaint-item__body">Substance use, mental health, or fitness-to-practice concerns — where the complaint's premise is immediately damaging to reputation before any ruling is made.</p>
-            </div>
-
+            <p class="pld-complaint-row__body">Patient outcome complaints — the most common complaint type, and the one most dependent on the quality of the initial written response.</p>
           </div>
+
+          <div class="pld-complaint-row" role="listitem">
+            <div class="pld-complaint-row__ghost" aria-hidden="true">02</div>
+            <div class="pld-complaint-row__header">
+              <span class="pld-complaint-row__num">02</span>
+              <span class="pld-complaint-row__title">Prescribing Practice Complaints</span>
+              <span class="pld-complaint-row__arrow" aria-hidden="true">→</span>
+            </div>
+            <p class="pld-complaint-row__body">Controlled substance prescribing patterns, opioid-related complaints, and DEA referrals to the TMB — frequently triggered by audit algorithms, not individual complaints.</p>
+          </div>
+
+          <div class="pld-complaint-row" role="listitem">
+            <div class="pld-complaint-row__ghost" aria-hidden="true">03</div>
+            <div class="pld-complaint-row__header">
+              <span class="pld-complaint-row__num">03</span>
+              <span class="pld-complaint-row__title">Hospital-Initiated Complaints</span>
+              <span class="pld-complaint-row__arrow" aria-hidden="true">→</span>
+            </div>
+            <p class="pld-complaint-row__body">Complaints filed by employers, health systems, or credentialing committees — often coinciding with employment disputes or peer review actions.</p>
+          </div>
+
+          <div class="pld-complaint-row" role="listitem">
+            <div class="pld-complaint-row__ghost" aria-hidden="true">04</div>
+            <div class="pld-complaint-row__header">
+              <span class="pld-complaint-row__num">04</span>
+              <span class="pld-complaint-row__title">Boundary &amp; Conduct Complaints</span>
+              <span class="pld-complaint-row__arrow" aria-hidden="true">→</span>
+            </div>
+            <p class="pld-complaint-row__body">Allegations of unprofessional conduct, boundary violations, or inappropriate communication — often the hardest to disprove without an aggressive, evidence-first response.</p>
+          </div>
+
+          <div class="pld-complaint-row" role="listitem">
+            <div class="pld-complaint-row__ghost" aria-hidden="true">05</div>
+            <div class="pld-complaint-row__header">
+              <span class="pld-complaint-row__num">05</span>
+              <span class="pld-complaint-row__title">Documentation &amp; Billing Irregularities</span>
+              <span class="pld-complaint-row__arrow" aria-hidden="true">→</span>
+            </div>
+            <p class="pld-complaint-row__body">Incomplete records, billing practice concerns, or upcoding allegations — where the documentary record itself becomes the defense.</p>
+          </div>
+
+          <div class="pld-complaint-row" role="listitem">
+            <div class="pld-complaint-row__ghost" aria-hidden="true">06</div>
+            <div class="pld-complaint-row__header">
+              <span class="pld-complaint-row__num">06</span>
+              <span class="pld-complaint-row__title">Impairment Allegations</span>
+              <span class="pld-complaint-row__arrow" aria-hidden="true">→</span>
+            </div>
+            <p class="pld-complaint-row__body">Substance use, mental health, or fitness-to-practice concerns — where the complaint's premise damages reputation before any ruling is made.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT: callout cards -->
+      <div class="pld-complaints__right">
+
+        <div class="pld-complaint-card">
+          <h3>Already past the initial response deadline?</h3>
+          <p>If you have already filed a response without representation — or your current attorney has been passive — the options narrow at every stage but do not close entirely.</p>
+          <p>We conduct a forensic review of where your case currently stands and tell you directly what is still achievable. <a href="transfer-your-case.html">Transfer your case →</a></p>
         </div>
 
-        <!-- RIGHT: dark callout cards -->
-        <div class="pld-complaints__right">
-
-          <div class="pld-complaints__card">
-            <h3>Already past the initial response deadline?</h3>
-            <p>If you have already filed a response without representation — or your current attorney has been passive — the options narrow at every stage but do not close entirely.</p>
-            <p>We conduct a forensic review of where your case currently stands and tell you directly what is still achievable. <a href="transfer-your-case.html">Transfer your case →</a></p>
-          </div>
-
-          <div class="pld-complaints__card">
-            <h3>Defending before a different board?</h3>
-            <p>This firm also defends all midwife credential types before the Texas Midwifery Board and Texas Board of Nursing — with the same Counter Protocol approach. <a href="midwife-license-defense.html">Midwife license defense →</a></p>
-          </div>
-
+        <div class="pld-complaint-card">
+          <h3>Defending before a different board?</h3>
+          <p>This firm also defends all midwife credential types before the Texas Midwifery Board and Texas Board of Nursing — with the same Counter Protocol approach. <a href="midwife-license-defense.html">Midwife license defense →</a></p>
         </div>
 
       </div>
@@ -2897,19 +2960,16 @@
       if (!sec) return;
 
       // Word-split headline
-      var hl = sec.querySelector('.pld-complaints__headline');
+      var hl = sec.querySelector('.pld-complaints__hl');
       if (hl) {
-        var words = hl.textContent.split(/(\s+)/);
+        var words = hl.textContent.trim().split(/\s+/);
         hl.innerHTML = '';
-        words.forEach(function(chunk) {
-          if (chunk.match(/^\s+$/)) {
-            hl.appendChild(document.createTextNode(chunk));
-          } else if (chunk.length > 0) {
-            var s = document.createElement('span');
-            s.className = 'cw-word';
-            s.textContent = chunk;
-            hl.appendChild(s);
-          }
+        words.forEach(function(word, i) {
+          var s = document.createElement('span');
+          s.className = 'cw-word';
+          s.textContent = word;
+          hl.appendChild(s);
+          if (i < words.length - 1) hl.appendChild(document.createTextNode(' '));
         });
       }
 
@@ -2917,14 +2977,13 @@
         entries.forEach(function(entry) {
           if (!entry.isIntersecting) return;
           sec.classList.add('complaints-entered');
-          // Stagger headline words
           var wordEls = sec.querySelectorAll('.cw-word');
           wordEls.forEach(function(w, i) {
-            setTimeout(function() { w.classList.add('cw-revealed'); }, i * 35 + 120);
+            setTimeout(function() { w.classList.add('cw-revealed'); }, i * 40 + 80);
           });
           io.unobserve(entry.target);
         });
-      }, { threshold: 0.1 });
+      }, { threshold: 0.08 });
       io.observe(sec);
     })();
 
