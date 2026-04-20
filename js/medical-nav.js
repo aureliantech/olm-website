@@ -175,6 +175,13 @@
             <div class="apx__link-desc">TMB defense · Hidalgo County</div>
           </div>
         </a>
+        <a href="/texas-medical-attorney/texas-medical-license-defense/brownsville.html" class="apx__link">
+          <span class="apx__link-num">08</span>
+          <div class="apx__link-body">
+            <div class="apx__link-title">Brownsville</div>
+            <div class="apx__link-desc">TMB defense · Cameron County · RGV</div>
+          </div>
+        </a>
         <div style="border-bottom:1px solid rgba(201,184,154,0.06);border-right:1px solid rgba(201,184,154,0.06);"></div>
       </div>
     </div>
@@ -244,6 +251,7 @@
       <a href="/texas-medical-attorney/texas-medical-license-defense/el-paso.html">El Paso</a>
       <a href="/texas-medical-attorney/texas-medical-license-defense/lubbock.html">Lubbock</a>
       <a href="/texas-medical-attorney/texas-medical-license-defense/mcallen.html">McAllen</a>
+      <a href="/texas-medical-attorney/texas-medical-license-defense/brownsville.html">Brownsville</a>
       <a href="/texas-medical-attorney/about.html">About Octavia</a>
       <a href="/texas-medical-attorney/faq.html">FAQ</a>
       <a href="/texas-medical-attorney/contact.html">Contact</a>
@@ -306,6 +314,7 @@
               <a href="/texas-medical-attorney/texas-medical-license-defense/el-paso.html">El Paso</a>
               <a href="/texas-medical-attorney/texas-medical-license-defense/lubbock.html">Lubbock</a>
               <a href="/texas-medical-attorney/texas-medical-license-defense/mcallen.html">McAllen</a>
+              <a href="/texas-medical-attorney/texas-medical-license-defense/brownsville.html">Brownsville</a>
             </nav>
           </div>
         </div>
