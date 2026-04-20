@@ -865,49 +865,162 @@
       .pld-reviews__feature::before { font-size: 160px; }
       .pld-reviews__feature-quote .rev-word { opacity: 1; transform: none; filter: none; }
     }
-    /* ── ABOUT BRIDGE ───────────────────────────────────────── */
+    /* ── ABOUT — one viewport, split, interactive ──────────── */
     .pld-about {
       background: var(--bg);
+      min-height: 100svh;
+      display: flex;
+      align-items: stretch;
+      padding: 0;
+      overflow: hidden;
     }
+    /* Override global .section padding */
+    .pld-about.section { padding: 0; }
+
     .pld-about__inner {
       display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 80px;
-      align-items: start;
+      grid-template-columns: 1fr 1fr;
+      width: 100%;
+      min-height: 100svh;
     }
-    .pld-about__photo-wrap { position: relative; }
+
+    /* ── LEFT: photo panel ── */
+    .pld-about__photo-panel {
+      position: relative;
+      overflow: hidden;
+      background: var(--dark);
+    }
     .pld-about__photo {
       width: 100%;
-      aspect-ratio: 3/4;
+      height: 100%;
       object-fit: cover;
-      object-position: center top;
+      object-position: center 15%;
       display: block;
+      transform: scale(1.04);
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
     }
-    .pld-about__badge {
+    .pld-about__photo-panel:hover .pld-about__photo {
+      transform: scale(1.0);
+    }
+
+    /* Overlay — slides up on hover */
+    .pld-about__photo-overlay {
       position: absolute;
-      bottom: 0; left: 0; right: 0;
-      background: rgba(26,18,33,0.95);
-      border-top: 2px solid var(--accent);
-      padding: 16px 20px;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(10, 7, 16, 0.96) 0%,
+        rgba(10, 7, 16, 0.7) 40%,
+        rgba(10, 7, 16, 0.1) 100%
+      );
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 40px 36px;
+      transition: background 0.5s ease;
     }
-    .pld-about__badge-name {
+    .pld-about__photo-panel:hover .pld-about__photo-overlay {
+      background: linear-gradient(
+        to top,
+        rgba(10, 7, 16, 0.97) 0%,
+        rgba(10, 7, 16, 0.75) 50%,
+        rgba(26, 18, 33, 0.2) 100%
+      );
+    }
+
+    /* Name badge — always visible */
+    .pld-about__name {
       font-family: var(--ff-serif);
-      font-size: 19px;
+      font-size: clamp(22px, 2.4vw, 30px);
       color: var(--bg);
-      margin-bottom: 3px;
+      line-height: 1.15;
+      margin-bottom: 4px;
     }
-    .pld-about__badge-title {
-      font-size: 10px; font-weight: 700;
+    .pld-about__title {
+      font-family: var(--ff-sans);
+      font-size: 12px; font-weight: 700;
       letter-spacing: 0.18em; text-transform: uppercase;
       color: var(--accent);
+      margin-bottom: 20px;
     }
+
+    /* Hover quote — hidden at rest, reveals on hover */
+    .pld-about__photo-quote {
+      font-family: var(--ff-serif);
+      font-size: clamp(15px, 1.5vw, 18px);
+      color: rgba(250,246,240,0.78);
+      line-height: 1.65;
+      font-style: italic;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      margin-bottom: 0;
+      transition: max-height 0.55s cubic-bezier(0.16,1,0.3,1),
+                  opacity 0.4s ease 0.08s,
+                  margin-bottom 0.4s ease;
+      border-left: 2px solid var(--accent);
+      padding-left: 16px;
+    }
+    .pld-about__photo-panel:hover .pld-about__photo-quote {
+      max-height: 140px;
+      opacity: 1;
+      margin-bottom: 4px;
+    }
+
+    /* Accent line that draws across photo bottom on scroll entry */
+    .pld-about__photo-panel::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      height: 3px;
+      width: 0;
+      background: linear-gradient(90deg, var(--accent), var(--accent-lite));
+      transition: width 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+      z-index: 2;
+    }
+    .pld-about.about-entered .pld-about__photo-panel::after {
+      width: 100%;
+    }
+
+    /* ── RIGHT: content panel ── */
+    .pld-about__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(40px, 6vw, 80px) clamp(40px, 5vw, 72px);
+      background: var(--bg);
+      position: relative;
+    }
+
+    /* Slide-in animation on scroll entry */
+    .pld-about__photo-panel {
+      transform: translateX(-32px);
+      opacity: 0;
+      transition: transform 0.9s cubic-bezier(0.16,1,0.3,1),
+                  opacity 0.7s ease;
+    }
+    .pld-about__content {
+      transform: translateX(32px);
+      opacity: 0;
+      transition: transform 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s,
+                  opacity 0.7s ease 0.1s;
+    }
+    .pld-about.about-entered .pld-about__photo-panel,
+    .pld-about.about-entered .pld-about__content {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
     .pld-about__content h2 {
-      font-size: clamp(24px, 2.8vw, 38px);
+      font-size: clamp(26px, 2.8vw, 40px);
       color: var(--dark);
-      margin-bottom: 18px;
       line-height: 1.1;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
     }
     .pld-about__content h2 em {
+      display: block;
       font-style: italic;
       background: linear-gradient(90deg, var(--accent-lite), var(--accent), var(--accent-lite));
       background-size: 200% auto;
@@ -916,46 +1029,94 @@
       background-clip: text;
       animation: shimmerText 4s linear 2s infinite;
     }
-    .pld-about__content p {
+    .pld-about__summary {
       font-size: 16px;
       color: var(--mid);
-      line-height: 1.82;
-      margin-bottom: 14px;
+      line-height: 1.75;
+      margin-bottom: 28px;
+      max-width: 480px;
     }
-    .pld-about__content strong { color: var(--dark); }
+
+    /* Credential rows — compact at rest, expand on hover */
     .pld-about__creds {
       display: flex;
       flex-direction: column;
-      gap: 0;
-      margin: 28px 0;
-      border: 1px solid var(--border);
+      margin-bottom: 28px;
+      border-top: 1px solid var(--border);
     }
     .pld-about__cred {
-      display: flex;
-      gap: 0;
+      display: grid;
+      grid-template-columns: 140px 1fr;
       border-bottom: 1px solid var(--border);
+      cursor: default;
+      transition: background 0.2s;
+      position: relative;
     }
-    .pld-about__cred:last-child { border-bottom: none; }
+    .pld-about__cred::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 0;
+      background: var(--accent);
+      transition: width 0.3s cubic-bezier(0.16,1,0.3,1);
+    }
+    .pld-about__cred:hover {
+      background: rgba(232,114,42,0.04);
+    }
+    .pld-about__cred:hover::before {
+      width: 3px;
+    }
     .pld-about__cred-label {
-      font-size: 10px; font-weight: 700;
+      font-size: 11px; font-weight: 700;
       letter-spacing: 0.18em; text-transform: uppercase;
       color: var(--accent);
-      padding: 14px 16px;
-      background: var(--bg);
-      width: 140px;
-      flex-shrink: 0;
-      border-right: 1px solid var(--border);
+      padding: 12px 14px 12px 16px;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
+      padding-top: 14px;
     }
     .pld-about__cred-value {
-      font-size: 14px;
+      font-size: 15px;
       color: var(--dark);
-      padding: 14px 16px;
-      line-height: 1.45;
+      padding: 12px 12px 12px 0;
+      line-height: 1.5;
     }
-    @media (max-width: 900px) { .pld-about__inner { grid-template-columns: 1fr; } .pld-about__photo { aspect-ratio: 4/3; } }
+    /* Expandable detail — hidden at rest */
+    .pld-about__cred-detail {
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.6;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.4s cubic-bezier(0.16,1,0.3,1),
+                  opacity 0.3s ease 0.05s,
+                  padding 0.3s ease;
+      padding-bottom: 0;
+      grid-column: 2;
+    }
+    .pld-about__cred:hover .pld-about__cred-detail {
+      max-height: 80px;
+      opacity: 1;
+      padding-bottom: 12px;
+    }
 
+    .pld-about__ctas {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .pld-about { min-height: auto; }
+      .pld-about__inner { grid-template-columns: 1fr; min-height: auto; }
+      .pld-about__photo-panel { min-height: 55vw; }
+      .pld-about__photo-panel,
+      .pld-about__content { transform: none; opacity: 1; }
+      .pld-about.about-entered .pld-about__photo-panel,
+      .pld-about.about-entered .pld-about__content { transform: none; }
+      .pld-about__photo-quote { max-height: 140px; opacity: 1; margin-bottom: 8px; }
+    }
     /* ── COMMON COMPLAINT TYPES ─────────────────────────────── */
     .pld-complaints { background: var(--surface); }
     .pld-complaints__inner {
@@ -1515,65 +1676,82 @@
   </section>
 
     <!-- ═══════════════════════════════════════════════════════════
-       ABOUT BRIDGE
+       ABOUT — one viewport split
   ════════════════════════════════════════════════════════════ -->
-  <section class="section pld-about" aria-labelledby="about-h2">
-    <div class="container">
-      <div class="pld-about__inner">
-        <div class="pld-about__photo-wrap reveal">
-          <img
-            src="../octavia-headshot.png"
-            alt="Octavia LaVon Martinez — Texas Medical License Defense Attorney"
-            class="pld-about__photo"
-            width="320" height="427"
-            loading="lazy"
-          />
-          <div class="pld-about__badge">
-            <div class="pld-about__badge-name">Octavia LaVon Martinez</div>
-            <div class="pld-about__badge-title">Founder &amp; Principal Attorney</div>
-          </div>
-        </div>
+  <section class="section pld-about" aria-labelledby="about-h2" id="aboutSection">
+    <div class="pld-about__inner">
 
-        <div class="pld-about__content reveal">
-          <div class="eyebrow" style="margin-bottom:14px;">The Attorney Behind the Defense</div>
-          <div class="rule"></div>
-          <h2 id="about-h2">She has sat on the <em>other side of the record.</em></h2>
-          <p>
-            Before founding this firm, Octavia LaVon Martinez was a felony prosecutor. She built cases, directed investigations, and learned exactly what makes a record dismissible — and what doesn't. She then spent years litigating complex medical malpractice cases, developing a working fluency with clinical standards, medical records, and expert testimony that most attorneys in this space simply don't have.
-          </p>
-          <p>
-            <strong>That combination — prosecutorial instinct plus medical litigation experience — is what The Counter Protocol is built on.</strong> It is not a reactive posture. It is an offensive one. The board is investigated the same way the board investigates: aggressively, from day one, with the goal of building an airtight record that forces a decision.
-          </p>
-
-          <div class="pld-about__creds" aria-label="Credentials">
-            <div class="pld-about__cred">
-              <div class="pld-about__cred-label">Education</div>
-              <div class="pld-about__cred-value">University of Virginia · Ohio State Moritz College of Law</div>
-            </div>
-            <div class="pld-about__cred">
-              <div class="pld-about__cred-label">Background</div>
-              <div class="pld-about__cred-value">Former Felony Prosecutor · Complex Medical Malpractice Litigator</div>
-            </div>
-            <div class="pld-about__cred">
-              <div class="pld-about__cred-label">Bar Admissions</div>
-              <div class="pld-about__cred-value">Texas · Arizona</div>
-            </div>
-            <div class="pld-about__cred">
-              <div class="pld-about__cred-label">Practice</div>
-              <div class="pld-about__cred-value">Medical License Defense · All of Texas, virtually</div>
-            </div>
-          </div>
-
-          <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;">
-            <a href="about.html" class="btn btn--outline">Full Bio →</a>
-            <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
-          </div>
+      <!-- LEFT: photo -->
+      <div class="pld-about__photo-panel">
+        <img
+          src="../octavia-headshot.png"
+          alt="Octavia LaVon Martinez — Texas Medical License Defense Attorney"
+          class="pld-about__photo"
+          width="700" height="900"
+          loading="lazy"
+        />
+        <div class="pld-about__photo-overlay">
+          <p class="pld-about__photo-quote">"She built cases on the prosecution side — which means she already knows how the board thinks, what investigators look for, and what forces a dismissal. That background is not common in medical license defense."</p>
+          <div class="pld-about__name">Octavia LaVon Martinez</div>
+          <div class="pld-about__title">Founder &amp; Principal Attorney</div>
         </div>
       </div>
+
+      <!-- RIGHT: content -->
+      <div class="pld-about__content">
+        <div class="eyebrow" style="margin-bottom:14px;">The Attorney Behind the Defense</div>
+        <div class="rule"></div>
+        <h2 id="about-h2">She has sat on the <em>other side of the record.</em></h2>
+        <p class="pld-about__summary">
+          Former felony prosecutor. Complex medical malpractice litigator. Octavia LaVon Martinez built her entire methodology on one insight: the best defense looks exactly like a prosecution — aggressive, evidence-first, and built to force a decision.
+        </p>
+
+        <div class="pld-about__creds" aria-label="Credentials">
+
+          <div class="pld-about__cred">
+            <div class="pld-about__cred-label">Education</div>
+            <div>
+              <div class="pld-about__cred-value">University of Virginia · Ohio State Moritz College of Law</div>
+              <div class="pld-about__cred-detail">J.D. from Ohio State Moritz College of Law. B.A. from the University of Virginia.</div>
+            </div>
+          </div>
+
+          <div class="pld-about__cred">
+            <div class="pld-about__cred-label">Background</div>
+            <div>
+              <div class="pld-about__cred-value">Former Felony Prosecutor · Medical Malpractice Litigator</div>
+              <div class="pld-about__cred-detail">Prosecuted felony cases before founding this firm — building records, directing investigations, and learning exactly what makes a case dismissible.</div>
+            </div>
+          </div>
+
+          <div class="pld-about__cred">
+            <div class="pld-about__cred-label">Bar Admissions</div>
+            <div>
+              <div class="pld-about__cred-value">Texas · Arizona</div>
+              <div class="pld-about__cred-detail">Licensed to practice in Texas and Arizona. Medical license defense handled across all of Texas virtually.</div>
+            </div>
+          </div>
+
+          <div class="pld-about__cred">
+            <div class="pld-about__cred-label">Practice</div>
+            <div>
+              <div class="pld-about__cred-value">Medical License Defense · All of Texas, virtually</div>
+              <div class="pld-about__cred-detail">Physician and midwife defense before the TMB, Texas Board of Nursing, and Texas Midwifery Board — from first response through SOAH hearing.</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="pld-about__ctas">
+          <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+          <a href="about.html" class="btn btn--outline">Full Bio →</a>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════════════
+    <!-- ═══════════════════════════════════════════════════════════
        COMMON COMPLAINT TYPES
   ════════════════════════════════════════════════════════════ -->
   <section class="section pld-complaints" aria-labelledby="complaints-h2">
@@ -1806,7 +1984,21 @@
       if (card)    luxRevealEl(card, 0.35, 24);
     });
 
-    /* Reviews — cursor glow tracking */
+    /* About — scroll entry: slide-in + line-draw trigger */
+    (function() {
+      var aboutSection = document.getElementById('aboutSection');
+      if (!aboutSection) return;
+      var aboutIO = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (!entry.isIntersecting) return;
+          aboutSection.classList.add('about-entered');
+          aboutIO.unobserve(entry.target);
+        });
+      }, { threshold: 0.12 });
+      aboutIO.observe(aboutSection);
+    })();
+
+        /* Reviews — cursor glow tracking */
     (function() {
       var section = document.querySelector('.pld-reviews');
       var glow = document.getElementById('reviewsGlow');
