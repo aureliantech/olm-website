@@ -1178,194 +1178,202 @@
       .pld-handles__stage,.pld-handles__header { opacity:1; transform:none; }
       .pld-handles.handles-entered .pld-handles__stage { animation:none; }
     }
-    /* ── REVIEWS — cinematic testimony ─────────────────────── */
-    @keyframes starPop {
-      from { opacity: 0; transform: scale(0.4) rotate(-15deg); }
-      to   { opacity: 1; transform: scale(1) rotate(0deg); }
-    }
-    @keyframes lineDrawIn {
-      from { width: 0; }
-      to   { width: 100%; }
-    }
-    @keyframes tileUp {
+    /* ── REVIEWS — light, editorial masterpiece ────────────── */
+    @keyframes tileIn {
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
     .pld-reviews {
-      background: var(--dark);
+      background: var(--bg);
       min-height: 100svh;
       display: flex;
-      align-items: center;
+      align-items: stretch;
       position: relative;
       overflow: hidden;
     }
-    .pld-reviews.section {
-      padding: clamp(56px,7vw,88px) clamp(40px,6vw,100px);
-    }
-
-    /* Giant decorative quotemark */
-    .pld-reviews::before {
-      content: '“';
-      position: absolute;
-      top: -0.18em; left: -0.04em;
-      font-family: var(--ff-serif);
-      font-size: clamp(300px,40vw,560px);
-      color: rgba(250,246,240,0.028);
-      line-height: 1;
-      pointer-events: none; user-select: none;
-    }
+    .pld-reviews.section { padding: 0; }
 
     .pld-reviews__inner {
+      display: flex;
+      flex-direction: column;
       width: 100%;
-      position: relative; z-index: 1;
     }
 
-    /* ── HEADER ── */
+    /* ── TOP HALF: featured + image ── */
+    .pld-reviews__top {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      flex: 1;
+      min-height: 60vh;
+    }
+
+    /* Left: featured quote */
+    .pld-reviews__featured {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(48px,6vw,80px) clamp(40px,5vw,72px) clamp(32px,4vw,52px) clamp(40px,6vw,100px);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
     .pld-reviews__header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      margin-bottom: clamp(36px,4vw,52px);
-      padding-bottom: clamp(20px,2.5vw,28px);
-      border-bottom: 1px solid rgba(201,184,154,0.12);
-      opacity: 0;
-      transform: translateY(10px);
-      transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16,1,0.3,1);
-    }
-    .pld-reviews.reviews-entered .pld-reviews__header {
-      opacity: 1; transform: translateY(0);
-    }
-    .pld-reviews__header-left {
-      display: flex; align-items: center; gap: 16px;
+      gap: 16px;
+      margin-bottom: 28px;
     }
     .pld-reviews__eyebrow {
       font-size: 11px; font-weight: 700;
       letter-spacing: 0.22em; text-transform: uppercase;
       color: var(--accent);
     }
+    .pld-reviews__count {
+      font-size: 13px; color: var(--muted);
+      margin-left: auto;
+    }
     .pld-reviews__stars {
       display: flex; gap: 3px;
     }
     .pld-reviews__stars span {
-      font-size: 14px;
+      font-size: 17px;
       color: #F5C842;
       text-shadow: 0 0 8px rgba(245,200,66,0.8), 0 0 16px rgba(245,200,66,0.35);
-      display: inline-block;
-      opacity: 0;
-      animation: starPop 0.3s cubic-bezier(0.16,1,0.3,1) forwards;
+      display: inline-block; opacity: 0;
+      animation: starPop 0.35s cubic-bezier(0.16,1,0.3,1) forwards;
     }
     .pld-reviews__stars span:nth-child(1){animation-delay:.05s}
-    .pld-reviews__stars span:nth-child(2){animation-delay:.11s}
-    .pld-reviews__stars span:nth-child(3){animation-delay:.17s}
-    .pld-reviews__stars span:nth-child(4){animation-delay:.23s}
-    .pld-reviews__stars span:nth-child(5){animation-delay:.29s}
-    .pld-reviews__rating {
-      font-family: var(--ff-serif);
-      font-size: 14px;
-      color: rgba(250,246,240,0.65);
-      font-style: italic;
-    }
+    .pld-reviews__stars span:nth-child(2){animation-delay:.12s}
+    .pld-reviews__stars span:nth-child(3){animation-delay:.19s}
+    .pld-reviews__stars span:nth-child(4){animation-delay:.26s}
+    .pld-reviews__stars span:nth-child(5){animation-delay:.33s}
 
-    /* ── FEATURED QUOTE ── */
-    .pld-reviews__featured {
-      margin-bottom: clamp(40px,5vw,60px);
-    }
-    .pld-reviews__feature-quote {
+    .pld-reviews__quote {
       font-family: var(--ff-serif);
-      font-size: clamp(20px,2.4vw,32px);
-      color: rgba(250,246,240,0.95);
+      font-size: clamp(20px,2.2vw,30px);
+      color: var(--dark);
       line-height: 1.5;
       font-style: italic;
       letter-spacing: -0.01em;
-      max-width: 900px;
       margin-bottom: 28px;
+      flex: 1;
     }
-    /* Word reveal spans */
-    .pld-reviews__feature-quote .rev-word {
+    .pld-reviews__quote .rev-word {
       display: inline-block;
-      opacity: 0;
-      transform: translateY(10px);
-      filter: blur(3px);
-      transition: opacity 0.45s ease, transform 0.5s cubic-bezier(0.16,1,0.3,1), filter 0.4s ease;
+      opacity: 0; transform: translateY(10px); filter: blur(2px);
+      transition: opacity .45s ease, transform .5s cubic-bezier(.16,1,.3,1), filter .4s ease;
     }
-    .pld-reviews__feature-quote .rev-word.revealed {
+    .pld-reviews__quote .rev-word.revealed {
       opacity: 1; transform: translateY(0); filter: blur(0);
     }
 
-    .pld-reviews__feature-attr {
-      display: flex;
-      align-items: center;
-      gap: 0;
+    .pld-reviews__attr {
+      display: flex; align-items: center; gap: 14px;
     }
-    .pld-reviews__feature-line {
-      height: 2px;
-      background: var(--accent);
-      width: 0;
-      transition: width 0.7s cubic-bezier(0.16,1,0.3,1) 0.3s;
-      margin-right: 16px;
-      flex-shrink: 0;
+    .pld-reviews__attr-rule {
+      width: 28px; height: 2px; background: var(--accent); flex-shrink: 0;
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1) 0.3s;
     }
-    .pld-reviews.reviews-entered .pld-reviews__feature-line {
-      width: 32px;
-    }
-    .pld-reviews__feature-attr-text {
-      font-family: var(--ff-sans);
+    .pld-reviews.reviews-entered .pld-reviews__attr-rule { transform: scaleX(1); }
+    .pld-reviews__attr-text {
       font-size: 12px; font-weight: 700;
       letter-spacing: 0.18em; text-transform: uppercase;
       color: var(--accent);
     }
 
-    /* ── THREE SECONDARY REVIEWS ── */
+    /* Right: atmospheric image */
+    .pld-reviews__image {
+      position: relative; overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+    .pld-reviews__img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 20%;
+      display: block;
+      transform: scale(1.04);
+      transition: transform 8s ease-out;
+      filter: saturate(0.8) contrast(1.05);
+    }
+    .pld-reviews.reviews-entered .pld-reviews__img { transform: scale(1.0); }
+    /* Fade left edge to blend with featured */
+    .pld-reviews__image::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(250,246,240,0.6) 0%, transparent 35%);
+      z-index: 1; pointer-events: none;
+    }
+    /* Dark overlay at bottom */
+    .pld-reviews__image::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 40%;
+      background: linear-gradient(to top, rgba(250,246,240,0.9) 0%, transparent 100%);
+      z-index: 1; pointer-events: none;
+    }
+
+    /* ── BOTTOM: three tiles ── */
     .pld-reviews__tiles {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      border-top: 1px solid rgba(201,184,154,0.12);
-      padding-top: clamp(32px,4vw,48px);
+      grid-template-columns: repeat(3,1fr);
     }
 
     .pld-review-tile {
-      padding: 0 clamp(24px,3vw,40px);
-      border-left: 1px solid rgba(201,184,154,0.1);
+      padding: clamp(28px,3.5vw,44px) clamp(28px,3.5vw,44px);
+      border-right: 1px solid var(--border);
+      position: relative;
+      cursor: default;
       opacity: 0;
-      transform: translateY(18px);
+      transform: translateY(20px);
+      transition: background 0.25s;
     }
-    .pld-review-tile:first-child { border-left: none; padding-left: 0; }
-    .pld-reviews.reviews-entered .pld-review-tile:nth-child(1) { animation: tileUp 0.55s cubic-bezier(0.16,1,0.3,1) 0.5s forwards; }
-    .pld-reviews.reviews-entered .pld-review-tile:nth-child(2) { animation: tileUp 0.55s cubic-bezier(0.16,1,0.3,1) 0.62s forwards; }
-    .pld-reviews.reviews-entered .pld-review-tile:nth-child(3) { animation: tileUp 0.55s cubic-bezier(0.16,1,0.3,1) 0.74s forwards; }
+    .pld-review-tile:last-child { border-right: none; }
+    .pld-review-tile:hover { background: rgba(232,114,42,0.025); }
+
+    /* Left accent bar on hover */
+    .pld-review-tile::before {
+      content: '';
+      position: absolute; top: 0; left: 0; bottom: 0;
+      width: 0;
+      background: var(--accent);
+      transition: width 0.3s cubic-bezier(0.16,1,0.3,1);
+    }
+    .pld-review-tile:hover::before { width: 3px; }
+
+    /* Stagger entry */
+    .pld-reviews.reviews-entered .pld-review-tile:nth-child(1){animation:tileIn .6s cubic-bezier(.16,1,.3,1) .15s forwards}
+    .pld-reviews.reviews-entered .pld-review-tile:nth-child(2){animation:tileIn .6s cubic-bezier(.16,1,.3,1) .25s forwards}
+    .pld-reviews.reviews-entered .pld-review-tile:nth-child(3){animation:tileIn .6s cubic-bezier(.16,1,.3,1) .35s forwards}
 
     .pld-review-tile__stars {
-      font-size: 12px;
+      font-size: 13px;
       color: #F5C842;
       text-shadow: 0 0 6px rgba(245,200,66,0.6);
       letter-spacing: 2px;
-      margin-bottom: 12px;
-      display: block;
+      margin-bottom: 14px; display: block;
     }
     .pld-review-tile__quote {
       font-family: var(--ff-serif);
-      font-size: 16px;
-      color: rgba(250,246,240,0.82);
-      line-height: 1.65;
-      font-style: italic;
+      font-size: 16px; color: var(--dark);
+      line-height: 1.65; font-style: italic;
       margin-bottom: 16px;
+      transition: color 0.2s;
     }
+    .pld-review-tile:hover .pld-review-tile__quote { color: var(--dark); }
     .pld-review-tile__attr {
       font-size: 11px; font-weight: 700;
-      letter-spacing: 0.16em; text-transform: uppercase;
-      color: rgba(250,246,240,0.4);
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--accent);
     }
 
     @media (max-width:900px) {
       .pld-reviews { min-height:auto; }
-      .pld-reviews__tiles { grid-template-columns:1fr; gap:32px; }
-      .pld-review-tile { border-left:none; padding-left:0; border-top:1px solid rgba(201,184,154,0.1); padding-top:28px; }
-      .pld-review-tile:first-child { border-top:none; padding-top:0; }
-      .pld-review-tile, .pld-reviews__header { opacity:1; transform:none; }
+      .pld-reviews__top { grid-template-columns:1fr; }
+      .pld-reviews__image { min-height:240px; }
+      .pld-reviews__tiles { grid-template-columns:1fr; }
+      .pld-review-tile { border-right:none; border-bottom:1px solid var(--border); opacity:1; transform:none; }
       .pld-reviews.reviews-entered .pld-review-tile { animation:none; }
-      .pld-reviews__feature-quote .rev-word { opacity:1; transform:none; filter:none; }
+      .pld-reviews__quote .rev-word { opacity:1; transform:none; filter:none; }
     }
     /* ── ABOUT — dark split, contained photo, bracket frame ── */
     .pld-about {
@@ -2480,58 +2488,70 @@
   </section>
 
     <!-- ═══════════════════════════════════════════════════════════
-       REVIEWS — light, one viewport split
+  <!-- ═══════════════════════════════════════════════════════════
+       REVIEWS — light editorial masterpiece
   ════════════════════════════════════════════════════════════ -->
   <section class="section pld-reviews" aria-labelledby="reviews-h2" id="reviewsSection">
     <div class="pld-reviews__inner">
-      <h2 id="reviews-h2" class="sr-only">Client reviews</h2>
 
-      <!-- Header -->
-      <div class="pld-reviews__header">
-        <div class="pld-reviews__header-left">
-          <div class="pld-reviews__eyebrow">Client Reviews · Google · Verified</div>
-          <div class="pld-reviews__stars" aria-label="5 stars">
-            <span aria-hidden="true">★</span><span aria-hidden="true">★</span>
-            <span aria-hidden="true">★</span><span aria-hidden="true">★</span>
-            <span aria-hidden="true">★</span>
+      <!-- Top: featured quote + image -->
+      <div class="pld-reviews__top">
+
+        <div class="pld-reviews__featured">
+          <div class="pld-reviews__header">
+            <span class="pld-reviews__eyebrow">Client Reviews · Google · Verified</span>
+            <div class="pld-reviews__stars" aria-label="5 stars">
+              <span aria-hidden="true">★</span><span aria-hidden="true">★</span>
+              <span aria-hidden="true">★</span><span aria-hidden="true">★</span>
+              <span aria-hidden="true">★</span>
+            </div>
+            <span class="pld-reviews__count">Five stars across all Google reviews</span>
+          </div>
+          <h2 id="reviews-h2" class="sr-only">Client reviews</h2>
+          <p class="pld-reviews__quote" id="featureQuote">"I cannot recommend Octavia enough. She is an incredible attorney who is both passionate about her work and deeply committed to her clients. What sets her apart is her rare combination of warmth and professionalism — a calming, reassuring presence while also being razor-sharp and thorough. You always know she truly cares and is fighting for the best possible outcome."</p>
+          <div class="pld-reviews__attr">
+            <div class="pld-reviews__attr-rule" aria-hidden="true"></div>
+            <span class="pld-reviews__attr-text">J.C. · Google Review · Verified · Dallas County, TX</span>
           </div>
         </div>
-        <div class="pld-reviews__rating">Five stars across all Google reviews</div>
-      </div>
 
-      <!-- Featured quote -->
-      <div class="pld-reviews__featured">
-        <p class="pld-reviews__feature-quote" id="featureQuote">"I cannot recommend Octavia enough. She is an incredible attorney who is both passionate about her work and deeply committed to her clients. What sets her apart is her rare combination of warmth and professionalism — a calming, reassuring presence while also being razor-sharp and thorough. You always know she truly cares and is fighting for the best possible outcome."</p>
-        <div class="pld-reviews__feature-attr">
-          <div class="pld-reviews__feature-line" aria-hidden="true"></div>
-          <span class="pld-reviews__feature-attr-text">J.C. · Google Review · Verified · Dallas County, TX</span>
+        <div class="pld-reviews__image">
+          <img
+            src="https://images.unsplash.com/photo-1521791055366-0d553872952f?w=840&q=85&fit=crop&crop=center&auto=format"
+            alt="Professional legal setting"
+            class="pld-reviews__img"
+            loading="lazy"
+          />
         </div>
+
       </div>
 
-      <!-- Three secondary tiles -->
+      <!-- Bottom: three tiles -->
       <div class="pld-reviews__tiles">
 
         <div class="pld-review-tile">
           <span class="pld-review-tile__stars" aria-hidden="true">★★★★★</span>
           <p class="pld-review-tile__quote">"She is fierce and effective in advocating for her clients, while maintaining a genuine kindness and professionalism that sets her apart. Her dedication, attention to detail, and ability to navigate complex situations with confidence make her an invaluable advocate."</p>
-          <div class="pld-review-tile__attr">K.A. · Google · Lubbock, TX</div>
+          <div class="pld-review-tile__attr">K.A. · Google Review · Lubbock, TX</div>
         </div>
 
         <div class="pld-review-tile">
           <span class="pld-review-tile__stars" aria-hidden="true">★★★★★</span>
           <p class="pld-review-tile__quote">"She pursues Right over Wrong, Justice over Injustice — and not just Win or Lose. I respect and admire her for that."</p>
-          <div class="pld-review-tile__attr">M.P. · Google · Texas</div>
+          <div class="pld-review-tile__attr">M.P. · Google Review · Texas</div>
         </div>
 
         <div class="pld-review-tile">
           <span class="pld-review-tile__stars" aria-hidden="true">★★★★★</span>
           <p class="pld-review-tile__quote">"Excellent communication and professionalism. Her passion, communication, professionalism, responsiveness, and willingness to explain things have been top notch. 10/10 would recommend."</p>
-          <div class="pld-review-tile__attr">E.F. · Google · Texas</div>
+          <div class="pld-review-tile__attr">E.F. · Google Review · Texas</div>
         </div>
 
       </div>
     </div>
   </section>
+
+    </section>
 
     <section class="section pld-about" aria-labelledby="about-h2" id="aboutSection">
     <div class="container">
