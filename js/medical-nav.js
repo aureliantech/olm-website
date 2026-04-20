@@ -459,6 +459,25 @@
       });
     }
 
+    /* ── SCROLL REVEAL ── */
+    const reveals = document.querySelectorAll('.reveal');
+    if (reveals.length) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            const siblings = e.target.parentElement.querySelectorAll('.reveal');
+            siblings.forEach((el, i) => {
+              if (el === e.target || !el.classList.contains('visible')) {
+                setTimeout(() => el.classList.add('visible'), i * 80);
+              }
+            });
+            observer.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach(el => observer.observe(el));
+    }
+
   });
 
 })();
