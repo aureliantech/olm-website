@@ -249,20 +249,63 @@
     @media (max-width: 768px) { .mp-practice__grid { grid-template-columns: 1fr; } }
 
     /* ABOUT STRIP */
-    .about-strip { background: var(--plum); color: var(--bg); }
-    .about-strip__inner { display: grid; grid-template-columns: 280px 1fr 1fr; gap: 64px; align-items: center; }
-    .about-strip__photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center top; }
-    .about-strip__badge { background: rgba(26,18,33,0.6); padding: 14px 20px; }
-    .about-strip__badge-name { font-family: var(--ff-serif); font-size: 17px; color: var(--bg); }
-    .about-strip__badge-title { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-top: 3px; }
-    .about-strip__credentials { display: flex; flex-direction: column; gap: 0; }
-    .cred-item { padding: 12px 0; border-bottom: 1px solid rgba(201,184,154,0.15); }
-    .cred-item:last-child { border-bottom: none; }
-    .cred-item__label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
-    .cred-item__value { font-size: 15px; color: rgba(250,246,240,0.8); line-height: 1.4; }
-    .about-strip__copy h2 { font-size: clamp(22px, 2.5vw, 32px); color: var(--bg); margin-bottom: 16px; line-height: 1.15; }
+    .about-strip { background: var(--dark); color: var(--bg); }
+    .about-strip__inner { display: grid; grid-template-columns: 380px 1fr; gap: 80px; align-items: center; }
+    /* Photo with corner brackets */
+    .about-strip__photo-wrap { position: relative; }
+    .about-strip__photo-wrap::before {
+      content: '';
+      position: absolute;
+      top: -10px; right: -10px;
+      width: 48px; height: 48px;
+      border-top: 2px solid var(--accent);
+      border-right: 2px solid var(--accent);
+      z-index: 2;
+    }
+    .about-strip__photo-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: 60px; left: -10px;
+      width: 48px; height: 48px;
+      border-bottom: 2px solid rgba(232,114,42,0.35);
+      border-left: 2px solid rgba(232,114,42,0.35);
+      z-index: 2;
+    }
+    .about-strip__photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center top; display: block; }
+    .about-strip__badge {
+      background: rgba(43,36,56,0.95);
+      border-top: 2px solid var(--accent);
+      padding: 16px 20px;
+    }
+    .about-strip__badge-name { font-family: var(--ff-serif); font-size: 18px; color: var(--bg); }
+    .about-strip__badge-title { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-top: 3px; }
+    .about-strip__badge-creds { margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(201,184,154,0.12); }
+    .about-strip__badge-cred { font-size: 12px; color: rgba(250,246,240,0.45); line-height: 1.6; }
+    /* Right copy */
+    .about-strip__copy { }
+    .about-strip__copy-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+    .about-strip__copy-eyebrow::before { content: ''; width: 28px; height: 2px; background: var(--accent); flex-shrink: 0; }
+    .about-strip__h2 {
+      font-size: clamp(32px, 3.5vw, 52px);
+      color: var(--bg);
+      line-height: 1.06;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+    .about-strip__h2 em {
+      display: block;
+      font-style: italic;
+      background: linear-gradient(90deg, var(--accent-lite), var(--accent), var(--accent-lite));
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmerText 4s linear 1s infinite;
+    }
     .about-strip__copy p { font-size: 16px; color: rgba(250,246,240,0.65); line-height: 1.8; margin-bottom: 14px; }
     .about-strip__copy strong { color: var(--bg); }
+    .about-strip__tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 24px; }
+    .about-strip__tag { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; border: 1px solid rgba(232,114,42,0.3); color: rgba(250,246,240,0.55); }
     @media (max-width: 900px) { .about-strip__inner { grid-template-columns: 1fr; gap: 40px; } }
 
     /* REVIEWS CAROUSEL */
@@ -538,27 +581,39 @@
   <section class="section about-strip" aria-labelledby="about-h2">
     <div class="container">
       <div class="about-strip__inner">
+
         <div class="reveal">
-          <img src="../octavia-headshot.png" alt="Octavia LaVon Martinez — Texas Medical License Defense Attorney" class="about-strip__photo" width="280" height="373" />
-          <div class="about-strip__badge">
-            <div class="about-strip__badge-name">Octavia LaVon Martinez</div>
-            <div class="about-strip__badge-title">Founder &amp; Principal Attorney</div>
+          <div class="about-strip__photo-wrap">
+            <img src="../octavia-headshot.png" alt="Octavia LaVon Martinez — Texas Medical License Defense Attorney" class="about-strip__photo" width="380" height="507" />
+            <div class="about-strip__badge">
+              <div class="about-strip__badge-name">Octavia LaVon Martinez</div>
+              <div class="about-strip__badge-title">Founder &amp; Principal Attorney</div>
+              <div class="about-strip__badge-creds">
+                <div class="about-strip__badge-cred">University of Virginia · Ohio State Moritz College of Law</div>
+                <div class="about-strip__badge-cred">Licensed in Texas (2016) &amp; Arizona (2009)</div>
+                <div class="about-strip__badge-cred">U.S. Supreme Court · Fifth Circuit · S.D. Texas</div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="about-strip__credentials reveal">
-          <div class="cred-item"><div class="cred-item__label">Education</div><div class="cred-item__value">University of Virginia<br>Ohio State — Moritz College of Law</div></div>
-          <div class="cred-item"><div class="cred-item__label">Background</div><div class="cred-item__value">Felony Prosecutor<br>Medical Malpractice Litigator</div></div>
-          <div class="cred-item"><div class="cred-item__label">Focus Areas</div><div class="cred-item__value">Complex Medical Malpractice Litigation<br>License Defense</div></div>
-          <div class="cred-item"><div class="cred-item__label">Licensed</div><div class="cred-item__value">Texas · Arizona</div></div>
-          <div class="cred-item"><div class="cred-item__label">Practice</div><div class="cred-item__value">Virtual · All of Texas</div></div>
-        </div>
+
         <div class="about-strip__copy reveal">
-          <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:12px;">Why She Fights Differently</div>
-          <div class="rule"></div>
-          <h2 id="about-h2">She doesn't just know how to defend a medical case. She knows how the prosecution builds one.</h2>
-          <p>Before defending physicians, Octavia LaVon Martinez was a felony prosecutor and complex medical malpractice litigator. <strong>She knows what investigators look for — because she used to build those cases.</strong> That experience is the foundation of The Counter Protocol and the reason early intervention works when she leads it.</p>
-          <a href="about.html" style="margin-top:16px;display:inline-block;font-size:14px;font-weight:700;color:var(--accent-lite);text-decoration:none;letter-spacing:0.04em;">Full Background →</a>
+          <div class="about-strip__copy-eyebrow">Founder &amp; Principal Attorney</div>
+          <h2 class="about-strip__h2" id="about-h2">Uncompromised counsel.<em>Fearless advocacy.</em></h2>
+          <p>Before defending physicians and licensed healthcare professionals, Octavia LaVon Martinez was a felony prosecutor and complex medical malpractice litigator. <strong>She knows what investigators look for — because she used to build those cases.</strong></p>
+          <p>That experience is the foundation of The Counter Protocol and the reason early intervention works when she leads it. She doesn't just respond to the board. She runs a parallel investigation designed to force dismissal before the process reaches a hearing.</p>
+          <div class="about-strip__tags">
+            <span class="about-strip__tag">Former Felony Prosecutor</span>
+            <span class="about-strip__tag">Trial Attorney</span>
+            <span class="about-strip__tag">Texas · Arizona</span>
+            <span class="about-strip__tag">Virtual · Statewide</span>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:14px;">
+            <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+            <a href="about.html" class="btn btn--outline">Full Background →</a>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
