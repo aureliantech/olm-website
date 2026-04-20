@@ -1,126 +1,192 @@
-<!-- CONTACT PAGE -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact | Octavia LaVon Martinez PLLC — Medical License Defense Texas</title>
-  <meta name="description" content="Contact the Law Firm of Octavia LaVon Martinez PLLC. Medical license defense for Texas physicians and healthcare professionals. Book a Strategy Session or call (956) 426-3550." />
+  <title>Contact | Medical License Defense — Octavia LaVon Martinez PLLC (956) 426-3550</title>
+  <meta name="description" content="Contact Octavia LaVon Martinez PLLC for medical license defense, TMB complaint response, midwife defense, and healthcare employment law. Call (956) 426-3550. Virtual. All of Texas." />
   <link rel="canonical" href="https://octaviamartinezlaw.com/texas-medical-attorney/contact" />
   <link rel="icon" type="image/png" href="../favicon.png">
   <link rel="apple-touch-icon" href="../favicon.png">
   <link rel="stylesheet" href="../css/global.css" />
   <style>
-    .contact-hero { background: var(--dark); padding: 140px var(--gutter) 80px; }
-    .contact-hero__inner { max-width: 680px; margin: 0 auto; }
-    .contact-hero h1 { font-size: clamp(30px, 4vw, 50px); color: var(--bg); margin-bottom: 16px; }
-    .contact-hero h1 em { color: var(--accent-lite); }
-    .contact-hero p { font-size: 17px; color: rgba(250,246,240,0.7); line-height: 1.7; }
+    @keyframes shimmerText{0%{background-position:0% center;}100%{background-position:200% center;}}
+    .lux-word{display:inline-block;}
+    .lux-word--em em{background:linear-gradient(90deg,var(--accent-lite),var(--accent),var(--accent-lite));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmerText 4s linear 2s infinite;}
 
-    .contact-body { background: var(--surface); }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: start;
-    }
-    .contact-primary h2 { font-size: clamp(22px, 2.5vw, 30px); margin-bottom: 20px; }
-    .contact-primary p { font-size: 16px; color: var(--mid); line-height: 1.75; margin-bottom: 16px; }
+    /* HERO */
+    .contact-hero{background:var(--dark);min-height:100svh;display:flex;align-items:center;padding:clamp(80px,8vh,120px) clamp(40px,6vw,100px) clamp(48px,5vh,80px);position:relative;overflow:hidden;}
+    .contact-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 100% 0%,rgba(232,114,42,0.08) 0%,transparent 55%),linear-gradient(150deg,#0a0806 0%,#1A1221 55%,#2B2438 100%);}
+    .contact-hero__inner{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:clamp(48px,7vw,80px);align-items:start;}
+    .contact-hero__kicker{display:flex;align-items:center;gap:12px;margin-bottom:22px;}
+    .contact-hero__kicker::before{content:'';width:28px;height:2px;background:var(--accent);}
+    .contact-hero__kicker-text{font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);}
+    .contact-hero h1{font-size:clamp(30px,3.8vw,52px);color:var(--bg);line-height:1.06;margin-bottom:22px;}
+    .contact-hero h1 em{font-style:italic;background:linear-gradient(90deg,var(--accent-lite),var(--accent),var(--accent-lite));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmerText 4s linear 2s infinite;}
+    .contact-hero__lead{font-size:clamp(15px,1.6vw,17px);color:rgba(250,246,240,0.7);line-height:1.75;margin-bottom:28px;}
+    .contact-hero__details{display:flex;flex-direction:column;gap:0;}
+    .contact-hero__detail{display:flex;align-items:flex-start;gap:16px;padding:14px 0;border-bottom:1px solid rgba(201,184,154,0.1);}
+    .contact-hero__detail:last-child{border-bottom:none;}
+    .contact-hero__detail-label{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);min-width:90px;padding-top:3px;flex-shrink:0;}
+    .contact-hero__detail-value{font-size:14px;color:rgba(250,246,240,0.75);line-height:1.6;}
+    .contact-hero__detail-value a{color:var(--accent-lite);text-decoration:none;font-size:22px;font-family:var(--ff-serif);}
+    .contact-hero__detail-value a:hover{color:var(--accent);}
+    .contact-book-card{background:rgba(43,36,56,0.6);border:1px solid rgba(201,184,154,0.15);border-top:3px solid var(--accent);padding:clamp(28px,3.5vw,44px) clamp(24px,3vw,36px);}
+    .contact-book-card__label{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+    .contact-book-card h2{font-family:var(--ff-serif);font-size:24px;color:var(--bg);margin-bottom:12px;line-height:1.2;}
+    .contact-book-card p{font-size:14px;color:rgba(250,246,240,0.6);line-height:1.7;margin-bottom:20px;}
+    .contact-book-card__divider{text-align:center;font-size:13px;color:rgba(250,246,240,0.35);margin:12px 0;}
+    .contact-book-card__phone{display:block;text-align:center;font-family:var(--ff-serif);font-size:28px;color:var(--accent-lite);text-decoration:none;}
+    .contact-book-card__hours{text-align:center;font-size:12px;color:rgba(250,246,240,0.35);margin-top:6px;letter-spacing:.05em;}
+    @media(max-width:900px){.contact-hero__inner{grid-template-columns:1fr;gap:40px;}}
 
-    .contact-book-btn {
-      display: block;
-      background: var(--accent);
-      color: #fff;
-      font-family: var(--ff-sans);
-      font-size: 15px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 18px 28px;
-      border-radius: 2px;
-      text-align: center;
-      margin-bottom: 14px;
-      box-shadow: 0 4px 20px rgba(232,114,42,0.3);
-      transition: background 0.2s, transform 0.15s;
-    }
-    .contact-book-btn:hover { background: var(--accent-dark); transform: translateY(-1px); }
-    .contact-phone-btn {
-      display: block;
-      border: 1.5px solid var(--border);
-      color: var(--dark);
-      font-family: var(--ff-serif);
-      font-size: 22px;
-      padding: 14px 28px;
-      border-radius: 2px;
-      text-align: center;
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .contact-phone-btn:hover { border-color: var(--accent); color: var(--accent); }
-    .contact-hours { margin-top: 14px; font-size: 14px; color: var(--muted); text-align: center; line-height: 1.6; }
+    /* URGENCY STRIP */
+    .contact-urgency{background:rgba(232,114,42,0.08);border-top:1px solid rgba(232,114,42,0.2);border-bottom:1px solid rgba(232,114,42,0.2);padding:16px clamp(24px,4vw,48px);display:flex;align-items:center;gap:14px;}
+    .contact-urgency__dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;animation:dotPulse 2s ease-in-out infinite;}
+    @keyframes dotPulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.7);}}
+    .contact-urgency__text{font-size:14px;color:var(--dark);line-height:1.5;flex:1;}
+    .contact-urgency__text strong{color:var(--accent-dark,#b8531a);}
+    .contact-urgency__text a{color:var(--accent);font-weight:700;}
 
-    .contact-details { display: flex; flex-direction: column; gap: 24px; }
-    .contact-detail-item {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      padding: 24px 28px;
-      border-radius: 2px;
-    }
-    .contact-detail-label { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
-    .contact-detail-value { font-size: 15px; color: var(--dark); line-height: 1.65; }
-    .contact-detail-value a { color: var(--accent); }
+    /* POLICY CARDS */
+    .contact-policy{background:var(--surface);}
+    .contact-policy__inner{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+    .contact-policy__card{background:var(--bg);border:1px solid var(--border);border-top:3px solid var(--accent);padding:28px 24px;}
+    .contact-policy__card-label{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+    .contact-policy__card-title{font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px;}
+    .contact-policy__card-body{font-size:14px;color:var(--mid);line-height:1.65;}
+    @media(max-width:768px){.contact-policy__inner{grid-template-columns:1fr;}}
 
-    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; gap: 40px; } }
+    /* SCOPE */
+    .contact-scope{background:var(--dark);}
+    .contact-scope__inner{display:grid;grid-template-columns:1fr 1fr;gap:clamp(48px,7vw,80px);align-items:start;}
+    .contact-scope h2{font-size:clamp(22px,2.6vw,34px);color:var(--bg);margin-bottom:18px;line-height:1.1;}
+    .contact-scope h2 em{font-style:italic;color:var(--accent-lite);}
+    .contact-scope__label{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px;}
+    .contact-scope__label--yes{color:var(--accent);}
+    .contact-scope__label--no{color:rgba(201,184,154,0.35);}
+    .contact-scope__list{display:flex;flex-direction:column;gap:0;}
+    .contact-scope__item{display:flex;align-items:flex-start;gap:12px;padding:11px 0;border-bottom:1px solid rgba(201,184,154,0.1);font-size:14px;line-height:1.4;}
+    .contact-scope__item:last-child{border-bottom:none;}
+    .contact-scope__item--yes{color:rgba(250,246,240,0.82);}
+    .contact-scope__item--no{color:rgba(250,246,240,0.35);}
+    .contact-scope__dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:5px;}
+    .contact-scope__dot--yes{background:var(--accent);}
+    .contact-scope__dot--no{background:rgba(201,184,154,0.2);}
+    @media(max-width:768px){.contact-scope__inner{grid-template-columns:1fr;}}
   </style>
 </head>
 <body>
   <div id="site-nav"></div>
-    <section class="contact-hero">
+
+  <section class="contact-hero" aria-labelledby="contact-h1">
     <div class="contact-hero__inner">
-      <div class="eyebrow" style="margin-bottom:14px;">Get in Touch</div>
-      <h1>The fastest path forward<br>is a <em>direct conversation.</em></h1>
-      <p>Book a Strategy Session or call us directly. If you have received a TMB complaint, act today — the response window is the most critical phase of your defense.</p>
+      <div>
+        <div class="contact-hero__kicker"><span class="contact-hero__kicker-text">Medical Professional Defense · Contact</span></div>
+        <h1 id="contact-h1">If you have received a complaint notice, <em>the clock is already running.</em></h1>
+        <p class="contact-hero__lead">The initial response window is fixed. The earlier you reach us, the more options remain available. Call directly — or book a strategy session to get a frank read on exactly where your case stands.</p>
+        <div class="contact-hero__details">
+          <div class="contact-hero__detail">
+            <div class="contact-hero__detail-label">Phone</div>
+            <div class="contact-hero__detail-value"><a href="tel:9564263550">(956) 426-3550</a></div>
+          </div>
+          <div class="contact-hero__detail">
+            <div class="contact-hero__detail-label">Hours</div>
+            <div class="contact-hero__detail-value">Monday–Friday · 8:00 AM–6:00 PM CST<br>For urgent matters, note urgency when booking</div>
+          </div>
+          <div class="contact-hero__detail">
+            <div class="contact-hero__detail-label">Location</div>
+            <div class="contact-hero__detail-value">Virtual firm · No office visit required<br>Serves all of Texas · Licensed TX &amp; AZ</div>
+          </div>
+          <div class="contact-hero__detail">
+            <div class="contact-hero__detail-label">Practice</div>
+            <div class="contact-hero__detail-value">Physician license defense · Midwife license defense · Healthcare employment law · TMB complaints</div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-book-card reveal">
+        <div class="contact-book-card__label">Book a Strategy Session</div>
+        <h2>Apply The Counter Protocol to your specific complaint.</h2>
+        <p>30 minutes of real analysis — your facts, your timeline, your options. Octavia reviews your complaint directly before the session.</p>
+        <a href="https://octaviamartinezlaw.cliogrow.com/book/05558212793e35d7ef5df6a9349d47ae" target="_blank" rel="noopener noreferrer" class="btn btn--primary" style="display:block;text-align:center;margin-bottom:16px;">Book Online →</a>
+        <div class="contact-book-card__divider">or call directly</div>
+        <a href="tel:9564263550" class="contact-book-card__phone">(956) 426-3550</a>
+        <div class="contact-book-card__hours">Monday–Friday · 8:00 AM–6:00 PM CST</div>
+      </div>
     </div>
   </section>
 
-  <section class="section contact-body">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="reveal">
-          <div class="eyebrow" style="margin-bottom:14px;">Preferred Entry Point</div>
-          <h2>Book a Strategy Session</h2>
-          <p>Thirty minutes. Frank assessment. Realistic outcomes. Clear direction — whether you retain us or not.</p>
-          <a href="https://octaviamartinezlaw.cliogrow.com/book/05558212793e35d7ef5df6a9349d47ae" target="_blank" rel="noopener noreferrer" class="contact-book-btn">Schedule Online →</a>
-          <a href="tel:9564263550" class="contact-phone-btn">(956) 426-3550</a>
-          <p class="contact-hours">Monday–Friday · 8:00 AM–6:00 PM CST<br>Virtual firm · No office visit required</p>
-        </div>
+  <div class="contact-urgency" role="alert">
+    <div class="contact-urgency__dot" aria-hidden="true"></div>
+    <p class="contact-urgency__text"><strong>If you have received a TMB complaint notice, do not respond to the board before speaking with us.</strong> The initial written response is the most critical document in your defense. <a href="tel:9564263550">Call now →</a></p>
+  </div>
 
-        <div class="contact-details reveal">
-          <div class="contact-detail-item">
-            <div class="contact-detail-label">Phone</div>
-            <div class="contact-detail-value"><a href="tel:9564263550">(956) 426-3550</a></div>
+  <section class="section contact-policy">
+    <div class="container">
+      <div class="contact-policy__inner">
+        <div class="contact-policy__card reveal">
+          <div class="contact-policy__card-label">Strategy Sessions</div>
+          <div class="contact-policy__card-title">Paid sessions only</div>
+          <p class="contact-policy__card-body">Our strategy sessions are paid — not a sales call. This is 30 minutes of real legal analysis applied to your specific complaint, your specific credential, and your specific timeline. You leave knowing exactly where you stand. The session fee is credited in full toward your retainer if you proceed.</p>
+        </div>
+        <div class="contact-policy__card reveal">
+          <div class="contact-policy__card-label">Confidentiality</div>
+          <div class="contact-policy__card-title">Handle your inquiry carefully</div>
+          <p class="contact-policy__card-body">Your inquiry is treated with confidentiality from first contact. Attorney-client privilege is formally established through a retainer agreement. Do not include sensitive complaint details in online inquiries before privilege is established. A phone call is the appropriate place for those details.</p>
+        </div>
+        <div class="contact-policy__card reveal">
+          <div class="contact-policy__card-label">Urgency</div>
+          <div class="contact-policy__card-title">Response deadlines are fixed</div>
+          <p class="contact-policy__card-body">The TMB complaint response window is typically 30–60 days from notice. Online booking is immediate — confirmation arrives with no waiting period. For urgent matters where the deadline is imminent, note the urgency when booking. Phone calls during business hours are answered directly when available.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact-scope">
+    <div class="container">
+      <div class="contact-scope__inner">
+        <div class="reveal">
+          <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:14px;">Scope of Practice</div>
+          <div class="rule"></div>
+          <h2>What this firm handles — and what it <em>does not.</em></h2>
+          <p style="font-size:15px;color:rgba(250,246,240,0.6);line-height:1.8;margin-bottom:0;">If you are unsure whether your matter falls within scope, the fastest way to find out is to call. We will tell you directly whether we can help — or refer you toward someone who can.</p>
+        </div>
+        <div class="reveal">
+          <div>
+            <div class="contact-scope__label contact-scope__label--yes">We Handle</div>
+            <div class="contact-scope__list">
+              <div class="contact-scope__item contact-scope__item--yes"><div class="contact-scope__dot contact-scope__dot--yes"></div>TMB complaints — physician license defense — all of Texas</div>
+              <div class="contact-scope__item contact-scope__item--yes"><div class="contact-scope__dot contact-scope__dot--yes"></div>Midwife license defense — Texas Midwifery Board &amp; Texas Board of Nursing</div>
+              <div class="contact-scope__item contact-scope__item--yes"><div class="contact-scope__dot contact-scope__dot--yes"></div>Hospital privilege disputes &amp; peer review proceedings</div>
+              <div class="contact-scope__item contact-scope__item--yes"><div class="contact-scope__dot contact-scope__dot--yes"></div>Healthcare employment law — wrongful termination, non-compete, whistleblower</div>
+              <div class="contact-scope__item contact-scope__item--yes"><div class="contact-scope__dot contact-scope__dot--yes"></div>NPDB matters &amp; corrective counsel for stalled cases</div>
+            </div>
           </div>
-          <div class="contact-detail-item">
-            <div class="contact-detail-label">Hours</div>
-            <div class="contact-detail-value">Monday–Friday<br>8:00 AM – 6:00 PM CST</div>
-          </div>
-          <div class="contact-detail-item">
-            <div class="contact-detail-label">Mailing Address</div>
-            <div class="contact-detail-value">2330 E. Freddy Gonzalez Dr. #2074<br>Edinburg, TX 78542<br><em style="font-size:14px;color:var(--muted);">Virtual firm — client meetings by appointment via video.</em></div>
-          </div>
-          <div class="contact-detail-item">
-            <div class="contact-detail-label">Bar Admissions</div>
-            <div class="contact-detail-value">Texas · Arizona</div>
-          </div>
-          <div class="contact-detail-item">
-            <div class="contact-detail-label">Service Area</div>
-            <div class="contact-detail-value">All of Texas · Arizona matters by arrangement<br><em style="font-size:14px;color:var(--muted);">Houston · Dallas · San Antonio · Austin · El Paso · Lubbock · McAllen and all Texas markets</em></div>
+          <div style="margin-top:24px;">
+            <div class="contact-scope__label contact-scope__label--no">We Do Not Handle</div>
+            <div class="contact-scope__list">
+              <div class="contact-scope__item contact-scope__item--no"><div class="contact-scope__dot contact-scope__dot--no"></div>Divorce &amp; child custody</div>
+              <div class="contact-scope__item contact-scope__item--no"><div class="contact-scope__dot contact-scope__dot--no"></div>Criminal defense</div>
+              <div class="contact-scope__item contact-scope__item--no"><div class="contact-scope__dot contact-scope__dot--no"></div>Personal injury</div>
+              <div class="contact-scope__item contact-scope__item--no" style="border-bottom:none;"><div class="contact-scope__dot contact-scope__dot--no"></div>Immigration</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <script src="../js/medical-nav.js" defer></script>
   <div id="site-footer"></div>
+  <script src="../js/medical-nav.js" defer></script>
+  <script>
+  (function(){'use strict';function luxSplitWords(el,bd,wg,fy,ba){fy=fy!==undefined?fy:14;ba=ba!==undefined?ba:5;wg=wg!==undefined?wg:0.09;function pN(p,c){Array.from(p.childNodes).forEach(function(n){if(n.nodeType===Node.TEXT_NODE){n.textContent.split(/\s+/).filter(Boolean).forEach(function(w){var s=document.createElement('span');s.className='lux-word';s.textContent=w;c.appendChild(s);c.appendChild(document.createTextNode(' '));});}else if(n.nodeName==='BR'){c.appendChild(document.createElement('br'));}else if(n.nodeName==='EM'||n.nodeName==='STRONG'){var wr=document.createElement('span');wr.className='lux-word lux-word--em';var t=document.createElement(n.nodeName.toLowerCase());t.innerHTML=n.innerHTML;wr.appendChild(t);c.appendChild(wr);c.appendChild(document.createTextNode(' '));}else if(n.nodeName==='A'){var cl=n.cloneNode(false);pN(n,cl);c.appendChild(cl);}else{c.appendChild(n.cloneNode(true));}});}var f=document.createDocumentFragment();pN(el,f);el.innerHTML='';el.appendChild(f);var ws=el.querySelectorAll('.lux-word');ws.forEach(function(w,i){w.style.opacity='0';w.style.filter='blur('+ba+'px)';w.style.transform='translateY('+fy+'px)';w.style.display='inline-block';var d=bd+i*wg;w.style.transition='opacity 1.05s cubic-bezier(0.25,0.46,0.45,0.94) '+d+'s,transform 1.15s cubic-bezier(0.16,1,0.3,1) '+d+'s,filter 1.0s cubic-bezier(0.25,0.46,0.45,0.94) '+d+'s';});return ws;}
+  function luxRW(ws){requestAnimationFrame(function(){requestAnimationFrame(function(){ws.forEach(function(w){w.style.opacity='1';w.style.transform='translateY(0)';w.style.filter='blur(0px)';});});});}
+  function luxRE(el,d,fx){el.style.opacity='0';el.style.filter='blur(5px)';el.style.transform=fx?'translateX('+fx+'px)':'translateY(14px)';el.style.transition='opacity 1.1s cubic-bezier(0.25,0.46,0.45,0.94) '+d+'s,transform 1.2s cubic-bezier(0.16,1,0.3,1) '+d+'s,filter 1.0s cubic-bezier(0.25,0.46,0.45,0.94) '+d+'s';requestAnimationFrame(function(){requestAnimationFrame(function(){el.style.opacity='1';el.style.transform='none';el.style.filter='blur(0px)';});});}
+  document.addEventListener('DOMContentLoaded',function(){var hero=document.querySelector('.contact-hero');if(!hero)return;var h1=hero.querySelector('h1');var lead=hero.querySelector('.contact-hero__lead');if(h1){var hw=luxSplitWords(h1,0.2,0.08,18,7);luxRW(hw);}if(lead){var lw=luxSplitWords(lead,0.6,0.04,10,4);luxRW(lw);}});
+  var ri=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(!entry.isIntersecting)return;var el=entry.target;ri.unobserve(el);var h2s=el.matches('h2')?[el]:Array.from(el.querySelectorAll('h2'));var eybs=el.classList.contains('eyebrow')?[el]:Array.from(el.querySelectorAll('.eyebrow'));var pars=el.matches('p')?[el]:Array.from(el.querySelectorAll('p'));var cur=0;eybs.forEach(function(e){var w=luxSplitWords(e,cur,0.07,10,3);luxRW(w);cur+=0.05;});h2s.forEach(function(h){var w=luxSplitWords(h,cur,0.09,16,6);luxRW(w);cur+=w.length*0.09+0.05;});pars.forEach(function(p){var w=luxSplitWords(p,cur,0.034,10,4);luxRW(w);cur+=0.11;});var hasText=h2s.length||eybs.length||pars.length;if(!hasText){el.style.opacity='0';el.style.filter='blur(6px)';el.style.transform='translateY(20px)';el.style.transition='opacity 1.1s 0s,transform 1.2s cubic-bezier(0.16,1,0.3,1) 0s,filter 1.0s 0s';requestAnimationFrame(function(){requestAnimationFrame(function(){el.style.opacity='1';el.style.transform='none';el.style.filter='blur(0px)';});});}el.classList.add('visible');});},{threshold:0.07,rootMargin:'0px 0px -20px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ri.observe(el);});
+  })();
+  </script>
 </body>
 </html>

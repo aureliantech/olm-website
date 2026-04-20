@@ -3,416 +3,343 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FAQ | Medical License Defense — Octavia LaVon Martinez PLLC</title>
-  <meta name="description" content="Answers to the most common questions about medical license defense in Texas, The Counter Protocol, the Strategy Session, and how this firm operates." />
+  <title>FAQ | Medical Professional License Defense — Octavia LaVon Martinez PLLC</title>
+  <meta name="description" content="Common questions about TMB complaint defense, midwife license defense, healthcare employment law, strategy sessions, and how this firm operates for medical professionals." />
   <link rel="canonical" href="https://octaviamartinezlaw.com/texas-medical-attorney/faq" />
   <link rel="icon" type="image/png" href="../favicon.png">
   <link rel="apple-touch-icon" href="../favicon.png">
   <link rel="stylesheet" href="../css/global.css" />
-
-  <!-- FAQ Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Do you offer free consultations?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. Our initial Strategy Sessions are paid working sessions where we review your specific situation and provide actionable direction — not a sales pitch. Many firms offer free consultations because the consultation is the pitch. The session fee guarantees you skip that and start immediately with actual legal analysis. If you proceed to retain us, the fee is credited in full toward your retainer."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What does the Strategy Session include?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "In 30 minutes you receive: a frank assessment of your complaint and realistic exposure; an honest range of outcomes based on the board and the facts on record; a clear explanation of how The Counter Protocol applies to your specific case and what the path to dismissal looks like; and immediate actionable direction — you leave knowing exactly what to do next, whether you retain us or not."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "When should I hire a license defense attorney?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The day you receive notification of a complaint or investigation. The initial written response to the Texas Medical Board is the most critical document in your defense, and the board moves on its own timeline. Every day without a defense strategy is a day the board builds its record unopposed."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you serve physicians outside the Rio Grande Valley?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. This is a fully virtual firm. We serve licensed medical professionals across all of Texas — Houston, Dallas, San Antonio, Austin, El Paso, Lubbock, McAllen, and every market in between — with no office visit required. We are also licensed in Arizona and can advise on Arizona Medical Board matters."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How quickly do you move after retention?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Immediately. There is no intake queue and no onboarding delay. The Counter Protocol activates the day you retain us and the parallel investigation begins the same day."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What if my case is already at the hearing stage?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We can still help. If your case has progressed to the hearing stage — or if you are already in a hearing with passive representation — we conduct a full case audit, identify where the strategy is failing, and move immediately to rectify it."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does The Counter Protocol work if the complaint seems minor?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "There is no such thing as a minor board complaint. By the time you receive notice, an investigative process has already begun. Complaints that appear minor at filing are the ones most commonly dismissed quickly with an aggressive, evidence-anchored rebuttal — because the factual record needed to dismantle them is often straightforward."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What types of license complaints do you handle?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Medical license defense is the primary focus of this firm. We defend physicians, Certified Nurse Midwives, nurse practitioners, pharmacists, and allied health professionals facing Texas state board complaints and investigations. We are also licensed in Arizona and can advise on Arizona Medical Board matters."
-        }
-      }
-    ]
-  }
-  </script>
-
   <style>
-    .faq-hero {
-      background: var(--dark);
-      padding: 140px var(--gutter) 80px;
-    }
-    .faq-hero__inner {
-      max-width: 680px;
-      margin: 0 auto;
-    }
-    .faq-hero h1 {
-      font-size: clamp(32px, 4vw, 52px);
-      color: var(--bg);
-      margin-bottom: 18px;
-    }
-    .faq-hero h1 em { color: var(--accent-lite); }
-    .faq-hero p {
-      font-size: 17px;
-      color: rgba(250,246,240,0.7);
-      line-height: 1.7;
-    }
+    @keyframes shimmerText{0%{background-position:0% center;}100%{background-position:200% center;}}
+    .lux-word{display:inline-block;}
+    .lux-word--em em{background:linear-gradient(90deg,var(--accent-lite),var(--accent),var(--accent-lite));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmerText 4s linear 2s infinite;}
 
-    /* FAQ accordion */
-    .faq-body { background: var(--bg); }
-    .faq-inner { max-width: 760px; margin: 0 auto; }
+    /* HERO */
+    .faq-hero{background:var(--dark);min-height:100svh;display:flex;align-items:center;padding:clamp(80px,8vh,120px) clamp(40px,6vw,100px) clamp(48px,5vh,80px);position:relative;overflow:hidden;}
+    .faq-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 100% 0%,rgba(232,114,42,0.08) 0%,transparent 55%),linear-gradient(150deg,#0a0806 0%,#1A1221 55%,#2B2438 100%);}
+    .faq-hero::after{content:'FAQ';position:absolute;top:-0.05em;right:-0.05em;font-family:var(--ff-serif);font-size:clamp(160px,22vw,300px);font-weight:700;color:rgba(250,246,240,0.025);line-height:1;letter-spacing:-0.04em;pointer-events:none;z-index:1;user-select:none;}
+    .faq-hero__inner{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:clamp(48px,7vw,80px);align-items:center;}
+    .faq-hero__kicker{display:flex;align-items:center;gap:12px;margin-bottom:22px;}
+    .faq-hero__kicker::before{content:'';width:28px;height:2px;background:var(--accent);}
+    .faq-hero__kicker-text{font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);}
+    .faq-hero h1{font-size:clamp(32px,4vw,54px);color:var(--bg);line-height:1.06;margin-bottom:20px;}
+    .faq-hero h1 em{font-style:italic;background:linear-gradient(90deg,var(--accent-lite),var(--accent),var(--accent-lite));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmerText 4s linear 2s infinite;}
+    .faq-hero__sub{font-size:clamp(15px,1.6vw,18px);color:rgba(250,246,240,0.7);line-height:1.75;margin-bottom:32px;max-width:480px;}
+    .faq-hero__ctas{display:flex;flex-wrap:wrap;gap:14px;}
+    .faq-hero__right{border-left:1px solid rgba(201,184,154,0.1);padding-left:clamp(32px,4vw,60px);}
+    .faq-hero__stats{display:flex;flex-direction:column;gap:28px;}
+    .faq-hero__stat{padding-bottom:28px;border-bottom:1px solid rgba(201,184,154,0.08);}
+    .faq-hero__stat:last-child{border-bottom:none;padding-bottom:0;}
+    .faq-hero__stat-num{font-family:var(--ff-serif);font-size:clamp(28px,3.5vw,44px);color:var(--accent-lite);line-height:1;margin-bottom:6px;font-style:italic;}
+    .faq-hero__stat-label{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(250,246,240,0.4);}
+    @media(max-width:900px){.faq-hero__inner{grid-template-columns:1fr;}.faq-hero__right{border-left:none;padding-left:0;border-top:1px solid rgba(201,184,154,0.1);padding-top:32px;}.faq-hero::after{display:none;}}
 
-    .faq-category {
-      margin-bottom: 56px;
-    }
-    .faq-category__label {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 24px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--border);
-    }
+    /* FAQ BODY */
+    .faq-body{background:var(--bg);}
+    .faq-body__inner{display:grid;grid-template-columns:1fr 300px;gap:80px;align-items:start;}
+    @media(max-width:900px){.faq-body__inner{grid-template-columns:1fr;}}
+    .faq-group{margin-bottom:52px;}
+    .faq-group:last-child{margin-bottom:0;}
+    .faq-group-label{font-family:var(--ff-serif);font-size:clamp(18px,2vw,26px);color:var(--dark);letter-spacing:-0.01em;margin-bottom:20px;padding-bottom:14px;border-bottom:2px solid var(--accent);display:block;}
+    .faq-item{border-bottom:1px solid var(--border);}
+    .faq-question{width:100%;background:none;border:none;padding:18px 0;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:20px;text-align:left;}
+    .faq-q-text{font-size:16px;font-weight:700;color:var(--dark);line-height:1.3;transition:color .2s;}
+    .faq-question:hover .faq-q-text{color:var(--accent);}
+    .faq-icon{width:22px;height:22px;flex-shrink:0;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--accent);transition:transform .25s,background .2s;}
+    .faq-item.open .faq-icon{transform:rotate(45deg);background:var(--accent);color:#fff;border-color:var(--accent);}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+    .faq-item.open .faq-answer{max-height:600px;}
+    .faq-answer__inner{padding:0 0 18px;font-size:15px;color:var(--mid);line-height:1.8;}
+    .faq-answer__inner p{margin-bottom:12px;}
+    .faq-answer__inner p:last-child{margin-bottom:0;}
+    .faq-answer__inner strong{color:var(--dark);}
+    .faq-answer__inner a{color:var(--accent);}
+    .faq-group-nudge{margin-top:18px;padding-top:14px;border-top:1px solid var(--border);font-size:14px;color:var(--mid);line-height:1.6;}
+    .faq-group-nudge a{color:var(--accent);text-decoration:none;font-weight:600;}
 
-    .faq-item {
-      border-bottom: 1px solid var(--surface);
-    }
-    .faq-question {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 22px 0;
-      background: none;
-      border: none;
-      cursor: pointer;
-      text-align: left;
-      gap: 20px;
-    }
-    .faq-question:hover .faq-q-text { color: var(--accent); }
-    .faq-q-text {
-      font-family: var(--ff-serif);
-      font-size: 20px;
-      color: var(--dark);
-      line-height: 1.3;
-      transition: color 0.2s;
-    }
-    .faq-icon {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: var(--surface);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      color: var(--accent);
-      flex-shrink: 0;
-      transition: transform 0.3s, background 0.2s;
-      font-weight: 300;
-      line-height: 1;
-    }
-    .faq-item.open .faq-icon {
-      transform: rotate(45deg);
-      background: var(--accent);
-      color: #fff;
-    }
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.3s ease;
-      padding: 0 0;
-    }
-    .faq-item.open .faq-answer {
-      max-height: 600px;
-      padding-bottom: 24px;
-    }
-    .faq-answer p {
-      font-size: 16px;
-      color: var(--mid);
-      line-height: 1.8;
-      margin-bottom: 12px;
-    }
-    .faq-answer p:last-child { margin-bottom: 0; }
-    .faq-answer strong { color: var(--dark); }
-    .faq-answer a { color: var(--accent); text-decoration: underline; }
+    /* Sidebar */
+    .faq-sidebar{position:sticky;top:90px;}
+    .faq-sidebar-card{background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--accent);padding:24px 20px;margin-bottom:12px;}
+    .faq-sidebar-card h3{font-family:var(--ff-sans);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+    .faq-sidebar-card p{font-size:14px;color:var(--mid);line-height:1.65;margin-bottom:8px;}
+    .faq-sidebar-card p:last-child{margin-bottom:0;}
+    .faq-sidebar-card a{color:var(--accent);}
+    .faq-sidebar-cta{background:var(--dark);padding:24px 20px;text-align:center;}
+    .faq-sidebar-cta h3{font-family:var(--ff-serif);font-size:18px;color:var(--bg);margin-bottom:8px;}
+    .faq-sidebar-cta p{font-size:13px;color:rgba(250,246,240,0.6);margin-bottom:16px;line-height:1.6;}
 
     /* CTA */
-    .faq-cta { background: var(--plum); color: var(--bg); text-align: center; }
-    .faq-cta h2 { font-size: clamp(24px, 3vw, 38px); color: var(--bg); margin-bottom: 14px; }
-    .faq-cta p { font-size: 16px; color: rgba(250,246,240,0.7); max-width: 520px; margin: 0 auto 32px; line-height: 1.7; }
-    .faq-cta__ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+    .faq-cta{background:var(--dark);text-align:center;}
+    .faq-cta h2{font-size:clamp(24px,3vw,38px);color:var(--bg);margin-bottom:14px;line-height:1.1;}
+    .faq-cta p{font-size:16px;color:rgba(250,246,240,0.6);max-width:500px;margin:0 auto 32px;line-height:1.7;}
+    .faq-cta__btns{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;}
   </style>
 </head>
 <body>
   <div id="site-nav"></div>
 
-    <section class="faq-hero">
+  <section class="faq-hero" aria-labelledby="faq-h1">
     <div class="faq-hero__inner">
-      <div class="eyebrow" style="margin-bottom:14px;">Questions &amp; Answers</div>
-      <h1>Everything you need<br>to know before you <em>decide.</em></h1>
-      <p>Straightforward answers. If your question isn't here, call us directly at <a href="tel:9564263550" style="color:var(--accent-lite);">(956) 426-3550</a>.</p>
+      <div>
+        <div class="faq-hero__kicker"><span class="faq-hero__kicker-text">Medical Professional Defense · FAQ</span></div>
+        <h1 id="faq-h1">Everything you need to know before you <em>decide.</em></h1>
+        <p class="faq-hero__sub">If your question isn't answered here, the strategy session will address it directly — applied to your specific complaint, your specific credential, your specific timeline.</p>
+        <div class="faq-hero__ctas">
+          <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+          <a href="strategy-session.html" class="btn btn--outline">Book a Strategy Session</a>
+        </div>
+      </div>
+      <div class="faq-hero__right">
+        <div class="faq-hero__stats">
+          <div class="faq-hero__stat">
+            <div class="faq-hero__stat-num">Day one.</div>
+            <div class="faq-hero__stat-label">Work begins immediately upon retention — no queue</div>
+          </div>
+          <div class="faq-hero__stat">
+            <div class="faq-hero__stat-num">Virtual.</div>
+            <div class="faq-hero__stat-label">No office visit required — serves all of Texas</div>
+          </div>
+          <div class="faq-hero__stat">
+            <div class="faq-hero__stat-num">Dismissal.</div>
+            <div class="faq-hero__stat-label">The goal at every stage — not mitigation</div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="section faq-body">
     <div class="container">
-      <div class="faq-inner">
+      <div class="faq-body__inner">
+        <div>
 
-        <!-- CATEGORY: THE STRATEGY SESSION -->
-        <div class="faq-category reveal">
-          <div class="faq-category__label">The Strategy Session</div>
-
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              <span class="faq-q-text">Do you offer free consultations?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>No. We believe that high-quality legal analysis requires dedicated time and preparation. Our initial Strategy Sessions are paid working sessions where we review your specific situation and provide actionable direction — not a sales pitch.</p>
-              <p><strong>Many firms offer free consultations because the consultation is not the product — it is the pitch.</strong> You get 20 minutes of general information, they tell you they can help, and they wait for you to hire them. Some firms will retroactively bill you for that time if you do hire them.</p>
-              <p>The $150 session fee guarantees you skip the sales pitch and start immediately with actual legal analysis. And if you proceed to retain us, the $150 is credited in full toward your retainer. It becomes the first hour of your defense — not a sunk cost.</p>
+          <!-- Group 1: TMB Complaints -->
+          <div class="faq-group reveal">
+            <div class="faq-group-label">Texas Medical Board Complaints</div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false"><span class="faq-q-text">What is the first thing I should do when I receive a TMB complaint notice?</span><span class="faq-icon">+</span></button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p><strong>Do not respond to the board before speaking with a license defense attorney.</strong> The initial written response is the single most important document in your defense — and it is also the one most physicians handle incorrectly without representation.</p>
+                <p>Call us the day you receive the notice. We will tell you exactly what the deadline is, what the response must accomplish, and what happens the moment you retain us. <a href="texas-medical-board.html">See the full TMB complaint process →</a></p>
+              </div></div>
             </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false"><span class="faq-q-text">How long does a TMB investigation take?</span><span class="faq-icon">+</span></button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>TMB investigations typically run <strong>6–18 months</strong> from complaint acceptance to ISC or SOAH referral. If the case reaches a formal SOAH hearing, total resolution can take 2–3 years from the original complaint.</p>
+                <p>The critical window is the first 30–60 days — the initial written response phase. This is when the most leverage exists to force a dismissal decision before the investigation builds momentum. <a href="texas-medical-board.html">Full TMB timeline →</a></p>
+              </div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false"><span class="faq-q-text">Can a TMB complaint be dismissed before a hearing?</span><span class="faq-icon">+</span></button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Yes. A well-constructed, evidence-anchored initial written response can force a dismissal decision before the case proceeds to an ISC or SOAH hearing. <strong>Dismissal before a hearing is always the goal.</strong> The Counter Protocol is specifically designed to achieve this.</p>
+                <p>Most attorneys file a passive acknowledgment and wait. We build a counter-record and force the board to make a decision. <a href="the-counter-protocol.html">Learn about The Counter Protocol →</a></p>
+              </div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false"><span class="faq-q-text">Will the TMB complaint affect my hospital privileges or NPDB record?</span><span class="faq-icon">+</span></button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Potentially yes — even before any resolution. A TMB complaint may trigger reporting obligations to the National Practitioner Data Bank, which hospitals and credentialing bodies routinely query. This can affect hospital privileges, insurer panels, and employment opportunities.</p>
+                <p><strong>Managing the NPDB implications simultaneously with the complaint defense is part of how we approach every case.</strong> It is never just about the complaint — it is about protecting the entire career record.</p>
+              </div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false"><span class="faq-q-text">What is an Informal Settlement Conference (ISC) and should I attend one?</span><span class="faq-icon">+</span></button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>An ISC is a pre-hearing negotiation where the TMB proposes a resolution — reprimands, probation, restrictions. <strong>ISC outcomes are binding if agreed to and are reported to the NPDB permanently.</strong></p>
+                <p>Many physicians accept ISC resolutions without realizing dismissal was still achievable at that stage. Never attend an ISC without experienced defense counsel. Once you sign, you cannot undo it. <a href="texas-medical-board.html">Stage 4 — ISC explained →</a></p>
+              </div></div>
+            </div>
+            <p class="faq-group-nudge">→ Received a TMB complaint? <a href="tel:9564263550">Call (956) 426-3550</a> immediately — the response window is fixed.</p>
           </div>
 
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              <span class="faq-q-text">What exactly does the $150 Strategy Session include?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>In 30 minutes, you receive four things:</p>
-              <p><strong>1. A frank assessment of your complaint</strong> — where it stands right now, what the board likely sees, and what your realistic exposure is based on the facts.</p>
-              <p><strong>2. A realistic range of outcomes</strong> — not a guarantee, not a pitch. An honest reading of the range of outcomes based on the board, the facts on record, and what defense is available to you.</p>
-              <p><strong>3. The Counter Protocol applied to your case</strong> — a clear explanation of how our parallel investigation and rebuttal strategy applies to your specific complaint, and what the path to dismissal looks like.</p>
-              <p><strong>4. Immediate actionable direction</strong> — you leave with a clear next step, whether you retain us or not. There is no "I'll follow up." You leave the session knowing exactly what to do.</p>
+          <!-- Group 2: Physician License Defense -->
+          <div class="faq-group reveal">
+            <div class="faq-group-label">Physician License Defense</div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false"><span class="faq-q-text">What is The Counter Protocol?</span><span class="faq-icon">+</span></button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>The Counter Protocol is our proprietary defense method — a parallel investigation and evidence-backed rebuttal strategy designed to achieve dismissal before a hearing is ever scheduled. Instead of waiting for the board to build its case, we build ours first.</p>
+                <p>Phase 1: Parallel investigation launched the day of retention. Phase 2: Evidence-anchored rebuttal built to force a dismissal decision. Phase 3: Hearing litigation if the board won't dismiss. <a href="the-counter-protocol.html">Full explanation →</a></p>
+              </div></div>
             </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false"><span class="faq-q-text">I already have an attorney. Can you take over my case?</span><span class="faq-icon">+</span></button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Yes. You have the right to change attorneys at any stage. This firm regularly accepts cases mid-stream from physicians whose representation has been passive, stalled, or simply failed to apply the right strategy.</p>
+                <p>We begin with a case audit — reviewing what has been done, what has been missed, and what the current posture of the matter is. We then tell you directly whether intervention can make a difference. <a href="physician-license-defense.html">Physician license defense →</a></p>
+              </div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false"><span class="faq-q-text">What does an employment dispute have to do with my TMB complaint?</span><span class="faq-icon">+</span></button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>More than most physicians realize. Hospital systems that terminate physicians frequently file — or encourage — a board complaint simultaneously. A peer review decision can trigger an NPDB report before any employment litigation concludes.</p>
+                <p><strong>The employment claim and the licensing exposure must be managed together — from day one.</strong> Most attorneys handle one or the other. We handle both. <a href="employment-law.html">Healthcare employment law →</a></p>
+              </div></div>
+            </div>
+            <p class="faq-group-nudge">→ Questions about your complaint? <a href="tel:9564263550">Call (956) 426-3550</a> or <a href="physician-license-defense.html">see our physician defense practice</a>.</p>
           </div>
 
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              <span class="faq-q-text">How do I book a Strategy Session?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>Two options. Book online at <a href="strategy-session.html">our booking page</a> — select your time, complete the $150 payment, and you'll receive a confirmation with a brief intake form. Or call us directly at <a href="tel:9564263550">(956) 426-3550</a>, Monday–Friday, 8AM–6PM CST.</p>
-              <p>Before the session, Octavia reviews the key facts of your complaint. You are not walking her through your case cold.</p>
+          <!-- Group 3: Midwife License Defense -->
+          <div class="faq-group reveal">
+            <div class="faq-group-label">Midwife License Defense</div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false"><span class="faq-q-text">How is a midwife complaint different from a physician complaint?</span><span class="faq-icon">+</span></button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Midwifery complaints carry unique vulnerabilities most attorneys don't understand. They are often politically motivated — filed by organized medicine interests opposing independent midwifery practice. A general attorney who reads the complaint as a clinical matter will miss the political agenda entirely.</p>
+                <p>Midwife complaints also carry immediate structural risks: collaborative agreements can be suspended, birth center operating permissions can be revoked, and NPDB reporting can affect practice before any hearing is concluded. <a href="midwife-license-defense.html">Midwife license defense →</a></p>
+              </div></div>
             </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false"><span class="faq-q-text">Does The Counter Protocol apply to midwife license defense?</span><span class="faq-icon">+</span></button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Yes. The same parallel investigation and evidence-backed rebuttal approach applies — adapted for the specific dynamics of midwifery complaints. We understand the Texas Midwifery Board's processes, the political context of most complaints, and how to structure a rebuttal that addresses the actual nature of the complaint, not just its surface clinical framing.</p>
+              </div></div>
+            </div>
+            <p class="faq-group-nudge">→ Facing a midwifery complaint? <a href="tel:9564263550">Call (956) 426-3550</a> or <a href="midwife-license-defense.html">see our midwife defense practice</a>.</p>
           </div>
+
+          <!-- Group 4: Strategy Sessions & Fees -->
+          <div class="faq-group reveal">
+            <div class="faq-group-label">Strategy Sessions &amp; Fees</div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false"><span class="faq-q-text">Do you offer free strategy sessions?</span><span class="faq-icon">+</span></button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>No. Our strategy sessions are paid — because high-quality legal analysis requires dedicated time and honest thinking. An unpaid consultation is structurally a sales call. <strong>A paid session changes that dynamic entirely.</strong> The attorney's obligation is to accuracy, not retention.</p>
+                <p>For a license defense matter, this matters especially: you need to know whether your response window has already closed, whether the board's narrative has already hardened, and what is still possible. That requires real analysis — not a pitch. <a href="strategy-session.html">Learn more about the strategy session →</a></p>
+              </div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false"><span class="faq-q-text">What does the strategy session cover for a license defense matter?</span><span class="faq-icon">+</span></button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>We review your specific complaint, your response timeline, and the current posture of your matter. You leave knowing: where you stand in the TMB process, what the path to dismissal looks like from your current position, what The Counter Protocol would look like applied to your specific facts, and what happens the moment you retain us.</p>
+                <p>If your matter falls outside our scope or if corrective action is no longer possible, we tell you directly. <a href="strategy-session.html">Book a strategy session →</a></p>
+              </div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false"><span class="faq-q-text">What should I bring to the strategy session?</span><span class="faq-icon">+</span></button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Bring the TMB complaint notice, any correspondence you've received from the board, any response already filed, and a timeline of relevant clinical events. If you have a current attorney, bring whatever filings and correspondence they have submitted.</p>
+                <p>You do not need everything organized. Come with what you have. We will work through the rest.</p>
+              </div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false"><span class="faq-q-text">How are fees structured after the strategy session?</span><span class="faq-icon">+</span></button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>License defense matters are handled on retainer, with the retainer amount set based on complexity and stage. We discuss fees directly during or immediately after the strategy session. You will know exactly what representation costs before making any commitment. The strategy session fee is credited in full toward your retainer if you proceed.</p>
+              </div></div>
+            </div>
+            <p class="faq-group-nudge">→ Ready to start? <a href="tel:9564263550">Call (956) 426-3550</a> or <a href="strategy-session.html">book a strategy session</a>.</p>
+          </div>
+
+          <!-- Group 5: How the Firm Operates -->
+          <div class="faq-group reveal">
+            <div class="faq-group-label">How the Firm Operates</div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false"><span class="faq-q-text">How quickly does work begin after I retain the firm?</span><span class="faq-icon">+</span></button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Immediately. Once a retainer agreement is signed and funded, work starts the same day. There is no intake queue, no onboarding period, no junior associate review. For urgent matters — active complaint notices with imminent response deadlines — urgency is communicated at the session and addressed the same day.</p>
+              </div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false"><span class="faq-q-text">Who actually works on my case?</span><span class="faq-icon">+</span></button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Octavia LaVon Martinez works your case directly — from the strategy session through resolution. This is a boutique firm with a single founding attorney. There are no junior associates, no handoffs, no institutional bureaucracy. When you retain this firm, you retain Octavia.</p>
+              </div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false"><span class="faq-q-text">Is the firm fully virtual — do I need to come to an office?</span><span class="faq-icon">+</span></button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Fully virtual. No office visit required at any stage. Strategy sessions are conducted remotely, documents are exchanged electronically, and all communication is handled by phone and email. This allows the firm to serve physicians and licensed professionals across all of Texas without geographic restriction.</p>
+              </div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false"><span class="faq-q-text">Does the firm have conflicts with local institutions or hospital systems?</span><span class="faq-icon">+</span></button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>No. This firm operates independently — no referral networks, no institutional affiliations, no relationships that create conflicts of interest. We can take on opposing counsel, hospital systems, and institutional defendants that other firms might be reluctant to challenge. <strong>That independence is intentional.</strong></p>
+              </div></div>
+            </div>
+            <p class="faq-group-nudge">→ Questions about how we work? <a href="tel:9564263550">Call (956) 426-3550</a> or <a href="about.html">learn more about this firm</a>.</p>
+          </div>
+
+          <!-- Group 6: Corrective Counsel -->
+          <div class="faq-group reveal">
+            <div class="faq-group-label">Corrective Counsel</div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false"><span class="faq-q-text">What are the warning signs that my current attorney is handling my case passively?</span><span class="faq-icon">+</span></button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Three consistent patterns: <strong>months of billing with no visible counter-evidence filed</strong> — your attorney is reacting to the board rather than building against it. <strong>Your attorney is reading the complaint as a clinical matter</strong> — missing the political or institutional motivation behind it. <strong>No one is acting with urgency</strong> — acknowledgment letters, requests for extensions, and waiting are not a defense strategy.</p>
+                <p>Every passive month is time the board used to build its record against you. <a href="physician-license-defense.html">See the corrective counsel section →</a></p>
+              </div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false"><span class="faq-q-text">Is it too late to change attorneys mid-process?</span><span class="faq-icon">+</span></button>
+              <div class="faq-answer"><div class="faq-answer__inner">
+                <p>Not necessarily. You have the right to change attorneys at any stage. The first step is a case audit — we review what has been done, what has been missed, and what the current posture of the matter is. We then tell you directly whether intervention can make a difference and what corrective action looks like from your current position.</p>
+                <p>Options narrow at every stage. The earlier you move, the more can be done.</p>
+              </div></div>
+            </div>
+            <p class="faq-group-nudge">→ Concerned about your current representation? <a href="tel:9564263550">Call (956) 426-3550</a> — the earlier we intervene, the more options remain.</p>
+          </div>
+
         </div>
 
-        <!-- CATEGORY: HOW THE FIRM OPERATES -->
-        <div class="faq-category reveal">
-          <div class="faq-category__label">How This Firm Operates</div>
-
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              <span class="faq-q-text">Do you serve physicians outside the Rio Grande Valley?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>Yes. This is a fully virtual firm. We serve licensed medical professionals across all of Texas — Houston, Dallas, San Antonio, Austin, El Paso, Lubbock, and every market in between — with no office visit required. The virtual structure eliminates travel and allows us to move faster.</p>
-              <p>We are also licensed in Arizona and can advise on Arizona Medical Board matters.</p>
-            </div>
+        <!-- Sidebar -->
+        <div class="faq-sidebar reveal">
+          <div class="faq-sidebar-card">
+            <h3>Can't find your answer?</h3>
+            <p>The fastest answer is a direct conversation — applied to your specific complaint and credential.</p>
+            <p><a href="tel:9564263550">(956) 426-3550</a><br>Mon–Fri · 8AM–6PM CST</p>
           </div>
-
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              <span class="faq-q-text">How is the retainer structured?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>This firm operates on a replenishing retainer model — you fund a retainer up front, work is billed against it at an hourly rate, and the retainer is replenished as it draws down. The Strategy Session fee is credited in full toward the retainer if you proceed.</p>
-              <p>We discuss fee structure directly in the Strategy Session. We are transparent about costs from the first conversation — surprise billing is not how this firm operates.</p>
-            </div>
+          <div class="faq-sidebar-card">
+            <h3>What We Defend</h3>
+            <p>Texas Medical Board complaints · Midwife license defense · Hospital privilege disputes · Healthcare employment law · NPDB matters</p>
           </div>
-
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              <span class="faq-q-text">How quickly do you move after retention?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-answer">
-              <p><strong>Immediately.</strong> There is no intake queue. There is no onboarding delay. The Counter Protocol activates the day you retain us. The parallel investigation begins the same day.</p>
-              <p>This is not a marketing promise — it is a structural commitment. The entire firm model is built around moving before the board sets a narrative you'll spend years fighting.</p>
-            </div>
+          <div class="faq-sidebar-card">
+            <h3>The Method</h3>
+            <p>The Counter Protocol — parallel investigation + evidence-backed rebuttal. Goal: dismissal before a hearing is ever scheduled.</p>
+            <p><a href="the-counter-protocol.html">How it works →</a></p>
           </div>
-
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              <span class="faq-q-text">Will my review or case details be kept discreet?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>Completely. We understand that for physicians and licensed medical professionals, even the existence of a board complaint — regardless of outcome — carries professional and reputational risk. <strong>All client communications, case details, and any public-facing material (such as testimonials) are handled with full confidentiality.</strong></p>
-              <p>If you provide a review or testimonial, we display it with initials only, and only with your explicit permission. We never disclose client identity, case details, or outcomes without direct authorization.</p>
-            </div>
+          <div class="faq-sidebar-cta">
+            <h3>The board has already started.</h3>
+            <p>Book a strategy session — we apply The Counter Protocol to your specific complaint.</p>
+            <a href="tel:9564263550" class="btn btn--primary" style="display:block;text-align:center;margin-bottom:12px;">Call (956) 426-3550</a>
+            <a href="strategy-session.html" style="display:block;font-family:var(--ff-serif);font-size:17px;color:var(--accent-lite);text-decoration:none;text-align:center;">Book a Strategy Session →</a>
           </div>
         </div>
-
-        <!-- CATEGORY: THE COMPLAINT PROCESS -->
-        <div class="faq-category reveal">
-          <div class="faq-category__label">The Complaint &amp; Defense Process</div>
-
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              <span class="faq-q-text">When should I hire a license defense attorney?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-answer">
-              <p><strong>The day you receive notification of a complaint or investigation.</strong> Not after you've read it a few times. Not after you've "decided what to do." The moment you become aware.</p>
-              <p>The initial written response to the board is the most critical document in your defense — and the board moves on its own timeline, not yours. Every day without a defense strategy is a day the board builds its record unopposed.</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              <span class="faq-q-text">What if my case is already at the hearing stage?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>We can still help. If your case has progressed to the hearing stage — or if you are already in a hearing with passive representation — we conduct a full case audit, identify where the strategy is failing, and move immediately to rectify it.</p>
-              <p>We frequently inherit cases from attorneys who have allowed the board to control the narrative. The record cannot always be fully repaired, but it can be fought aggressively from wherever it currently stands. Book a Strategy Session and we will give you an honest read on where you are and what is still possible.</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              <span class="faq-q-text">My current attorney isn't communicating. Can you take over?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>Yes. We regularly accept cases mid-process from attorneys who have gone passive, missed communications, or allowed the opposition to seize momentum. We call this corrective counsel.</p>
-              <p>We conduct a full audit of your case, identify where strategy is failing, and move immediately. <strong>Do not let a passive attorney cost you your license.</strong> Book a Strategy Session and we will assess what is salvageable and how to proceed.</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              <span class="faq-q-text">Does The Counter Protocol work if the complaint seems minor?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>There is no such thing as a minor board complaint. The board does not file investigations on minor concerns. By the time you receive notice, an investigative process has already begun.</p>
-              <p>That said, <strong>complaints that appear minor at filing are the ones most commonly dismissed quickly with an aggressive, evidence-anchored rebuttal</strong> — because the factual record needed to dismantle them is often straightforward. The Counter Protocol is most effective precisely in these situations, when the right response filed at the right time can close the matter before it escalates.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- CATEGORY: PRIVACY -->
-        <div class="faq-category reveal">
-          <div class="faq-category__label">Practice Scope</div>
-
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              <span class="faq-q-text">What types of license complaints do you handle?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>Medical license defense is the primary focus of this firm. We defend physicians, Certified Nurse Midwives, nurse practitioners, pharmacists, and allied health professionals facing Texas state board complaints and investigations.</p>
-              <p>We are also licensed in Arizona and can advise on Arizona Medical Board matters. For other practice areas previously listed on our site — probate, defamation, civil litigation — please contact us to discuss whether your matter falls within our current scope.</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              <span class="faq-q-text">Do you handle divorce or criminal defense?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>No. This firm is focused on medical license defense. We do not practice family law, criminal defense, landlord-tenant, or workers' compensation matters. If your situation falls into one of those areas, we will tell you so directly in the Strategy Session and you will receive a full refund of the session fee.</p>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
   <section class="section faq-cta">
     <div class="container">
       <div class="reveal">
         <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:14px;">Still Have Questions?</div>
-        <h2>The fastest answer is a conversation.</h2>
-        <p>Book a Strategy Session and we'll address your specific situation directly — no varnish, no sales pitch.</p>
-        <div class="faq-cta__ctas">
-          <a href="strategy-session.html" class="btn btn--primary">Book Your Strategy Session</a>
-          <a href="tel:9564263550" class="btn btn--outline">Call (956) 426-3550</a>
+        <h2>The fastest answer is a direct conversation.</h2>
+        <p>The strategy session addresses your situation specifically — not a general overview of the law. You leave with a frank read on where your case stands and what happens next.</p>
+        <div class="faq-cta__btns">
+          <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+          <a href="strategy-session.html" class="btn btn--outline">Book a Strategy Session</a>
         </div>
       </div>
     </div>
   </section>
 
+  <div id="site-footer"></div>
   <script src="../js/medical-nav.js" defer></script>
   <script>
-    // FAQ accordion
-    document.querySelectorAll('.faq-question').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.closest('.faq-item');
-        const isOpen = item.classList.contains('open');
-        // close all
-        document.querySelectorAll('.faq-item.open').forEach(el => {
-          el.classList.remove('open');
-          el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-        });
-        // toggle clicked
-        if (!isOpen) {
-          item.classList.add('open');
-          btn.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
+  (function(){'use strict';
+  document.querySelectorAll('.faq-question').forEach(function(btn){btn.addEventListener('click',function(){var item=btn.closest('.faq-item');var isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(function(el){el.classList.remove('open');el.querySelector('.faq-question').setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('open');btn.setAttribute('aria-expanded','true');}});});})();
   </script>
-  <div id="site-footer"></div>
+  <script>
+  (function(){'use strict';function luxSplitWords(el,bd,wg,fy,ba){fy=fy!==undefined?fy:14;ba=ba!==undefined?ba:5;wg=wg!==undefined?wg:0.09;function pN(p,c){Array.from(p.childNodes).forEach(function(n){if(n.nodeType===Node.TEXT_NODE){n.textContent.split(/\s+/).filter(Boolean).forEach(function(w){var s=document.createElement('span');s.className='lux-word';s.textContent=w;c.appendChild(s);c.appendChild(document.createTextNode(' '));});}else if(n.nodeName==='BR'){c.appendChild(document.createElement('br'));}else if(n.nodeName==='EM'||n.nodeName==='STRONG'){var wr=document.createElement('span');wr.className='lux-word lux-word--em';var t=document.createElement(n.nodeName.toLowerCase());t.innerHTML=n.innerHTML;wr.appendChild(t);c.appendChild(wr);c.appendChild(document.createTextNode(' '));}else if(n.nodeName==='A'){var cl=n.cloneNode(false);pN(n,cl);c.appendChild(cl);}else{c.appendChild(n.cloneNode(true));}});}var f=document.createDocumentFragment();pN(el,f);el.innerHTML='';el.appendChild(f);var ws=el.querySelectorAll('.lux-word');ws.forEach(function(w,i){w.style.opacity='0';w.style.filter='blur('+ba+'px)';w.style.transform='translateY('+fy+'px)';w.style.display='inline-block';var d=bd+i*wg;w.style.transition='opacity 1.05s cubic-bezier(0.25,0.46,0.45,0.94) '+d+'s,transform 1.15s cubic-bezier(0.16,1,0.3,1) '+d+'s,filter 1.0s cubic-bezier(0.25,0.46,0.45,0.94) '+d+'s';});return ws;}
+  function luxRW(ws){requestAnimationFrame(function(){requestAnimationFrame(function(){ws.forEach(function(w){w.style.opacity='1';w.style.transform='translateY(0)';w.style.filter='blur(0px)';});});});}
+  function luxRE(el,d,fx){el.style.opacity='0';el.style.filter='blur(5px)';el.style.transform=fx?'translateX('+fx+'px)':'translateY(14px)';el.style.transition='opacity 1.1s cubic-bezier(0.25,0.46,0.45,0.94) '+d+'s,transform 1.2s cubic-bezier(0.16,1,0.3,1) '+d+'s,filter 1.0s cubic-bezier(0.25,0.46,0.45,0.94) '+d+'s';requestAnimationFrame(function(){requestAnimationFrame(function(){el.style.opacity='1';el.style.transform='none';el.style.filter='blur(0px)';});});}
+  document.addEventListener('DOMContentLoaded',function(){var hero=document.querySelector('.faq-hero');if(!hero)return;var kicker=hero.querySelector('.faq-hero__kicker-text');var h1=hero.querySelector('h1');var sub=hero.querySelector('.faq-hero__sub');var ctas=hero.querySelector('.faq-hero__ctas');var right=hero.querySelector('.faq-hero__right');if(kicker){var kw=luxSplitWords(kicker,0.1,0.06,8,3);luxRW(kw);}if(h1){var hw=luxSplitWords(h1,0.25,0.09,18,7);luxRW(hw);}if(sub){var sw=luxSplitWords(sub,0.65,0.04,10,4);luxRW(sw);}if(ctas)luxRE(ctas,0.9,0);if(right)luxRE(right,0.3,24);});
+  var ri=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(!entry.isIntersecting)return;var el=entry.target;ri.unobserve(el);var h2s=el.matches('h2')?[el]:Array.from(el.querySelectorAll('h2'));var h3s=el.matches('h3')?[el]:Array.from(el.querySelectorAll('h3'));var eybs=el.classList.contains('eyebrow')?[el]:Array.from(el.querySelectorAll('.eyebrow'));var pars=el.matches('p')?[el]:Array.from(el.querySelectorAll('p'));var cur=0;eybs.forEach(function(e){var w=luxSplitWords(e,cur,0.07,10,3);luxRW(w);cur+=0.05;});h2s.forEach(function(h){var w=luxSplitWords(h,cur,0.09,16,6);luxRW(w);cur+=w.length*0.09+0.05;});h3s.forEach(function(h){var w=luxSplitWords(h,cur,0.08,14,5);luxRW(w);cur+=w.length*0.08+0.04;});pars.forEach(function(p){var w=luxSplitWords(p,cur,0.034,10,4);luxRW(w);cur+=0.11;});var hasText=h2s.length||h3s.length||eybs.length||pars.length;if(!hasText){el.style.opacity='0';el.style.filter='blur(6px)';el.style.transform='translateY(20px)';el.style.transition='opacity 1.1s 0s,transform 1.2s cubic-bezier(0.16,1,0.3,1) 0s,filter 1.0s 0s';requestAnimationFrame(function(){requestAnimationFrame(function(){el.style.opacity='1';el.style.transform='none';el.style.filter='blur(0px)';});});}el.classList.add('visible');});},{threshold:0.07,rootMargin:'0px 0px -20px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ri.observe(el);});
+  })();
+  </script>
 </body>
 </html>
