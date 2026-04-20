@@ -84,8 +84,6 @@
     }
     .pld-hero__left {
       min-width: 0;
-      word-break: normal;
-      overflow-wrap: break-word;
     }
     .pld-hero__kicker {
       display: flex; align-items: center; gap: 14px;
@@ -99,12 +97,12 @@
       color: var(--accent);
     }
     .pld-hero h1 {
-      font-size: clamp(34px, 4.2vw, 58px);
+      font-size: clamp(24px, 2.6vw, 38px);
       color: var(--bg);
-      line-height: 1.06;
-      letter-spacing: -0.025em;
-      margin-bottom: 14px;
-      padding-right: 24px;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      /* No padding-right needed — em line handled separately */
     }
     @media (max-width: 768px) {
       .pld-hero h1 br { display: none; }
@@ -113,7 +111,8 @@
     .pld-hero h1 em {
       display: block;
       font-style: italic;
-      font-size: 1.05em;
+      font-size: 1em;
+      padding-right: 20px; /* room for italic ? overhang */
       background: linear-gradient(90deg, var(--accent-lite), var(--accent), var(--accent-lite));
       background-size: 200% auto;
       -webkit-background-clip: text;
