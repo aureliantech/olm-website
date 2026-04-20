@@ -1874,274 +1874,230 @@
       .pld-complaints.complaints-entered .pld-complaint-row { animation: none; }
       .pld-complaint-row__body { max-height: 150px; opacity: 1; padding-bottom: 16px; }
     }
-    /* ── CORRECTIVE COUNSEL — diagnostic, world-class ─────── */
-    @keyframes diagRowIn {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
+    /* ── CORRECTIVE — dark split with image, world-class ─────── */
+    @keyframes corrRowIn {
+      from { opacity: 0; transform: translateX(-20px); }
+      to   { opacity: 1; transform: translateX(0); }
     }
-    @keyframes ruleDrawIn {
-      from { transform: scaleX(0); }
-      to   { transform: scaleX(1); }
+    @keyframes kBurns {
+      from { transform: scale(1.06); }
+      to   { transform: scale(1.0); }
     }
 
     .pld-corrective {
-      background: var(--surface);
+      background: var(--dark);
       min-height: 100svh;
       display: flex;
-      align-items: center;
+      align-items: stretch;
       position: relative;
       overflow: hidden;
     }
-    .pld-corrective.section {
-      padding: clamp(56px, 7vw, 88px) clamp(40px, 6vw, 100px);
+    .pld-corrective.section { padding: 0; }
+
+    .pld-corrective__layout {
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      width: 100%;
+      min-height: 100svh;
     }
 
-    /* Subtle background texture — faint ruled lines like a legal pad */
-    .pld-corrective::before {
+    /* ── LEFT ── */
+    .pld-corrective__left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(56px,7vw,88px) clamp(48px,6vw,96px) clamp(56px,7vw,88px) clamp(40px,6vw,100px);
+      position: relative; z-index: 1;
+    }
+
+    /* Subtle ruled lines */
+    .pld-corrective__left::before {
       content: '';
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background-image: repeating-linear-gradient(
-        to bottom,
-        transparent,
-        transparent 47px,
-        rgba(232,114,42,0.04) 47px,
-        rgba(232,114,42,0.04) 48px
+        to bottom, transparent, transparent 55px,
+        rgba(232,114,42,0.04) 55px, rgba(232,114,42,0.04) 56px
       );
       pointer-events: none;
-      z-index: 0;
     }
 
-    .pld-corrective__inner {
-      width: 100%;
-      position: relative;
-      z-index: 1;
+    .pld-corrective__eyebrow {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 14px;
+      position: relative; z-index: 1;
     }
-
-    /* ── HEADER ── */
-    .pld-corrective__header {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(32px, 5vw, 80px);
-      align-items: end;
-      margin-bottom: 0;
-      padding-bottom: clamp(28px, 3vw, 40px);
-    }
-
     .pld-corrective__headline {
       font-family: var(--ff-serif);
-      font-size: clamp(26px, 2.8vw, 40px);
-      color: var(--dark);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
+      font-size: clamp(26px,2.8vw,40px);
+      color: var(--bg);
+      line-height: 1.1; letter-spacing: -0.02em;
+      margin-bottom: 10px;
+      position: relative; z-index: 1;
     }
     .pld-corrective__headline em {
       font-style: italic;
       background: linear-gradient(90deg, var(--accent-lite), var(--accent), var(--accent-lite));
       background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
       animation: shimmerText 4s linear 2s infinite;
     }
-
     .pld-corrective__intro {
-      font-size: 16px;
-      color: var(--mid);
-      line-height: 1.75;
+      font-size: 15px; color: rgba(250,246,240,0.65);
+      line-height: 1.7; margin-bottom: 36px;
+      position: relative; z-index: 1;
     }
 
-    /* Rule that draws in on scroll */
-    .pld-corrective__rule {
-      height: 1px;
-      background: var(--border);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s;
-      margin-bottom: clamp(28px, 3.5vw, 48px);
-    }
-    .pld-corrective.corr-entered .pld-corrective__rule {
-      transform: scaleX(1);
-    }
-
-    /* ── DIAGNOSTIC ROWS ── */
+    /* Diagnostic rows */
     .pld-corrective__rows {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: clamp(32px, 4vw, 52px);
+      border-top: 1px solid rgba(201,184,154,0.1);
+      position: relative; z-index: 1;
+      margin-bottom: 36px;
     }
-
     .pld-corrective__row {
       display: grid;
-      grid-template-columns: 64px 1fr 1fr;
-      gap: 0 clamp(24px, 3vw, 48px);
-      align-items: start;
-      padding: clamp(20px, 2.5vw, 28px) 0;
-      border-bottom: 1px solid var(--border);
-      position: relative;
+      grid-template-columns: 56px 1fr;
+      gap: 0;
+      border-bottom: 1px solid rgba(201,184,154,0.1);
       cursor: default;
+      position: relative;
+      overflow: hidden;
       opacity: 0;
-      transform: translateY(24px);
+      transform: translateX(-20px);
     }
-    .pld-corrective__row:first-child {
-      border-top: 1px solid var(--border);
-    }
-
-    /* Stagger entry */
-    .pld-corrective.corr-entered .pld-corrective__row:nth-child(1) {
-      animation: diagRowIn 0.65s cubic-bezier(0.16,1,0.3,1) 0.15s forwards;
-    }
-    .pld-corrective.corr-entered .pld-corrective__row:nth-child(2) {
-      animation: diagRowIn 0.65s cubic-bezier(0.16,1,0.3,1) 0.28s forwards;
-    }
-    .pld-corrective.corr-entered .pld-corrective__row:nth-child(3) {
-      animation: diagRowIn 0.65s cubic-bezier(0.16,1,0.3,1) 0.41s forwards;
-    }
-
-    /* Hover state — warm wash + accent bar */
+    /* Accent bar draws across top on hover */
     .pld-corrective__row::before {
       content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 0;
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 1px;
       background: var(--accent);
-      transition: width 0.35s cubic-bezier(0.16,1,0.3,1);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.45s cubic-bezier(0.16,1,0.3,1);
     }
-    .pld-corrective__row:hover::before { width: 3px; }
-    .pld-corrective__row:hover {
-      background: rgba(232,114,42,0.025);
-    }
+    .pld-corrective__row:hover::before { transform: scaleX(1); }
+    .pld-corrective__row:hover { background: rgba(232,114,42,0.04); }
 
-    /* Number */
+    /* Stagger entry */
+    .pld-corrective.corr-entered .pld-corrective__row:nth-child(1) { animation: corrRowIn 0.6s cubic-bezier(0.16,1,0.3,1) 0.15s forwards; }
+    .pld-corrective.corr-entered .pld-corrective__row:nth-child(2) { animation: corrRowIn 0.6s cubic-bezier(0.16,1,0.3,1) 0.27s forwards; }
+    .pld-corrective.corr-entered .pld-corrective__row:nth-child(3) { animation: corrRowIn 0.6s cubic-bezier(0.16,1,0.3,1) 0.39s forwards; }
+
     .pld-corrective__row-num {
       font-family: var(--ff-serif);
-      font-size: clamp(36px, 4vw, 56px);
-      color: rgba(232,114,42,0.18);
-      line-height: 1;
-      letter-spacing: -0.04em;
-      transition: color 0.3s ease;
-      padding-top: 4px;
+      font-size: clamp(32px,3.5vw,48px);
+      color: rgba(232,114,42,0.15);
+      line-height: 1; letter-spacing: -0.04em;
+      padding: 22px 0 22px;
+      transition: color 0.3s;
     }
-    .pld-corrective__row:hover .pld-corrective__row-num {
-      color: rgba(232,114,42,0.5);
-    }
+    .pld-corrective__row:hover .pld-corrective__row-num { color: rgba(232,114,42,0.45); }
 
-    /* Left content: signal label + title */
-    .pld-corrective__row-left {}
+    .pld-corrective__row-body { padding: 22px 0; }
     .pld-corrective__row-signal {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      display: flex; align-items: center; gap: 8px;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 6px;
     }
     .pld-corrective__row-signal::before {
       content: '';
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      flex-shrink: 0;
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--accent); flex-shrink: 0;
       animation: warnPulse 2.5s ease-in-out infinite;
     }
     .pld-corrective__row-title {
       font-family: var(--ff-serif);
-      font-size: clamp(18px, 1.8vw, 24px);
-      color: var(--dark);
-      line-height: 1.2;
-      letter-spacing: -0.01em;
+      font-size: clamp(17px,1.6vw,22px);
+      color: rgba(250,246,240,0.95);
+      line-height: 1.25; margin-bottom: 0;
     }
-
-    /* Right content: description */
     .pld-corrective__row-desc {
-      font-size: 15px;
-      color: var(--mid);
-      line-height: 1.75;
-      padding-top: 6px;
+      font-size: 14px; color: rgba(250,246,240,0.6);
+      line-height: 1.65;
+      max-height: 0; overflow: hidden; opacity: 0; margin-top: 0;
+      transition: max-height 0.45s cubic-bezier(0.16,1,0.3,1),
+                  opacity 0.35s ease 0.06s, margin-top 0.35s ease;
+    }
+    .pld-corrective__row:hover .pld-corrective__row-desc {
+      max-height: 100px; opacity: 1; margin-top: 8px;
     }
 
-    /* ── CTA BLOCK ── */
-    .pld-corrective__cta-block {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(24px, 3vw, 48px);
-      align-items: center;
-      opacity: 0;
-      transform: translateY(16px);
+    /* CTA block */
+    .pld-corrective__cta {
+      display: flex; gap: 14px; flex-wrap: wrap;
+      position: relative; z-index: 1;
+      opacity: 0; transform: translateY(12px);
       transition: opacity 0.6s ease 0.5s, transform 0.6s cubic-bezier(0.16,1,0.3,1) 0.5s;
     }
-    .pld-corrective.corr-entered .pld-corrective__cta-block {
-      opacity: 1;
-      transform: translateY(0);
+    .pld-corrective.corr-entered .pld-corrective__cta { opacity: 1; transform: translateY(0); }
+    .pld-corrective__transfer {
+      font-size: 14px; color: rgba(250,246,240,0.55);
+      display: flex; align-items: center;
+    }
+    .pld-corrective__transfer a {
+      color: var(--accent-lite); text-decoration: none;
+      border-bottom: 1px solid rgba(232,114,42,0.3); padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s; margin-left: 6px;
+    }
+    .pld-corrective__transfer a:hover { color: #fff; border-color: var(--accent); }
+
+    /* ── RIGHT: image panel ── */
+    .pld-corrective__right {
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
+      opacity: 0;
+      transition: opacity 0.8s ease 0.1s;
+    }
+    .pld-corrective.corr-entered .pld-corrective__right { opacity: 1; }
+
+    .pld-corrective__img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      display: block;
+      animation: kBurns 12s ease-out forwards;
+      filter: grayscale(30%) contrast(1.1);
     }
 
-    .pld-corrective__cta-left {}
-    .pld-corrective__cta-urgency {
-      font-size: 15px;
-      color: var(--dark);
-      font-weight: 600;
-      line-height: 1.55;
-      margin-bottom: 20px;
-    }
-    .pld-corrective__cta-urgency em {
-      font-style: normal;
-      color: var(--accent);
-    }
-    .pld-corrective__cta-btns {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
+    /* Dark gradient overlay over image */
+    .pld-corrective__img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(10,7,16,0.7) 0%,
+        rgba(10,7,16,0.3) 40%,
+        rgba(10,7,16,0.1) 100%
+      );
     }
 
-    .pld-corrective__cta-right {
-      border-left: 1px solid var(--border);
-      padding-left: clamp(24px, 3vw, 48px);
+    /* Quote sits over image */
+    .pld-corrective__quote {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: clamp(28px,4vw,48px);
+      background: linear-gradient(to top, rgba(10,7,16,0.95) 0%, rgba(10,7,16,0.6) 60%, transparent 100%);
     }
-    .pld-corrective__cta-note {
+    .pld-corrective__quote-text {
       font-family: var(--ff-serif);
-      font-size: clamp(18px, 1.8vw, 24px);
-      color: var(--dark);
-      line-height: 1.4;
-      font-style: italic;
+      font-size: clamp(18px,1.8vw,24px);
+      color: rgba(250,246,240,0.9);
+      line-height: 1.45; font-style: italic;
       margin-bottom: 12px;
     }
-    .pld-corrective__cta-sub {
-      font-size: 14px;
-      color: var(--mid);
-      line-height: 1.6;
-    }
-    .pld-corrective__cta-sub a {
+    .pld-corrective__quote-attr {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
       color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-      border-bottom: 1px solid rgba(232,114,42,0.3);
-      padding-bottom: 1px;
-      transition: border-color 0.2s;
-    }
-    .pld-corrective__cta-sub a:hover { border-color: var(--accent); }
-
-    /* Scroll entry for header */
-    .pld-corrective__header {
-      opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.16,1,0.3,1);
-    }
-    .pld-corrective.corr-entered .pld-corrective__header {
-      opacity: 1;
-      transform: translateY(0);
     }
 
-    @media (max-width: 900px) {
+    @media (max-width:900px) {
       .pld-corrective { min-height: auto; }
-      .pld-corrective__header { grid-template-columns: 1fr; opacity: 1; transform: none; }
-      .pld-corrective__row { grid-template-columns: 48px 1fr; opacity: 1; transform: none; }
-      .pld-corrective__row-desc { grid-column: 2; }
+      .pld-corrective__layout { grid-template-columns: 1fr; }
+      .pld-corrective__right { min-height: 300px; }
+      .pld-corrective__row { opacity: 1; transform: none; }
       .pld-corrective.corr-entered .pld-corrective__row { animation: none; }
-      .pld-corrective__cta-block { grid-template-columns: 1fr; opacity: 1; transform: none; }
-      .pld-corrective__cta-right { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 24px; }
+      .pld-corrective__cta { opacity: 1; transform: none; }
+      .pld-corrective__right { opacity: 1; }
     }
     /* ── FINAL CTA ──────────────────────────────────────────── */
     .pld-final-cta {
@@ -2741,78 +2697,79 @@
   </section>
 
     <!-- ═══════════════════════════════════════════════════════════
-       CORRECTIVE COUNSEL — diagnostic masterpiece
+       CORRECTIVE COUNSEL — dark split masterpiece
   ════════════════════════════════════════════════════════════ -->
   <section class="section pld-corrective" aria-labelledby="corrective-h2" id="correctiveSection">
-    <div class="pld-corrective__inner">
+    <div class="pld-corrective__layout">
 
-      <!-- Header -->
-      <div class="pld-corrective__header">
-        <div>
-          <div class="eyebrow" style="margin-bottom:14px;">If You Already Have an Attorney</div>
-          <div class="rule"></div>
-          <h2 id="corrective-h2" class="pld-corrective__headline">The wrong defense posture is <em>worse than no defense at all.</em></h2>
-        </div>
+      <!-- LEFT: diagnostic content -->
+      <div class="pld-corrective__left">
+
+        <div class="pld-corrective__eyebrow">If You Already Have an Attorney</div>
+        <div class="rule"></div>
+        <h2 id="corrective-h2" class="pld-corrective__headline">The wrong defense posture is <em>worse than no defense at all.</em></h2>
         <p class="pld-corrective__intro">A passive attorney gives the board months of unopposed record-building time. That time cannot be recovered. If any of the following describes your situation, a case transfer may be warranted.</p>
+
+        <div class="pld-corrective__rows">
+
+          <div class="pld-corrective__row">
+            <div class="pld-corrective__row-num" aria-hidden="true">01</div>
+            <div class="pld-corrective__row-body">
+              <div class="pld-corrective__row-signal">Warning Signal</div>
+              <div class="pld-corrective__row-title">Your attorney has gone silent.</div>
+              <p class="pld-corrective__row-desc">Weeks pass with no updates. In a board proceeding, silence is not neutral — the board is building its record while nothing moves on your side.</p>
+            </div>
+          </div>
+
+          <div class="pld-corrective__row">
+            <div class="pld-corrective__row-num" aria-hidden="true">02</div>
+            <div class="pld-corrective__row-body">
+              <div class="pld-corrective__row-signal">Warning Signal</div>
+              <div class="pld-corrective__row-title">You're being pushed toward an ISC resolution.</div>
+              <p class="pld-corrective__row-desc">You have not been told whether dismissal was still achievable — or what the NPDB filing will mean permanently. ISC resolutions cannot be undone.</p>
+            </div>
+          </div>
+
+          <div class="pld-corrective__row">
+            <div class="pld-corrective__row-num" aria-hidden="true">03</div>
+            <div class="pld-corrective__row-body">
+              <div class="pld-corrective__row-signal">Warning Signal</div>
+              <div class="pld-corrective__row-title">The initial response contained no counter-evidence.</div>
+              <p class="pld-corrective__row-desc">If your response acknowledged the complaint and requested time without building a counter-record — the board has had unopposed time to solidify its narrative. That window may not be fully closed.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="pld-corrective__cta">
+          <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+          <a href="strategy-session.html" class="btn btn--outline" style="border-color:rgba(201,184,154,0.3);color:rgba(250,246,240,0.85);">Book a Strategy Session</a>
+        </div>
+        <div class="pld-corrective__transfer" style="margin-top:14px;">
+          Need to switch attorneys?<a href="transfer-your-case.html">Transfer your case →</a>
+        </div>
+
       </div>
 
-      <!-- Rule draws in on scroll -->
-      <div class="pld-corrective__rule" aria-hidden="true"></div>
-
-      <!-- Three diagnostic rows -->
-      <div class="pld-corrective__rows">
-
-        <div class="pld-corrective__row">
-          <div class="pld-corrective__row-num" aria-hidden="true">01</div>
-          <div class="pld-corrective__row-left">
-            <div class="pld-corrective__row-signal">Warning Signal</div>
-            <div class="pld-corrective__row-title">Your attorney has gone silent.</div>
-          </div>
-          <p class="pld-corrective__row-desc">Weeks pass with no updates. You are not sure what, if anything, is being done on your case. In a board proceeding, silence is not neutral — the board is building its record while nothing moves on your side.</p>
-        </div>
-
-        <div class="pld-corrective__row">
-          <div class="pld-corrective__row-num" aria-hidden="true">02</div>
-          <div class="pld-corrective__row-left">
-            <div class="pld-corrective__row-signal">Warning Signal</div>
-            <div class="pld-corrective__row-title">You're being pushed toward an ISC resolution.</div>
-          </div>
-          <p class="pld-corrective__row-desc">You have not been told whether dismissal was still achievable — or what the NPDB filing will mean permanently. ISC resolutions cannot be undone. You should know what you are giving up before you sign anything.</p>
-        </div>
-
-        <div class="pld-corrective__row">
-          <div class="pld-corrective__row-num" aria-hidden="true">03</div>
-          <div class="pld-corrective__row-left">
-            <div class="pld-corrective__row-signal">Warning Signal</div>
-            <div class="pld-corrective__row-title">The initial response contained no counter-evidence.</div>
-          </div>
-          <p class="pld-corrective__row-desc">If your initial written response acknowledged the complaint and requested time — without building a counter-record — the board has had unopposed time to solidify its narrative. That window is narrow but may not be fully closed.</p>
-        </div>
-
-      </div>
-
-      <!-- CTA block -->
-      <div class="pld-corrective__cta-block">
-        <div class="pld-corrective__cta-left">
-          <p class="pld-corrective__cta-urgency">We conduct a forensic audit of where your case stands — and tell you <em>directly</em> what is still recoverable. Work begins the same day.</p>
-          <div class="pld-corrective__cta-btns">
-            <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
-            <a href="strategy-session.html" class="btn btn--outline">Book a Strategy Session</a>
-          </div>
-        </div>
-        <div class="pld-corrective__cta-right">
-          <p class="pld-corrective__cta-note">"The wrong defense posture is worse than no defense at all."</p>
-          <p class="pld-corrective__cta-sub">Need to switch attorneys? <a href="transfer-your-case.html">Transfer your case →</a></p>
+      <!-- RIGHT: atmospheric image with quote -->
+      <div class="pld-corrective__right">
+        <img
+          src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=960&q=80&fit=crop&auto=format"
+          alt="Legal hearing room"
+          class="pld-corrective__img"
+          loading="lazy"
+        />
+        <div class="pld-corrective__img-overlay" aria-hidden="true"></div>
+        <div class="pld-corrective__quote">
+          <p class="pld-corrective__quote-text">"We conduct a forensic audit of where your case stands — and tell you directly what is still recoverable. Work begins the same day."</p>
+          <div class="pld-corrective__quote-attr">Octavia LaVon Martinez · Founder &amp; Principal Attorney</div>
         </div>
       </div>
 
     </div>
   </section>
 
-    <!-- ═══════════════════════════════════════════════════════════
-       FINAL CTA
-  ════════════════════════════════════════════════════════════ -->
-  <section class="section pld-final-cta" aria-labelledby="finalcta-h2">
+    <section class="section pld-final-cta" aria-labelledby="finalcta-h2">
     <div class="container">
       <div class="pld-final-cta__inner reveal">
         <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:14px;">The First Step</div>
