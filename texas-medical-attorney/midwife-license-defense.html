@@ -205,11 +205,16 @@
       margin: 0 auto; line-height: 1.5;
     }
     .mld-reframe strong { font-style: normal; font-weight: 700; }
-    /* ── CONTEXT — why midwifery defense is different ──────── */
-    @keyframes mldCardEnter {
-      from { opacity: 0; transform: translateY(20px); }
+    /* ── CONTEXT — midwifery briefing, world-class ─────────── */
+    @keyframes ctxRuleIn {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+    @keyframes ctxCardIn {
+      from { opacity: 0; transform: translateY(24px); }
       to   { opacity: 1; transform: translateY(0); }
     }
+
     .mld-context {
       background: var(--bg);
       min-height: 100svh;
@@ -218,83 +223,159 @@
       position: relative;
       overflow: hidden;
     }
-    .mld-context.section { padding: clamp(56px,7vw,88px) clamp(40px,6vw,100px); }
-    .mld-context__top {
-      text-align: center;
-      margin-bottom: clamp(40px,5vw,60px);
+    .mld-context.section {
+      padding: clamp(56px,7vw,88px) clamp(40px,6vw,100px);
+    }
+
+    /* Faint watermark behind section */
+    .mld-context::before {
+      content: 'BRIEFING';
+      position: absolute;
+      right: -0.02em; bottom: -0.15em;
+      font-family: var(--ff-serif);
+      font-size: clamp(100px,14vw,200px);
+      font-weight: 700;
+      color: rgba(26,18,33,0.03);
+      line-height: 1; letter-spacing: 0.08em;
+      pointer-events: none; user-select: none;
+    }
+
+    .mld-context__inner { width: 100%; position: relative; z-index: 1; }
+
+    /* ── HEADER ── */
+    .mld-context__header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(32px,5vw,80px);
+      align-items: end;
+      padding-bottom: clamp(24px,3vw,40px);
+      opacity: 0; transform: translateY(14px);
+      transition: opacity .65s ease, transform .65s cubic-bezier(.16,1,.3,1);
+    }
+    .mld-context.context-entered .mld-context__header {
+      opacity: 1; transform: translateY(0);
     }
     .mld-context__headline {
       font-family: var(--ff-serif);
-      font-size: clamp(28px,3.2vw,44px);
-      color: var(--dark); line-height: 1.1;
-      letter-spacing: -0.02em; margin-bottom: 16px;
-      max-width: 700px; margin-left: auto; margin-right: auto;
+      font-size: clamp(26px,2.8vw,40px);
+      color: var(--dark); line-height: 1.08;
+      letter-spacing: -0.02em;
     }
     .mld-context__sub {
-      font-size: 17px; color: var(--mid);
-      line-height: 1.75; max-width: 600px;
-      margin: 0 auto;
+      font-size: 16px; color: var(--mid); line-height: 1.75;
     }
     .mld-context__sub strong { color: var(--dark); }
-    /* Four cards in 2x2 grid — compact at rest, expand on hover */
+
+    /* Rule that draws in */
+    .mld-context__rule {
+      height: 1px; background: var(--border);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .9s cubic-bezier(.16,1,.3,1) .1s;
+      margin-bottom: clamp(28px,3.5vw,44px);
+    }
+    .mld-context.context-entered .mld-context__rule {
+      transform: scaleX(1);
+    }
+
+    /* ── FOUR FINDINGS ── */
     .mld-context__grid {
-      display: grid; grid-template-columns: repeat(2, 1fr);
-      gap: 2px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-left: 1px solid var(--border);
     }
+
     .mld-context__card {
-      background: var(--surface); padding: 36px 32px;
-      position: relative; overflow: hidden; cursor: default;
-      transition: background 0.3s ease, transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease;
-      opacity: 0; transform: translateY(20px);
+      padding: clamp(28px,3.5vw,44px) clamp(24px,3vw,40px);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      cursor: default;
+      overflow: hidden;
+      opacity: 0; transform: translateY(24px);
     }
-    .mld-context__card:hover {
-      background: var(--bg);
-      transform: translateY(-3px);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.08);
-      z-index: 2;
+    .mld-context__card:nth-child(1),
+    .mld-context__card:nth-child(2) {
+      border-top: 1px solid var(--border);
     }
-    /* Gradient top border */
+
+    /* Entry stagger */
+    .mld-context.context-entered .mld-context__card:nth-child(1){animation:ctxCardIn .65s cubic-bezier(.16,1,.3,1) .18s forwards}
+    .mld-context.context-entered .mld-context__card:nth-child(2){animation:ctxCardIn .65s cubic-bezier(.16,1,.3,1) .28s forwards}
+    .mld-context.context-entered .mld-context__card:nth-child(3){animation:ctxCardIn .65s cubic-bezier(.16,1,.3,1) .38s forwards}
+    .mld-context.context-entered .mld-context__card:nth-child(4){animation:ctxCardIn .65s cubic-bezier(.16,1,.3,1) .48s forwards}
+
+    /* Hover: accent top line draws in + warm tint */
     .mld-context__card::before {
       content: '';
       position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent), var(--accent-lite), var(--accent), transparent);
-      background-size: 200% auto;
+      background: var(--accent);
       transform: scaleX(0); transform-origin: left;
-      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+      transition: transform .45s cubic-bezier(.16,1,.3,1);
     }
     .mld-context__card:hover::before { transform: scaleX(1); }
-    /* Stagger entry */
-    .mld-context.context-entered .mld-context__card:nth-child(1){animation:mldCardEnter .65s cubic-bezier(.16,1,.3,1) .08s forwards}
-    .mld-context.context-entered .mld-context__card:nth-child(2){animation:mldCardEnter .65s cubic-bezier(.16,1,.3,1) .18s forwards}
-    .mld-context.context-entered .mld-context__card:nth-child(3){animation:mldCardEnter .65s cubic-bezier(.16,1,.3,1) .28s forwards}
-    .mld-context.context-entered .mld-context__card:nth-child(4){animation:mldCardEnter .65s cubic-bezier(.16,1,.3,1) .38s forwards}
-    .mld-context.context-entered .mld-context__card:hover { transform: translateY(-3px); }
+    .mld-context__card:hover { background: rgba(232,114,42,0.018); }
+
+    /* Card number — large ghost */
+    .mld-context__num {
+      font-family: var(--ff-serif);
+      font-size: clamp(44px,5vw,72px);
+      font-weight: 700;
+      color: rgba(26,18,33,0.07);
+      line-height: 1; letter-spacing: -0.04em;
+      margin-bottom: 10px;
+      transition: color .3s ease;
+    }
+    .mld-context__card:hover .mld-context__num { color: rgba(232,114,42,0.2); }
+
+    /* Card — label row with optional badge */
+    .mld-context__label-row {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 10px;
+    }
     .mld-context__card-label {
       font-size: 10px; font-weight: 700;
       letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 12px;
+      color: var(--accent);
     }
+    .mld-context__badge {
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(26,18,33,0.6);
+      border: 1px solid var(--border);
+      padding: 2px 8px;
+      margin-left: auto;
+    }
+    .mld-context__badge--critical {
+      color: #c0392b;
+      border-color: rgba(192,57,43,0.3);
+      background: rgba(192,57,43,0.06);
+    }
+
     .mld-context__card-title {
       font-family: var(--ff-serif);
-      font-size: clamp(18px,1.8vw,22px);
-      color: var(--dark); line-height: 1.2; margin-bottom: 12px;
+      font-size: clamp(18px,1.8vw,24px);
+      color: var(--dark); line-height: 1.2;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
     }
     .mld-context__card-hook {
       font-size: 15px; color: var(--mid); line-height: 1.65;
-      transition: color 0.25s;
     }
-    .mld-context__card:hover .mld-context__card-hook { color: var(--dark); }
     .mld-context__card-body {
-      font-size: 15px; color: var(--mid); line-height: 1.72;
+      font-size: 14px; color: var(--mid); line-height: 1.72;
       max-height: 0; overflow: hidden; opacity: 0; margin-top: 0;
-      transition: max-height .5s cubic-bezier(.16,1,.3,1), opacity .35s ease .07s, margin-top .35s ease;
+      transition: max-height .5s cubic-bezier(.16,1,.3,1), opacity .35s ease .08s, margin-top .35s ease;
     }
-    .mld-context__card:hover .mld-context__card-body { max-height: 160px; opacity: 1; margin-top: 10px; }
+    .mld-context__card:hover .mld-context__card-body { max-height: 180px; opacity: 1; margin-top: 12px; }
     .mld-context__card-body strong { color: var(--dark); }
-    @media (max-width: 768px) {
+
+    @media (max-width:900px) {
       .mld-context { min-height: auto; }
-      .mld-context__grid { grid-template-columns: 1fr; }
-      .mld-context__card { opacity: 1; transform: none; }
+      .mld-context__header { grid-template-columns: 1fr; }
+      .mld-context__grid { grid-template-columns: 1fr; border-left: none; }
+      .mld-context__card { border-left: 1px solid var(--border); opacity:1; transform:none; }
+      .mld-context.context-entered .mld-context__card { animation: none; }
+      .mld-context__header { opacity:1; transform:none; }
     }
     /* ── STAKES — midwife financial exposure ────────────────── */
     .mld-stakes {
@@ -1585,42 +1666,63 @@
        CONTEXT — why midwifery defense is different
   ════════════════════════════════════════════════════════════ -->
   <section class="section mld-context" aria-labelledby="context-h2" id="contextSection">
-    <div class="mld-context__top">
-      <div class="eyebrow" style="margin-bottom:14px;">What Makes Midwifery Defense Different</div>
-      <div class="rule rule--center"></div>
-      <h2 id="context-h2" class="mld-context__headline">Midwifery complaints carry unique vulnerabilities that most attorneys do not understand.</h2>
-      <p class="mld-context__sub">CNMs and Licensed Midwives operate in one of the most politically contested spaces in Texas healthcare. <strong>A complaint framed as a clinical concern may be driven by an agenda that has nothing to do with your care.</strong></p>
-    </div>
-    <div class="mld-context__grid">
+    <div class="mld-context__inner">
 
-      <div class="mld-context__card">
-        <div class="mld-context__card-label">The Political Reality</div>
-        <div class="mld-context__card-title">Complaints are used as weapons</div>
-        <p class="mld-context__card-hook">Board complaints against midwives frequently arise from political pressure — not practice errors.</p>
-        <p class="mld-context__card-body">Competing hospital systems, advocacy groups, and institutional interests file complaints seeking to restrict independent midwifery practice in Texas. Your defense must account for this reality — not just the clinical record.</p>
+      <div class="mld-context__header">
+        <div>
+          <div class="eyebrow" style="margin-bottom:14px;">What Makes Midwifery Defense Different</div>
+          <div class="rule"></div>
+          <h2 id="context-h2" class="mld-context__headline">Midwifery complaints carry unique vulnerabilities that most attorneys do not understand.</h2>
+        </div>
+        <p class="mld-context__sub">CNMs and Licensed Midwives operate in one of the most politically contested spaces in Texas healthcare. <strong>A complaint framed as a clinical concern may be driven by an agenda that has nothing to do with your care.</strong></p>
       </div>
 
-      <div class="mld-context__card">
-        <div class="mld-context__card-label">The Counter Protocol Response</div>
-        <div class="mld-context__card-title">We build the counter-record</div>
-        <p class="mld-context__card-hook">The Counter Protocol treats every complaint as a prosecution — regardless of its origin.</p>
-        <p class="mld-context__card-body">We investigate the complaint's factual foundation and build an evidence-anchored rebuttal designed to force dismissal before a hearing is ever scheduled. The board does not get unopposed record-building time.</p>
-      </div>
+      <div class="mld-context__rule" aria-hidden="true"></div>
 
-      <div class="mld-context__card">
-        <div class="mld-context__card-label">Timeline Reality</div>
-        <div class="mld-context__card-title">CNM cases run longer</div>
-        <p class="mld-context__card-hook">If your case reaches a hearing, resolution averages two to three years.</p>
-        <p class="mld-context__card-body">Your credential, income, and practice remain in question for every month of that process. Your collaborative physician agreement is at risk throughout. <strong>The only way to contain it is aggressive, early action.</strong></p>
-      </div>
+      <div class="mld-context__grid">
 
-      <div class="mld-context__card">
-        <div class="mld-context__card-label">What We Understand</div>
-        <div class="mld-context__card-title">The landscape, not just the law</div>
-        <p class="mld-context__card-hook">Midwifery complaints exist in a political environment where the complaint itself is the punishment.</p>
-        <p class="mld-context__card-body">We understand this — and we build your defense with that reality in view. Every document we file accounts for the political and institutional forces at play in your specific case.</p>
-      </div>
+        <div class="mld-context__card">
+          <div class="mld-context__num" aria-hidden="true">01</div>
+          <div class="mld-context__label-row">
+            <span class="mld-context__card-label">The Political Reality</span>
+            <span class="mld-context__badge mld-context__badge--critical">Most Critical</span>
+          </div>
+          <div class="mld-context__card-title">Complaints are used as weapons</div>
+          <p class="mld-context__card-hook">Board complaints against midwives frequently arise from political pressure — not practice errors.</p>
+          <p class="mld-context__card-body">Competing hospital systems, advocacy groups, and institutional interests file complaints seeking to restrict independent midwifery practice in Texas. <strong>Your defense must account for this reality — not just the clinical record.</strong></p>
+        </div>
 
+        <div class="mld-context__card">
+          <div class="mld-context__num" aria-hidden="true">02</div>
+          <div class="mld-context__label-row">
+            <span class="mld-context__card-label">The Counter Protocol Response</span>
+          </div>
+          <div class="mld-context__card-title">We build the counter-record from day one</div>
+          <p class="mld-context__card-hook">The Counter Protocol treats every complaint as a prosecution — regardless of its origin or how it was filed.</p>
+          <p class="mld-context__card-body">We investigate the complaint's factual foundation and build an evidence-anchored rebuttal designed to force dismissal before a hearing is ever scheduled. The board does not get unopposed record-building time.</p>
+        </div>
+
+        <div class="mld-context__card">
+          <div class="mld-context__num" aria-hidden="true">03</div>
+          <div class="mld-context__label-row">
+            <span class="mld-context__card-label">Timeline Reality</span>
+          </div>
+          <div class="mld-context__card-title">CNM cases run two to three years</div>
+          <p class="mld-context__card-hook">If your case reaches a hearing, resolution averages two to three years — your credential in limbo throughout.</p>
+          <p class="mld-context__card-body">Your collaborative physician agreement is at risk for every month of that process. Your income, your practice, and your birth center operating status remain unresolved. <strong>The only way to contain it is aggressive, early action.</strong></p>
+        </div>
+
+        <div class="mld-context__card">
+          <div class="mld-context__num" aria-hidden="true">04</div>
+          <div class="mld-context__label-row">
+            <span class="mld-context__card-label">What We Understand</span>
+          </div>
+          <div class="mld-context__card-title">The landscape, not just the law</div>
+          <p class="mld-context__card-hook">Midwifery complaints exist in a political environment where the complaint itself can be the punishment.</p>
+          <p class="mld-context__card-body">We understand this — and we build your defense with that reality in view. Every document we file, every response we draft, accounts for the political and institutional forces at play in your specific case.</p>
+        </div>
+
+      </div>
     </div>
   </section>
 
