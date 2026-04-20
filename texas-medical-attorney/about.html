@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Octavia LaVon Martinez | Texas Medical Attorney — License Defense & Healthcare Law</title>
-  <meta name="description" content="Octavia LaVon Martinez is a former felony prosecutor and complex medical malpractice litigator defending physicians and CNMs in Texas. She has sat on the other side of the record. She knows exactly what they are looking for." />
+  <meta name="description" content="Octavia LaVon Martinez is a former felony prosecutor and complex medical malpractice litigator defending physicians and midwives in Texas. She has sat on the other side of the record. She knows exactly what they are looking for." />
   <link rel="canonical" href="https://octaviamartinezlaw.com/texas-medical-attorney/about" />
   <link rel="icon" type="image/png" href="../favicon.png">
   <link rel="apple-touch-icon" href="../favicon.png">
@@ -31,11 +31,20 @@
   </script>
   <style>
     /* HERO */
-    .mab-hero { background: var(--dark); padding: 140px var(--gutter) 90px; position: relative; overflow: hidden; }
+    .mab-hero { background: var(--dark); min-height: 100svh; display: flex; align-items: center; padding: 120px var(--gutter) 80px; position: relative; overflow: hidden; }
     .mab-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 100% 0%, rgba(232,114,42,0.07) 0%, transparent 55%), linear-gradient(150deg, #0a0806 0%, #1A1221 55%, #2B2438 100%); }
     .mab-hero__inner { position: relative; z-index: 2; max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 1fr 360px; gap: 80px; align-items: end; }
     .mab-hero h1 { font-size: clamp(34px, 4.5vw, 58px); color: var(--bg); line-height: 1.06; margin-bottom: 20px; }
-    .mab-hero h1 em { color: var(--accent-lite); font-style: italic; }
+    .mab-hero h1 em {
+      font-style: italic;
+      background: linear-gradient(90deg, var(--accent-lite), var(--accent), var(--accent-lite));
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmerText 4s linear 2s infinite;
+    }
+    @keyframes shimmerText { 0% { background-position: 0% center; } 100% { background-position: 200% center; } }
     .mab-hero__sub { font-size: clamp(16px, 1.8vw, 19px); color: rgba(250,246,240,0.7); line-height: 1.75; max-width: 540px; margin-bottom: 32px; }
     .mab-hero__tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .mab-hero__tag { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 6px 14px; border: 1px solid rgba(232,114,42,0.4); color: var(--accent-lite); border-radius: 1px; }
@@ -125,7 +134,7 @@
     /* REVIEW */
     .mab-review { background: var(--plum); }
     .mab-review__inner { max-width: 760px; margin: 0 auto; text-align: center; }
-    .mab-review__stars { font-size: 22px; color: var(--accent-lite); letter-spacing: 4px; margin-bottom: 24px; }
+    .mab-review__stars { font-size: 22px; color: #F5C842; text-shadow: 0 0 8px rgba(245,200,66,0.8), 0 0 16px rgba(245,200,66,0.35); letter-spacing: 4px; margin-bottom: 24px; }
     .mab-review__quote { font-family: var(--ff-serif); font-size: clamp(18px, 2.2vw, 26px); color: var(--bg); line-height: 1.5; font-style: italic; margin-bottom: 28px; }
     .mab-review__attr { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-lite); }
     .mab-review__note { font-size: 13px; color: rgba(250,246,240,0.4); margin-top: 10px; font-style: italic; }
@@ -155,8 +164,7 @@
 <body>
   <div id="site-nav"></div>
 
-  <!-- NAV -->
-  <!-- HERO -->
+
   <section class="mab-hero">
     <div class="mab-hero__inner">
       <div>
@@ -164,14 +172,17 @@
           <span style="width:32px;height:2px;background:var(--accent);display:inline-block;"></span>
           About the Attorney
         </div>
-        <h1>She has sat on the other side of<br>the record. She knows <em>exactly</em><br>what they are looking for.</h1>
+        <h1>She has sat on the other side of the record. She knows <em>exactly</em> what they are looking for.</h1>
         <p class="mab-hero__sub">Before defending physicians and licensed healthcare professionals, Octavia LaVon Martinez was a felony prosecutor and complex medical malpractice litigator. She built the kind of institutional cases that are now brought against her clients. That experience is the foundation of how she defends.</p>
         <div class="mab-hero__tags">
           <span class="mab-hero__tag">Former Felony Prosecutor</span>
           <span class="mab-hero__tag">Medical Malpractice Litigator</span>
-          <span class="mab-hero__tag">Superior Court Law Clerk</span>
           <span class="mab-hero__tag">Licensed in Texas</span>
           <span class="mab-hero__tag">All of Texas · Virtual</span>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;">
+          <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+          <a href="strategy-session.html" class="btn btn--outline">Book a Strategy Session</a>
         </div>
       </div>
       <div class="mab-hero__photo-wrap reveal">
@@ -237,8 +248,7 @@
           <h2>The background behind the defense.</h2>
 
           <h3>Education &amp; Early Career</h3>
-          <p>A graduate of The University of Virginia and The Ohio State University Moritz College of Law, Octavia began her career in Phoenix, Arizona. She served as a bailiff and Superior Court law clerk before transitioning to active practice — giving her a judicial perspective on how cases are evaluated before she ever argued one.</p>
-          <p>As a felony prosecutor, she built evidentiary records from scratch — learning how institutional cases are constructed, how investigators prioritize their work, and how narratives harden into records that become very difficult to contest once they are complete. She carried that knowledge into complex civil litigation, including high-stakes medical malpractice defense where she first engaged directly with clinical records, expert witnesses, and the institutional dynamics of healthcare litigation.</p>
+          <p>A graduate of The University of Virginia and The Ohio State University Moritz College of Law, Octavia began her career in Phoenix, Arizona as a felony prosecutor — building evidentiary records from scratch, learning how institutional cases are constructed, how investigators prioritize their work, and how narratives harden into records that become very difficult to contest once complete. She carried that knowledge into complex civil litigation, including high-stakes medical malpractice defense where she first engaged directly with clinical records, expert witnesses, and the institutional dynamics of healthcare litigation.</p>
 
           <h3>The Move to Texas &amp; Expansion into License Defense</h3>
           <p>Bringing this experience to the Rio Grande Valley, Octavia expanded her practice to meet the specific needs of South Texas — a region with a dense healthcare workforce, a complex border economy, and a client population that has historically had limited access to sophisticated legal representation.</p>
@@ -249,7 +259,7 @@
           <p>The Counter Protocol treats a board complaint the way a prosecutor treats a criminal investigation: with an immediate parallel investigation that builds the defense record before the board's record is complete. Every piece of evidence that supports the provider's position is documented, preserved, and organized — so that when the board's process moves toward a hearing, the defense is not responding. It is presenting.</p>
 
           <h3>The Firm Today</h3>
-          <p>Octavia LaVon Martinez PLLC operates as a fully virtual Texas law firm representing physicians, certified nurse-midwives, and licensed healthcare professionals facing regulatory, employment, and reputation challenges that intersect with their license and their career. The practice is limited by design — to ensure that every matter receives the same level of preparation and the same attorney, from the first call through the final resolution.</p>
+          <p>Octavia LaVon Martinez PLLC operates as a fully virtual Texas law firm representing physicians, midwives, and licensed healthcare professionals facing regulatory, employment, and reputation challenges that intersect with their license and their career. The practice is limited by design — to ensure that every matter receives the same level of preparation and the same attorney, from the first call through the final resolution.</p>
         </div>
 
         <!-- Sidebar -->
@@ -261,7 +271,6 @@
           </div>
           <div class="mab-cred-block">
             <div class="mab-cred-block__label">Professional Background</div>
-            <div class="mab-cred-block__item"><strong>Role</strong>Superior Court Bailiff &amp; Law Clerk</div>
             <div class="mab-cred-block__item"><strong>Role</strong>Felony Prosecutor</div>
             <div class="mab-cred-block__item"><strong>Role</strong>Complex Civil Litigator</div>
             <div class="mab-cred-block__item"><strong>Role</strong>Medical Malpractice Defense</div>
@@ -273,11 +282,12 @@
           </div>
           <div class="mab-cred-block">
             <div class="mab-cred-block__label">Healthcare Practice</div>
-            <div class="mab-cred-block__item"><strong>Clients</strong>Physicians · CNMs · Licensed Providers</div>
+            <div class="mab-cred-block__item"><strong>Clients</strong>Physicians · Midwives · Licensed Providers</div>
             <div class="mab-cred-block__item"><strong>Coverage</strong>All of Texas</div>
             <div class="mab-cred-block__item"><strong>Model</strong>Virtual · No office visit required</div>
           </div>
-          <a href="strategy-session.html" class="btn btn--primary" style="display:block;text-align:center;margin-top:4px;">Book a Strategy Session →</a>
+          <a href="tel:9564263550" class="btn btn--primary" style="display:block;text-align:center;margin-bottom:12px;">Call (956) 426-3550</a>
+        <a href="strategy-session.html" style="display:block;text-align:center;font-family:var(--ff-serif);font-size:18px;color:var(--accent);text-decoration:none;">Book a Strategy Session →</a>
         </div>
       </div>
     </div>
@@ -357,13 +367,13 @@
         <div class="mab-session__content reveal">
           <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:14px;">The First Step</div>
           <div class="rule"></div>
-          <h2>The strategy session is<br>not a consultation.<br><em>It's the first hour of your defense.</em></h2>
-          <p>We do not offer free consultations. The initial strategy session is a paid service — one hour in which we review your complaint, your clinical record, and your timeline, and develop the first outline of a defense strategy.</p>
+          <h2>The strategy session is not a consultation. <em>It's the first 30 minutes of your defense.</em></h2>
+          <p>We do not offer free consultations. The initial strategy session is a paid 30-minute service — at a discounted rate for first-time clients — in which we review your complaint, your clinical record, and your timeline, and develop the first outline of a defense strategy.</p>
           <p><strong>You will leave knowing exactly what the board has, what they are building, and what your options are.</strong> Whether or not you retain this firm for ongoing representation, that analysis is yours — and it is worth having before you make any decisions about how to respond.</p>
           <p>If you have already received a complaint notice, do not wait. The TMB process moves quickly and the window for early intervention is narrow.</p>
           <div class="mab-session__btns">
-            <a href="https://octaviamartinezlaw.cliogrow.com/book/05558212793e35d7ef5df6a9349d47ae" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Book a Strategy Session →</a>
-            <a href="tel:9564263550" class="btn btn--outline">Call (956) 426-3550</a>
+            <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+            <a href="strategy-session.html" class="btn btn--outline">Book a Strategy Session</a>
           </div>
         </div>
       </div>
@@ -376,8 +386,8 @@
       <div class="mab-review__inner reveal">
         <div class="mab-review__stars">★★★★★</div>
         <div class="mab-review__quote">"I cannot recommend Octavia enough. She is an incredible attorney who is both passionate about her work and deeply committed to her clients. What sets her apart is her rare combination of warmth and professionalism — a calming, reassuring presence while also being razor-sharp and thorough. You always know she truly cares and is fighting for the best possible outcome."</div>
-        <div class="mab-review__attr">Jenn · Texas · Google Review</div>
-        <div class="mab-review__note">Reviews are published with client permission. Healthcare professional matters are handled with complete discretion.</div>
+        <div class="mab-review__attr">J.C. · Texas · Google Review</div>
+        <div class="mab-review__note"></div>
       </div>
     </div>
   </section>
@@ -427,8 +437,8 @@
         <h2>If you have received a complaint,<br><em>the time to act is now.</em></h2>
         <p>The TMB process moves quickly. Early intervention produces better outcomes than waiting. One strategy session gives you a clear picture of what you are facing and what the defense looks like.</p>
         <div class="mab-cta__btns">
-          <a href="strategy-session.html" class="btn btn--primary">Book Your Strategy Session</a>
-          <a href="tel:9564263550" class="btn btn--outline">Call (956) 426-3550</a>
+          <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+          <a href="strategy-session.html" class="btn btn--outline">Book a Strategy Session</a>
         </div>
       </div>
     </div>
