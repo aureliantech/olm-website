@@ -101,12 +101,18 @@
             <div class="apx__link-desc">What happens &amp; when to act</div>
           </div>
         </a>
-        <div style="border-bottom:1px solid rgba(201,184,154,0.06);border-right:1px solid rgba(201,184,154,0.06);"></div>
         <a href="/texas-medical-attorney/strategy-session.html" class="apx__link apx__link--cta">
           <span class="apx__link-num">→</span>
           <div class="apx__link-body">
             <div class="apx__link-title">Book a Strategy Session</div>
             <div class="apx__link-desc">30 minutes · Discounted first-session rate</div>
+          </div>
+        </a>
+        <a href="/texas-medical-attorney/transfer-your-case.html" class="apx__link apx__link--cta">
+          <span class="apx__link-num">→</span>
+          <div class="apx__link-body">
+            <div class="apx__link-title">Transfer Your Case</div>
+            <div class="apx__link-desc">Passive counsel? We intervene immediately</div>
           </div>
         </a>
       </div>
@@ -182,7 +188,13 @@
             <div class="apx__link-desc">TMB defense · Cameron County · RGV</div>
           </div>
         </a>
-        <div style="border-bottom:1px solid rgba(201,184,154,0.06);border-right:1px solid rgba(201,184,154,0.06);"></div>
+        <a href="/texas-medical-attorney/transfer-your-case.html" class="apx__link apx__link--cta">
+          <span class="apx__link-num">→</span>
+          <div class="apx__link-body">
+            <div class="apx__link-title">Transfer Your Case</div>
+            <div class="apx__link-desc">Already represented but case has stalled?</div>
+          </div>
+        </a>
       </div>
     </div>
 
@@ -227,6 +239,13 @@
             <div class="apx__link-desc">(956) 426-3550 · Virtual · All of Texas</div>
           </div>
         </a>
+        <a href="/texas-medical-attorney/transfer-your-case.html" class="apx__link apx__link--cta">
+          <span class="apx__link-num">→</span>
+          <div class="apx__link-body">
+            <div class="apx__link-title">Transfer Your Case</div>
+            <div class="apx__link-desc">Prior counsel passive? We audit and intervene</div>
+          </div>
+        </a>
         <a href="/index.html" class="apx__link" style="opacity:0.5;">
           <span class="apx__link-num" style="font-size:14px;padding-top:6px;">←</span>
           <div class="apx__link-body">
@@ -255,6 +274,7 @@
       <a href="/texas-medical-attorney/about.html">About Octavia</a>
       <a href="/texas-medical-attorney/faq.html">FAQ</a>
       <a href="/texas-medical-attorney/contact.html">Contact</a>
+      <a href="/texas-medical-attorney/transfer-your-case.html" style="color:var(--accent);font-weight:700;">Transfer Your Case</a>
       <a href="/index.html" style="opacity:0.5;font-size:11px;">← General Practice Site</a>
       <div class="apx__mobile-cta">
         <a href="/texas-medical-attorney/strategy-session.html" class="btn btn--primary" style="display:block;text-align:center;">Book Strategy Session</a>
@@ -302,6 +322,7 @@
             <a href="/texas-medical-attorney/faq.html">FAQ</a>
             <a href="/texas-medical-attorney/strategy-session.html">Book Strategy Session</a>
             <a href="/texas-medical-attorney/contact.html">Contact</a>
+            <a href="/texas-medical-attorney/transfer-your-case.html" style="color:var(--accent);">Transfer Your Case</a>
             <a href="/index.html" style="color:rgba(250,246,240,0.3);font-size:12px;">← General Practice Site</a>
           </nav>
           <div style="margin-top:24px;">
