@@ -179,27 +179,91 @@
       .tmb-stat-card { max-width:480px; }
     }
     /* ── JUMP NAV ───────────────────────────────────────────── */
+    /* ── JUMP NAV — world class ─────────────────────────────── */
     .tmb-jumpnav {
       background: var(--dark);
-      border-bottom: 1px solid rgba(201,184,154,0.12);
+      border-bottom: 1px solid rgba(201,184,154,0.1);
       position: sticky; top: 0; z-index: 90;
     }
+    /* Reading progress bar — runs full width at bottom of nav */
+    .tmb-jumpnav__progress {
+      position: absolute; bottom: 0; left: 0;
+      height: 2px; width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--accent-lite));
+      transition: width 0.1s linear;
+      z-index: 2;
+    }
     .tmb-jumpnav__inner {
-      display: flex; align-items: center; gap: 0;
-      overflow-x: auto; padding: 0 clamp(20px,4vw,48px);
+      display: flex; align-items: stretch;
+      overflow-x: auto;
       scrollbar-width: none;
+      padding: 0 clamp(20px,4vw,48px);
+      position: relative;
     }
     .tmb-jumpnav__inner::-webkit-scrollbar { display:none; }
-    .tmb-jumpnav a {
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 0.16em; text-transform: uppercase;
-      color: rgba(250,246,240,0.45); text-decoration: none;
-      padding: 13px 20px;
-      white-space: nowrap;
-      border-bottom: 2px solid transparent;
-      transition: color .2s, border-color .2s;
+    /* Divider line between all tabs */
+    .tmb-jumpnav__inner::after {
+      content: '';
+      position: absolute; bottom: 2px; left: 0; right: 0;
+      height: 1px;
+      background: rgba(201,184,154,0.08);
     }
-    .tmb-jumpnav a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+    .tmb-jumpnav a {
+      display: flex; flex-direction: column;
+      align-items: flex-start; justify-content: center;
+      gap: 3px;
+      padding: 12px 20px 14px;
+      text-decoration: none;
+      white-space: nowrap;
+      position: relative;
+      border-bottom: 2px solid transparent;
+      transition: border-color .25s ease;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+    /* Active accent underline */
+    .tmb-jumpnav a.active { border-bottom-color: var(--accent); }
+    .tmb-jumpnav a:hover { border-bottom-color: rgba(232,114,42,0.4); }
+    /* Section number */
+    .tmb-jumpnav__num {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.16em;
+      color: rgba(250,246,240,0.25);
+      font-family: var(--ff-serif);
+      transition: color .25s;
+    }
+    .tmb-jumpnav a.active .tmb-jumpnav__num,
+    .tmb-jumpnav a:hover .tmb-jumpnav__num { color: var(--accent); }
+    /* Section name */
+    .tmb-jumpnav__label {
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(250,246,240,0.55);
+      transition: color .25s;
+      line-height: 1;
+    }
+    .tmb-jumpnav a.active .tmb-jumpnav__label { color: rgba(250,246,240,0.95); }
+    .tmb-jumpnav a:hover .tmb-jumpnav__label { color: rgba(250,246,240,0.85); }
+    /* Section descriptor */
+    .tmb-jumpnav__desc {
+      font-size: 10px; letter-spacing: 0.08em;
+      color: rgba(250,246,240,0.22);
+      transition: color .25s;
+      text-transform: none; font-weight: 400;
+    }
+    .tmb-jumpnav a.active .tmb-jumpnav__desc { color: rgba(250,246,240,0.45); }
+    .tmb-jumpnav a:hover .tmb-jumpnav__desc { color: rgba(250,246,240,0.38); }
+    /* Vertical separator between tabs */
+    .tmb-jumpnav a + a::before {
+      content: '';
+      position: absolute; left: 0; top: 25%; bottom: 25%;
+      width: 1px;
+      background: rgba(201,184,154,0.08);
+    }
+    @media (max-width:768px) {
+      .tmb-jumpnav a { padding: 10px 14px 12px; }
+      .tmb-jumpnav__desc { display:none; }
+    }
     /* ── VISUAL TIMELINE ─────────────────────────────────────── */
     .tmb-timeline {
       background: var(--dark);
@@ -612,13 +676,34 @@
   <!-- ═══════════════════════════════════════════════════════════
        JUMP NAV
   ════════════════════════════════════════════════════════════ -->
-  <nav class="tmb-jumpnav" aria-label="Page navigation">
+  <nav class="tmb-jumpnav" id="tmbJumpNav" aria-label="Page sections">
+    <div class="tmb-jumpnav__progress" id="tmbProgressBar" aria-hidden="true"></div>
     <div class="tmb-jumpnav__inner">
-      <a href="#tmb-overview">Overview</a>
-      <a href="#tmb-stages">The 6 Stages</a>
-      <a href="#tmb-mistakes">Common Mistakes</a>
-      <a href="#tmb-when">When to Hire</a>
-      <a href="#tmb-faq">FAQ</a>
+      <a href="#tmb-overview" class="active" data-section="tmb-overview">
+        <span class="tmb-jumpnav__num">01</span>
+        <span class="tmb-jumpnav__label">Overview</span>
+        <span class="tmb-jumpnav__desc">At a glance</span>
+      </a>
+      <a href="#tmb-stages" data-section="tmb-stages">
+        <span class="tmb-jumpnav__num">02</span>
+        <span class="tmb-jumpnav__label">The 6 Stages</span>
+        <span class="tmb-jumpnav__desc">Process map</span>
+      </a>
+      <a href="#tmb-mistakes" data-section="tmb-mistakes">
+        <span class="tmb-jumpnav__num">03</span>
+        <span class="tmb-jumpnav__label">Common Mistakes</span>
+        <span class="tmb-jumpnav__desc">What to avoid</span>
+      </a>
+      <a href="#tmb-when" data-section="tmb-when">
+        <span class="tmb-jumpnav__num">04</span>
+        <span class="tmb-jumpnav__label">When to Hire</span>
+        <span class="tmb-jumpnav__desc">The answer</span>
+      </a>
+      <a href="#tmb-faq" data-section="tmb-faq">
+        <span class="tmb-jumpnav__num">05</span>
+        <span class="tmb-jumpnav__label">FAQ</span>
+        <span class="tmb-jumpnav__desc">Quick answers</span>
+      </a>
     </div>
   </nav>
 
@@ -1047,6 +1132,37 @@
       });
     });
 
+
+    /* ── Progress bar + scroll spy ── */
+    (function() {
+      var bar = document.getElementById('tmbProgressBar');
+      var navLinks = document.querySelectorAll('.tmb-jumpnav a[data-section]');
+      var sections = Array.from(navLinks).map(function(a) {
+        return document.getElementById(a.dataset.section);
+      }).filter(Boolean);
+
+      function update() {
+        // Progress bar
+        if (bar) {
+          var scrollTop = window.scrollY || document.documentElement.scrollTop;
+          var docH = document.documentElement.scrollHeight - window.innerHeight;
+          bar.style.width = (docH > 0 ? Math.min(100, (scrollTop/docH)*100) : 0) + '%';
+        }
+        // Active section spy
+        var navH = document.getElementById('tmbJumpNav');
+        var offset = (navH ? navH.offsetHeight : 0) + 40;
+        var current = null;
+        sections.forEach(function(sec) {
+          if (sec && sec.getBoundingClientRect().top <= offset) current = sec.id;
+        });
+        navLinks.forEach(function(a) {
+          a.classList.toggle('active', a.dataset.section === current);
+        });
+      }
+
+      window.addEventListener('scroll', update, {passive: true});
+      update();
+    })();
   })();
   </script>
 </body>
