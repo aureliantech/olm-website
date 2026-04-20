@@ -762,6 +762,225 @@
     @media (max-width:768px) {
       .mld-review__inner { grid-template-columns:1fr; }
     }
+    /* ── CORRECTIVE — midwife case transfer ─────────────────── */
+    @keyframes mldCorrRowIn {
+      from { opacity: 0; transform: translateX(-20px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes mldCorrRuleIn {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+
+    .mld-corrective {
+      background: var(--surface);
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .mld-corrective.section {
+      padding: clamp(56px,7vw,88px) clamp(40px,6vw,100px);
+    }
+
+    /* Legal-pad ruled lines — same as physician corrective */
+    .mld-corrective::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: repeating-linear-gradient(
+        to bottom, transparent, transparent 55px,
+        rgba(232,114,42,0.04) 55px, rgba(232,114,42,0.04) 56px
+      );
+      pointer-events: none;
+    }
+
+    .mld-corrective__inner { width: 100%; position: relative; z-index: 1; }
+
+    /* ── HEADER ── */
+    .mld-corrective__header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(32px,5vw,80px);
+      align-items: end;
+      padding-bottom: clamp(24px,3vw,40px);
+      opacity: 0; transform: translateY(14px);
+      transition: opacity .65s ease, transform .65s cubic-bezier(.16,1,.3,1);
+    }
+    .mld-corrective.corr-entered .mld-corrective__header {
+      opacity: 1; transform: translateY(0);
+    }
+    .mld-corrective__headline {
+      font-family: var(--ff-serif);
+      font-size: clamp(26px,2.8vw,40px);
+      color: var(--dark); line-height: 1.1; letter-spacing: -0.02em;
+    }
+    .mld-corrective__headline em {
+      font-style: italic;
+      background: linear-gradient(90deg, var(--accent-lite), var(--accent), var(--accent-lite));
+      background-size: 200% auto;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmerText 4s linear 2s infinite;
+    }
+    .mld-corrective__intro {
+      font-size: 16px; color: var(--mid); line-height: 1.75;
+    }
+    .mld-corrective__intro strong { color: var(--dark); }
+
+    /* Stat callout in header-right */
+    .mld-corrective__stat-block {
+      background: var(--dark);
+      padding: 24px 28px;
+    }
+    .mld-corrective__stat-label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 14px;
+    }
+    .mld-corrective__stat-item {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 12px 0; border-bottom: 1px solid rgba(201,184,154,0.1);
+    }
+    .mld-corrective__stat-item:last-of-type { border-bottom: none; }
+    .mld-corrective__stat-num {
+      font-family: var(--ff-serif);
+      font-size: 28px; color: var(--accent);
+      line-height: 1; letter-spacing: -0.03em; flex-shrink: 0;
+    }
+    .mld-corrective__stat-text {
+      font-size: 14px; color: rgba(250,246,240,0.82); line-height: 1.55;
+    }
+    .mld-corrective__stat-text strong { color: rgba(250,246,240,0.95); }
+
+    /* Dividing rule */
+    .mld-corrective__rule {
+      height: 1px; background: var(--border);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .9s cubic-bezier(.16,1,.3,1) .15s;
+      margin-bottom: clamp(28px,3.5vw,44px);
+    }
+    .mld-corrective.corr-entered .mld-corrective__rule { transform: scaleX(1); }
+
+    /* ── THREE WARNING ROWS ── */
+    .mld-corrective__rows {
+      border-top: 1px solid var(--border);
+      margin-bottom: clamp(32px,4vw,48px);
+    }
+
+    .mld-corrective__row {
+      display: grid;
+      grid-template-columns: 64px 1fr 1fr;
+      gap: 0 clamp(24px,3vw,48px);
+      align-items: start;
+      padding: clamp(20px,2.5vw,28px) 0;
+      border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
+      cursor: default;
+      opacity: 0; transform: translateY(20px);
+    }
+
+    /* Hover accent bar */
+    .mld-corrective__row::before {
+      content: '';
+      position: absolute; left:0; top:0; bottom:0;
+      width: 0; background: var(--accent);
+      transition: width .35s cubic-bezier(.16,1,.3,1);
+    }
+    .mld-corrective__row:hover::before { width: 3px; }
+    .mld-corrective__row:hover { background: rgba(232,114,42,0.025); }
+
+    /* Stagger entry */
+    .mld-corrective.corr-entered .mld-corrective__row:nth-child(1){animation:mldCorrRowIn .65s cubic-bezier(.16,1,.3,1) .2s forwards}
+    .mld-corrective.corr-entered .mld-corrective__row:nth-child(2){animation:mldCorrRowIn .65s cubic-bezier(.16,1,.3,1) .33s forwards}
+    .mld-corrective.corr-entered .mld-corrective__row:nth-child(3){animation:mldCorrRowIn .65s cubic-bezier(.16,1,.3,1) .46s forwards}
+
+    .mld-corrective__row-num {
+      font-family: var(--ff-serif);
+      font-size: clamp(36px,4vw,54px);
+      color: rgba(232,114,42,0.15);
+      line-height: 1; letter-spacing: -0.04em;
+      padding-top: 4px;
+      transition: color .3s;
+    }
+    .mld-corrective__row:hover .mld-corrective__row-num { color: rgba(232,114,42,0.45); }
+
+    .mld-corrective__row-left {}
+    .mld-corrective__row-signal {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 8px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .mld-corrective__row-signal::before {
+      content: '';
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--accent); flex-shrink: 0;
+      animation: warnPulse 2.5s ease-in-out infinite;
+    }
+    .mld-corrective__row-title {
+      font-family: var(--ff-serif);
+      font-size: clamp(17px,1.6vw,22px);
+      color: var(--dark); line-height: 1.2;
+    }
+
+    .mld-corrective__row-desc {
+      font-size: 15px; color: var(--mid); line-height: 1.75;
+      padding-top: 6px;
+    }
+
+    /* ── CTA BLOCK ── */
+    .mld-corrective__cta-block {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: clamp(24px,3vw,48px); align-items: center;
+      opacity: 0; transform: translateY(14px);
+      transition: opacity .6s ease .5s, transform .6s cubic-bezier(.16,1,.3,1) .5s;
+    }
+    .mld-corrective.corr-entered .mld-corrective__cta-block {
+      opacity: 1; transform: translateY(0);
+    }
+    .mld-corrective__cta-urgency {
+      font-size: 15px; color: var(--dark);
+      font-weight: 600; line-height: 1.55; margin-bottom: 20px;
+    }
+    .mld-corrective__cta-urgency em { font-style: normal; color: var(--accent); }
+    .mld-corrective__cta-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+    .mld-corrective__transfer {
+      font-size: 13px; color: var(--mid);
+    }
+    .mld-corrective__transfer a {
+      color: var(--accent); text-decoration: none;
+      border-bottom: 1px solid rgba(232,114,42,0.35); padding-bottom: 1px;
+      transition: border-color .2s;
+    }
+    .mld-corrective__transfer a:hover { border-color: var(--accent); }
+
+    .mld-corrective__quote-box {
+      border-left: 3px solid var(--accent);
+      padding: 20px 24px;
+      background: var(--bg);
+    }
+    .mld-corrective__quote-text {
+      font-family: var(--ff-serif);
+      font-size: clamp(16px,1.6vw,20px);
+      color: var(--dark); font-style: italic;
+      line-height: 1.5; margin-bottom: 12px;
+    }
+    .mld-corrective__quote-attr {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    @media (max-width:900px) {
+      .mld-corrective { min-height: auto; }
+      .mld-corrective__header { grid-template-columns: 1fr; opacity:1; transform:none; }
+      .mld-corrective__row { grid-template-columns: 48px 1fr; opacity:1; transform:none; }
+      .mld-corrective__row-desc { grid-column: 2; }
+      .mld-corrective.corr-entered .mld-corrective__row { animation: none; }
+      .mld-corrective__cta-block { grid-template-columns: 1fr; opacity:1; transform:none; }
+    }
+
     /* ── ABOUT — dark split, contained photo, bracket frame ── */
     .mld-about {
       background: var(--dark);
@@ -1933,6 +2152,87 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════
+       CORRECTIVE COUNSEL — midwife case transfer
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section mld-corrective" aria-labelledby="mld-corrective-h2" id="mldCorrectiveSection">
+    <div class="mld-corrective__inner">
+
+      <div class="mld-corrective__header">
+        <div>
+          <div class="eyebrow" style="margin-bottom:14px;">If You Already Have an Attorney</div>
+          <div class="rule"></div>
+          <h2 id="mld-corrective-h2" class="mld-corrective__headline">The wrong attorney is <em>worse than no attorney at all.</em></h2>
+          <p class="mld-corrective__intro">Midwives who transfer their cases to us almost always describe the same two failures: <strong>months of billing with no visible progress</strong>, and an attorney who treated a politically-motivated complaint like a routine clinical matter. Both failures cost you time the board used to build its record unopposed.</p>
+        </div>
+        <div class="mld-corrective__stat-block">
+          <div class="mld-corrective__stat-label">Why Midwives Transfer Cases to Us</div>
+          <div class="mld-corrective__stat-item">
+            <div class="mld-corrective__stat-num">01</div>
+            <div class="mld-corrective__stat-text"><strong>Excessive billing, no progress.</strong> Months of retainer charges with no counter-evidence filed, no parallel investigation launched, no pressure applied to the board.</div>
+          </div>
+          <div class="mld-corrective__stat-item">
+            <div class="mld-corrective__stat-num">02</div>
+            <div class="mld-corrective__stat-text"><strong>Attorney didn't understand the fight.</strong> A general healthcare attorney who read the complaint as clinical — and missed the political agenda behind it entirely.</div>
+          </div>
+          <div class="mld-corrective__stat-item">
+            <div class="mld-corrective__stat-num">03</div>
+            <div class="mld-corrective__stat-text"><strong>Passive posture while the board built unopposed.</strong> Acknowledgment letters instead of evidence-anchored rebuttals. Waiting instead of counter-investigating.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mld-corrective__rule" aria-hidden="true"></div>
+
+      <div class="mld-corrective__rows">
+
+        <div class="mld-corrective__row">
+          <div class="mld-corrective__row-num" aria-hidden="true">01</div>
+          <div class="mld-corrective__row-left">
+            <div class="mld-corrective__row-signal">Warning Signal</div>
+            <div class="mld-corrective__row-title">You are being billed but nothing is moving.</div>
+          </div>
+          <p class="mld-corrective__row-desc">Weeks pass. Invoices arrive. But no counter-evidence has been filed, no independent investigation has been launched, and you have not been told what the board has built against you. In a board proceeding, the clock runs in the board's favor — every passive month is a month of unopposed record-building you cannot recover.</p>
+        </div>
+
+        <div class="mld-corrective__row">
+          <div class="mld-corrective__row-num" aria-hidden="true">02</div>
+          <div class="mld-corrective__row-left">
+            <div class="mld-corrective__row-signal">Warning Signal</div>
+            <div class="mld-corrective__row-title">Your attorney doesn't understand the political nature of the complaint.</div>
+          </div>
+          <p class="mld-corrective__row-desc">Your complaint may have nothing to do with clinical error — and everything to do with institutional pressure, a competing interest, or an advocacy agenda targeting independent midwifery practice. An attorney who doesn't recognize this will build a clinical defense against a political attack. That is the wrong fight entirely.</p>
+        </div>
+
+        <div class="mld-corrective__row">
+          <div class="mld-corrective__row-num" aria-hidden="true">03</div>
+          <div class="mld-corrective__row-left">
+            <div class="mld-corrective__row-signal">Warning Signal</div>
+            <div class="mld-corrective__row-title">Your collaborative agreement is at risk and no one is acting with urgency.</div>
+          </div>
+          <p class="mld-corrective__row-desc">The collaborative physician agreement that allows you to practice can be pulled at any time during an open investigation — with no notice required. If your attorney is advising patience while that exposure sits unaddressed, the damage may arrive before any hearing is scheduled. Urgency is not optional in a CNM case.</p>
+        </div>
+
+      </div>
+
+      <div class="mld-corrective__cta-block">
+        <div>
+          <p class="mld-corrective__cta-urgency">We conduct a forensic review of where your case stands — and tell you <em>directly</em> what has been missed and what is still recoverable. Work begins the same day.</p>
+          <div class="mld-corrective__cta-btns">
+            <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+            <a href="strategy-session.html" class="btn btn--outline">Book a Strategy Session</a>
+          </div>
+          <p class="mld-corrective__transfer">Already working with another attorney? <a href="transfer-your-case.html">Transfer your case →</a></p>
+        </div>
+        <div class="mld-corrective__quote-box">
+          <p class="mld-corrective__quote-text">"Thank you for your encouragement. Please keep fighting for midwifery in Texas."</p>
+          <div class="mld-corrective__quote-attr">S.G. · Google Review · Verified Midwifery Client</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
        ABOUT — Octavia
   ════════════════════════════════════════════════════════════ -->
   <section class="section mld-about" aria-labelledby="about-h2" id="mldAboutSection">
@@ -2158,7 +2458,18 @@
       }, { threshold: 0.12 }).observe(sec);
     })();
 
-    /* About — scroll entry */
+    /* Corrective — scroll entry */
+    (function() {
+      var sec = document.getElementById('mldCorrectiveSection');
+      if (!sec) return;
+      new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) { sec.classList.add('corr-entered'); }
+        });
+      }, { threshold: 0.1 }).observe(sec);
+    })();
+
+        /* About — scroll entry */
     (function() {
       var sec = document.getElementById('mldAboutSection');
       if (!sec) return;
