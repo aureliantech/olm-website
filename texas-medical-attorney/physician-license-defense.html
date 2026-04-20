@@ -984,47 +984,52 @@
       .pld-handles__panel-num { font-size: 60px; }
       .pld-handles__panel-ghost { display: none; }
     }
-    /* ── REVIEWS — cinematic column layout ─────────────────── */
-    @keyframes starFadeIn {
-      from { opacity: 0; transform: scale(0.6); }
-      to   { opacity: 1; transform: scale(1); }
-    }
-    @keyframes wordReveal {
-      from { opacity: 0; transform: translateY(16px) skewY(1deg); filter: blur(3px); }
-      to   { opacity: 1; transform: translateY(0) skewY(0); filter: blur(0); }
+    /* ── REVIEWS — light, one viewport, split layout ──────── */
+    @keyframes starPop {
+      from { opacity: 0; transform: scale(0.5) rotate(-10deg); }
+      to   { opacity: 1; transform: scale(1) rotate(0deg); }
     }
 
     .pld-reviews {
-      background: var(--dark);
-      overflow: hidden;
+      background: var(--bg);
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
       position: relative;
+      overflow: hidden;
     }
+    .pld-reviews.section { padding: clamp(56px, 7vw, 88px) var(--gutter); }
 
-    /* Ambient glow that follows cursor */
-    .pld-reviews__glow {
+    /* Decorative giant quote mark background */
+    .pld-reviews::before {
+      content: '“';
       position: absolute;
-      width: 600px; height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(232,114,42,0.07) 0%, transparent 70%);
+      top: -0.25em; left: -0.06em;
+      font-family: var(--ff-serif);
+      font-size: clamp(280px, 38vw, 520px);
+      color: rgba(232,114,42,0.04);
+      line-height: 1;
       pointer-events: none;
-      transform: translate(-50%, -50%);
-      transition: left 0.15s ease, top 0.15s ease;
-      z-index: 0;
-      will-change: left, top;
+      user-select: none;
     }
 
-    /* Header */
+    .pld-reviews__inner {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: clamp(40px, 6vw, 80px);
+      align-items: start;
+      width: 100%;
+      position: relative; z-index: 1;
+    }
+
+    /* ── LEFT: featured quote ── */
+    .pld-reviews__featured-wrap {}
+
     .pld-reviews__header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      margin-bottom: 56px;
-      position: relative; z-index: 1;
-    }
-    .pld-reviews__header-left {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+      gap: 16px;
+      margin-bottom: 32px;
     }
     .pld-reviews__eyebrow {
       font-size: 11px; font-weight: 700;
@@ -1032,176 +1037,115 @@
       color: var(--accent);
     }
     .pld-reviews__stars {
-      font-size: 20px;
-      color: #F5C842;
-      text-shadow: 0 0 8px rgba(245,200,66,0.8), 0 0 16px rgba(245,200,66,0.35);
-      letter-spacing: 4px;
       display: flex;
-      gap: 4px;
+      gap: 3px;
     }
     .pld-reviews__stars span {
-      display: inline-block;
-      opacity: 0;
-      animation: starFadeIn 0.4s cubic-bezier(0.16,1,0.3,1) forwards;
-    }
-    .pld-reviews__stars span:nth-child(1) { animation-delay: 0.1s; }
-    .pld-reviews__stars span:nth-child(2) { animation-delay: 0.2s; }
-    .pld-reviews__stars span:nth-child(3) { animation-delay: 0.3s; }
-    .pld-reviews__stars span:nth-child(4) { animation-delay: 0.4s; }
-    .pld-reviews__stars span:nth-child(5) { animation-delay: 0.5s; }
-    .pld-reviews__count {
-      font-family: var(--ff-serif);
-      font-size: 15px;
-      color: rgba(250,246,240,0.55);
-      font-style: italic;
-    }
-
-    /* Column strip */
-    .pld-reviews__columns {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      border: 1px solid rgba(201,184,154,0.1);
-      border-right: none;
-      margin-bottom: 2px;
-      position: relative; z-index: 1;
-    }
-
-    .pld-review-col {
-      padding: 40px 36px;
-      border-right: 1px solid rgba(201,184,154,0.1);
-      position: relative;
-      overflow: hidden;
-      cursor: default;
-      transition: background 0.4s ease;
-    }
-    .pld-review-col::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-lite));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .pld-review-col:hover {
-      background: rgba(232,114,42,0.04);
-    }
-    .pld-review-col:hover::before {
-      transform: scaleX(1);
-    }
-
-    /* Large quote mark decoration */
-    .pld-review-col__mark {
-      font-family: var(--ff-serif);
-      font-size: 120px;
-      color: rgba(232,114,42,0.06);
-      line-height: 0.8;
-      margin-bottom: 8px;
-      display: block;
-      transition: color 0.4s;
-      user-select: none;
-    }
-    .pld-review-col:hover .pld-review-col__mark {
-      color: rgba(232,114,42,0.12);
-    }
-
-    .pld-review-col__stars {
-      font-size: 13px;
-      color: #F5C842;
-      text-shadow: 0 0 8px rgba(245,200,66,0.8), 0 0 14px rgba(245,200,66,0.3);
-      letter-spacing: 3px;
-      margin-bottom: 20px;
-      display: block;
-    }
-    .pld-review-col__quote {
-      font-family: var(--ff-serif);
-      font-size: clamp(16px, 1.6vw, 19px);
-      color: rgba(250,246,240,0.82);
-      line-height: 1.68;
-      font-style: italic;
-      margin-bottom: 28px;
-      transition: color 0.3s;
-    }
-    .pld-review-col:hover .pld-review-col__quote {
-      color: rgba(250,246,240,0.95);
-    }
-    .pld-review-col__attr {
-      font-family: var(--ff-sans);
-      font-size: 12px; font-weight: 700;
-      letter-spacing: 0.16em; text-transform: uppercase;
-      color: rgba(250,246,240,0.4);
-      border-top: 1px solid rgba(201,184,154,0.1);
-      padding-top: 16px;
-      transition: color 0.3s;
-    }
-    .pld-review-col:hover .pld-review-col__attr {
-      color: var(--accent);
-    }
-
-    /* Featured cinematic quote */
-    .pld-reviews__feature {
-      position: relative; z-index: 1;
-      border: 1px solid rgba(201,184,154,0.1);
-      padding: 64px 80px;
-      overflow: hidden;
-    }
-    .pld-reviews__feature::before {
-      content: '“';
-      position: absolute;
-      top: -0.2em; left: 0.1em;
-      font-family: var(--ff-serif);
-      font-size: clamp(200px, 28vw, 380px);
-      color: rgba(232,114,42,0.04);
-      line-height: 1;
-      pointer-events: none;
-      user-select: none;
-    }
-    .pld-reviews__feature-stars {
       font-size: 16px;
       color: #F5C842;
-      text-shadow: 0 0 8px rgba(245,200,66,0.8), 0 0 16px rgba(245,200,66,0.35);
-      letter-spacing: 4px;
-      margin-bottom: 32px;
-      display: block;
+      text-shadow: 0 0 6px rgba(245,200,66,0.7);
+      display: inline-block;
+      opacity: 0;
+      animation: starPop 0.35s cubic-bezier(0.16,1,0.3,1) forwards;
     }
+    .pld-reviews__stars span:nth-child(1) { animation-delay: 0.05s; }
+    .pld-reviews__stars span:nth-child(2) { animation-delay: 0.12s; }
+    .pld-reviews__stars span:nth-child(3) { animation-delay: 0.19s; }
+    .pld-reviews__stars span:nth-child(4) { animation-delay: 0.26s; }
+    .pld-reviews__stars span:nth-child(5) { animation-delay: 0.33s; }
+
     .pld-reviews__feature-quote {
       font-family: var(--ff-serif);
-      font-size: clamp(22px, 2.8vw, 36px);
-      color: rgba(250,246,240,0.92);
-      line-height: 1.5;
+      font-size: clamp(20px, 2.4vw, 32px);
+      color: var(--dark);
+      line-height: 1.45;
       font-style: italic;
       letter-spacing: -0.01em;
-      margin-bottom: 36px;
-      position: relative; z-index: 1;
+      margin-bottom: 24px;
+      position: relative;
     }
-    /* Word-by-word reveal — JS adds .word-revealed class to each span */
+    /* Word reveal spans */
     .pld-reviews__feature-quote .rev-word {
       display: inline-block;
       opacity: 0;
-      transform: translateY(16px) skewY(1deg);
-      filter: blur(3px);
-      transition: opacity 0.5s ease, transform 0.55s cubic-bezier(0.16,1,0.3,1), filter 0.45s ease;
+      transform: translateY(12px);
+      filter: blur(2px);
+      transition: opacity 0.45s ease, transform 0.5s cubic-bezier(0.16,1,0.3,1), filter 0.4s ease;
     }
     .pld-reviews__feature-quote .rev-word.revealed {
-      opacity: 1;
-      transform: translateY(0) skewY(0);
-      filter: blur(0);
+      opacity: 1; transform: translateY(0); filter: blur(0);
     }
     .pld-reviews__feature-attr {
       font-family: var(--ff-sans);
       font-size: 13px; font-weight: 700;
-      letter-spacing: 0.18em; text-transform: uppercase;
+      letter-spacing: 0.16em; text-transform: uppercase;
       color: var(--accent);
-      position: relative; z-index: 1;
+      padding-top: 20px;
+      border-top: 2px solid var(--accent);
+      display: inline-block;
+    }
+
+    /* ── RIGHT: three compact tiles stacked ── */
+    .pld-reviews__tiles {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .pld-review-tile {
+      background: var(--surface);
+      padding: 22px 24px;
+      border-left: 3px solid transparent;
+      transition: border-color 0.25s, background 0.25s;
+      cursor: default;
+      position: relative;
+    }
+    .pld-review-tile:hover {
+      border-left-color: var(--accent);
+      background: var(--bg);
+    }
+    .pld-review-tile__stars {
+      font-size: 12px;
+      color: #F5C842;
+      text-shadow: 0 0 6px rgba(245,200,66,0.6);
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .pld-review-tile__quote {
+      font-family: var(--ff-serif);
+      font-size: 15px;
+      color: var(--dark);
+      line-height: 1.6;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+    .pld-review-tile__attr {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    /* Slide in on scroll */
+    .pld-reviews__featured-wrap {
+      transform: translateX(-20px);
+      opacity: 0;
+      transition: transform 0.85s cubic-bezier(0.16,1,0.3,1), opacity 0.65s ease;
+    }
+    .pld-reviews__tiles {
+      transform: translateX(20px);
+      opacity: 0;
+      transition: transform 0.85s cubic-bezier(0.16,1,0.3,1) 0.12s, opacity 0.65s ease 0.12s;
+    }
+    .pld-reviews.reviews-entered .pld-reviews__featured-wrap,
+    .pld-reviews.reviews-entered .pld-reviews__tiles {
+      transform: translateX(0);
+      opacity: 1;
     }
 
     @media (max-width: 900px) {
-      .pld-reviews__header { flex-direction: column; align-items: flex-start; gap: 16px; }
-      .pld-reviews__columns { grid-template-columns: 1fr; border-right: 1px solid rgba(201,184,154,0.1); }
-      .pld-reviews__feature { padding: 40px 32px; }
-      .pld-reviews__feature::before { font-size: 160px; }
+      .pld-reviews { min-height: auto; }
+      .pld-reviews__inner { grid-template-columns: 1fr; }
+      .pld-reviews__featured-wrap, .pld-reviews__tiles { transform: none; opacity: 1; }
       .pld-reviews__feature-quote .rev-word { opacity: 1; transform: none; filter: none; }
     }
     /* ── ABOUT — dark split, contained photo, bracket frame ── */
@@ -1259,11 +1203,11 @@
 
     .pld-about__headline {
       font-family: var(--ff-serif);
-      font-size: clamp(36px, 5.5vw, 78px);
+      font-size: clamp(30px, 3.8vw, 54px);
       color: var(--bg);
-      line-height: 1.0;
-      letter-spacing: -0.03em;
-      margin-bottom: 28px;
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      margin-bottom: 22px;
     }
     .pld-about__headline em {
       display: block;
@@ -1654,55 +1598,179 @@
       .pld-complaints__right { transform: none; opacity: 1; }
       .pld-complaint-item__body { max-height: 120px; opacity: 1; padding-bottom: 14px; }
     }
-    /* ── CORRECTIVE COUNSEL ─────────────────────────────────── */
+    /* ── CORRECTIVE COUNSEL — light, editorial, world-class ── */
+    @keyframes warnPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
     .pld-corrective {
-      background: var(--plum);
-      color: var(--bg);
+      background: var(--surface);
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
     }
+    .pld-corrective.section { padding: clamp(56px, 8vw, 96px) var(--gutter); }
+
+    /* Ghost text */
+    .pld-corrective::before {
+      content: '?';
+      position: absolute;
+      right: -0.1em; top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--ff-serif);
+      font-size: clamp(300px, 42vw, 600px);
+      font-weight: 700;
+      color: rgba(232,114,42,0.04);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
     .pld-corrective__inner {
-      max-width: 780px;
-      margin: 0 auto;
-      text-align: center;
+      width: 100%;
+      position: relative; z-index: 1;
     }
-    .pld-corrective h2 {
-      font-size: clamp(26px, 3vw, 42px);
-      color: var(--bg);
-      margin-bottom: 16px;
-      line-height: 1.1;
+
+    /* Header */
+    .pld-corrective__header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(32px, 5vw, 80px);
+      align-items: end;
+      margin-bottom: clamp(40px, 5vw, 64px);
+      padding-bottom: clamp(32px, 4vw, 48px);
+      border-bottom: 1px solid var(--border);
     }
-    .pld-corrective h2 em { color: var(--accent-lite); }
-    .pld-corrective p {
-      font-size: 17px;
-      color: rgba(250,246,240,0.7);
+    .pld-corrective__headline {
+      font-family: var(--ff-serif);
+      font-size: clamp(28px, 3.5vw, 50px);
+      color: var(--dark);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
+    .pld-corrective__headline em {
+      font-style: italic;
+      background: linear-gradient(90deg, var(--accent-lite), var(--accent), var(--accent-lite));
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmerText 4s linear 2s infinite;
+    }
+    .pld-corrective__intro {
+      font-size: 16px;
+      color: var(--mid);
       line-height: 1.75;
-      max-width: 640px;
-      margin: 0 auto 32px;
     }
+
+    /* Wide signal cards — 2 columns */
     .pld-corrective__cards {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      margin-bottom: 36px;
-      text-align: left;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 40px;
     }
     .pld-corrective__card {
-      background: rgba(26,18,33,0.5);
-      padding: 28px 24px;
-      border-top: 2px solid rgba(232,114,42,0.3);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-top: 3px solid transparent;
+      padding: 32px 36px;
+      position: relative;
+      overflow: hidden;
+      transition: border-top-color 0.3s, box-shadow 0.3s, transform 0.3s;
+      cursor: default;
+    }
+    .pld-corrective__card:hover {
+      border-top-color: var(--accent);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+      transform: translateY(-3px);
+    }
+    /* Subtle sweep on hover */
+    .pld-corrective__card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(232,114,42,0.04) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .pld-corrective__card:hover::after { opacity: 1; }
+
+    .pld-corrective__card-signal {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .pld-corrective__card-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      animation: warnPulse 2.5s ease-in-out infinite;
     }
     .pld-corrective__card-label {
       font-size: 11px; font-weight: 700;
-      letter-spacing: 0.16em; text-transform: uppercase;
+      letter-spacing: 0.2em; text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 8px;
     }
     .pld-corrective__card-body {
-      font-size: 14px;
-      color: rgba(250,246,240,0.65);
-      line-height: 1.65;
+      font-size: 16px;
+      color: var(--dark);
+      line-height: 1.72;
+      position: relative; z-index: 1;
     }
-    @media (max-width: 768px) { .pld-corrective__cards { grid-template-columns: 1fr; } }
 
+    /* Third card spans full width */
+    .pld-corrective__card--full {
+      grid-column: 1 / -1;
+    }
+
+    /* CTA row */
+    .pld-corrective__cta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .pld-corrective__cta-link {
+      font-size: 15px;
+      color: var(--mid);
+    }
+    .pld-corrective__cta-link a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(232,114,42,0.35);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .pld-corrective__cta-link a:hover {
+      color: var(--accent-dark, #b8531a);
+      border-color: var(--accent);
+    }
+
+    /* Scroll entry */
+    .pld-corrective__header,
+    .pld-corrective__cards,
+    .pld-corrective__cta {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16,1,0.3,1);
+    }
+    .pld-corrective.corr-entered .pld-corrective__header { opacity: 1; transform: translateY(0); }
+    .pld-corrective.corr-entered .pld-corrective__cards { opacity: 1; transform: translateY(0); transition-delay: 0.12s; }
+    .pld-corrective.corr-entered .pld-corrective__cta { opacity: 1; transform: translateY(0); transition-delay: 0.22s; }
+
+    @media (max-width: 900px) {
+      .pld-corrective { min-height: auto; }
+      .pld-corrective__header { grid-template-columns: 1fr; gap: 16px; }
+      .pld-corrective__cards { grid-template-columns: 1fr; }
+      .pld-corrective__card--full { grid-column: 1; }
+      .pld-corrective__header, .pld-corrective__cards, .pld-corrective__cta { opacity: 1; transform: none; }
+    }
     /* ── FINAL CTA ──────────────────────────────────────────── */
     .pld-final-cta {
       background: var(--dark);
@@ -2146,58 +2214,52 @@
   </section>
 
     <!-- ═══════════════════════════════════════════════════════════
-       REVIEWS — cinematic
+       REVIEWS — light, one viewport split
   ════════════════════════════════════════════════════════════ -->
-  <section class="section pld-reviews" aria-labelledby="reviews-h2">
-    <div class="pld-reviews__glow" id="reviewsGlow" aria-hidden="true"></div>
+  <section class="section pld-reviews" aria-labelledby="reviews-h2" id="reviewsSection">
     <div class="container">
+      <div class="pld-reviews__inner">
 
-      <div class="pld-reviews__header reveal">
-        <div class="pld-reviews__header-left">
-          <div class="pld-reviews__eyebrow">Client Reviews · Google · Verified</div>
-          <div class="pld-reviews__stars" aria-label="5 out of 5 stars">
-            <span aria-hidden="true">★</span>
-            <span aria-hidden="true">★</span>
-            <span aria-hidden="true">★</span>
-            <span aria-hidden="true">★</span>
-            <span aria-hidden="true">★</span>
+        <!-- LEFT: featured quote -->
+        <div class="pld-reviews__featured-wrap">
+          <div class="pld-reviews__header">
+            <div class="pld-reviews__eyebrow">Client Reviews · Google · Verified</div>
+            <div class="pld-reviews__stars" aria-label="5 stars">
+              <span aria-hidden="true">★</span>
+              <span aria-hidden="true">★</span>
+              <span aria-hidden="true">★</span>
+              <span aria-hidden="true">★</span>
+              <span aria-hidden="true">★</span>
+            </div>
           </div>
+          <h2 id="reviews-h2" class="sr-only">Client reviews</h2>
+          <p class="pld-reviews__feature-quote" id="featureQuote">"I cannot recommend Octavia enough. She is an incredible attorney who is both passionate about her work and deeply committed to her clients. What sets her apart is her rare combination of warmth and professionalism — a calming, reassuring presence while also being razor-sharp and thorough. You always know she truly cares and is fighting for the best possible outcome."</p>
+          <div class="pld-reviews__feature-attr">J.C. · Google Review · Verified · Dallas County, TX</div>
         </div>
-        <div class="pld-reviews__count">Five stars across all Google reviews</div>
-        <h2 id="reviews-h2" class="sr-only">Client reviews</h2>
+
+        <!-- RIGHT: three compact tiles -->
+        <div class="pld-reviews__tiles">
+
+          <div class="pld-review-tile">
+            <span class="pld-review-tile__stars" aria-hidden="true">★★★★★</span>
+            <p class="pld-review-tile__quote">"She is fierce and effective in advocating for her clients, while maintaining a genuine kindness and professionalism that sets her apart."</p>
+            <div class="pld-review-tile__attr">K.A. · Google · Lubbock, TX</div>
+          </div>
+
+          <div class="pld-review-tile">
+            <span class="pld-review-tile__stars" aria-hidden="true">★★★★★</span>
+            <p class="pld-review-tile__quote">"She pursues Right over Wrong, Justice over Injustice — and not just Win or Lose. I respect and admire her for that."</p>
+            <div class="pld-review-tile__attr">M.P. · Google · Texas</div>
+          </div>
+
+          <div class="pld-review-tile">
+            <span class="pld-review-tile__stars" aria-hidden="true">★★★★★</span>
+            <p class="pld-review-tile__quote">"Her passion, communication, professionalism, responsiveness, and willingness to explain things have been top notch. 10/10."</p>
+            <div class="pld-review-tile__attr">E.F. · Google · Texas</div>
+          </div>
+
+        </div>
       </div>
-
-      <div class="pld-reviews__columns">
-
-        <div class="pld-review-col reveal">
-          <span class="pld-review-col__mark" aria-hidden="true">"</span>
-          <span class="pld-review-col__stars" aria-label="5 stars" aria-hidden="true">★★★★★</span>
-          <p class="pld-review-col__quote">"She is fierce and effective in advocating for her clients, while maintaining a genuine kindness and professionalism that sets her apart. Her dedication, attention to detail, and ability to navigate complex situations with confidence make her an invaluable advocate."</p>
-          <div class="pld-review-col__attr">K.A. · Google Review · Lubbock, TX</div>
-        </div>
-
-        <div class="pld-review-col reveal">
-          <span class="pld-review-col__mark" aria-hidden="true">"</span>
-          <span class="pld-review-col__stars" aria-label="5 stars" aria-hidden="true">★★★★★</span>
-          <p class="pld-review-col__quote">"She pursues Right over Wrong, Justice over Injustice — and not just Win or Lose. I respect and admire her for that."</p>
-          <div class="pld-review-col__attr">M.P. · Google Review · Texas</div>
-        </div>
-
-        <div class="pld-review-col reveal">
-          <span class="pld-review-col__mark" aria-hidden="true">"</span>
-          <span class="pld-review-col__stars" aria-label="5 stars" aria-hidden="true">★★★★★</span>
-          <p class="pld-review-col__quote">"Excellent communication and professionalism. Her passion, communication, professionalism, responsiveness, and willingness to explain things have been top notch. 10/10 would recommend."</p>
-          <div class="pld-review-col__attr">E.F. · Google Review · Texas</div>
-        </div>
-
-      </div>
-
-      <div class="pld-reviews__feature" id="reviewsFeature">
-        <span class="pld-reviews__feature-stars" aria-label="5 stars" aria-hidden="true">★★★★★</span>
-        <p class="pld-reviews__feature-quote" id="featureQuote">"I cannot recommend Octavia enough. She is an incredible attorney who is both passionate about her work and deeply committed to her clients. What sets her apart is her rare combination of warmth and professionalism — a calming, reassuring presence while also being razor-sharp and thorough. You always know she truly cares and is fighting for the best possible outcome."</p>
-        <div class="pld-reviews__feature-attr">J.C. · Google Review · Verified · Dallas County, TX</div>
-      </div>
-
     </div>
   </section>
 
@@ -2356,38 +2418,59 @@
   </section>
 
     <!-- ═══════════════════════════════════════════════════════════
-       CORRECTIVE COUNSEL CALLOUT
+       CORRECTIVE COUNSEL — light, editorial
   ════════════════════════════════════════════════════════════ -->
-  <section class="section pld-corrective" aria-labelledby="corrective-h2">
+  <section class="section pld-corrective" aria-labelledby="corrective-h2" id="correctiveSection">
     <div class="container">
-      <div class="pld-corrective__inner reveal">
-        <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:14px;">If You Already Have an Attorney</div>
-        <div class="rule rule--center"></div>
-        <h2 id="corrective-h2">The wrong defense posture is <em>worse than no defense at all.</em></h2>
-        <p>A passive attorney who files a brief acknowledgment and prepares for an eventual hearing has given the board months of unopposed record-building time. That time cannot be recovered. If any of the following describes your situation, a case transfer may be warranted.</p>
+      <div class="pld-corrective__inner">
 
-        <div class="pld-corrective__cards">
-          <div class="pld-corrective__card">
-            <div class="pld-corrective__card-label">Warning Signal</div>
-            <p class="pld-corrective__card-body">Your attorney has gone quiet. Weeks pass with no updates. You are not sure what, if anything, is being done on your case.</p>
+        <div class="pld-corrective__header">
+          <div>
+            <div class="eyebrow" style="margin-bottom:14px;">If You Already Have an Attorney</div>
+            <div class="rule"></div>
+            <h2 id="corrective-h2" class="pld-corrective__headline">The wrong defense posture is <em>worse than no defense at all.</em></h2>
           </div>
-          <div class="pld-corrective__card">
-            <div class="pld-corrective__card-label">Warning Signal</div>
-            <p class="pld-corrective__card-body">Your attorney is recommending accepting an ISC resolution. You have not been told whether dismissal was still achievable — or what the NPDB filing will mean permanently.</p>
-          </div>
-          <div class="pld-corrective__card">
-            <div class="pld-corrective__card-label">Warning Signal</div>
-            <p class="pld-corrective__card-body">The initial written response filed on your behalf did not include counter-evidence. It acknowledged the complaint and requested time. That window may now be closed.</p>
-          </div>
+          <p class="pld-corrective__intro">A passive attorney gives the board months of unopposed record-building time. That time cannot be recovered. If any of these describes your situation, a case transfer may be warranted.</p>
         </div>
 
-        <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
-        <p style="margin-top:14px;font-size:14px;color:rgba(250,246,240,0.55);">Need to switch attorneys? <a href="transfer-your-case.html" style="color:var(--accent-lite);">Transfer your case →</a></p>
+        <div class="pld-corrective__cards">
+
+          <div class="pld-corrective__card">
+            <div class="pld-corrective__card-signal">
+              <div class="pld-corrective__card-dot" aria-hidden="true"></div>
+              <div class="pld-corrective__card-label">Warning Signal</div>
+            </div>
+            <p class="pld-corrective__card-body">Your attorney has gone quiet. Weeks pass with no updates. You are not sure what, if anything, is being done on your case.</p>
+          </div>
+
+          <div class="pld-corrective__card">
+            <div class="pld-corrective__card-signal">
+              <div class="pld-corrective__card-dot" aria-hidden="true"></div>
+              <div class="pld-corrective__card-label">Warning Signal</div>
+            </div>
+            <p class="pld-corrective__card-body">Your attorney is recommending an ISC resolution. You have not been told whether dismissal was still achievable — or what the NPDB filing means permanently.</p>
+          </div>
+
+          <div class="pld-corrective__card pld-corrective__card--full">
+            <div class="pld-corrective__card-signal">
+              <div class="pld-corrective__card-dot" aria-hidden="true"></div>
+              <div class="pld-corrective__card-label">Warning Signal</div>
+            </div>
+            <p class="pld-corrective__card-body">The initial written response filed on your behalf acknowledged the complaint and requested time — without counter-evidence. That window may now be closed. We conduct a forensic audit of what remains recoverable and tell you directly.</p>
+          </div>
+
+        </div>
+
+        <div class="pld-corrective__cta">
+          <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+          <span class="pld-corrective__cta-link">Need to transfer? <a href="transfer-your-case.html">Transfer your case →</a></span>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════════════
+    <!-- ═══════════════════════════════════════════════════════════
        FINAL CTA
   ════════════════════════════════════════════════════════════ -->
   <section class="section pld-final-cta" aria-labelledby="finalcta-h2">
@@ -2612,6 +2695,53 @@
       io.observe(sec);
     })();
 
+        /* Reviews — scroll entry + word reveal */
+    (function() {
+      var sec = document.getElementById('reviewsSection');
+      if (!sec) return;
+
+      var quoteEl = document.getElementById('featureQuote');
+      if (quoteEl) {
+        var words = quoteEl.textContent.split(/(\s+)/);
+        quoteEl.innerHTML = '';
+        words.forEach(function(chunk) {
+          if (/^\s+$/.test(chunk)) {
+            quoteEl.appendChild(document.createTextNode(chunk));
+          } else if (chunk.length > 0) {
+            var s = document.createElement('span');
+            s.className = 'rev-word';
+            s.textContent = chunk;
+            quoteEl.appendChild(s);
+          }
+        });
+      }
+
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (!entry.isIntersecting) return;
+          sec.classList.add('reviews-entered');
+          var wordEls = sec.querySelectorAll('.rev-word');
+          wordEls.forEach(function(w, i) {
+            setTimeout(function() { w.classList.add('revealed'); }, i * 22 + 300);
+          });
+          io.unobserve(entry.target);
+        });
+      }, { threshold: 0.12 });
+      io.observe(sec);
+    })();
+
+    /* Corrective — scroll entry */
+    (function() {
+      var sec = document.getElementById('correctiveSection');
+      if (!sec) return;
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) { sec.classList.add('corr-entered'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.1 });
+      io.observe(sec);
+    })();
+
         /* Why Her — scroll entry: char reveal headline + card stagger */
     (function() {
       var sec = document.getElementById('whySection');
@@ -2704,58 +2834,7 @@
       aboutIO.observe(aboutSection);
     })();
 
-        /* Reviews — cursor glow tracking */
-    (function() {
-      var section = document.querySelector('.pld-reviews');
-      var glow = document.getElementById('reviewsGlow');
-      if (!section || !glow) return;
-      section.addEventListener('mousemove', function(e) {
-        var rect = section.getBoundingClientRect();
-        glow.style.left = (e.clientX - rect.left) + 'px';
-        glow.style.top  = (e.clientY - rect.top)  + 'px';
-      });
-    })();
-
-    /* Reviews — word-by-word reveal on scroll */
-    (function() {
-      var quoteEl = document.getElementById('featureQuote');
-      if (!quoteEl) return;
-
-      // Split text into word spans, preserving the outer quotes
-      var text = quoteEl.textContent;
-      var words = text.split(/(\s+)/);
-      quoteEl.innerHTML = '';
-      words.forEach(function(chunk) {
-        if (chunk.match(/^\s+$/)) {
-          quoteEl.appendChild(document.createTextNode(chunk));
-        } else if (chunk.length > 0) {
-          var span = document.createElement('span');
-          span.className = 'rev-word';
-          span.textContent = chunk;
-          quoteEl.appendChild(span);
-        }
-      });
-
-      var wordSpans = quoteEl.querySelectorAll('.rev-word');
-      var revealed = false;
-
-      var quoteIO = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (!entry.isIntersecting || revealed) return;
-          revealed = true;
-          wordSpans.forEach(function(span, i) {
-            setTimeout(function() {
-              span.classList.add('revealed');
-            }, i * 28);
-          });
-          quoteIO.unobserve(entry.target);
-        });
-      }, { threshold: 0.2 });
-
-      quoteIO.observe(quoteEl);
-    })();
-
-        /* Handle row line-draw on scroll */
+            /* Handle row line-draw on scroll */
     var handleRows = document.querySelectorAll('.pld-handle-row');
     var lineIO = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
