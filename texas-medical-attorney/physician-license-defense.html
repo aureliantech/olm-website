@@ -34,6 +34,16 @@
       position: relative;
       overflow: hidden;
     }
+    .phys-hero__bg-img {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&q=80&fit=crop&auto=format');
+      background-size: cover;
+      background-position: center 40%;
+      opacity: 0.055;
+      filter: grayscale(100%) contrast(1.1);
+      mix-blend-mode: luminosity;
+      z-index: 0;
+    }
     .phys-hero::before {
       content: '';
       position: absolute;
@@ -41,6 +51,7 @@
       background:
         radial-gradient(ellipse 60% 60% at 20% 70%, rgba(232,114,42,0.09) 0%, transparent 60%),
         linear-gradient(150deg, #1A1221 0%, #2B2438 100%);
+      z-index: 1;
     }
     .phys-hero__inner {
       position: relative;
@@ -80,7 +91,7 @@
       max-width: 520px;
     }
     .phys-hero__ctas { display: flex; flex-wrap: wrap; gap: 14px; }
-    .phys-hero__trust { margin-top: 16px; font-size: 12px; color: rgba(250,246,240,0.35); letter-spacing: 0.08em; text-transform: uppercase; }
+    .phys-hero__trust { margin-top: 14px; font-size: 11px; color: rgba(250,246,240,0.3); letter-spacing: 0.06em; text-transform: uppercase; }
     .phys-hero__right { display: flex; flex-direction: column; gap: 2px; }
     .phys-hero__stat { background: rgba(43,36,56,0.5); border: 1px solid rgba(201,184,154,0.1); border-left: 3px solid var(--accent); padding: 20px 24px; }
     .phys-hero__stat-num { font-family: var(--ff-serif); font-size: 36px; color: var(--accent-lite); font-style: italic; line-height: 1; margin-bottom: 6px; }
@@ -145,18 +156,19 @@
     .phys-stakes__intro { font-size: 17px; color: rgba(250,246,240,0.75); line-height: 1.75; margin-bottom: 40px; max-width: 600px; }
 
     .phys-table {
-      background: rgba(26,18,33,0.5);
-      border-radius: 2px;
+      background: rgba(10,7,16,0.6);
+      border: 1px solid rgba(201,184,154,0.12);
       max-width: 680px;
     }
     .phys-table__head {
       display: grid;
       grid-template-columns: 2fr 1fr 1fr;
-      padding: 14px 24px;
-      background: rgba(26,18,33,0.5);
+      padding: 16px 24px;
+      background: rgba(10,7,16,0.7);
+      border-bottom: 1px solid rgba(201,184,154,0.12);
     }
     .phys-table__head span {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -169,9 +181,9 @@
       border-top: 1px solid rgba(201,184,154,0.1);
       transition: background 0.15s;
     }
-    .phys-table__row:hover { background: rgba(232,114,42,0.05); }
-    .phys-table__row span:first-child { font-size: 15px; color: rgba(250,246,240,0.75); }
-    .phys-table__row span:not(:first-child) { font-family: var(--ff-serif); font-size: 15px; color: var(--accent-lite); }
+    .phys-table__row:hover { background: rgba(232,114,42,0.06); }
+    .phys-table__row span:first-child { font-size: 15px; color: rgba(250,246,240,0.92); }
+    .phys-table__row span:not(:first-child) { font-family: var(--ff-serif); font-size: 16px; color: var(--accent-lite); font-weight: 400; }
     .phys-table__note {
       padding: 14px 24px;
       border-top: 1px solid rgba(201,184,154,0.1);
@@ -242,6 +254,7 @@
 
     <!-- HERO -->
   <section class="phys-hero">
+    <div class="phys-hero__bg-img" aria-hidden="true"></div>
     <div class="phys-hero__inner">
       <div>
         <div class="eyebrow" style="margin-bottom:16px;display:flex;align-items:center;gap:12px;">
@@ -258,20 +271,20 @@
       </div>
       <div class="phys-hero__right">
         <div class="phys-hero__stat">
+          <div class="phys-hero__stat-num">$7.5M+</div>
+          <div class="phys-hero__stat-label">Foregone earnings over a 20-year career if license is lost</div>
+        </div>
+        <div class="phys-hero__stat">
           <div class="phys-hero__stat-num">$374K+</div>
-          <div class="phys-hero__stat-label">Average physician salary at risk annually</div>
+          <div class="phys-hero__stat-label">Annual income at risk from the day the complaint is filed</div>
         </div>
         <div class="phys-hero__stat">
           <div class="phys-hero__stat-num">Permanent</div>
-          <div class="phys-hero__stat-label">NPDB record following any disciplinary action</div>
+          <div class="phys-hero__stat-label">NPDB record — visible to every credentialing body forever</div>
         </div>
         <div class="phys-hero__stat">
-          <div class="phys-hero__stat-num">12–24 mo</div>
-          <div class="phys-hero__stat-label">Average hearing timeline without early intervention</div>
-        </div>
-        <div class="phys-hero__stat">
-          <div class="phys-hero__stat-num">Day One</div>
-          <div class="phys-hero__stat-label">When The Counter Protocol activates upon retention</div>
+          <div class="phys-hero__stat-num">$200–300K</div>
+          <div class="phys-hero__stat-label">Medical school debt that survives license revocation</div>
         </div>
       </div>
     </div>
@@ -415,13 +428,54 @@
     </div>
   </section>
 
+
+  <!-- REVIEW -->
+  <section style="background:var(--plum);padding:clamp(48px,6vw,80px) var(--gutter);">
+    <div style="max-width:760px;margin:0 auto;text-align:center;" class="reveal">
+      <div style="font-size:22px;color:#F5C842;text-shadow:0 0 8px rgba(245,200,66,0.8),0 0 16px rgba(245,200,66,0.35);letter-spacing:6px;margin-bottom:28px;">★★★★★</div>
+      <p style="font-family:var(--ff-serif);font-size:clamp(18px,2.2vw,26px);color:var(--bg);line-height:1.55;font-style:italic;margin-bottom:24px;">"I cannot recommend Octavia enough. She is an incredible attorney — a calming, reassuring presence while also being razor-sharp and thorough. You always know she truly cares and is fighting for the best possible outcome."</p>
+      <div style="font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-lite);margin-bottom:28px;">J.C. · Google Review · Texas</div>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
+        <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+        <a href="strategy-session.html" class="btn btn--outline">Book a Strategy Session</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORRECTIVE COUNSEL -->
+  <section style="background:var(--surface);padding:clamp(36px,4vw,56px) var(--gutter);">
+    <div style="max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;" class="reveal">
+      <div>
+        <div class="eyebrow" style="margin-bottom:12px;">Already Have an Attorney?</div>
+        <div class="rule"></div>
+        <h2 style="font-size:clamp(22px,2.5vw,34px);color:var(--dark);margin-bottom:16px;line-height:1.15;">If your current counsel filed a passive rebuttal, it is not too late.</h2>
+        <p style="font-size:16px;color:var(--mid);line-height:1.8;">This firm regularly steps into cases mid-stream — auditing what was filed, identifying what can still be corrected, and moving immediately to rebuild the defense posture. The earlier the intervention, the more options remain available.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--accent);padding:18px 22px;">
+          <div style="font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;">We Review</div>
+          <div style="font-size:15px;color:var(--dark);">Every filing, correspondence, and deadline in your case file</div>
+        </div>
+        <div style="background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--accent);padding:18px 22px;">
+          <div style="font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;">We Identify</div>
+          <div style="font-size:15px;color:var(--dark);">What was missed, what can still be corrected, what your current posture is</div>
+        </div>
+        <div style="background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--accent);padding:18px 22px;">
+          <div style="font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;">We Act</div>
+          <div style="font-size:15px;color:var(--dark);">Immediately — no delay between assessment and intervention</div>
+        </div>
+        <a href="tel:9564263550" class="btn btn--primary" style="text-align:center;">Call (956) 426-3550</a>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="section phys-cta">
     <div class="container">
       <div class="phys-cta__inner reveal">
         <div class="eyebrow" style="margin-bottom:14px;">The First Step</div>
-        <h2>One entry point. Intentionally simple.</h2>
-        <p>Book a Strategy Session. Frank assessment of your complaint, realistic outcomes, and clear direction on what happens next.</p>
+        <h2>The board has already started. <em>So should you.</em></h2>
+        <p>One 30-minute strategy session. We review your complaint, your clinical record, and your timeline — and tell you exactly what you are facing, what your options are, and what the cost of waiting looks like.</p>
         <div class="phys-cta__ctas">
           <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
           <a href="strategy-session.html" class="btn btn--outline">Book a Strategy Session</a>
