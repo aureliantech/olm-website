@@ -748,162 +748,226 @@
       .pld-why__card-body { max-height: 200px; opacity: 1; margin-top: 12px; }
       .pld-why.why-entered .pld-why__card { animation: none; }
     }
-    /* ── COUNTER PROTOCOL — light, editorial split ─────────── */
+    /* ── COUNTER PROTOCOL — timeline visualization ──────────── */
+    @keyframes axisIn {
+      from { transform: scaleY(0); }
+      to   { transform: scaleY(1); }
+    }
+    @keyframes barIn {
+      from { width: 0; opacity: 0; }
+      to   { width: var(--bar-w, 100%); opacity: 1; }
+    }
+    @keyframes labelIn {
+      from { opacity: 0; transform: translateX(-8px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes protoSlideIn {
+      from { opacity: 0; transform: translateX(-24px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
     .pld-protocol {
-      background: var(--surface);
+      background: var(--bg);
       min-height: 100svh;
       display: flex;
       align-items: center;
       position: relative;
       overflow: hidden;
     }
-    .pld-protocol.section { padding: clamp(56px, 8vw, 96px) var(--gutter); }
+    .pld-protocol.section {
+      padding: clamp(56px,7vw,88px) clamp(40px,6vw,100px);
+    }
 
     .pld-protocol__inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: clamp(48px, 7vw, 96px);
+      gap: clamp(48px,7vw,96px);
       align-items: center;
       width: 100%;
     }
 
-    /* LEFT copy */
-    .pld-protocol__copy {}
+    /* ── LEFT: copy ── */
+    .pld-protocol__copy {
+      opacity: 0;
+      transform: translateX(-24px);
+      transition: opacity 0.75s ease, transform 0.75s cubic-bezier(0.16,1,0.3,1);
+    }
+    .pld-protocol.protocol-entered .pld-protocol__copy {
+      opacity: 1; transform: translateX(0);
+    }
+
     .pld-protocol__copy h2 {
       font-family: var(--ff-serif);
-      font-size: clamp(28px, 3.2vw, 44px);
+      font-size: clamp(28px,3.2vw,44px);
       color: var(--dark);
-      line-height: 1.08;
-      letter-spacing: -0.02em;
-      margin-bottom: 20px;
+      line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 22px;
     }
     .pld-protocol__copy h2 em {
       font-style: italic;
       background: linear-gradient(90deg, var(--accent-lite), var(--accent), var(--accent-lite));
       background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
       animation: shimmerText 4s linear 2s infinite;
     }
     .pld-protocol__copy p {
-      font-size: 16px;
-      color: var(--mid);
-      line-height: 1.78;
-      margin-bottom: 14px;
+      font-size: 16px; color: var(--mid); line-height: 1.78; margin-bottom: 14px;
     }
     .pld-protocol__copy strong { color: var(--dark); }
     .pld-protocol__link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--ff-sans);
+      display: inline-flex; align-items: center; gap: 8px;
       font-size: 12px; font-weight: 700;
       letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--accent);
-      text-decoration: none;
-      margin-top: 12px;
+      color: var(--accent); text-decoration: none; margin-top: 12px;
       transition: gap 0.2s;
     }
     .pld-protocol__link:hover { gap: 14px; }
 
-    /* RIGHT: three comparison rows — punchy */
-    .pld-protocol__compare {
-      display: flex;
-      flex-direction: column;
-      border: 1px solid var(--border);
-      border-bottom: none;
+    /* ── RIGHT: timeline visualization ── */
+    .pld-protocol__viz {
+      opacity: 0;
+      transform: translateX(24px);
+      transition: opacity 0.75s ease 0.15s, transform 0.75s cubic-bezier(0.16,1,0.3,1) 0.15s;
     }
-    .pld-protocol__row {
-      display: grid;
-      grid-template-columns: 80px 1fr;
-      border-bottom: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-      transition: background 0.25s;
+    .pld-protocol.protocol-entered .pld-protocol__viz {
+      opacity: 1; transform: translateX(0);
     }
-    .pld-protocol__row::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 0;
-      background: var(--accent);
-      transition: width 0.35s cubic-bezier(0.16,1,0.3,1);
-    }
-    .pld-protocol__row:hover { background: rgba(232,114,42,0.04); }
-    .pld-protocol__row:hover::before { width: 3px; }
 
-    .pld-protocol__row-actor {
+    /* Header */
+    .pld-protocol__viz-header {
       display: flex;
       align-items: center;
-      justify-content: center;
-      padding: 20px 12px;
+      gap: 14px;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .pld-protocol__viz-eyebrow {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent);
+    }
+    .pld-protocol__viz-rule {
+      flex: 1; height: 1px; background: var(--border);
+    }
+    .pld-protocol__viz-day {
+      font-family: var(--ff-serif);
+      font-size: 13px; color: var(--muted);
+      white-space: nowrap;
+    }
+
+    /* Timeline rows */
+    .pld-protocol__rows {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .pld-protocol__row {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .pld-protocol__row:first-child { border-top: 1px solid var(--border); }
+
+    /* Actor label cell */
+    .pld-protocol__row-actor {
+      padding: 24px 16px 24px 0;
+      display: flex;
+      align-items: flex-start;
       border-right: 1px solid var(--border);
     }
-    .pld-protocol__row-actor span {
+    .pld-protocol__row-actor-name {
       font-size: 10px; font-weight: 700;
       letter-spacing: 0.18em; text-transform: uppercase;
       writing-mode: vertical-lr;
-      text-orientation: mixed;
       transform: rotate(180deg);
+      line-height: 1;
     }
-    .pld-protocol__row--board .pld-protocol__row-actor span { color: var(--mid); }
-    .pld-protocol__row--us .pld-protocol__row-actor span { color: var(--accent); }
-    .pld-protocol__row--them .pld-protocol__row-actor span { color: var(--mid); opacity: 1; }
-    .pld-protocol__row--us .pld-protocol__row-actor { background: rgba(232,114,42,0.06); }
+    .pld-protocol__row--board .pld-protocol__row-actor-name { color: var(--mid); }
+    .pld-protocol__row--us .pld-protocol__row-actor-name { color: var(--accent); }
+    .pld-protocol__row--us .pld-protocol__row-actor { background: rgba(232,114,42,0.04); }
+    .pld-protocol__row--them .pld-protocol__row-actor-name { color: var(--muted); }
 
+    /* Content cell */
     .pld-protocol__row-content {
-      padding: 18px 22px;
+      padding: 24px 0 24px 24px;
     }
+
+    /* Bar track */
+    .pld-protocol__bar-track {
+      height: 4px;
+      background: var(--border);
+      position: relative;
+      margin-bottom: 14px;
+      overflow: hidden;
+    }
+    .pld-protocol__bar {
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 0;
+    }
+    /* Board: already started — shows partial fill from left */
+    .pld-protocol__row--board .pld-protocol__bar {
+      background: linear-gradient(90deg, rgba(26,18,33,0.15), rgba(26,18,33,0.35));
+    }
+    /* Our Firm: full accent */
+    .pld-protocol__row--us .pld-protocol__bar {
+      background: linear-gradient(90deg, var(--accent), var(--accent-lite));
+    }
+    /* Typical Firm: muted */
+    .pld-protocol__row--them .pld-protocol__bar {
+      background: linear-gradient(90deg, rgba(26,18,33,0.08), rgba(26,18,33,0.15));
+    }
+
+    /* Animate bars when protocol-entered */
+    .pld-protocol.protocol-entered .pld-protocol__row--board .pld-protocol__bar {
+      animation: barIn 0.8s cubic-bezier(0.16,1,0.3,1) 0.3s forwards;
+      --bar-w: 92%;
+    }
+    .pld-protocol.protocol-entered .pld-protocol__row--us .pld-protocol__bar {
+      animation: barIn 0.8s cubic-bezier(0.16,1,0.3,1) 0.35s forwards;
+      --bar-w: 88%;
+    }
+    .pld-protocol.protocol-entered .pld-protocol__row--them .pld-protocol__bar {
+      animation: barIn 1.2s cubic-bezier(0.16,1,0.3,1) 0.6s forwards;
+      --bar-w: 38%;
+    }
+
+    /* Row title + desc */
     .pld-protocol__row-title {
       font-family: var(--ff-sans);
       font-size: 14px; font-weight: 700;
-      color: var(--dark);
-      margin-bottom: 5px;
-      line-height: 1.3;
+      color: var(--dark); line-height: 1.35; margin-bottom: 6px;
     }
-    .pld-protocol__row--them .pld-protocol__row-title { color: var(--mid); }
+    .pld-protocol__row--them .pld-protocol__row-title { color: var(--muted); }
     .pld-protocol__row--us .pld-protocol__row-title { color: var(--accent-dark, #b8531a); }
     .pld-protocol__row-desc {
-      font-size: 14px;
-      color: var(--mid);
-      line-height: 1.6;
+      font-size: 14px; color: var(--mid); line-height: 1.65;
     }
-    .pld-protocol__row--them .pld-protocol__row-desc { color: var(--mid); }
-    .pld-protocol__row--us .pld-protocol__row-desc { color: var(--mid); }
+    .pld-protocol__row--them .pld-protocol__row-desc { color: var(--muted); }
 
-    /* Day-zero label */
-    .pld-protocol__label {
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--muted);
-      padding: 12px 22px;
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
-      border-top: 1px solid var(--border);
-    }
-
-    /* Slide in on scroll */
-    .pld-protocol__copy {
-      transform: translateX(-20px);
+    /* Bar timing label */
+    .pld-protocol__bar-label {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      position: absolute; right: 0; top: 50%;
+      transform: translateY(-50%) translateX(4px);
       opacity: 0;
-      transition: transform 0.8s cubic-bezier(0.16,1,0.3,1), opacity 0.65s ease;
+      white-space: nowrap;
     }
-    .pld-protocol__compare {
-      transform: translateX(20px);
-      opacity: 0;
-      transition: transform 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s, opacity 0.65s ease 0.1s;
-    }
-    .pld-protocol.protocol-entered .pld-protocol__copy,
-    .pld-protocol.protocol-entered .pld-protocol__compare {
-      transform: translateX(0);
-      opacity: 1;
-    }
+    .pld-protocol__row--board .pld-protocol__bar-label { color: var(--mid); }
+    .pld-protocol__row--us .pld-protocol__bar-label { color: var(--accent); }
+    .pld-protocol__row--them .pld-protocol__bar-label { color: var(--muted); }
+    .pld-protocol.protocol-entered .pld-protocol__row--board .pld-protocol__bar-label { animation: labelIn 0.4s ease 1.1s forwards; }
+    .pld-protocol.protocol-entered .pld-protocol__row--us .pld-protocol__bar-label { animation: labelIn 0.4s ease 1.15s forwards; }
+    .pld-protocol.protocol-entered .pld-protocol__row--them .pld-protocol__bar-label { animation: labelIn 0.4s ease 1.8s forwards; }
 
-    @media (max-width: 900px) {
-      .pld-protocol { min-height: auto; }
-      .pld-protocol__inner { grid-template-columns: 1fr; }
-      .pld-protocol__copy, .pld-protocol__compare { transform: none; opacity: 1; }
+    @media (max-width:900px) {
+      .pld-protocol { min-height:auto; }
+      .pld-protocol__inner { grid-template-columns:1fr; }
+      .pld-protocol__copy, .pld-protocol__viz { opacity:1; transform:none; }
     }
     /* ── WHAT WE HANDLE — centered timeline masterpiece ─────── */
     @keyframes stageIn {
@@ -2310,35 +2374,62 @@
           <div class="eyebrow" style="margin-bottom:14px;">The Defense Strategy</div>
           <div class="rule"></div>
           <h2 id="protocol-h2">We build our record <em>before</em> they build theirs.</h2>
-          <p>Most attorneys wait for the board to move. By the time they're ready, the board has had months to build its record — unopposed. <strong>The Counter Protocol activates the day you retain us.</strong> Parallel investigation begins immediately. The initial written response is built to force a dismissal decision — not to acknowledge and wait.</p>
+          <p>Most attorneys wait for the board to move. By the time they're ready, the board has had months to build its record — unopposed. <strong>The Counter Protocol activates the day you retain us.</strong></p>
+          <p>Parallel investigation begins immediately. The initial written response is built to force a dismissal decision — not to acknowledge and wait. The board does not get unopposed time.</p>
           <a href="the-counter-protocol.html" class="pld-protocol__link">Full detail on how it works →</a>
         </div>
 
-        <div class="pld-protocol__compare">
-          <div class="pld-protocol__label">Day of retention — who is already building?</div>
-
-          <div class="pld-protocol__row pld-protocol__row--board">
-            <div class="pld-protocol__row-actor"><span>The Board</span></div>
-            <div class="pld-protocol__row-content">
-              <div class="pld-protocol__row-title">Assigning investigators. Requesting records. Building timeline.</div>
-              <div class="pld-protocol__row-desc">Started the day the complaint was accepted — before you were notified.</div>
-            </div>
+        <div class="pld-protocol__viz">
+          <div class="pld-protocol__viz-header">
+            <span class="pld-protocol__viz-eyebrow">Day of Retention</span>
+            <div class="pld-protocol__viz-rule"></div>
+            <span class="pld-protocol__viz-day">Who is already building?</span>
           </div>
 
-          <div class="pld-protocol__row pld-protocol__row--us">
-            <div class="pld-protocol__row-actor"><span>Our Firm</span></div>
-            <div class="pld-protocol__row-content">
-              <div class="pld-protocol__row-title">Parallel investigation launched. Rebuttal construction begins.</div>
-              <div class="pld-protocol__row-desc">Same day you retain us. No queue. No delay. The counter-record starts immediately.</div>
-            </div>
-          </div>
+          <div class="pld-protocol__rows">
 
-          <div class="pld-protocol__row pld-protocol__row--them">
-            <div class="pld-protocol__row-actor"><span>Typical Firm</span></div>
-            <div class="pld-protocol__row-content">
-              <div class="pld-protocol__row-title">Reviewing complaint. Requesting records. Drafting acknowledgment.</div>
-              <div class="pld-protocol__row-desc">Waiting for the board's next move while the board's record builds unopposed.</div>
+            <div class="pld-protocol__row pld-protocol__row--board">
+              <div class="pld-protocol__row-actor">
+                <span class="pld-protocol__row-actor-name">The Board</span>
+              </div>
+              <div class="pld-protocol__row-content">
+                <div class="pld-protocol__bar-track">
+                  <div class="pld-protocol__bar"></div>
+                  <span class="pld-protocol__bar-label">Started before you were notified</span>
+                </div>
+                <div class="pld-protocol__row-title">Investigators assigned. Records requested. Timeline under construction.</div>
+                <div class="pld-protocol__row-desc">The board's investigation began the day the complaint was accepted — before you were notified.</div>
+              </div>
             </div>
+
+            <div class="pld-protocol__row pld-protocol__row--us">
+              <div class="pld-protocol__row-actor">
+                <span class="pld-protocol__row-actor-name">Our Firm</span>
+              </div>
+              <div class="pld-protocol__row-content">
+                <div class="pld-protocol__bar-track">
+                  <div class="pld-protocol__bar"></div>
+                  <span class="pld-protocol__bar-label">Same day. No queue.</span>
+                </div>
+                <div class="pld-protocol__row-title">Parallel investigation launched. Counter-record construction begins.</div>
+                <div class="pld-protocol__row-desc">The day you retain us. We investigate the board the same way the board investigates you.</div>
+              </div>
+            </div>
+
+            <div class="pld-protocol__row pld-protocol__row--them">
+              <div class="pld-protocol__row-actor">
+                <span class="pld-protocol__row-actor-name">Typical Firm</span>
+              </div>
+              <div class="pld-protocol__row-content">
+                <div class="pld-protocol__bar-track">
+                  <div class="pld-protocol__bar"></div>
+                  <span class="pld-protocol__bar-label">Waiting for the board's next move</span>
+                </div>
+                <div class="pld-protocol__row-title">Reviewing complaint. Drafting acknowledgment. Awaiting next move.</div>
+                <div class="pld-protocol__row-desc">Weeks pass. The board builds unopposed. The gap between their record and yours widens.</div>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -2346,10 +2437,7 @@
     </div>
   </section>
 
-    <!-- ═══════════════════════════════════════════════════════════
-       WHAT WE HANDLE — centered timeline
-  ════════════════════════════════════════════════════════════ -->
-  <section class="section pld-handles" aria-labelledby="handles-h2" id="handlesSection">
+    <section class="section pld-handles" aria-labelledby="handles-h2" id="handlesSection">
     <div class="pld-handles__inner">
 
       <div class="pld-handles__header">
