@@ -829,238 +829,178 @@
       .pld-protocol__inner { grid-template-columns: 1fr; }
       .pld-protocol__copy, .pld-protocol__compare { transform: none; opacity: 1; }
     }
-    /* ── WHAT WE HANDLE — one viewport tab interface ─────── */
-    @keyframes panelIn {
-      from { opacity: 0; transform: translateY(14px); filter: blur(3px); }
-      to   { opacity: 1; transform: translateY(0);    filter: blur(0); }
-    }
-    @keyframes numCount {
-      from { opacity: 0; transform: translateY(20px); }
+    /* ── WHAT WE HANDLE — centered timeline masterpiece ─────── */
+    @keyframes stageIn {
+      from { opacity: 0; transform: translateY(14px); }
       to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes contentSwitch {
+      from { opacity: 0; transform: translateY(8px); filter: blur(3px); }
+      to   { opacity: 1; transform: translateY(0); filter: blur(0); }
     }
 
     .pld-handles {
       background: var(--dark);
       min-height: 100svh;
       display: flex;
-      align-items: stretch;
-      padding: 0;
-      overflow: hidden;
+      align-items: center;
       position: relative;
+      overflow: hidden;
     }
-    .pld-handles.section { padding: 0; }
+    .pld-handles.section {
+      padding: clamp(56px,7vw,88px) clamp(40px,6vw,100px);
+    }
 
-    /* Subtle grain texture overlay */
+    /* Grain */
     .pld-handles::before {
       content: '';
       position: absolute; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-      pointer-events: none; z-index: 0; opacity: 0.4;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0;
     }
 
-    .pld-handles__layout {
-      display: grid;
-      grid-template-columns: 340px 1fr;
+    .pld-handles__inner {
       width: 100%;
-      min-height: 100svh;
       position: relative; z-index: 1;
-      padding-left: clamp(40px, 6vw, 100px);
     }
 
-    /* ── LEFT NAV PANEL ── */
-    .pld-handles__nav {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 56px 40px;
-      border-right: 1px solid rgba(201,184,154,0.1);
-      background: rgba(10,7,16,0.4);
+    /* ── HEADER ── */
+    .pld-handles__header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      padding-bottom: clamp(24px,3vw,36px);
+      border-bottom: 1px solid rgba(201,184,154,0.12);
+      margin-bottom: clamp(32px,4vw,48px);
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16,1,0.3,1);
     }
-    .pld-handles__nav-top {}
-    .pld-handles__nav-eyebrow {
+    .pld-handles.handles-entered .pld-handles__header {
+      opacity: 1; transform: translateY(0);
+    }
+    .pld-handles__eyebrow {
       font-size: 11px; font-weight: 700;
       letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 14px;
+      color: var(--accent); margin-bottom: 10px;
     }
-    .pld-handles__nav-title {
+    .pld-handles__title {
       font-family: var(--ff-serif);
-      font-size: clamp(24px, 2.4vw, 34px);
+      font-size: clamp(24px,2.6vw,36px);
       color: var(--bg);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 16px;
+      line-height: 1.1; letter-spacing: -0.02em;
     }
-    .pld-handles__nav-title em {
+    .pld-handles__title em {
       font-style: italic;
       background: linear-gradient(90deg, var(--accent-lite), var(--accent), var(--accent-lite));
       background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
       animation: shimmerText 4s linear 2s infinite;
     }
-    .pld-handles__nav-desc {
-      font-size: 15px;
-      color: rgba(250,246,240,0.82);
-      line-height: 1.65;
-      margin-bottom: 0;
-    }
-
-    /* Tab list */
-    .pld-handles__tabs {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      margin: 40px 0;
-    }
-    .pld-handles__tab {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 12px 16px;
-      cursor: pointer;
-      border-left: 2px solid transparent;
-      border-top: none;
-      border-right: none;
-      border-bottom: none;
-      background: transparent;
-      color: inherit;
-      font: inherit;
-      text-align: left;
-      transition: border-color 0.2s, background 0.2s;
-      border-radius: 0;
-      position: relative;
-      width: 100%;
-    }
-    .pld-handles__tab:hover {
-      background: rgba(232,114,42,0.05);
-    }
-    .pld-handles__tab.active {
-      border-left-color: var(--accent);
-      background: rgba(232,114,42,0.08);
-    }
-    .pld-handles__tab-num {
+    .pld-handles__header-right { text-align: right; }
+    .pld-handles__counter {
       font-family: var(--ff-serif);
-      font-size: 13px;
-      color: rgba(250,246,240,0.65);
-      width: 24px;
-      flex-shrink: 0;
-      transition: color 0.2s;
+      font-size: clamp(28px,3vw,42px);
+      color: rgba(250,246,240,0.12);
+      letter-spacing: -0.04em; line-height: 1;
     }
-    .pld-handles__tab.active .pld-handles__tab-num,
-    .pld-handles__tab:hover .pld-handles__tab-num {
-      color: var(--accent);
-    }
-    .pld-handles__tab-label {
-      font-family: var(--ff-sans);
-      font-size: 14px;
-      font-weight: 600;
-      color: rgba(250,246,240,0.82);
-      transition: color 0.2s;
-      line-height: 1.3;
-    }
-    .pld-handles__tab.active .pld-handles__tab-label,
-    .pld-handles__tab:hover .pld-handles__tab-label {
-      color: rgba(250,246,240,0.92);
-    }
-    .pld-handles__tab-dot {
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: transparent;
-      border: 1px solid rgba(250,246,240,0.2);
-      margin-left: auto;
-      flex-shrink: 0;
-      transition: background 0.2s, border-color 0.2s;
-    }
-    .pld-handles__tab.active .pld-handles__tab-dot {
-      background: var(--accent);
-      border-color: var(--accent);
+    .pld-handles__counter-current { color: rgba(250,246,240,0.65); }
+    .pld-handles__header-desc {
+      font-size: 13px; color: rgba(250,246,240,0.5);
+      margin-top: 4px;
     }
 
-    /* Progress bar at bottom of nav */
-    .pld-handles__nav-bottom {
-      font-size: 13px;
-      color: rgba(250,246,240,0.65);
-      letter-spacing: 0.06em;
+    /* ── STAGE TABS — 6 horizontal ── */
+    .pld-handles__stages {
+      display: grid;
+      grid-template-columns: repeat(6,1fr);
+      gap: 2px;
+      margin-bottom: 2px;
     }
-    .pld-handles__progress-track {
-      width: 100%;
-      height: 2px;
-      background: rgba(201,184,154,0.1);
-      margin-bottom: 10px;
+    .pld-handles__stage {
+      display: flex; flex-direction: column; align-items: flex-start;
+      padding: 14px 18px 16px;
+      cursor: pointer;
+      border: none; border-bottom: 2px solid transparent;
+      background: rgba(250,246,240,0.04);
+      color: inherit; font: inherit; text-align: left;
       position: relative;
-      overflow: hidden;
+      transition: background 0.22s, border-color 0.3s;
+      opacity: 0; transform: translateY(14px);
+    }
+    .pld-handles__stage:hover { background: rgba(250,246,240,0.07); }
+    .pld-handles__stage.active {
+      background: rgba(232,114,42,0.08);
+      border-bottom-color: var(--accent);
+    }
+    .pld-handles__stage-num {
+      font-family: var(--ff-serif); font-size: 11px;
+      color: rgba(250,246,240,0.28); margin-bottom: 7px;
+      transition: color 0.22s;
+    }
+    .pld-handles__stage.active .pld-handles__stage-num,
+    .pld-handles__stage:hover .pld-handles__stage-num { color: var(--accent); }
+    .pld-handles__stage-label {
+      font-family: var(--ff-sans); font-size: 13px; font-weight: 600;
+      color: rgba(250,246,240,0.48); line-height: 1.3;
+      transition: color 0.22s;
+    }
+    .pld-handles__stage.active .pld-handles__stage-label,
+    .pld-handles__stage:hover .pld-handles__stage-label { color: rgba(250,246,240,0.92); }
+
+    /* Stagger entry */
+    .pld-handles.handles-entered .pld-handles__stage:nth-child(1){animation:stageIn .5s cubic-bezier(.16,1,.3,1) .1s forwards}
+    .pld-handles.handles-entered .pld-handles__stage:nth-child(2){animation:stageIn .5s cubic-bezier(.16,1,.3,1) .17s forwards}
+    .pld-handles.handles-entered .pld-handles__stage:nth-child(3){animation:stageIn .5s cubic-bezier(.16,1,.3,1) .24s forwards}
+    .pld-handles.handles-entered .pld-handles__stage:nth-child(4){animation:stageIn .5s cubic-bezier(.16,1,.3,1) .31s forwards}
+    .pld-handles.handles-entered .pld-handles__stage:nth-child(5){animation:stageIn .5s cubic-bezier(.16,1,.3,1) .38s forwards}
+    .pld-handles.handles-entered .pld-handles__stage:nth-child(6){animation:stageIn .5s cubic-bezier(.16,1,.3,1) .45s forwards}
+
+    /* Progress bar */
+    .pld-handles__progress {
+      height: 1px; background: rgba(201,184,154,0.08);
+      margin-bottom: clamp(32px,4vw,52px); position: relative; overflow: hidden;
     }
     .pld-handles__progress-fill {
-      height: 100%;
+      position: absolute; top:0; left:0; bottom:0;
       background: linear-gradient(90deg, var(--accent), var(--accent-lite));
       width: 16.666%;
-      transition: width 0.4s cubic-bezier(0.16,1,0.3,1);
+      transition: width 0.45s cubic-bezier(0.16,1,0.3,1);
     }
 
-    /* ── RIGHT CONTENT PANEL ── */
-    .pld-handles__panel-wrap {
-      position: relative;
-      display: flex;
-      align-items: center;
-      padding: 56px clamp(40px, 6vw, 100px);
-      overflow: hidden;
-    }
-
-    /* Large ghost number behind content */
-    .pld-handles__panel-ghost {
-      position: absolute;
-      bottom: -0.15em; right: -0.05em;
+    /* ── CONTENT PANEL ── */
+    .pld-handles__content { position: relative; min-height: 200px; }
+    .pld-handles__ghost {
+      position: absolute; right: 0; top: 50%;
+      transform: translateY(-50%);
       font-family: var(--ff-serif);
-      font-size: clamp(200px, 26vw, 360px);
-      font-weight: 700;
-      color: rgba(250,246,240,0.022);
-      line-height: 1;
+      font-size: clamp(140px,18vw,220px); font-weight: 700;
+      color: rgba(250,246,240,0.025); line-height: 1;
       letter-spacing: -0.06em;
-      pointer-events: none;
-      user-select: none;
-      transition: opacity 0.3s;
+      pointer-events: none; user-select: none;
     }
-
-    .pld-handles__panel {
-      display: none;
-      animation: panelIn 0.45s cubic-bezier(0.16,1,0.3,1) forwards;
-      max-width: 600px;
-      position: relative; z-index: 1;
-    }
+    .pld-handles__panel { display: none; position: relative; z-index: 1; }
     .pld-handles__panel.active {
-      display: block;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: clamp(40px,5vw,72px);
+      align-items: start;
+      animation: contentSwitch 0.38s cubic-bezier(0.16,1,0.3,1) forwards;
     }
-
     .pld-handles__panel-tag {
       font-size: 11px; font-weight: 700;
-      letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 16px;
-    }
-    .pld-handles__panel-num {
-      font-family: var(--ff-serif);
-      font-size: clamp(72px, 9vw, 120px);
-      color: rgba(232,114,42,0.12);
-      line-height: 0.85;
-      letter-spacing: -0.04em;
-      margin-bottom: 12px;
-      display: block;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 14px;
     }
     .pld-handles__panel-title {
       font-family: var(--ff-serif);
-      font-size: clamp(28px, 3.2vw, 44px);
-      color: var(--bg);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 20px;
+      font-size: clamp(24px,2.4vw,34px);
+      color: var(--bg); line-height: 1.12; letter-spacing: -0.02em;
     }
     .pld-handles__panel-body {
-      font-size: 17px;
-      color: rgba(250,246,240,0.88);
-      line-height: 1.75;
-      margin-bottom: 28px;
+      font-size: 16px; color: rgba(250,246,240,0.82);
+      line-height: 1.8; margin-bottom: 28px;
     }
     .pld-handles__panel-body a {
       color: var(--accent-lite);
@@ -1068,53 +1008,35 @@
       text-decoration: none;
       transition: color 0.2s, border-color 0.2s;
     }
-    .pld-handles__panel-body a:hover {
-      color: #fff;
-      border-color: var(--accent);
-    }
-
-    /* Nav arrows at bottom of panel */
+    .pld-handles__panel-body a:hover { color:#fff; border-color: var(--accent); }
     .pld-handles__panel-nav {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+      display: flex; align-items: center; gap: 10px;
     }
-    .pld-handles__panel-prev,
-    .pld-handles__panel-next {
-      width: 40px; height: 40px;
-      border: 1px solid rgba(201,184,154,0.2);
-      background: transparent;
-      color: rgba(250,246,240,0.5);
-      font-size: 16px;
-      cursor: pointer;
+    .pld-handles__btn {
+      width: 38px; height: 38px;
+      border: 1px solid rgba(201,184,154,0.22);
+      background: transparent; color: rgba(250,246,240,0.55);
+      font-size: 15px; cursor: pointer;
       display: flex; align-items: center; justify-content: center;
       transition: border-color 0.2s, color 0.2s, background 0.2s;
     }
-    .pld-handles__panel-prev:hover,
-    .pld-handles__panel-next:hover {
-      border-color: var(--accent);
-      color: var(--accent);
+    .pld-handles__btn:hover {
+      border-color: var(--accent); color: var(--accent);
       background: rgba(232,114,42,0.07);
     }
-    .pld-handles__panel-counter {
-      font-size: 13px;
-      color: rgba(250,246,240,0.7);
-      letter-spacing: 0.08em;
+    .pld-handles__btn-label {
+      font-size: 13px; color: rgba(250,246,240,0.38); letter-spacing: 0.06em;
     }
 
-    @media (max-width: 900px) {
-      .pld-handles { min-height: auto; }
-      .pld-handles.section { padding: clamp(48px,7vw,80px) 0; }
-      .pld-handles__layout { grid-template-columns: 1fr; min-height: auto; }
-      .pld-handles__nav { padding: 40px var(--gutter) 32px; border-right: none; border-bottom: 1px solid rgba(201,184,154,0.1); }
-      .pld-handles__tabs { flex-direction: row; flex-wrap: wrap; gap: 8px; margin: 24px 0 0; }
-      .pld-handles__tab { padding: 8px 14px; border-left: none; border-bottom: 2px solid transparent; }
-      .pld-handles__tab.active { border-bottom-color: var(--accent); border-left-color: transparent; }
-      .pld-handles__tab-dot { display: none; }
-      .pld-handles__nav-bottom { display: none; }
-      .pld-handles__panel-wrap { padding: 40px var(--gutter); }
-      .pld-handles__panel-num { font-size: 60px; }
-      .pld-handles__panel-ghost { display: none; }
+    @media (max-width:900px) {
+      .pld-handles { min-height:auto; }
+      .pld-handles__stages { grid-template-columns:repeat(3,1fr); }
+      .pld-handles__panel.active { grid-template-columns:1fr; }
+      .pld-handles__ghost { display:none; }
+      .pld-handles__header { grid-template-columns:1fr; }
+      .pld-handles__header-right { display:none; }
+      .pld-handles__stage,.pld-handles__header { opacity:1; transform:none; }
+      .pld-handles.handles-entered .pld-handles__stage { animation:none; }
     }
     /* ── REVIEWS — light, one viewport, split layout ──────── */
     @keyframes starPop {
@@ -2355,134 +2277,66 @@
   </section>
 
     <!-- ═══════════════════════════════════════════════════════════
-       WHAT WE HANDLE — one viewport tab interface
+       WHAT WE HANDLE — centered timeline
   ════════════════════════════════════════════════════════════ -->
   <section class="section pld-handles" aria-labelledby="handles-h2" id="handlesSection">
-    <div class="pld-handles__layout">
+    <div class="pld-handles__inner">
 
-      <!-- LEFT: nav / tab list -->
-      <nav class="pld-handles__nav" aria-label="Defense stages">
-        <div class="pld-handles__nav-top">
-          <div class="pld-handles__nav-eyebrow">Scope of Defense</div>
-          <h2 id="handles-h2" class="pld-handles__nav-title">Every stage.<br><em>Every complaint type.</em></h2>
-          <p class="pld-handles__nav-desc">From first response through SOAH hearing — and mid-case intervention when another attorney has stalled.</p>
+      <div class="pld-handles__header">
+        <div>
+          <div class="pld-handles__eyebrow">Scope of Defense</div>
+          <h2 id="handles-h2" class="pld-handles__title">Every stage. <em>Every complaint type.</em></h2>
+        </div>
+        <div class="pld-handles__header-right">
+          <div class="pld-handles__counter"><span class="pld-handles__counter-current" id="handlesCurrent">01</span> / 06</div>
+          <div class="pld-handles__header-desc">From first response through SOAH hearing</div>
+        </div>
+      </div>
+
+      <div class="pld-handles__stages" role="tablist">
+        <button class="pld-handles__stage active" role="tab" aria-selected="true" data-panel="1"><span class="pld-handles__stage-num">01</span><span class="pld-handles__stage-label">Initial Response</span></button>
+        <button class="pld-handles__stage" role="tab" aria-selected="false" data-panel="2"><span class="pld-handles__stage-num">02</span><span class="pld-handles__stage-label">Investigation</span></button>
+        <button class="pld-handles__stage" role="tab" aria-selected="false" data-panel="3"><span class="pld-handles__stage-num">03</span><span class="pld-handles__stage-label">ISC / Settlement</span></button>
+        <button class="pld-handles__stage" role="tab" aria-selected="false" data-panel="4"><span class="pld-handles__stage-num">04</span><span class="pld-handles__stage-label">SOAH Hearings</span></button>
+        <button class="pld-handles__stage" role="tab" aria-selected="false" data-panel="5"><span class="pld-handles__stage-num">05</span><span class="pld-handles__stage-label">Complaint Types</span></button>
+        <button class="pld-handles__stage" role="tab" aria-selected="false" data-panel="6"><span class="pld-handles__stage-num">06</span><span class="pld-handles__stage-label">Corrective Counsel</span></button>
+      </div>
+
+      <div class="pld-handles__progress" aria-hidden="true">
+        <div class="pld-handles__progress-fill" id="handlesProgress"></div>
+      </div>
+
+      <div class="pld-handles__content">
+        <div class="pld-handles__ghost" id="handlesGhost" aria-hidden="true">01</div>
+
+        <div class="pld-handles__panel active" id="panel-1" role="tabpanel">
+          <div class="pld-handles__panel-left"><div class="pld-handles__panel-tag">First &amp; Most Critical</div><div class="pld-handles__panel-title">Initial Written Response</div></div>
+          <div class="pld-handles__panel-right"><p class="pld-handles__panel-body">The most consequential document in your defense. Built to force a dismissal decision before the board's narrative hardens — not to acknowledge the complaint and wait for the next move. Most attorneys file a brief acknowledgment. We file an evidence-anchored rebuttal that demands a decision.</p><div class="pld-handles__panel-nav"><button class="pld-handles__btn" aria-label="Previous" onclick="handlesNav(-1)">←</button><button class="pld-handles__btn" aria-label="Next" onclick="handlesNav(1)">→</button><span class="pld-handles__btn-label">01 / 06</span></div></div>
         </div>
 
-        <div class="pld-handles__tabs" role="tablist">
-          <button class="pld-handles__tab active" role="tab" aria-selected="true"  data-panel="1" aria-controls="panel-1">
-            <span class="pld-handles__tab-num">01</span>
-            <span class="pld-handles__tab-label">Initial Response</span>
-            <span class="pld-handles__tab-dot"></span>
-          </button>
-          <button class="pld-handles__tab" role="tab" aria-selected="false" data-panel="2" aria-controls="panel-2">
-            <span class="pld-handles__tab-num">02</span>
-            <span class="pld-handles__tab-label">Investigation</span>
-            <span class="pld-handles__tab-dot"></span>
-          </button>
-          <button class="pld-handles__tab" role="tab" aria-selected="false" data-panel="3" aria-controls="panel-3">
-            <span class="pld-handles__tab-num">03</span>
-            <span class="pld-handles__tab-label">ISC / Settlement</span>
-            <span class="pld-handles__tab-dot"></span>
-          </button>
-          <button class="pld-handles__tab" role="tab" aria-selected="false" data-panel="4" aria-controls="panel-4">
-            <span class="pld-handles__tab-num">04</span>
-            <span class="pld-handles__tab-label">SOAH Hearings</span>
-            <span class="pld-handles__tab-dot"></span>
-          </button>
-          <button class="pld-handles__tab" role="tab" aria-selected="false" data-panel="5" aria-controls="panel-5">
-            <span class="pld-handles__tab-num">05</span>
-            <span class="pld-handles__tab-label">Complaint Types</span>
-            <span class="pld-handles__tab-dot"></span>
-          </button>
-          <button class="pld-handles__tab" role="tab" aria-selected="false" data-panel="6" aria-controls="panel-6">
-            <span class="pld-handles__tab-num">06</span>
-            <span class="pld-handles__tab-label">Corrective Counsel</span>
-            <span class="pld-handles__tab-dot"></span>
-          </button>
+        <div class="pld-handles__panel" id="panel-2" role="tabpanel">
+          <div class="pld-handles__panel-left"><div class="pld-handles__panel-tag">Parallel Investigation</div><div class="pld-handles__panel-title">Investigation Phase</div></div>
+          <div class="pld-handles__panel-right"><p class="pld-handles__panel-body">Independent investigation running simultaneously with the board's — gathering exculpatory evidence, building the counter-record, and identifying weaknesses in the complaint's factual foundation before they can be used against you. The window that matters most. Once it closes, you're fighting a record that already exists.</p><div class="pld-handles__panel-nav"><button class="pld-handles__btn" aria-label="Previous" onclick="handlesNav(-1)">←</button><button class="pld-handles__btn" aria-label="Next" onclick="handlesNav(1)">→</button><span class="pld-handles__btn-label">02 / 06</span></div></div>
         </div>
 
-        <div class="pld-handles__nav-bottom">
-          <div class="pld-handles__progress-track">
-            <div class="pld-handles__progress-fill" id="handlesProgress"></div>
-          </div>
-          <span id="handlesProgressLabel">01 of 06</span>
-        </div>
-      </nav>
-
-      <!-- RIGHT: content panels -->
-      <div class="pld-handles__panel-wrap">
-        <div class="pld-handles__panel-ghost" id="handlesGhost" aria-hidden="true">01</div>
-
-        <div class="pld-handles__panel active" id="panel-1" role="tabpanel" aria-labelledby="tab-1">
-          <div class="pld-handles__panel-tag">First &amp; Most Critical</div>
-          <span class="pld-handles__panel-num" aria-hidden="true">01</span>
-          <div class="pld-handles__panel-title">Initial Written Response</div>
-          <p class="pld-handles__panel-body">The most consequential document in your defense. Built to force a dismissal decision before the board's narrative hardens — not to acknowledge the complaint and wait for the next move. Most attorneys file a brief acknowledgment. We file an evidence-anchored rebuttal that demands a decision.</p>
-          <div class="pld-handles__panel-nav">
-            <button class="pld-handles__panel-prev" aria-label="Previous stage" onclick="handlesNav(-1)">←</button>
-            <button class="pld-handles__panel-next" aria-label="Next stage" onclick="handlesNav(1)">→</button>
-            <span class="pld-handles__panel-counter">01 / 06</span>
-          </div>
+        <div class="pld-handles__panel" id="panel-3" role="tabpanel">
+          <div class="pld-handles__panel-left"><div class="pld-handles__panel-tag">Pre-Hearing Negotiation</div><div class="pld-handles__panel-title">Informal Settlement Conference</div></div>
+          <div class="pld-handles__panel-right"><p class="pld-handles__panel-body">ISC outcomes are permanent and NPDB-reportable. We attend prepared to advocate for dismissal — and we never accept a resolution the facts do not require. Many physicians accept ISC resolutions without realizing dismissal was still achievable. Once signed, it cannot be undone.</p><div class="pld-handles__panel-nav"><button class="pld-handles__btn" aria-label="Previous" onclick="handlesNav(-1)">←</button><button class="pld-handles__btn" aria-label="Next" onclick="handlesNav(1)">→</button><span class="pld-handles__btn-label">03 / 06</span></div></div>
         </div>
 
-        <div class="pld-handles__panel" id="panel-2" role="tabpanel" aria-labelledby="tab-2">
-          <div class="pld-handles__panel-tag">Parallel Investigation</div>
-          <span class="pld-handles__panel-num" aria-hidden="true">02</span>
-          <div class="pld-handles__panel-title">Investigation Phase</div>
-          <p class="pld-handles__panel-body">Independent investigation running simultaneously with the board's — gathering exculpatory evidence, building the counter-record, and identifying weaknesses in the complaint's factual foundation before they can be used against you. The window that matters most. Once it closes, you're fighting a record that already exists.</p>
-          <div class="pld-handles__panel-nav">
-            <button class="pld-handles__panel-prev" aria-label="Previous stage" onclick="handlesNav(-1)">←</button>
-            <button class="pld-handles__panel-next" aria-label="Next stage" onclick="handlesNav(1)">→</button>
-            <span class="pld-handles__panel-counter">02 / 06</span>
-          </div>
+        <div class="pld-handles__panel" id="panel-4" role="tabpanel">
+          <div class="pld-handles__panel-left"><div class="pld-handles__panel-tag">Full Administrative Trial</div><div class="pld-handles__panel-title">SOAH Administrative Hearings</div></div>
+          <div class="pld-handles__panel-right"><p class="pld-handles__panel-body">Contested case hearings before the State Office of Administrative Hearings — litigated with criminal defense rigor. Cross-examination, expert challenge, full record litigation. If the board won't dismiss, we do not shift to a passive posture. We take the same counter-offensive approach into the hearing.</p><div class="pld-handles__panel-nav"><button class="pld-handles__btn" aria-label="Previous" onclick="handlesNav(-1)">←</button><button class="pld-handles__btn" aria-label="Next" onclick="handlesNav(1)">→</button><span class="pld-handles__btn-label">04 / 06</span></div></div>
         </div>
 
-        <div class="pld-handles__panel" id="panel-3" role="tabpanel" aria-labelledby="tab-3">
-          <div class="pld-handles__panel-tag">Pre-Hearing Negotiation</div>
-          <span class="pld-handles__panel-num" aria-hidden="true">03</span>
-          <div class="pld-handles__panel-title">Informal Settlement Conference</div>
-          <p class="pld-handles__panel-body">ISC outcomes are permanent and NPDB-reportable. We attend prepared to advocate for dismissal — and we never accept a resolution the facts do not require. Many physicians accept ISC resolutions without realizing dismissal was still achievable. Once signed, it cannot be undone.</p>
-          <div class="pld-handles__panel-nav">
-            <button class="pld-handles__panel-prev" aria-label="Previous stage" onclick="handlesNav(-1)">←</button>
-            <button class="pld-handles__panel-next" aria-label="Next stage" onclick="handlesNav(1)">→</button>
-            <span class="pld-handles__panel-counter">03 / 06</span>
-          </div>
+        <div class="pld-handles__panel" id="panel-5" role="tabpanel">
+          <div class="pld-handles__panel-left"><div class="pld-handles__panel-tag">Standard of Care · Prescribing · Conduct</div><div class="pld-handles__panel-title">All Complaint Types</div></div>
+          <div class="pld-handles__panel-right"><p class="pld-handles__panel-body">Patient outcome complaints, prescribing practice allegations, boundary and conduct complaints, documentation irregularities, impairment allegations, hospital-initiated complaints. Every complaint type demands the same aggressive counter-record from day one — regardless of how it arrived or who filed it.</p><div class="pld-handles__panel-nav"><button class="pld-handles__btn" aria-label="Previous" onclick="handlesNav(-1)">←</button><button class="pld-handles__btn" aria-label="Next" onclick="handlesNav(1)">→</button><span class="pld-handles__btn-label">05 / 06</span></div></div>
         </div>
 
-        <div class="pld-handles__panel" id="panel-4" role="tabpanel" aria-labelledby="tab-4">
-          <div class="pld-handles__panel-tag">Full Administrative Trial</div>
-          <span class="pld-handles__panel-num" aria-hidden="true">04</span>
-          <div class="pld-handles__panel-title">SOAH Administrative Hearings</div>
-          <p class="pld-handles__panel-body">Contested case hearings before the State Office of Administrative Hearings — litigated with criminal defense rigor. Cross-examination, expert challenge, full record litigation. If the board won't dismiss, we do not shift to a passive posture. We take the same counter-offensive approach into the hearing.</p>
-          <div class="pld-handles__panel-nav">
-            <button class="pld-handles__panel-prev" aria-label="Previous stage" onclick="handlesNav(-1)">←</button>
-            <button class="pld-handles__panel-next" aria-label="Next stage" onclick="handlesNav(1)">→</button>
-            <span class="pld-handles__panel-counter">04 / 06</span>
-          </div>
-        </div>
-
-        <div class="pld-handles__panel" id="panel-5" role="tabpanel" aria-labelledby="tab-5">
-          <div class="pld-handles__panel-tag">Standard of Care · Prescribing · Conduct · Impairment</div>
-          <span class="pld-handles__panel-num" aria-hidden="true">05</span>
-          <div class="pld-handles__panel-title">All Complaint Types</div>
-          <p class="pld-handles__panel-body">Patient outcome complaints, prescribing practice allegations, boundary and conduct complaints, documentation irregularities, impairment allegations, hospital-initiated complaints. Every complaint type demands the same aggressive counter-record from day one — regardless of how it arrived or who filed it.</p>
-          <div class="pld-handles__panel-nav">
-            <button class="pld-handles__panel-prev" aria-label="Previous stage" onclick="handlesNav(-1)">←</button>
-            <button class="pld-handles__panel-next" aria-label="Next stage" onclick="handlesNav(1)">→</button>
-            <span class="pld-handles__panel-counter">05 / 06</span>
-          </div>
-        </div>
-
-        <div class="pld-handles__panel" id="panel-6" role="tabpanel" aria-labelledby="tab-6">
-          <div class="pld-handles__panel-tag">If Your Current Attorney Has Stalled</div>
-          <span class="pld-handles__panel-num" aria-hidden="true">06</span>
-          <div class="pld-handles__panel-title">Corrective Counsel — Mid-Case</div>
-          <p class="pld-handles__panel-body">We conduct a forensic audit of where your case stands, what has been missed, and what is still recoverable. Work begins the same day. The wrong defense posture is worse than no defense at all — a passive attorney gives the board months of unopposed record-building. <a href="transfer-your-case.html">Transfer your case →</a></p>
-          <div class="pld-handles__panel-nav">
-            <button class="pld-handles__panel-prev" aria-label="Previous stage" onclick="handlesNav(-1)">←</button>
-            <button class="pld-handles__panel-next" aria-label="Next stage" onclick="handlesNav(1)">→</button>
-            <span class="pld-handles__panel-counter">06 / 06</span>
-          </div>
+        <div class="pld-handles__panel" id="panel-6" role="tabpanel">
+          <div class="pld-handles__panel-left"><div class="pld-handles__panel-tag">If Your Current Attorney Has Stalled</div><div class="pld-handles__panel-title">Corrective Counsel — Mid-Case</div></div>
+          <div class="pld-handles__panel-right"><p class="pld-handles__panel-body">We conduct a forensic audit of where your case stands, what has been missed, and what is still recoverable. Work begins the same day. The wrong defense posture is worse than no defense at all — a passive attorney gives the board months of unopposed record-building. <a href="transfer-your-case.html">Transfer your case →</a></p><div class="pld-handles__panel-nav"><button class="pld-handles__btn" aria-label="Previous" onclick="handlesNav(-1)">←</button><button class="pld-handles__btn" aria-label="Next" onclick="handlesNav(1)">→</button><span class="pld-handles__btn-label">06 / 06</span></div></div>
         </div>
 
       </div>
@@ -2899,104 +2753,64 @@
       if (card)    luxRevealEl(card, 0.35, 24);
     });
 
-    /* Handles — tab interface */
+    /* Handles — horizontal timeline */
     var handlesActive = 1;
     var HANDLES_TOTAL = 6;
+    var handlesTimer = null;
+    var handlesManual = false;
 
     function handlesGoTo(n) {
       if (n < 1) n = HANDLES_TOTAL;
       if (n > HANDLES_TOTAL) n = 1;
       handlesActive = n;
-
-      // Update tabs
-      document.querySelectorAll('.pld-handles__tab').forEach(function(tab) {
-        var active = parseInt(tab.dataset.panel) === n;
-        tab.classList.toggle('active', active);
-        tab.setAttribute('aria-selected', active ? 'true' : 'false');
+      document.querySelectorAll('.pld-handles__stage').forEach(function(btn) {
+        var a = parseInt(btn.dataset.panel) === n;
+        btn.classList.toggle('active', a);
+        btn.setAttribute('aria-selected', a ? 'true' : 'false');
       });
-
-      // Update panels
-      document.querySelectorAll('.pld-handles__panel').forEach(function(panel) {
-        panel.classList.remove('active');
-      });
-      var target = document.getElementById('panel-' + n);
-      if (target) target.classList.add('active');
-
-      // Update ghost number
-      var ghost = document.getElementById('handlesGhost');
-      if (ghost) ghost.textContent = n < 10 ? '0' + n : '' + n;
-
-      // Update progress
-      var fill = document.getElementById('handlesProgress');
-      if (fill) fill.style.width = (n / HANDLES_TOTAL * 100) + '%';
-
-      var label = document.getElementById('handlesProgressLabel');
-      if (label) label.textContent = (n < 10 ? '0' + n : '' + n) + ' of 0' + HANDLES_TOTAL;
+      document.querySelectorAll('.pld-handles__panel').forEach(function(p) { p.classList.remove('active'); });
+      var t = document.getElementById('panel-' + n);
+      if (t) t.classList.add('active');
+      var g = document.getElementById('handlesGhost');
+      if (g) g.textContent = n < 10 ? '0' + n : '' + n;
+      var c = document.getElementById('handlesCurrent');
+      if (c) c.textContent = n < 10 ? '0' + n : '' + n;
+      var f = document.getElementById('handlesProgress');
+      if (f) f.style.width = (n / HANDLES_TOTAL * 100) + '%';
     }
+    function handlesNav(dir) { handlesGoTo(handlesActive + dir); }
 
-    function handlesNav(dir) {
-      handlesGoTo(handlesActive + dir);
-    }
-
-    // Wire up tabs
-    document.querySelectorAll('.pld-handles__tab').forEach(function(tab) {
-      tab.addEventListener('click', function() {
-        handlesGoTo(parseInt(tab.dataset.panel));
+    document.querySelectorAll('.pld-handles__stage').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        handlesManual = true; clearInterval(handlesTimer);
+        handlesGoTo(parseInt(btn.dataset.panel));
+        setTimeout(function() { handlesManual = false; }, 8000);
       });
-      // Keyboard: arrow keys to navigate
-      tab.addEventListener('keydown', function(e) {
-        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { e.preventDefault(); handlesNav(1); }
-        if (e.key === 'ArrowUp'  || e.key === 'ArrowLeft')  { e.preventDefault(); handlesNav(-1); }
+      btn.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowRight') { e.preventDefault(); handlesNav(1); }
+        if (e.key === 'ArrowLeft')  { e.preventDefault(); handlesNav(-1); }
       });
     });
 
-    // Auto-advance on scroll proximity (pauses on interaction)
-    var handlesTimer = null;
-    var handlesManual = false;
-    var handlesSection = document.getElementById('handlesSection');
-
+    var handlesSec = document.getElementById('handlesSection');
     function startHandlesAuto() {
+      clearInterval(handlesTimer);
       if (handlesManual) return;
-      handlesTimer = setInterval(function() {
-        handlesGoTo(handlesActive + 1);
-      }, 4500);
+      handlesTimer = setInterval(function() { handlesGoTo(handlesActive + 1); }, 4500);
     }
-
-    if (handlesSection) {
-      handlesSection.addEventListener('mouseenter', function() {
-        handlesManual = true;
-        clearInterval(handlesTimer);
-      });
-      handlesSection.addEventListener('mouseleave', function() {
-        handlesManual = false;
-        startHandlesAuto();
-      });
-
+    if (handlesSec) {
+      handlesSec.addEventListener('mouseenter', function() { handlesManual = true; clearInterval(handlesTimer); });
+      handlesSec.addEventListener('mouseleave', function() { handlesManual = false; startHandlesAuto(); });
       var handlesIO = new IntersectionObserver(function(entries) {
         entries.forEach(function(e) {
-          if (e.isIntersecting) {
-            startHandlesAuto();
-          } else {
-            clearInterval(handlesTimer);
-          }
+          if (e.isIntersecting) { handlesSec.classList.add('handles-entered'); startHandlesAuto(); }
+          else clearInterval(handlesTimer);
         });
-      }, { threshold: 0.3 });
-      handlesIO.observe(handlesSection);
+      }, { threshold: 0.2 });
+      handlesIO.observe(handlesSec);
     }
 
-        /* Protocol — scroll entry */
-    (function() {
-      var sec = document.getElementById('protocolSection');
-      if (!sec) return;
-      var io = new IntersectionObserver(function(entries) {
-        entries.forEach(function(e) {
-          if (e.isIntersecting) { sec.classList.add('protocol-entered'); io.unobserve(e.target); }
-        });
-      }, { threshold: 0.12 });
-      io.observe(sec);
-    })();
-
-        /* Reviews — scroll entry + word reveal */
+    /* Reviews — scroll entry + word reveal */
     (function() {
       var sec = document.getElementById('reviewsSection');
       if (!sec) return;
@@ -3040,6 +2854,18 @@
           if (e.isIntersecting) { sec.classList.add('corr-entered'); io.unobserve(e.target); }
         });
       }, { threshold: 0.1 });
+      io.observe(sec);
+    })();
+
+        /* Protocol — scroll entry */
+    (function() {
+      var sec = document.getElementById('protocolSection');
+      if (!sec) return;
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) { sec.classList.add('protocol-entered'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
       io.observe(sec);
     })();
 
