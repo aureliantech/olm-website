@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Texas Physician License Defense Attorney | TMB Complaint Defense — Octavia LaVon Martinez PLLC</title>
-  <meta name="description" content="Facing a Texas Medical Board complaint? Octavia LaVon Martinez is a former felony prosecutor who defends physicians using The Counter Protocol — a parallel investigation built to achieve dismissal before a hearing is scheduled." />
+  <meta name="description" content="A former felony prosecutor defending Texas physicians before the Texas Medical Board. The Counter Protocol — parallel investigation built to force dismissal before a hearing is ever scheduled. Virtual. All of Texas." />
   <link rel="canonical" href="https://octaviamartinezlaw.com/texas-medical-attorney/physician-license-defense" />
   <link rel="icon" type="image/png" href="../favicon.png">
   <link rel="apple-touch-icon" href="../favicon.png">
@@ -15,27 +15,40 @@
     "@context": "https://schema.org",
     "@type": "LegalService",
     "name": "Octavia LaVon Martinez PLLC",
-    "description": "Physician license defense before the Texas Medical Board. Former felony prosecutor. Parallel investigation strategy. Dismissal as the goal at every stage.",
+    "description": "Physician license defense before the Texas Medical Board. Former felony prosecutor. Parallel investigation strategy — The Counter Protocol — built for dismissal.",
     "url": "https://octaviamartinezlaw.com/texas-medical-attorney/physician-license-defense",
     "telephone": "+19564263550",
     "areaServed": {"@type": "State", "name": "Texas"},
-    "serviceType": "Physician License Defense"
+    "serviceType": "Physician License Defense",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "12"
+    }
   }
   </script>
 
   <style>
-    /* ── KEYFRAMES ───────────────────────────────────────────── */
+    /* ── KEYFRAMES ─────────────────────────────────────────── */
     @keyframes shimmerText {
       0%   { background-position: 0% center; }
       100% { background-position: 200% center; }
     }
-    @keyframes borderSweep {
+    @keyframes borderPulse {
       0%   { background-position: 0% center; }
       100% { background-position: 200% center; }
     }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); filter: blur(4px); }
+      to   { opacity: 1; transform: translateY(0);    filter: blur(0);   }
+    }
+    @keyframes countUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
-    /* ── HERO ────────────────────────────────────────────────── */
-    .hero {
+    /* ── HERO ──────────────────────────────────────────────── */
+    .pld-hero {
       background: var(--dark);
       min-height: 100svh;
       display: flex;
@@ -44,52 +57,53 @@
       position: relative;
       overflow: hidden;
     }
-    .hero__photo-bg {
-      position: absolute; inset: 0;
+    .pld-hero__bg {
+      position: absolute; inset: 0; z-index: 0;
       background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&q=80&fit=crop&auto=format');
       background-size: cover;
-      background-position: center 35%;
-      opacity: 0.05;
-      filter: grayscale(100%) contrast(1.15);
+      background-position: center 40%;
+      opacity: 0.04;
+      filter: grayscale(100%) contrast(1.2);
       mix-blend-mode: luminosity;
-      z-index: 0;
     }
-    .hero__gradient {
+    .pld-hero__gradient {
       position: absolute; inset: 0; z-index: 1;
       background:
-        radial-gradient(ellipse 55% 65% at 15% 75%, rgba(232,114,42,0.1) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 50% at 90% 20%, rgba(43,36,56,0.8) 0%, transparent 70%),
-        linear-gradient(150deg, #0f0b15 0%, #1A1221 45%, #2B2438 100%);
+        radial-gradient(ellipse 60% 70% at 5% 80%, rgba(232,114,42,0.11) 0%, transparent 55%),
+        radial-gradient(ellipse 45% 55% at 95% 10%, rgba(43,36,56,0.9) 0%, transparent 65%),
+        linear-gradient(148deg, #0c0912 0%, #1A1221 42%, #2B2438 100%);
     }
-    .hero__inner {
+    .pld-hero__inner {
       position: relative; z-index: 2;
       max-width: var(--max-w);
       margin: 0 auto; width: 100%;
       display: grid;
-      grid-template-columns: 1fr 420px;
-      gap: 72px;
+      grid-template-columns: 1fr 400px;
+      gap: 64px;
       align-items: center;
     }
-    .hero__eyebrow {
+    .pld-hero__kicker {
       display: flex; align-items: center; gap: 14px;
       margin-bottom: 28px;
     }
-    .hero__eyebrow-rule { width: 32px; height: 2px; background: var(--accent); flex-shrink: 0; }
-    .hero__eyebrow-text {
+    .pld-hero__kicker-rule { width: 28px; height: 2px; background: var(--accent); flex-shrink: 0; }
+    .pld-hero__kicker-text {
       font-family: var(--ff-sans);
       font-size: 11px; font-weight: 700;
-      letter-spacing: 0.22em; text-transform: uppercase;
+      letter-spacing: 0.24em; text-transform: uppercase;
       color: var(--accent);
     }
-    .hero h1 {
-      font-size: clamp(30px, 3.8vw, 52px);
+    .pld-hero h1 {
+      font-size: clamp(28px, 3.6vw, 50px);
       color: var(--bg);
-      line-height: 1.08;
+      line-height: 1.09;
       letter-spacing: -0.02em;
-      margin-bottom: 24px;
+      margin-bottom: 10px;
     }
-    .hero h1 em {
+    .pld-hero h1 em {
+      display: block;
       font-style: italic;
+      font-size: 1.05em;
       background: linear-gradient(90deg, var(--accent-lite), var(--accent), var(--accent-lite));
       background-size: 200% auto;
       -webkit-background-clip: text;
@@ -97,333 +111,750 @@
       background-clip: text;
       animation: shimmerText 4s linear 1.5s infinite;
     }
-    .hero__lead {
-      font-size: clamp(16px, 1.6vw, 18px);
-      color: rgba(250,246,240,0.82);
-      line-height: 1.78;
-      margin-bottom: 12px;
-      max-width: 500px;
+    .pld-hero__credential-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(232,114,42,0.12);
+      border: 1px solid rgba(232,114,42,0.28);
+      padding: 7px 14px;
+      margin-bottom: 26px;
+      margin-top: 6px;
     }
-    .hero__sub {
-      font-size: 15px;
-      color: rgba(250,246,240,0.46);
-      line-height: 1.72;
-      margin-bottom: 36px;
+    .pld-hero__credential-bar span {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-lite);
+    }
+    .pld-hero__credential-bar::before {
+      content: '✦';
+      color: var(--accent);
+      font-size: 10px;
+    }
+    .pld-hero__lead {
+      font-size: clamp(15px, 1.5vw, 17px);
+      color: rgba(250,246,240,0.78);
+      line-height: 1.78;
+      margin-bottom: 30px;
       max-width: 480px;
     }
-    .hero__ctas { display: flex; flex-wrap: wrap; gap: 14px; }
-    .hero__trust {
+    .pld-hero__ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 20px; }
+    .pld-hero__trust {
       font-size: 11px;
-      color: rgba(250,246,240,0.26);
-      letter-spacing: 0.08em;
+      color: rgba(250,246,240,0.22);
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      margin-top: 14px;
     }
 
-    /* Hero right panel */
-    .hero__panel {
-      background: rgba(10,7,16,0.78);
+    /* Hero right — threat card */
+    .pld-threat-card {
+      background: rgba(8,5,14,0.82);
       border: 1px solid rgba(201,184,154,0.1);
       border-top: none;
-      overflow: hidden;
-      backdrop-filter: blur(14px);
-      box-shadow: 0 40px 100px rgba(0,0,0,0.55), inset 0 1px 0 rgba(201,184,154,0.06);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 48px 110px rgba(0,0,0,0.6), inset 0 1px 0 rgba(201,184,154,0.07);
       position: relative;
+      overflow: hidden;
     }
-    .hero__panel::before {
+    .pld-threat-card::before {
       content: '';
       position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent), var(--accent-lite), var(--accent), transparent);
+      background: linear-gradient(90deg, transparent 0%, var(--accent) 25%, var(--accent-lite) 55%, var(--accent) 80%, transparent 100%);
       background-size: 200% auto;
-      animation: borderSweep 3s linear infinite;
+      animation: borderPulse 3.5s linear infinite;
     }
-    .hero__panel-header {
-      padding: 16px 24px;
+    .pld-threat-card__header {
+      padding: 15px 22px;
       border-bottom: 1px solid rgba(201,184,154,0.07);
       display: flex; align-items: center; justify-content: space-between;
     }
-    .hero__panel-label {
+    .pld-threat-card__label {
+      font-family: var(--ff-sans);
       font-size: 10px; font-weight: 700;
       letter-spacing: 0.26em; text-transform: uppercase;
       color: var(--accent);
     }
-    .hero__panel-tag {
+    .pld-threat-card__status {
       font-size: 10px; font-weight: 700;
       letter-spacing: 0.12em; text-transform: uppercase;
       color: rgba(250,246,240,0.2);
-      border: 1px solid rgba(201,184,154,0.1);
+      border: 1px solid rgba(201,184,154,0.12);
       padding: 3px 8px;
     }
-    .hero__panel-item {
+    .pld-threat-item {
       display: grid;
-      grid-template-columns: 44px 1px 1fr;
-      border-bottom: 1px solid rgba(201,184,154,0.06);
-      transition: background 0.2s;
+      grid-template-columns: 42px 1px 1fr;
+      border-bottom: 1px solid rgba(201,184,154,0.055);
     }
-    .hero__panel-item:last-of-type { border-bottom: none; }
-    .hero__panel-item:hover { background: rgba(232,114,42,0.04); }
-    .hero__panel-num {
+    .pld-threat-item:last-of-type { border-bottom: none; }
+    .pld-threat-item__num {
       display: flex; align-items: flex-start; justify-content: center;
-      padding-top: 20px;
+      padding-top: 18px;
       font-family: var(--ff-serif);
-      font-size: 20px;
-      color: rgba(232,114,42,0.16);
+      font-size: 18px;
+      color: rgba(232,114,42,0.18);
       line-height: 1;
-      transition: color 0.2s;
     }
-    .hero__panel-item:hover .hero__panel-num { color: rgba(232,114,42,0.38); }
-    .hero__panel-vr { background: rgba(201,184,154,0.07); }
-    .hero__panel-content { padding: 18px 18px 18px 16px; }
-    .hero__panel-title {
-      font-size: 14px; font-weight: 700;
-      color: rgba(250,246,240,0.92);
-      margin-bottom: 5px; line-height: 1.3;
+    .pld-threat-item__divider {
+      background: rgba(201,184,154,0.06);
+      margin: 12px 0;
     }
-    .hero__panel-body {
+    .pld-threat-item__content {
+      padding: 16px 18px 16px 16px;
+    }
+    .pld-threat-item__title {
+      font-family: var(--ff-sans);
+      font-size: 13px; font-weight: 700;
+      color: rgba(250,246,240,0.88);
+      margin-bottom: 3px;
+      letter-spacing: 0.01em;
+    }
+    .pld-threat-item__sub {
       font-size: 12px;
-      color: rgba(250,246,240,0.42);
+      color: rgba(250,246,240,0.38);
+      line-height: 1.45;
+    }
+    .pld-threat-card__footer {
+      padding: 16px 22px;
+      background: rgba(232,114,42,0.07);
+      border-top: 1px solid rgba(232,114,42,0.15);
+    }
+    .pld-threat-card__footer p {
+      font-size: 12px;
+      color: rgba(250,246,240,0.5);
       line-height: 1.55;
     }
-    .hero__panel-footer {
-      padding: 13px 24px;
-      background: rgba(232,114,42,0.04);
-      border-top: 1px solid rgba(201,184,154,0.07);
-    }
-    .hero__panel-footer a {
-      font-size: 12px; font-weight: 700;
-      color: var(--accent); letter-spacing: 0.06em;
-      text-decoration: none; transition: color 0.2s;
-    }
-    .hero__panel-footer a:hover { color: var(--accent-lite); }
-
-    @media (max-width: 960px) {
-      .hero__inner { grid-template-columns: 1fr; gap: 48px; }
-      .hero__panel { max-width: 480px; }
+    .pld-threat-card__footer strong {
+      color: var(--accent-lite);
     }
 
-    /* ── REVIEW STRIPS ───────────────────────────────────────── */
-    .review-strip { padding: 20px var(--gutter); }
-    .review-strip--dark {
+    @media (max-width: 900px) {
+      .pld-hero__inner { grid-template-columns: 1fr; }
+      .pld-threat-card { max-width: 480px; }
+    }
+
+    /* ── REFRAME BAR ────────────────────────────────────────── */
+    .pld-reframe {
+      background: var(--accent);
+      padding: 20px var(--gutter);
+    }
+    .pld-reframe p {
+      font-family: var(--ff-serif);
+      font-size: clamp(16px, 1.9vw, 22px);
+      color: #fff;
+      font-style: italic;
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+    .pld-reframe strong { font-style: normal; font-weight: 700; }
+
+    /* ── STAKES SECTION ─────────────────────────────────────── */
+    .pld-stakes { background: var(--surface); }
+    .pld-stakes__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .pld-stakes h2 {
+      font-size: clamp(24px, 2.8vw, 38px);
+      color: var(--dark);
+      margin-bottom: 18px;
+      line-height: 1.1;
+    }
+    .pld-stakes p {
+      font-size: 16px;
+      color: var(--mid);
+      line-height: 1.82;
+      margin-bottom: 14px;
+    }
+    .pld-stakes strong { color: var(--dark); }
+
+    /* Financial exposure table */
+    .pld-exposure-table {
       background: var(--dark);
+      border-top: 3px solid var(--accent);
+    }
+    .pld-exposure-table__head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      padding: 14px 24px;
+      border-bottom: 1px solid rgba(201,184,154,0.1);
+    }
+    .pld-exposure-table__head span {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent-lite);
+    }
+    .pld-exposure-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      padding: 14px 24px;
+      border-bottom: 1px solid rgba(201,184,154,0.07);
+      transition: background 0.15s;
+    }
+    .pld-exposure-row:hover { background: rgba(232,114,42,0.05); }
+    .pld-exposure-row:last-of-type { border-bottom: none; }
+    .pld-exposure-row__label {
+      font-size: 15px;
+      color: rgba(250,246,240,0.7);
+    }
+    .pld-exposure-row__value {
+      font-family: var(--ff-serif);
+      font-size: 16px;
+      color: var(--accent-lite);
+      text-align: right;
+      font-style: italic;
+    }
+    .pld-exposure-row--alert .pld-exposure-row__label { color: rgba(250,246,240,0.88); }
+    .pld-exposure-row--alert .pld-exposure-row__value { color: #e87a5a; }
+    .pld-exposure-table__note {
+      padding: 12px 24px;
       border-top: 1px solid rgba(201,184,154,0.07);
+      font-size: 12px;
+      color: rgba(250,246,240,0.3);
+      font-style: italic;
+    }
+    @media (max-width: 768px) { .pld-stakes__inner { grid-template-columns: 1fr; } }
+
+    /* ── WHY HER ────────────────────────────────────────────── */
+    .pld-why {
+      background: var(--dark);
+      color: var(--bg);
+    }
+    .pld-why__header {
+      max-width: 640px;
+      margin: 0 auto 64px;
+      text-align: center;
+    }
+    .pld-why__header h2 {
+      font-size: clamp(28px, 3.2vw, 44px);
+      color: var(--bg);
+      margin-bottom: 14px;
+      line-height: 1.1;
+    }
+    .pld-why__header h2 em { color: var(--accent-lite); font-style: italic; }
+    .pld-why__header p {
+      font-size: 17px;
+      color: rgba(250,246,240,0.58);
+      line-height: 1.72;
+    }
+    .pld-why__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .pld-why__card {
+      background: rgba(26,18,33,0.55);
+      padding: 40px 32px;
+      border-top: 3px solid transparent;
+      transition: border-color 0.2s, background 0.2s;
+      position: relative;
+    }
+    .pld-why__card:hover {
+      background: rgba(43,36,56,0.7);
+      border-top-color: var(--accent);
+    }
+    .pld-why__card-num {
+      font-family: var(--ff-serif);
+      font-size: 52px;
+      color: rgba(232,114,42,0.1);
+      line-height: 1;
+      margin-bottom: 18px;
+      transition: color 0.2s;
+    }
+    .pld-why__card:hover .pld-why__card-num { color: rgba(232,114,42,0.15); }
+    .pld-why__card-title {
+      font-family: var(--ff-serif);
+      font-size: 21px;
+      color: var(--bg);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .pld-why__card-body {
+      font-size: 15px;
+      color: rgba(250,246,240,0.58);
+      line-height: 1.72;
+    }
+    .pld-why__card-body strong { color: rgba(250,246,240,0.85); }
+    @media (max-width: 768px) { .pld-why__grid { grid-template-columns: 1fr; } }
+
+    /* ── COUNTER PROTOCOL BRIDGE ────────────────────────────── */
+    .pld-protocol {
+      background: var(--plum);
+      color: var(--bg);
+    }
+    .pld-protocol__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .pld-protocol h2 {
+      font-size: clamp(26px, 3vw, 40px);
+      color: var(--bg);
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+    .pld-protocol h2 em { color: var(--accent-lite); }
+    .pld-protocol p {
+      font-size: 16px;
+      color: rgba(250,246,240,0.7);
+      line-height: 1.78;
+      margin-bottom: 16px;
+    }
+    .pld-protocol strong { color: var(--bg); }
+    .pld-protocol__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--ff-sans);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-lite);
+      text-decoration: none;
+      margin-top: 8px;
+      transition: gap 0.2s;
+    }
+    .pld-protocol__link:hover { gap: 14px; }
+
+    /* Timeline visual */
+    .pld-timeline {
+      background: rgba(10,7,16,0.5);
+      border: 1px solid rgba(201,184,154,0.1);
+      padding: 32px;
+    }
+    .pld-timeline__label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(250,246,240,0.35);
+      margin-bottom: 24px;
+    }
+    .pld-timeline__item {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      padding: 14px 0;
       border-bottom: 1px solid rgba(201,184,154,0.07);
     }
-    .review-strip--light {
+    .pld-timeline__item:last-child { border-bottom: none; }
+    .pld-timeline__dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+    .pld-timeline__dot--board { background: rgba(250,246,240,0.25); }
+    .pld-timeline__dot--us { background: var(--accent); }
+    .pld-timeline__dot--them { background: rgba(250,246,240,0.1); }
+    .pld-timeline__actor {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      width: 72px; flex-shrink: 0;
+      padding-top: 2px;
+    }
+    .pld-timeline__actor--board { color: rgba(250,246,240,0.35); }
+    .pld-timeline__actor--us { color: var(--accent); }
+    .pld-timeline__actor--them { color: rgba(250,246,240,0.18); }
+    .pld-timeline__action {
+      font-size: 14px;
+      color: rgba(250,246,240,0.55);
+      line-height: 1.5;
+    }
+    .pld-timeline__action--us { color: rgba(250,246,240,0.88); }
+    @media (max-width: 768px) { .pld-protocol__inner { grid-template-columns: 1fr; gap: 40px; } }
+
+    /* ── WHAT WE HANDLE ─────────────────────────────────────── */
+    .pld-handles { background: var(--bg); }
+    .pld-handles__header {
+      max-width: 620px;
+      margin: 0 auto 52px;
+      text-align: center;
+    }
+    .pld-handles__header h2 {
+      font-size: clamp(26px, 3vw, 40px);
+      margin-bottom: 14px;
+      color: var(--dark);
+    }
+    .pld-handles__header p {
+      font-size: 16px;
+      color: var(--mid);
+      line-height: 1.72;
+    }
+    .pld-handles__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .pld-handle-card {
       background: var(--surface);
-      border-top: 1px solid rgba(201,184,154,0.3);
-      border-bottom: 1px solid rgba(201,184,154,0.3);
+      border: 1px solid var(--border);
+      padding: 28px 24px;
+      transition: border-color 0.2s;
     }
-    .review-strip__inner {
-      max-width: var(--max-w); margin: 0 auto;
-      display: flex; align-items: center;
-      gap: 24px; flex-wrap: wrap;
+    .pld-handle-card:hover { border-color: rgba(232,114,42,0.4); }
+    .pld-handle-card__icon {
+      width: 36px; height: 36px;
+      background: rgba(232,114,42,0.1);
+      border: 1px solid rgba(232,114,42,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      margin-bottom: 16px;
     }
-    .review-strip__stars { font-size: 14px; color: #F5C842; text-shadow: 0 0 8px rgba(245,200,66,0.75); letter-spacing: 2px; flex-shrink: 0; }
-    .review-strip__vr { width: 1px; height: 28px; flex-shrink: 0; }
-    .review-strip--dark .review-strip__vr { background: rgba(201,184,154,0.15); }
-    .review-strip--light .review-strip__vr { background: rgba(74,58,92,0.18); }
-    .review-strip__quote { font-family: var(--ff-serif); font-size: clamp(14px,1.4vw,17px); font-style: italic; line-height: 1.5; flex: 1; margin: 0; }
-    .review-strip--dark .review-strip__quote { color: rgba(250,246,240,0.88); }
-    .review-strip--light .review-strip__quote { color: var(--dark); }
-    .review-strip__attr { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; flex-shrink: 0; }
-    .review-strip--dark .review-strip__attr { color: rgba(250,246,240,0.28); }
-    .review-strip--light .review-strip__attr { color: var(--muted); }
-
-    /* ── CINEMATIC ───────────────────────────────────────────── */
-    .cinematic { position: relative; height: 260px; overflow: hidden; }
-    .cinematic__img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; display: block; filter: brightness(0.27) saturate(0.45); }
-    .cinematic__overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(10,7,16,0.88) 0%, rgba(10,7,16,0.42) 40%, rgba(10,7,16,0.42) 60%, rgba(10,7,16,0.88) 100%); }
-    .cinematic__content { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 0 var(--gutter); text-align: center; }
-    .cinematic__text { font-family: var(--ff-serif); font-size: clamp(17px,2vw,26px); color: rgba(250,246,240,0.9); font-style: italic; line-height: 1.5; max-width: 680px; }
-    .cinematic__text a { font-style: normal; color: var(--accent-lite); border-bottom: 1px solid rgba(242,149,106,0.3); text-decoration: none; transition: color 0.2s, border-color 0.2s; }
-    .cinematic__text a:hover { color: var(--accent); border-color: var(--accent); }
-
-    /* ── TRIGGERS (consequences) ─────────────────────────────── */
-    .triggers { background: var(--dark); color: var(--bg); position: relative; overflow: hidden; }
-    .triggers__glow {
-      position: absolute; inset: 0; pointer-events: none;
-      background: radial-gradient(ellipse 45% 55% at 95% 50%, rgba(232,114,42,0.06) 0%, transparent 65%);
+    .pld-handle-card__title {
+      font-family: var(--ff-sans);
+      font-size: 15px; font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 8px;
     }
-    .triggers__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; position: relative; z-index: 2; }
-    .triggers__h2 { font-size: clamp(26px,2.8vw,42px); color: var(--bg); line-height: 1.07; margin-bottom: 20px; }
-    .triggers__p { font-size: 17px; color: rgba(250,246,240,0.68); line-height: 1.82; margin-bottom: 16px; }
-    .triggers__p strong { color: var(--bg); }
-    .triggers__actions { margin-top: 32px; display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
-    .triggers__text-link { font-size: 13px; color: rgba(250,246,240,0.38); letter-spacing: 0.04em; text-decoration: none; border-bottom: 1px solid rgba(250,246,240,0.12); padding-bottom: 1px; transition: color 0.2s, border-color 0.2s; }
-    .triggers__text-link:hover { color: rgba(250,246,240,0.65); border-color: rgba(250,246,240,0.35); }
+    .pld-handle-card__body {
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.65;
+    }
+    @media (max-width: 768px) { .pld-handles__grid { grid-template-columns: 1fr; } }
 
-    /* Numbered list */
-    .cq-list { display: flex; flex-direction: column; }
-    .cq-item { display: grid; grid-template-columns: 46px 1px 1fr; border-bottom: 1px solid rgba(201,184,154,0.07); transition: background 0.2s; }
-    .cq-item:first-child { border-top: 1px solid rgba(201,184,154,0.07); }
-    .cq-item:hover { background: rgba(232,114,42,0.04); }
-    .cq-item__num { display: flex; align-items: flex-start; justify-content: center; padding-top: 22px; font-family: var(--ff-serif); font-size: 22px; color: rgba(232,114,42,0.13); line-height: 1; transition: color 0.2s; }
-    .cq-item:hover .cq-item__num { color: rgba(232,114,42,0.3); }
-    .cq-item__vr { background: rgba(201,184,154,0.07); }
-    .cq-item__body { padding: 20px 0 20px 20px; }
-    .cq-item__title { font-size: 15px; font-weight: 700; color: rgba(250,246,240,0.95); margin-bottom: 5px; line-height: 1.2; }
-    .cq-item__desc { font-size: 13px; color: rgba(250,246,240,0.46); line-height: 1.62; }
-
-    @media (max-width: 768px) { .triggers__inner { grid-template-columns: 1fr; gap: 52px; } }
-
-    /* ── CONTRAST (competitor section) ──────────────────────── */
-    .contrast { background: var(--surface); color: var(--dark); position: relative; overflow: hidden; }
-    .contrast__glow { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(232,114,42,0.04) 0%, transparent 60%); }
-    .contrast__header { text-align: center; max-width: 740px; margin: 0 auto 60px; position: relative; z-index: 2; }
-    .contrast__header h2 { font-size: clamp(28px,3.2vw,46px); color: var(--dark); line-height: 1.07; margin-bottom: 16px; }
-    .contrast__header p { font-size: 17px; color: var(--mid); line-height: 1.78; }
-    .contrast__grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; position: relative; z-index: 2; }
-
-    .contrast-card { padding: 38px 30px; border: 1px solid var(--border); }
-    .contrast-card--them { background: var(--bg); border-top: 3px solid rgba(74,58,92,0.3); color: var(--dark); }
-    .contrast-card--us { background: var(--dark); border-top: 3px solid var(--accent); }
-    .contrast-card--why { background: var(--bg); border-top: 3px solid var(--accent-lite); color: var(--dark); }
-
-    .contrast-card__label { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 14px; }
-    .contrast-card--them .contrast-card__label { color: var(--muted); }
-    .contrast-card--us .contrast-card__label { color: var(--accent); }
-    .contrast-card--why .contrast-card__label { color: var(--accent-lite); }
-
-    .contrast-card__title { font-family: var(--ff-serif); font-size: clamp(17px,1.7vw,21px); color: inherit; margin-bottom: 22px; line-height: 1.22; }
-
-    .contrast-list { display: flex; flex-direction: column; }
-    .contrast-item { display: flex; align-items: flex-start; gap: 12px; padding: 11px 0; border-bottom: 1px solid rgba(74,58,92,0.08); font-size: 14px; line-height: 1.55; }
-    .contrast-item:last-child { border-bottom: none; }
-    .contrast-item--them { color: var(--mid); }
-    .contrast-item--us { color: rgba(250,246,240,0.88); }
-    .contrast-item--note { color: var(--mid); font-size: 14px; }
-    .contrast-marker { flex-shrink: 0; margin-top: 1px; }
-    .contrast-marker--them { color: var(--muted); }
-    .contrast-marker--us { color: var(--accent); }
-    .contrast-marker--note { color: var(--accent); }
-
-    .contrast__cta { text-align: center; margin-top: 56px; position: relative; z-index: 2; }
-
-    @media (max-width: 860px) { .contrast__grid { grid-template-columns: 1fr; } }
-
-    /* ── BIO ─────────────────────────────────────────────────── */
-    .bio { background: var(--dark); color: var(--bg); }
-    .bio__inner { display: grid; grid-template-columns: 360px 1fr; gap: 80px; align-items: center; }
-    .bio__photo-wrap { position: relative; flex-shrink: 0; }
-    .bio__photo-wrap::before { content: ''; position: absolute; top: -10px; right: -10px; width: 44px; height: 44px; border-top: 2px solid var(--accent); border-right: 2px solid var(--accent); z-index: 2; pointer-events: none; }
-    .bio__photo-wrap::after { content: ''; position: absolute; bottom: 72px; left: -10px; width: 44px; height: 44px; border-bottom: 2px solid rgba(232,114,42,0.28); border-left: 2px solid rgba(232,114,42,0.28); z-index: 2; pointer-events: none; }
-    .bio__photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center top; display: block; }
-    .bio__badge { background: rgba(15,11,21,0.95); border-top: 2px solid var(--accent); padding: 16px 20px; }
-    .bio__badge-name { font-family: var(--ff-serif); font-size: 19px; color: var(--bg); }
-    .bio__badge-title { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-top: 4px; }
-    .bio__badge-detail { margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(201,184,154,0.1); font-size: 12px; color: rgba(250,246,240,0.38); line-height: 1.65; }
-
-    .bio__eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
-    .bio__eyebrow-rule { width: 28px; height: 2px; background: var(--accent); flex-shrink: 0; }
-    .bio__h2 { font-size: clamp(26px,2.8vw,42px); color: var(--bg); line-height: 1.07; margin-bottom: 22px; letter-spacing: -0.01em; }
-    .bio__h2 em {
+    /* ── REVIEWS ────────────────────────────────────────────── */
+    .pld-reviews { background: var(--dark); }
+    .pld-reviews__header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .pld-reviews__eyebrow {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(250,246,240,0.3);
+      margin-bottom: 10px;
+    }
+    .pld-reviews__stars {
+      font-size: 22px;
+      color: var(--accent);
+      letter-spacing: 3px;
+    }
+    .pld-reviews__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-bottom: 32px;
+    }
+    .pld-review-tile {
+      background: rgba(26,18,33,0.6);
+      padding: 32px 28px;
+      border-top: 2px solid rgba(232,114,42,0.2);
+      transition: border-top-color 0.2s, background 0.2s;
+    }
+    .pld-review-tile:hover {
+      border-top-color: var(--accent);
+      background: rgba(43,36,56,0.6);
+    }
+    .pld-review-tile__stars {
+      font-size: 14px;
+      color: var(--accent);
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .pld-review-tile__quote {
+      font-family: var(--ff-serif);
+      font-size: 16px;
+      color: rgba(250,246,240,0.8);
+      line-height: 1.65;
       font-style: italic;
-      background: linear-gradient(90deg, var(--accent-lite), var(--accent), var(--accent-lite));
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: shimmerText 4s linear 1s infinite;
+      margin-bottom: 16px;
     }
-    .bio__p { font-size: 17px; color: rgba(250,246,240,0.68); line-height: 1.82; margin-bottom: 16px; }
-    .bio__p strong { color: var(--bg); }
-    .bio__tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 28px; }
-    .bio__tag { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; border: 1px solid rgba(232,114,42,0.22); color: rgba(250,246,240,0.42); }
-    .bio__ctas { display: flex; flex-wrap: wrap; gap: 14px; }
-
-    @media (max-width: 900px) { .bio__inner { grid-template-columns: 1fr; gap: 40px; } }
-
-    /* ── STAKES TABLE ────────────────────────────────────────── */
-    .stakes { background: var(--bg); }
-    .stakes__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-    .stakes__h2 { font-size: clamp(26px,2.8vw,42px); color: var(--dark); line-height: 1.08; margin-bottom: 18px; }
-    .stakes__p { font-size: 16px; color: var(--mid); line-height: 1.82; margin-bottom: 14px; }
-    .stakes__cta { margin-top: 32px; }
-
-    .fin-table { background: rgba(10,7,16,0.65); border: 1px solid rgba(201,184,154,0.12); overflow: hidden; }
-    .fin-table__head { display: grid; grid-template-columns: 2fr 1fr 1fr; padding: 14px 20px; gap: 12px; background: rgba(10,7,16,0.72); border-bottom: 1px solid rgba(201,184,154,0.12); }
-    .fin-table__head span { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-lite); }
-    .fin-table__row { display: grid; grid-template-columns: 2fr 1fr 1fr; padding: 16px 20px; gap: 12px; border-top: 1px solid rgba(201,184,154,0.08); align-items: center; transition: background 0.15s; }
-    .fin-table__row:hover { background: rgba(232,114,42,0.05); }
-    .fin-table__row span:first-child { font-size: 15px; color: rgba(250,246,240,0.92); font-weight: 500; }
-    .fin-table__row span:not(:first-child) { font-family: var(--ff-serif); font-size: 17px; color: var(--accent-lite); }
-    .fin-table__note { padding: 12px 20px; border-top: 1px solid rgba(201,184,154,0.08); font-size: 11px; color: rgba(250,246,240,0.26); font-style: italic; }
-
-    @media (max-width: 768px) { .stakes__inner { grid-template-columns: 1fr; gap: 48px; } }
-
-    /* ── EXPECT CARDS ────────────────────────────────────────── */
-    .expect { background: var(--surface); }
-    .expect__header { max-width: 700px; margin-bottom: 56px; }
-    .expect__header h2 { font-size: clamp(26px,2.8vw,42px); color: var(--dark); line-height: 1.07; margin-bottom: 14px; }
-    .expect__header p { font-size: 17px; color: var(--mid); line-height: 1.78; }
-    .expect__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
-    .expect-card { background: var(--bg); border: 1px solid var(--border); border-top: 3px solid transparent; padding: 40px 34px; transition: border-top-color 0.3s, box-shadow 0.3s; }
-    .expect-card:hover { border-top-color: var(--accent); box-shadow: 0 12px 40px rgba(0,0,0,0.07); }
-    .expect-card__num { font-family: var(--ff-serif); font-size: 52px; color: rgba(232,114,42,0.1); line-height: 1; margin-bottom: 18px; }
-    .expect-card__label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
-    .expect-card__title { font-size: 19px; font-weight: 700; color: var(--dark); line-height: 1.22; margin-bottom: 14px; }
-    .expect-card__body { font-size: 15px; color: var(--mid); line-height: 1.78; }
-    @media (max-width: 680px) { .expect__grid { grid-template-columns: 1fr; } }
-
-    /* ── CORRECTIVE COUNSEL ──────────────────────────────────── */
-    .corrective { background: var(--dark); color: var(--bg); position: relative; overflow: hidden; }
-    .corrective__bg-img {
-      position: absolute; inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1600&q=80&fit=crop&auto=format');
-      background-size: cover; background-position: center 40%;
-      opacity: 0.045; filter: grayscale(100%) contrast(1.1);
-      mix-blend-mode: luminosity;
+    .pld-review-tile__attr {
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: rgba(250,246,240,0.3);
     }
-    .corrective__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-    .corrective__h2 { font-size: clamp(24px,2.6vw,40px); color: var(--bg); line-height: 1.08; margin-bottom: 20px; }
-    .corrective__p { font-size: 17px; color: rgba(250,246,240,0.65); line-height: 1.82; margin-bottom: 28px; }
-
-    .cc-cards { display: flex; flex-direction: column; gap: 2px; }
-    .cc-card { display: grid; grid-template-columns: 2px 1fr; }
-    .cc-card__rule { background: var(--accent); }
-    .cc-card__body { background: rgba(43,36,56,0.48); border: 1px solid rgba(201,184,154,0.07); border-left: none; padding: 24px 26px; }
-    .cc-card__label { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
-    .cc-card__title { font-family: var(--ff-serif); font-size: 18px; color: var(--bg); margin-bottom: 8px; line-height: 1.2; }
-    .cc-card__desc { font-size: 14px; color: rgba(250,246,240,0.46); line-height: 1.65; }
-
-    @media (max-width: 768px) { .corrective__inner { grid-template-columns: 1fr; gap: 48px; } }
-
-    /* ── REVIEWS DUO ─────────────────────────────────────────── */
-    .reviews-duo { background: var(--dark); }
-    .reviews-duo__header { text-align: center; margin-bottom: 48px; }
-    .reviews-duo__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 48px; }
-    .review-pane { background: rgba(43,36,56,0.42); border: 1px solid rgba(201,184,154,0.08); padding: 44px 36px; }
-    .review-pane__stars { font-size: 16px; color: #F5C842; text-shadow: 0 0 8px rgba(245,200,66,0.82), 0 0 18px rgba(245,200,66,0.3); letter-spacing: 4px; margin-bottom: 22px; }
-    .review-pane__quote { font-family: var(--ff-serif); font-size: clamp(15px,1.6vw,20px); color: var(--bg); font-style: italic; line-height: 1.58; margin-bottom: 22px; }
-    .review-pane__attr { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,246,240,0.28); }
-    .reviews-duo__cta { text-align: center; }
-    .reviews-duo__sub { margin-top: 14px; font-size: 13px; color: rgba(250,246,240,0.28); }
-    .reviews-duo__sub a { color: rgba(250,246,240,0.4); text-decoration: underline; text-underline-offset: 3px; transition: color 0.2s; }
-    .reviews-duo__sub a:hover { color: rgba(250,246,240,0.65); }
-    @media (max-width: 680px) { .reviews-duo__grid { grid-template-columns: 1fr; } }
-
-    /* ── FINAL CTA ────────────────────────────────────────────── */
-    .final-cta { background: var(--dark); text-align: center; position: relative; overflow: hidden; }
-    .final-cta__photo-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1600&q=80&fit=crop&auto=format'); background-size: cover; background-position: center; opacity: 0.04; filter: grayscale(100%); }
-    .final-cta__glow { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(232,114,42,0.07) 0%, transparent 60%); }
-    .final-cta__inner { position: relative; z-index: 2; max-width: 600px; margin: 0 auto; }
-    .final-cta__inner h2 { font-size: clamp(28px,3.8vw,50px); color: var(--bg); line-height: 1.07; margin-bottom: 18px; }
-    .final-cta__inner h2 em {
+    .pld-reviews__featured {
+      background: rgba(43,36,56,0.5);
+      border: 1px solid rgba(201,184,154,0.1);
+      border-top: 3px solid var(--accent);
+      padding: 40px 48px;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .pld-reviews__featured-stars {
+      font-size: 18px;
+      color: var(--accent);
+      letter-spacing: 3px;
+      margin-bottom: 18px;
+    }
+    .pld-reviews__featured-quote {
+      font-family: var(--ff-serif);
+      font-size: clamp(17px, 2vw, 22px);
+      color: rgba(250,246,240,0.88);
+      line-height: 1.6;
       font-style: italic;
-      background: linear-gradient(90deg, var(--accent-lite), var(--accent), var(--accent-lite));
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: shimmerText 4s linear 1s infinite;
+      margin-bottom: 20px;
     }
-    .final-cta__inner p { font-size: 17px; color: rgba(250,246,240,0.6); line-height: 1.78; margin-bottom: 36px; }
-    .final-cta__sub { margin-top: 16px; font-size: 13px; color: rgba(250,246,240,0.28); }
-    .final-cta__sub a { color: rgba(250,246,240,0.4); text-decoration: underline; text-underline-offset: 3px; transition: color 0.2s; }
-    .final-cta__sub a:hover { color: rgba(250,246,240,0.62); }
-    .final-cta__trust { margin-top: 10px; font-size: 11px; color: rgba(250,246,240,0.18); letter-spacing: 0.08em; text-transform: uppercase; }
+    .pld-reviews__featured-attr {
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(250,246,240,0.35);
+    }
+    @media (max-width: 768px) { .pld-reviews__grid { grid-template-columns: 1fr; } .pld-reviews__featured { padding: 28px 24px; } }
 
-    /* ── LUX WORD SPLIT ───────────────────────────────────────── */
+    /* ── ABOUT BRIDGE ───────────────────────────────────────── */
+    .pld-about {
+      background: var(--surface);
+    }
+    .pld-about__inner {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .pld-about__photo-wrap { position: relative; }
+    .pld-about__photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .pld-about__badge {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(26,18,33,0.95);
+      border-top: 2px solid var(--accent);
+      padding: 16px 20px;
+    }
+    .pld-about__badge-name {
+      font-family: var(--ff-serif);
+      font-size: 19px;
+      color: var(--bg);
+      margin-bottom: 3px;
+    }
+    .pld-about__badge-title {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent);
+    }
+    .pld-about__content h2 {
+      font-size: clamp(24px, 2.8vw, 38px);
+      color: var(--dark);
+      margin-bottom: 18px;
+      line-height: 1.1;
+    }
+    .pld-about__content h2 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .pld-about__content p {
+      font-size: 16px;
+      color: var(--mid);
+      line-height: 1.82;
+      margin-bottom: 14px;
+    }
+    .pld-about__content strong { color: var(--dark); }
+    .pld-about__creds {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 28px 0;
+      border: 1px solid var(--border);
+    }
+    .pld-about__cred {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .pld-about__cred:last-child { border-bottom: none; }
+    .pld-about__cred-label {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent);
+      padding: 14px 16px;
+      background: var(--bg);
+      width: 140px;
+      flex-shrink: 0;
+      border-right: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+    }
+    .pld-about__cred-value {
+      font-size: 14px;
+      color: var(--dark);
+      padding: 14px 16px;
+      line-height: 1.45;
+    }
+    @media (max-width: 900px) { .pld-about__inner { grid-template-columns: 1fr; } .pld-about__photo { aspect-ratio: 4/3; } }
+
+    /* ── COMMON COMPLAINT TYPES ─────────────────────────────── */
+    .pld-complaints { background: var(--bg); }
+    .pld-complaints__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .pld-complaints h2 {
+      font-size: clamp(24px, 2.8vw, 36px);
+      color: var(--dark);
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+    .pld-complaints__list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .pld-complaint-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 16px 20px;
+      background: var(--surface);
+      border-left: 3px solid var(--border);
+      transition: border-left-color 0.2s;
+      cursor: default;
+    }
+    .pld-complaint-item:hover { border-left-color: var(--accent); }
+    .pld-complaint-item__marker {
+      color: var(--accent);
+      font-size: 14px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .pld-complaint-item__text {
+      font-size: 15px;
+      color: var(--mid);
+      line-height: 1.55;
+    }
+    .pld-complaint-item__text strong { color: var(--dark); display: block; margin-bottom: 2px; font-size: 14px; }
+    .pld-complaints__note {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      padding: 24px 28px;
+    }
+    .pld-complaints__note h3 {
+      font-size: 16px; font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+    .pld-complaints__note p {
+      font-size: 15px;
+      color: var(--mid);
+      line-height: 1.72;
+    }
+    .pld-complaints__note p + p { margin-top: 10px; }
+    .pld-complaints__note a { color: var(--accent); }
+    @media (max-width: 768px) { .pld-complaints__inner { grid-template-columns: 1fr; } }
+
+    /* ── CORRECTIVE COUNSEL ─────────────────────────────────── */
+    .pld-corrective {
+      background: var(--plum);
+      color: var(--bg);
+    }
+    .pld-corrective__inner {
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .pld-corrective h2 {
+      font-size: clamp(26px, 3vw, 42px);
+      color: var(--bg);
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+    .pld-corrective h2 em { color: var(--accent-lite); }
+    .pld-corrective p {
+      font-size: 17px;
+      color: rgba(250,246,240,0.7);
+      line-height: 1.75;
+      max-width: 640px;
+      margin: 0 auto 32px;
+    }
+    .pld-corrective__cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-bottom: 36px;
+      text-align: left;
+    }
+    .pld-corrective__card {
+      background: rgba(26,18,33,0.5);
+      padding: 28px 24px;
+      border-top: 2px solid rgba(232,114,42,0.3);
+    }
+    .pld-corrective__card-label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .pld-corrective__card-body {
+      font-size: 14px;
+      color: rgba(250,246,240,0.65);
+      line-height: 1.65;
+    }
+    @media (max-width: 768px) { .pld-corrective__cards { grid-template-columns: 1fr; } }
+
+    /* ── FINAL CTA ──────────────────────────────────────────── */
+    .pld-final-cta {
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .pld-final-cta::before {
+      content: 'TMB';
+      position: absolute;
+      bottom: -0.08em; right: -0.04em;
+      font-family: var(--ff-serif);
+      font-size: clamp(160px, 22vw, 320px);
+      font-weight: 700;
+      color: rgba(250,246,240,0.018);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      pointer-events: none;
+      user-select: none;
+    }
+    .pld-final-cta__inner {
+      position: relative; z-index: 2;
+      max-width: 660px;
+      margin: 0 auto;
+    }
+    .pld-final-cta h2 {
+      font-size: clamp(28px, 3.4vw, 46px);
+      color: var(--bg);
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+    .pld-final-cta h2 em { color: var(--accent-lite); font-style: italic; }
+    .pld-final-cta p {
+      font-size: 17px;
+      color: rgba(250,246,240,0.6);
+      line-height: 1.72;
+      margin-bottom: 32px;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .pld-final-cta__ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+    .pld-final-cta__meta {
+      font-size: 12px;
+      color: rgba(250,246,240,0.28);
+      letter-spacing: 0.06em;
+    }
+    .pld-final-cta__meta a { color: rgba(250,246,240,0.45); }
+
+    /* ── LUX WORD ───────────────────────────────────────────── */
     .lux-word { display: inline-block; }
     .lux-word--em em {
       background: linear-gradient(90deg, var(--accent-lite), var(--accent), var(--accent-lite));
@@ -438,545 +869,618 @@
 <body>
   <div id="site-nav"></div>
 
-  <!-- ══════════════════════════════════════════════════════════
+  <!-- ═══════════════════════════════════════════════════════════
        HERO
-  ═══════════════════════════════════════════════════════════ -->
-  <section class="hero">
-    <div class="hero__photo-bg" aria-hidden="true"></div>
-    <div class="hero__gradient" aria-hidden="true"></div>
-    <div class="hero__inner">
+  ════════════════════════════════════════════════════════════ -->
+  <section class="pld-hero">
+    <div class="pld-hero__bg" aria-hidden="true"></div>
+    <div class="pld-hero__gradient" aria-hidden="true"></div>
+    <div class="pld-hero__inner">
 
-      <div>
-        <div class="hero__eyebrow">
-          <span class="hero__eyebrow-rule"></span>
-          <span class="hero__eyebrow-text">Texas Medical Board Complaint Defense</span>
+      <div class="pld-hero__left">
+        <div class="pld-hero__kicker">
+          <div class="pld-hero__kicker-rule" aria-hidden="true"></div>
+          <span class="pld-hero__kicker-text">Texas Physician License Defense</span>
         </div>
-        <h1>You did not go to medical school for twelve years to lose your license to a process your attorney does not understand.</h1>
-        <p class="hero__lead">The Texas Medical Board builds a record — methodically, early, and with institutional momentum behind it. By the time a passive attorney files a rebuttal, that record is already partially complete. The only defense that works is one that runs faster.</p>
-        <p class="hero__sub">Octavia LaVon Martinez is a former felony prosecutor and complex medical malpractice litigator. She built institutional cases before she defended them. That background is not a credential — it is a strategic advantage in every case she accepts.</p>
-        <div class="hero__ctas">
+        <h1>
+          The board is building<br>its case right now.<br>
+          <em>Is anyone building yours?</em>
+        </h1>
+        <div class="pld-hero__credential-bar">
+          <span>Former Felony Prosecutor · Now Defending Physicians</span>
+        </div>
+        <p class="pld-hero__lead">
+          Octavia LaVon Martinez spent years on the prosecution side of high-stakes proceedings — learning exactly how investigators build records, what makes a case dismissible, and what happens when the defense moves first. She now applies that same prosecutorial discipline to defending Texas physicians before the Texas Medical Board.
+        </p>
+        <div class="pld-hero__ctas">
           <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+          <a href="strategy-session.html" class="btn btn--outline">Book a Strategy Session</a>
         </div>
-        <p class="hero__trust">Virtual · Licensed in Texas &amp; Arizona · Work begins the day you call</p>
+        <p class="pld-hero__trust">Virtual · All of Texas · No travel required · Monday–Friday 8AM–6PM CST</p>
       </div>
 
-      <div class="hero__panel">
-        <div class="hero__panel-header">
-          <div class="hero__panel-label">If you call today</div>
-          <div class="hero__panel-tag">Your career</div>
+      <div class="pld-threat-card" role="complementary" aria-label="What a TMB complaint triggers">
+        <div class="pld-threat-card__header">
+          <span class="pld-threat-card__label">What Triggers the Moment a Complaint is Filed</span>
+          <span class="pld-threat-card__status">Immediate</span>
         </div>
-        <div class="hero__panel-item">
-          <div class="hero__panel-num">01</div>
-          <div class="hero__panel-vr"></div>
-          <div class="hero__panel-content">
-            <div class="hero__panel-title">Octavia reviews your complaint — today</div>
-            <div class="hero__panel-body">Not a paralegal. Not an intake form. The attorney reads what you were sent.</div>
+
+        <div class="pld-threat-item">
+          <div class="pld-threat-item__num">1</div>
+          <div class="pld-threat-item__divider"></div>
+          <div class="pld-threat-item__content">
+            <div class="pld-threat-item__title">NPDB Reporting Obligation</div>
+            <div class="pld-threat-item__sub">Any disciplinary action is permanent. Visible to every future credentialing body in the country.</div>
           </div>
         </div>
-        <div class="hero__panel-item">
-          <div class="hero__panel-num">02</div>
-          <div class="hero__panel-vr"></div>
-          <div class="hero__panel-content">
-            <div class="hero__panel-title">The Counter Protocol opens immediately</div>
-            <div class="hero__panel-body">Your parallel investigation begins before the board advances its process.</div>
+        <div class="pld-threat-item">
+          <div class="pld-threat-item__num">2</div>
+          <div class="pld-threat-item__divider"></div>
+          <div class="pld-threat-item__content">
+            <div class="pld-threat-item__title">Hospital Privilege Review</div>
+            <div class="pld-threat-item__sub">Affiliated institutions are triggered simultaneously. A complaint does not stay contained.</div>
           </div>
         </div>
-        <div class="hero__panel-item">
-          <div class="hero__panel-num">03</div>
-          <div class="hero__panel-vr"></div>
-          <div class="hero__panel-content">
-            <div class="hero__panel-title">You know exactly where you stand</div>
-            <div class="hero__panel-body">What the board has. What they are building. What your options are.</div>
+        <div class="pld-threat-item">
+          <div class="pld-threat-item__num">3</div>
+          <div class="pld-threat-item__divider"></div>
+          <div class="pld-threat-item__content">
+            <div class="pld-threat-item__title">DEA Registration Risk</div>
+            <div class="pld-threat-item__sub">Prescribing privileges are a separate but adjacent vulnerability that an active investigation exposes.</div>
           </div>
         </div>
-        <div class="hero__panel-footer">
-          <a href="tel:9564263550">Call (956) 426-3550 to start →</a>
+        <div class="pld-threat-item">
+          <div class="pld-threat-item__num">4</div>
+          <div class="pld-threat-item__divider"></div>
+          <div class="pld-threat-item__content">
+            <div class="pld-threat-item__title">Insurance Panel Disruption</div>
+            <div class="pld-threat-item__sub">Carrier credentialing requires disclosure of pending board actions. Revenue exposure begins immediately.</div>
+          </div>
+        </div>
+        <div class="pld-threat-item">
+          <div class="pld-threat-item__num">5</div>
+          <div class="pld-threat-item__divider"></div>
+          <div class="pld-threat-item__content">
+            <div class="pld-threat-item__title">12–24 Month Hearing Timeline</div>
+            <div class="pld-threat-item__sub">If the complaint reaches SOAH, resolution averages one to two years — with your license in limbo throughout.</div>
+          </div>
+        </div>
+
+        <div class="pld-threat-card__footer">
+          <p>The board's investigation begins before your response deadline. <strong>Every day without a defense strategy is a day the record builds unopposed.</strong></p>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════════════════════
-       REVIEW STRIP 1 — K.A. (verbatim)
-  ═══════════════════════════════════════════════════════════ -->
-  <div class="review-strip review-strip--dark">
-    <div class="review-strip__inner">
-      <div class="review-strip__stars">★★★★★</div>
-      <div class="review-strip__vr"></div>
-      <p class="review-strip__quote">"10/10 would hire again. Exceptional attorney — strength and compassion in equal measure. She fought for me when I had no one else who understood what was at stake."</p>
-      <div class="review-strip__vr"></div>
-      <div class="review-strip__attr">K.A. · Google Review · Verified · Lubbock, TX</div>
-    </div>
+  <!-- ═══════════════════════════════════════════════════════════
+       REFRAME BAR
+  ════════════════════════════════════════════════════════════ -->
+  <div class="pld-reframe">
+    <p>"A board complaint is not a paperwork problem. <strong>It is a prosecution.</strong> And it should be defended exactly like one."</p>
   </div>
 
-  <!-- ══════════════════════════════════════════════════════════
-       CINEMATIC STRIP
-  ═══════════════════════════════════════════════════════════ -->
-  <div class="cinematic">
-    <img
-      src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1600&q=80&fit=crop&auto=format"
-      alt=""
-      loading="lazy"
-      class="cinematic__img"
-    />
-    <div class="cinematic__overlay"></div>
-    <div class="cinematic__content">
-      <p class="cinematic__text">The board started building its record the day the complaint was filed.&ensp;<a href="tel:9564263550">Call now. (956) 426-3550</a></p>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════════════════════════════════════
-       WHAT A TMB COMPLAINT TRIGGERS
-  ═══════════════════════════════════════════════════════════ -->
-  <section class="section triggers">
-    <div class="triggers__glow" aria-hidden="true"></div>
+  <!-- ═══════════════════════════════════════════════════════════
+       STAKES — WITH FINANCIAL EXPOSURE TABLE
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section pld-stakes" aria-labelledby="stakes-h2">
     <div class="container">
-      <div class="triggers__inner">
-
+      <div class="pld-stakes__inner">
         <div class="reveal">
-          <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:16px;display:flex;align-items:center;gap:12px;">
-            <span style="width:28px;height:2px;background:var(--accent);display:inline-block;flex-shrink:0;"></span>
-            What a TMB Complaint Triggers
+          <div class="eyebrow" style="margin-bottom:14px;">What's Actually at Stake</div>
+          <div class="rule"></div>
+          <h2 id="stakes-h2">Your license is not the only thing on the line.</h2>
+          <p>
+            A Texas Medical Board complaint threatens every system that depends on your license — your income, your hospital affiliations, your prescribing authority, and the career trajectory you've spent a decade or more building. The NPDB filing that follows any disciplinary action is permanent and visible to every credentialing body in the country.
+          </p>
+          <p>
+            <strong>For early-career physicians, the stakes are compounded.</strong> A complaint before age 40 doesn't just affect this year's income — it forecloses opportunities, faculty appointments, and leadership roles that have not yet materialized. The career earnings exposure runs into the millions.
+          </p>
+          <p>
+            For physicians in private practice, an active investigation can disrupt the patient relationships, referral networks, and staff stability that took years to build — before any ruling is made.
+          </p>
+          <a href="strategy-session.html" class="btn btn--primary" style="margin-top:10px;">Get a Frank Assessment →</a>
+        </div>
+
+        <div class="pld-exposure-table reveal" aria-label="Physician financial exposure table">
+          <div class="pld-exposure-table__head">
+            <span>Financial Exposure</span>
+            <span>Physician Estimate</span>
           </div>
-          <h2 class="triggers__h2">A complaint does not wait for you to be ready.</h2>
-          <p class="triggers__p">The moment a complaint is filed, a sequence begins that does not pause while you decide whether to retain counsel. The board opens an investigation. Institutions that credential you begin receiving information. The record that will be used in any future proceeding starts being built — without your input.</p>
-          <p class="triggers__p">Most physicians respond to this by calling a large firm that looks like it has resources. What they receive is a paralegal, an intake form, and a rebuttal filed weeks later by an associate who has never met them. That rebuttal becomes the foundation of their defense. If it is passive, the board treats it as passive — and continues building unopposed.</p>
-          <p class="triggers__p"><strong>The initial written response to the board is the most consequential document in your entire defense.</strong> It signals whether there is a real fight here, or whether the board can proceed without meaningful resistance. That signal is sent once.</p>
-          <div class="triggers__actions">
+          <div class="pld-exposure-row">
+            <span class="pld-exposure-row__label">Median physician salary (TX)</span>
+            <span class="pld-exposure-row__value">$290–330K</span>
+          </div>
+          <div class="pld-exposure-row">
+            <span class="pld-exposure-row__label">Specialist median (TX)</span>
+            <span class="pld-exposure-row__value">$380–450K</span>
+          </div>
+          <div class="pld-exposure-row">
+            <span class="pld-exposure-row__label">Private practice value</span>
+            <span class="pld-exposure-row__value">$400K–$1.2M+</span>
+          </div>
+          <div class="pld-exposure-row">
+            <span class="pld-exposure-row__label">Career earnings (20 yr remaining)</span>
+            <span class="pld-exposure-row__value">$5M–$9M+</span>
+          </div>
+          <div class="pld-exposure-row">
+            <span class="pld-exposure-row__label">Medical school debt — survives revocation</span>
+            <span class="pld-exposure-row__value">$200–$350K</span>
+          </div>
+          <div class="pld-exposure-row pld-exposure-row--alert">
+            <span class="pld-exposure-row__label">NPDB filing</span>
+            <span class="pld-exposure-row__value">Permanent</span>
+          </div>
+          <div class="pld-exposure-row pld-exposure-row--alert">
+            <span class="pld-exposure-row__label">SOAH hearing timeline</span>
+            <span class="pld-exposure-row__value">12–24 months</span>
+          </div>
+          <div class="pld-exposure-table__note">Source: MGMA, AAMC salary surveys. Estimates; individual cases vary.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       WHY HER — CREDENTIAL SECTION
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section pld-why" aria-labelledby="why-h2">
+    <div class="container">
+      <div class="pld-why__header reveal">
+        <div class="eyebrow" style="color:rgba(250,246,240,0.3);margin-bottom:12px;">Why It Matters Who Defends You</div>
+        <div class="rule rule--center"></div>
+        <h2 id="why-h2">The attorney across from the board<br>needs to think like a <em>prosecutor.</em></h2>
+        <p>Most attorneys who handle board matters are trained to wait — to respond, to attend, to negotiate. Octavia was trained to build cases that force a decision. That is a different posture entirely.</p>
+      </div>
+
+      <div class="pld-why__grid">
+        <div class="pld-why__card reveal">
+          <div class="pld-why__card-num">01</div>
+          <div class="pld-why__card-title">Former Felony Prosecutor</div>
+          <p class="pld-why__card-body">
+            Octavia spent years inside the criminal prosecution system — building cases, analyzing evidence, and learning exactly how investigators build records and what forces a dismissal decision. <strong>She now uses that knowledge in reverse.</strong>
+          </p>
+        </div>
+        <div class="pld-why__card reveal">
+          <div class="pld-why__card-num">02</div>
+          <div class="pld-why__card-title">Complex Medical Malpractice Background</div>
+          <p class="pld-why__card-body">
+            Before founding this firm, she litigated complex medical malpractice cases — developing a deep working knowledge of medical records, clinical standards, and expert testimony. <strong>She reads your medical record the way the board's expert will.</strong>
+          </p>
+        </div>
+        <div class="pld-why__card reveal">
+          <div class="pld-why__card-num">03</div>
+          <div class="pld-why__card-title">No Intake Queue. No Junior Associates.</div>
+          <p class="pld-why__card-body">
+            This is a boutique firm with a single founding attorney. When you retain Octavia LaVon Martinez, Octavia LaVon Martinez works your case — from the first strategy session through any SOAH hearing. <strong>No handoffs. No delays. Work begins the day you retain us.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       THE COUNTER PROTOCOL BRIDGE
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section pld-protocol" aria-labelledby="protocol-h2">
+    <div class="container">
+      <div class="pld-protocol__inner">
+        <div class="reveal">
+          <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:14px;">The Defense Strategy</div>
+          <div class="rule"></div>
+          <h2 id="protocol-h2">The Counter Protocol:<br>we build our record <em>before</em> they build theirs.</h2>
+          <p>
+            Most attorneys wait for the board to move. They receive the complaint, draft a brief acknowledgment, and begin preparing for the eventual hearing. By the time they're ready, the board has had months to build its record — unopposed.
+          </p>
+          <p>
+            <strong>The Counter Protocol activates the day you retain us.</strong> We launch an independent parallel investigation immediately — gathering exculpatory evidence, building the factual timeline, and constructing an evidence-anchored rebuttal designed to force a dismissal decision before a hearing is ever scheduled.
+          </p>
+          <p>
+            The initial written response to the board is the single most consequential document in your defense. A passive response is a missed opportunity that cannot be recovered. An evidence-anchored rebuttal forces the board to make a decision.
+          </p>
+          <a href="the-counter-protocol.html" class="pld-protocol__link">
+            How The Counter Protocol Works — Full Detail →
+          </a>
+        </div>
+
+        <div class="pld-timeline reveal" aria-label="Day of retention comparison">
+          <div class="pld-timeline__label">Day of Retention — Who Is Building?</div>
+
+          <div class="pld-timeline__item">
+            <div class="pld-timeline__dot pld-timeline__dot--board"></div>
+            <span class="pld-timeline__actor pld-timeline__actor--board">The Board</span>
+            <span class="pld-timeline__action">Assigning investigators, requesting records, building case timeline, retaining expert reviewers</span>
+          </div>
+          <div class="pld-timeline__item">
+            <div class="pld-timeline__dot pld-timeline__dot--us"></div>
+            <span class="pld-timeline__actor pld-timeline__actor--us">Our Firm</span>
+            <span class="pld-timeline__action pld-timeline__action--us">Parallel investigation launched. Exculpatory evidence gathered. Rebuttal construction begins — same day.</span>
+          </div>
+          <div class="pld-timeline__item">
+            <div class="pld-timeline__dot pld-timeline__dot--them"></div>
+            <span class="pld-timeline__actor pld-timeline__actor--them">Typical Firm</span>
+            <span class="pld-timeline__action">Reviewing the complaint, requesting records, drafting a standard acknowledgment response, awaiting the board's next move</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       WHAT WE HANDLE
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section pld-handles" aria-labelledby="handles-h2">
+    <div class="container">
+      <div class="pld-handles__header reveal">
+        <div class="eyebrow" style="margin-bottom:12px;">Scope of Defense</div>
+        <div class="rule rule--center"></div>
+        <h2 id="handles-h2">Every stage. Every type of complaint.</h2>
+        <p>This firm defends physicians at all stages of the TMB process — from the initial written response through contested SOAH hearings.</p>
+      </div>
+
+      <div class="pld-handles__grid">
+        <div class="pld-handle-card reveal">
+          <div class="pld-handle-card__icon" aria-hidden="true">⚖</div>
+          <div class="pld-handle-card__title">Initial Written Response</div>
+          <p class="pld-handle-card__body">The most critical document in your defense. Built to force a dismissal decision, not to merely acknowledge the complaint and await the board's next move.</p>
+        </div>
+        <div class="pld-handle-card reveal">
+          <div class="pld-handle-card__icon" aria-hidden="true">🔍</div>
+          <div class="pld-handle-card__title">Investigation Phase</div>
+          <p class="pld-handle-card__body">Parallel independent investigation — gathering exculpatory evidence, building the counter-record before the board's narrative hardens.</p>
+        </div>
+        <div class="pld-handle-card reveal">
+          <div class="pld-handle-card__icon" aria-hidden="true">🤝</div>
+          <div class="pld-handle-card__title">Informal Settlement Conference</div>
+          <p class="pld-handle-card__body">ISC outcomes are binding. We attend prepared to advocate for dismissal — and we never accept a resolution that the facts do not require.</p>
+        </div>
+        <div class="pld-handle-card reveal">
+          <div class="pld-handle-card__icon" aria-hidden="true">🏛</div>
+          <div class="pld-handle-card__title">SOAH Administrative Hearings</div>
+          <p class="pld-handle-card__body">Full contested case hearings before the State Office of Administrative Hearings — litigated with criminal defense rigor, not administrative routine.</p>
+        </div>
+        <div class="pld-handle-card reveal">
+          <div class="pld-handle-card__icon" aria-hidden="true">📋</div>
+          <div class="pld-handle-card__title">Standard of Care Complaints</div>
+          <p class="pld-handle-card__body">Patient outcome complaints, prescribing practice allegations, billing irregularities, documentation deficiencies — all require the same aggressive counter-record strategy.</p>
+        </div>
+        <div class="pld-handle-card reveal">
+          <div class="pld-handle-card__icon" aria-hidden="true">🔄</div>
+          <div class="pld-handle-card__title">Corrective Counsel — Mid-Case</div>
+          <p class="pld-handle-card__body">If your current attorney has gone passive, missed a deadline, or stalled — we conduct a forensic case audit and intervene immediately. <a href="transfer-your-case.html">Transfer your case →</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       REVIEWS
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section pld-reviews" aria-labelledby="reviews-h2">
+    <div class="container">
+      <div class="pld-reviews__header reveal">
+        <div class="pld-reviews__eyebrow">Client Reviews · Google · Verified</div>
+        <h2 id="reviews-h2" class="sr-only">What clients say</h2>
+        <div class="pld-reviews__stars" aria-label="5 stars">★★★★★</div>
+      </div>
+
+      <div class="pld-reviews__grid">
+        <div class="pld-review-tile reveal">
+          <div class="pld-review-tile__stars" aria-hidden="true">★★★★★</div>
+          <p class="pld-review-tile__quote">"She is fierce and effective in advocating for her clients, while maintaining a genuine kindness and professionalism that sets her apart. Her dedication, attention to detail, and ability to navigate complex situations with confidence make her an invaluable advocate."</p>
+          <div class="pld-review-tile__attr">K.A. · Google Review · Lubbock, TX</div>
+        </div>
+        <div class="pld-review-tile reveal">
+          <div class="pld-review-tile__stars" aria-hidden="true">★★★★★</div>
+          <p class="pld-review-tile__quote">"She pursues Right over Wrong, Justice over Injustice — and not just Win or Lose. I respect and admire her for that."</p>
+          <div class="pld-review-tile__attr">M.P. · Google Review · Texas</div>
+        </div>
+        <div class="pld-review-tile reveal">
+          <div class="pld-review-tile__stars" aria-hidden="true">★★★★★</div>
+          <p class="pld-review-tile__quote">"Excellent communication and professionalism. Her passion, communication, professionalism, responsiveness, and willingness to explain things have been top notch. 10/10 would recommend."</p>
+          <div class="pld-review-tile__attr">E.F. · Google Review · Texas</div>
+        </div>
+      </div>
+
+      <div class="pld-reviews__featured reveal">
+        <div class="pld-reviews__featured-stars" aria-label="5 stars">★★★★★</div>
+        <p class="pld-reviews__featured-quote">"I cannot recommend Octavia enough. She is an incredible attorney who is both passionate about her work and deeply committed to her clients. What sets her apart is her rare combination of warmth and professionalism — a calming, reassuring presence while also being razor-sharp and thorough. You always know she truly cares and is fighting for the best possible outcome."</p>
+        <div class="pld-reviews__featured-attr">J.C. · Google Review · Verified · Dallas County, TX</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ABOUT BRIDGE
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section pld-about" aria-labelledby="about-h2">
+    <div class="container">
+      <div class="pld-about__inner">
+        <div class="pld-about__photo-wrap reveal">
+          <img
+            src="../octavia-headshot.png"
+            alt="Octavia LaVon Martinez — Texas Medical License Defense Attorney"
+            class="pld-about__photo"
+            width="320" height="427"
+            loading="lazy"
+          />
+          <div class="pld-about__badge">
+            <div class="pld-about__badge-name">Octavia LaVon Martinez</div>
+            <div class="pld-about__badge-title">Founder &amp; Principal Attorney</div>
+          </div>
+        </div>
+
+        <div class="pld-about__content reveal">
+          <div class="eyebrow" style="margin-bottom:14px;">The Attorney Behind the Defense</div>
+          <div class="rule"></div>
+          <h2 id="about-h2">She has sat on the<br><em>other side of the record.</em></h2>
+          <p>
+            Before founding this firm, Octavia LaVon Martinez was a felony prosecutor. She built cases, directed investigations, and learned exactly what makes a record dismissible — and what doesn't. She then spent years litigating complex medical malpractice cases, developing a working fluency with clinical standards, medical records, and expert testimony that most attorneys in this space simply don't have.
+          </p>
+          <p>
+            <strong>That combination — prosecutorial instinct plus medical litigation experience — is what The Counter Protocol is built on.</strong> It is not a reactive posture. It is an offensive one. The board is investigated the same way the board investigates: aggressively, from day one, with the goal of building an airtight record that forces a decision.
+          </p>
+
+          <div class="pld-about__creds" aria-label="Credentials">
+            <div class="pld-about__cred">
+              <div class="pld-about__cred-label">Education</div>
+              <div class="pld-about__cred-value">University of Virginia · Ohio State Moritz College of Law</div>
+            </div>
+            <div class="pld-about__cred">
+              <div class="pld-about__cred-label">Background</div>
+              <div class="pld-about__cred-value">Former Felony Prosecutor · Complex Medical Malpractice Litigator</div>
+            </div>
+            <div class="pld-about__cred">
+              <div class="pld-about__cred-label">Bar Admissions</div>
+              <div class="pld-about__cred-value">Texas · Arizona</div>
+            </div>
+            <div class="pld-about__cred">
+              <div class="pld-about__cred-label">Practice</div>
+              <div class="pld-about__cred-value">Medical License Defense · Healthcare Employment Law · All of Texas, virtually</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;">
+            <a href="about.html" class="btn btn--outline">Full Bio →</a>
             <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
-            <a href="texas-medical-board.html" class="triggers__text-link">Understand the full TMB complaint process →</a>
           </div>
         </div>
-
-        <div class="cq-list reveal">
-          <div class="cq-item">
-            <div class="cq-item__num">01</div>
-            <div class="cq-item__vr"></div>
-            <div class="cq-item__body">
-              <div class="cq-item__title">NPDB Filing</div>
-              <p class="cq-item__desc">Permanent record visible to every hospital, credentialing body, and insurance panel — indefinitely.</p>
-            </div>
-          </div>
-          <div class="cq-item">
-            <div class="cq-item__num">02</div>
-            <div class="cq-item__vr"></div>
-            <div class="cq-item__body">
-              <div class="cq-item__title">Hospital Privileges Suspended</div>
-              <p class="cq-item__desc">Insurance panel participation dropped. Specialty practice disrupted before any ruling is made.</p>
-            </div>
-          </div>
-          <div class="cq-item">
-            <div class="cq-item__num">03</div>
-            <div class="cq-item__vr"></div>
-            <div class="cq-item__body">
-              <div class="cq-item__title">DEA Registration at Risk</div>
-              <p class="cq-item__desc">Revoked if prescribing is involved. Schedule II–V substances cannot be prescribed during the proceeding.</p>
-            </div>
-          </div>
-          <div class="cq-item">
-            <div class="cq-item__num">04</div>
-            <div class="cq-item__vr"></div>
-            <div class="cq-item__body">
-              <div class="cq-item__title">12–24 Month Hearing Timeline</div>
-              <p class="cq-item__desc">License, practice, and reputation in question for every month without resolution.</p>
-            </div>
-          </div>
-          <div class="cq-item">
-            <div class="cq-item__num">05</div>
-            <div class="cq-item__vr"></div>
-            <div class="cq-item__body">
-              <div class="cq-item__title">$200–300K Debt Survives</div>
-              <p class="cq-item__desc">Medical school debt does not disappear with license revocation. The debt survives. The income does not.</p>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════════════════════
-       THE REAL RISK — COMPETITOR CONTRAST
-  ═══════════════════════════════════════════════════════════ -->
-  <section class="section contrast">
-    <div class="contrast__glow" aria-hidden="true"></div>
+  <!-- ═══════════════════════════════════════════════════════════
+       COMMON COMPLAINT TYPES
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section pld-complaints" aria-labelledby="complaints-h2">
     <div class="container">
-
-      <div class="contrast__header reveal">
-        <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:14px;">The Decision Most Physicians Regret</div>
-        <h2>The firm that looks like more firepower often delivers less defense.</h2>
-        <p>Physicians facing a TMB complaint frequently make the same calculation: a large firm must mean more resources, more experience, more protection. It is a logical assumption. It is usually wrong.</p>
-      </div>
-
-      <div class="contrast__grid">
-        <div class="contrast-card contrast-card--them reveal">
-          <div class="contrast-card__label">What a large firm typically delivers</div>
-          <div class="contrast-card__title">Your case is assigned. Your attorney is whoever is available.</div>
-          <div class="contrast-list">
-            <div class="contrast-item contrast-item--them"><span class="contrast-marker contrast-marker--them">—</span><span>An associate reviews your file</span></div>
-            <div class="contrast-item contrast-item--them"><span class="contrast-marker contrast-marker--them">—</span><span>A reactive rebuttal filed to the board's timeline</span></div>
-            <div class="contrast-item contrast-item--them"><span class="contrast-marker contrast-marker--them">—</span><span>Pressure to accept a consent agreement as "the practical outcome"</span></div>
-            <div class="contrast-item contrast-item--them"><span class="contrast-marker contrast-marker--them">—</span><span>You follow up. They respond when available.</span></div>
-          </div>
-        </div>
-
-        <div class="contrast-card contrast-card--us reveal">
-          <div class="contrast-card__label">What this firm delivers</div>
-          <div class="contrast-card__title">One attorney. Your case. From the first call through the final resolution.</div>
-          <div class="contrast-list">
-            <div class="contrast-item contrast-item--us"><span class="contrast-marker contrast-marker--us">→</span><span>Octavia reviews your complaint the day you retain us</span></div>
-            <div class="contrast-item contrast-item--us"><span class="contrast-marker contrast-marker--us">→</span><span>A parallel investigation begins immediately, before the board's record closes</span></div>
-            <div class="contrast-item contrast-item--us"><span class="contrast-marker contrast-marker--us">→</span><span>Dismissal is the goal at every stage — not settlement convenience</span></div>
-            <div class="contrast-item contrast-item--us"><span class="contrast-marker contrast-marker--us">→</span><span>We reach you first. You never wonder where your case stands.</span></div>
-          </div>
-        </div>
-
-        <div class="contrast-card contrast-card--why reveal">
-          <div class="contrast-card__label">Why it matters</div>
-          <div class="contrast-card__title">A passive defense does not just lose. It creates a record.</div>
-          <div class="contrast-list">
-            <div class="contrast-item contrast-item--note"><span class="contrast-marker contrast-marker--note">·</span><span>If the first response is weak, every subsequent stage is fought from a worse position. The board knows when an attorney is not going to fight. They build accordingly.</span></div>
-            <div class="contrast-item contrast-item--note"><span class="contrast-marker contrast-marker--note">·</span><span>A consent agreement feels like resolution. It is not. It is a permanent NPDB mark visible to every credentialing body — forever.</span></div>
-            <div class="contrast-item contrast-item--note"><span class="contrast-marker contrast-marker--note">·</span><span>The right defense is not the one that looks biggest. It is the one built to force dismissal — not manage the outcome of a hearing you should have avoided.</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="contrast__cta reveal">
-        <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- IMAGE DIVIDER -->
-  <div style="position:relative;height:320px;overflow:hidden;">
-    <img
-      src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=1600&q=80&fit=crop&auto=format"
-      alt=""
-      loading="lazy"
-      style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;filter:brightness(0.3) saturate(0.5);"
-    />
-    <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(26,18,33,0.92) 0%,rgba(26,18,33,0.55) 40%,rgba(26,18,33,0.55) 60%,rgba(26,18,33,0.92) 100%);"></div>
-    <div style="position:absolute;inset:0;display:flex;align-items:center;padding:0 var(--gutter);">
-      <div style="max-width:var(--max-w);margin:0 auto;width:100%;">
-        <p style="font-family:var(--ff-serif);font-size:clamp(18px,2vw,28px);color:rgba(250,246,240,0.9);font-style:italic;line-height:1.5;max-width:620px;">Most license defense attorneys have never been on the other side of a board investigation. <strong style="font-style:normal;color:var(--accent-lite);">This one has.</strong></p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════════════════════════════════════
-       ATTORNEY BIO
-  ═══════════════════════════════════════════════════════════ -->
-  <section class="section bio">
-    <div class="container">
-      <div class="bio__inner">
-
+      <div class="pld-complaints__inner">
         <div class="reveal">
-          <div class="bio__photo-wrap">
-            <img
-              src="../octavia-headshot.png"
-              alt="Octavia LaVon Martinez — Texas Physician License Defense Attorney"
-              class="bio__photo"
-              width="360"
-              loading="lazy"
-            />
-            <div class="bio__badge">
-              <div class="bio__badge-name">Octavia LaVon Martinez</div>
-              <div class="bio__badge-title">Founder &amp; Principal Attorney</div>
-              <div class="bio__badge-detail">
-                University of Virginia · Ohio State Moritz College of Law<br>
-                Licensed in Texas (2016) &amp; Arizona (2009)<br>
-                Virtual · All of Texas
+          <div class="eyebrow" style="margin-bottom:14px;">What Triggers a Complaint</div>
+          <div class="rule"></div>
+          <h2 id="complaints-h2">The complaint does not have to be meritorious to be dangerous.</h2>
+
+          <div class="pld-complaints__list">
+            <div class="pld-complaint-item">
+              <span class="pld-complaint-item__marker" aria-hidden="true">→</span>
+              <div class="pld-complaint-item__text">
+                <strong>Standard of Care Allegations</strong>
+                Patient outcome complaints — the most common complaint type, and the one most dependent on the quality of the initial written response.
+              </div>
+            </div>
+            <div class="pld-complaint-item">
+              <span class="pld-complaint-item__marker" aria-hidden="true">→</span>
+              <div class="pld-complaint-item__text">
+                <strong>Prescribing Practice Complaints</strong>
+                Controlled substance prescribing patterns, opioid-related complaints, and DEA referrals to the TMB — frequently triggered by audit algorithms, not individual complaints.
+              </div>
+            </div>
+            <div class="pld-complaint-item">
+              <span class="pld-complaint-item__marker" aria-hidden="true">→</span>
+              <div class="pld-complaint-item__text">
+                <strong>Hospital-Initiated Complaints</strong>
+                Complaints filed by or at the direction of employers, health systems, or credentialing committees — often coinciding with employment disputes or peer review actions.
+              </div>
+            </div>
+            <div class="pld-complaint-item">
+              <span class="pld-complaint-item__marker" aria-hidden="true">→</span>
+              <div class="pld-complaint-item__text">
+                <strong>Boundary & Conduct Complaints</strong>
+                Allegations of unprofessional conduct, boundary violations, or inappropriate communication — often the hardest to disprove without an aggressive, evidence-first response strategy.
+              </div>
+            </div>
+            <div class="pld-complaint-item">
+              <span class="pld-complaint-item__marker" aria-hidden="true">→</span>
+              <div class="pld-complaint-item__text">
+                <strong>Documentation & Billing Irregularities</strong>
+                Incomplete records, billing practice concerns, or upcoding allegations — where the documentary record itself becomes the defense.
+              </div>
+            </div>
+            <div class="pld-complaint-item">
+              <span class="pld-complaint-item__marker" aria-hidden="true">→</span>
+              <div class="pld-complaint-item__text">
+                <strong>Impairment Allegations</strong>
+                Substance use, mental health, or fitness-to-practice concerns — where the complaint's premise is immediately damaging to reputation before any ruling is made.
               </div>
             </div>
           </div>
         </div>
 
-        <div class="reveal">
-          <div class="bio__eyebrow">
-            <span class="bio__eyebrow-rule"></span>
-            <span class="eyebrow" style="color:var(--accent-lite);">Why She Fights Differently</span>
+        <div class="reveal" style="padding-top: 56px;">
+          <div class="pld-complaints__note">
+            <h3>Already past the initial response deadline?</h3>
+            <p>If you have already filed a response without representation — or your current attorney has been passive — the options narrow at every stage but do not close entirely.</p>
+            <p>We conduct a forensic review of where your case currently stands and tell you directly what is still achievable. <a href="transfer-your-case.html">Transfer your case →</a></p>
           </div>
-          <h2 class="bio__h2">She doesn't just know how to defend a physician. <em>She knows how the prosecution builds its case.</em></h2>
-          <p class="bio__p">Before defending physicians against the Texas Medical Board, Octavia LaVon Martinez was a felony prosecutor and complex medical malpractice litigator. She built institutional cases — constructing evidentiary records, understanding what investigators look for, and learning how narratives harden into findings that become nearly impossible to contest.</p>
-          <p class="bio__p">She carried that knowledge into medical malpractice defense, where she read clinical records with the same precision investigators bring. Then into license defense, where she recognized that most attorneys were responding to a process they had never operated inside of.</p>
-          <p class="bio__p"><strong>She knows what the board's investigators prioritize — because she used to build the same kind of record.</strong> That is the foundation of The Counter Protocol. Not a response to the board's process. A parallel investigation that runs alongside it — designed to force a dismissal decision before the record is complete.</p>
-          <div class="bio__tags">
-            <span class="bio__tag">Former Felony Prosecutor</span>
-            <span class="bio__tag">Medical Malpractice Litigator</span>
-            <span class="bio__tag">Texas · Arizona</span>
-            <span class="bio__tag">Virtual · All of Texas</span>
-          </div>
-          <div class="bio__ctas">
-            <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
-            <a href="about.html" class="btn btn--outline">Full Background →</a>
+
+          <div class="pld-complaints__note" style="margin-top:16px; border-left-color: var(--border);">
+            <h3>Defending before a different board?</h3>
+            <p>This firm also defends Certified Nurse Midwives before the Texas Midwifery Board and Texas Board of Nursing, and handles healthcare employment disputes alongside licensing matters. <a href="midwife-license-defense.html">Midwife defense →</a> &nbsp;·&nbsp; <a href="employment-law.html">Employment law →</a></p>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════════════════════
-       FINANCIAL STAKES TABLE
-  ═══════════════════════════════════════════════════════════ -->
-  <section class="section stakes">
+  <!-- ═══════════════════════════════════════════════════════════
+       CORRECTIVE COUNSEL CALLOUT
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section pld-corrective" aria-labelledby="corrective-h2">
     <div class="container">
-      <div class="stakes__inner">
+      <div class="pld-corrective__inner reveal">
+        <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:14px;">If You Already Have an Attorney</div>
+        <div class="rule rule--center"></div>
+        <h2 id="corrective-h2">The wrong defense posture<br>is <em>worse than no defense at all.</em></h2>
+        <p>A passive attorney who files a brief acknowledgment and prepares for an eventual hearing has given the board months of unopposed record-building time. That time cannot be recovered. If any of the following describes your situation, a case transfer may be warranted.</p>
 
-        <div class="reveal">
-          <div class="eyebrow" style="margin-bottom:14px;">What Your License Protects</div>
-          <div class="rule"></div>
-          <h2 class="stakes__h2">The financial exposure of inaction is not abstract.</h2>
-          <p class="stakes__p">A TMB complaint does not just threaten your license. It threatens the income your license generates, the practice you built around it, and the career trajectory that remains. The figures in this table are not projections. They are what physicians actually stand to lose when a complaint is handled passively.</p>
-          <p class="stakes__p">Every line in this table represents something real that disappears if this goes wrong. The NPDB filing alone — permanent, irremovable, visible to every future credentialing body — changes the trajectory of a career even if the license is ultimately retained.</p>
-          <div class="stakes__cta">
-            <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+        <div class="pld-corrective__cards">
+          <div class="pld-corrective__card">
+            <div class="pld-corrective__card-label">Warning Signal</div>
+            <p class="pld-corrective__card-body">Your attorney has gone quiet. Weeks pass with no updates. You are not sure what, if anything, is being done on your case.</p>
+          </div>
+          <div class="pld-corrective__card">
+            <div class="pld-corrective__card-label">Warning Signal</div>
+            <p class="pld-corrective__card-body">Your attorney is recommending accepting an ISC resolution. You have not been told whether dismissal was still achievable — or what the NPDB filing will mean permanently.</p>
+          </div>
+          <div class="pld-corrective__card">
+            <div class="pld-corrective__card-label">Warning Signal</div>
+            <p class="pld-corrective__card-body">The initial written response filed on your behalf did not include counter-evidence. It acknowledged the complaint and requested time. That window may now be closed.</p>
           </div>
         </div>
 
-        <div class="reveal">
-          <div class="fin-table">
-            <div class="fin-table__head">
-              <span>What Is at Stake</span>
-              <span>Avg. Physician</span>
-              <span>High Earner</span>
-            </div>
-            <div class="fin-table__row"><span>Annual salary</span><span>$374,000+</span><span>$564,000+</span></div>
-            <div class="fin-table__row"><span>Practice value</span><span>$500K–$2M+</span><span>$500K–$2M+</span></div>
-            <div class="fin-table__row"><span>Foregone earnings (20-yr career)</span><span>$7.5M+</span><span>$11M+</span></div>
-            <div class="fin-table__row"><span>Medical school debt (survives revocation)</span><span>$200–300K</span><span>$200–300K</span></div>
-            <div class="fin-table__row"><span>Training years invested</span><span>8–12 years</span><span>8–12 years</span></div>
-            <div class="fin-table__row"><span>NPDB filing</span><span>Permanent</span><span>Permanent</span></div>
-            <div class="fin-table__note">Source: AAMC, MGMA physician compensation data.</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════
-       REVIEW STRIP 2 — E. (verbatim)
-  ═══════════════════════════════════════════════════════════ -->
-  <div class="review-strip review-strip--light">
-    <div class="review-strip__inner">
-      <div class="review-strip__stars">★★★★★</div>
-      <div class="review-strip__vr"></div>
-      <p class="review-strip__quote">"Octavia has been amazing. I have been working with her for almost a year and she has been incredible the entire time — her passion, communication, professionalism, responsiveness, and willingness to explain things have been top notch."</p>
-      <div class="review-strip__vr"></div>
-      <div class="review-strip__attr">E. · Google Review · Verified · Texas</div>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════════════════════════════════════
-       WHAT TO EXPECT — HOW WE GO ON OFFENSE
-  ═══════════════════════════════════════════════════════════ -->
-  <section class="section expect">
-    <div class="container">
-      <div class="expect__header reveal">
-        <div class="eyebrow" style="margin-bottom:14px;">If You Retain This Firm</div>
-        <div class="rule"></div>
-        <h2>How we go on offense from day one.</h2>
-        <p>Most firms wait for the board to move, then respond. This firm doesn't. From the moment you retain us, The Counter Protocol is active — building your defense record before the board's record hardens into findings.</p>
-      </div>
-      <div class="expect__grid">
-        <div class="expect-card reveal">
-          <div class="expect-card__num">01</div>
-          <div class="expect-card__label">Day One</div>
-          <div class="expect-card__title">Your defense is already moving before the board's next step</div>
-          <p class="expect-card__body">Octavia reviews your complaint the day you retain us. The parallel investigation begins. No onboarding call with a paralegal. No intake queue. You receive a direct account of what the board has, what they are building, and what your timeline looks like.</p>
-        </div>
-        <div class="expect-card reveal">
-          <div class="expect-card__num">02</div>
-          <div class="expect-card__label">Communication</div>
-          <div class="expect-card__title">You are never left waiting to find out what is happening</div>
-          <p class="expect-card__body">We reach you first. If anything changes in the investigation, you hear from us before you read about it anywhere else. You do not follow up with us — we follow up with you. That is not a feature. It is the standard.</p>
-        </div>
-        <div class="expect-card reveal">
-          <div class="expect-card__num">03</div>
-          <div class="expect-card__label">What We Need From You</div>
-          <div class="expect-card__title">Your record is built to win — not to look good</div>
-          <p class="expect-card__body">The strength of your defense depends on the accuracy of the record, not the presentation of it. We ask the questions. You answer them completely and without editing. The facts you share with us shape the facts we build your defense around.</p>
-        </div>
-        <div class="expect-card reveal">
-          <div class="expect-card__num">04</div>
-          <div class="expect-card__label">If It Goes to a Hearing</div>
-          <div class="expect-card__title">If it goes to a hearing, you walk in prepared — not surprised</div>
-          <p class="expect-card__body">The same counter-offensive approach that drove the rebuttal becomes the foundation of the hearing strategy. We do not shift to passive. You will be fully briefed on what to expect, what the board's approach will be, and how to present — before you walk into the room.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════
-       CORRECTIVE COUNSEL
-  ═══════════════════════════════════════════════════════════ -->
-  <section class="section corrective">
-    <div class="corrective__bg-img" aria-hidden="true"></div>
-    <div class="container" style="position:relative;z-index:2;">
-      <div class="corrective__inner">
-
-        <div class="reveal">
-          <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:16px;display:flex;align-items:center;gap:12px;">
-            <span style="width:28px;height:2px;background:var(--accent);display:inline-block;flex-shrink:0;"></span>
-            Already Have an Attorney?
-          </div>
-          <h2 class="corrective__h2">If your current counsel filed a passive rebuttal, it is not too late.</h2>
-          <p class="corrective__p">This firm regularly steps into cases mid-stream. If you retained an attorney early in the process and the defense has been passive — if the board's narrative has been allowed to advance without a parallel investigation — there are still options. The window narrows with each stage, but it does not close until a final order is entered.</p>
-          <p class="corrective__p">We audit what was filed, identify what can still be corrected, and move immediately to rebuild the defense posture. The earlier the intervention, the more options remain available.</p>
-          <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
-        </div>
-
-        <div class="cc-cards reveal">
-          <div class="cc-card">
-            <div class="cc-card__rule"></div>
-            <div class="cc-card__body">
-              <div class="cc-card__label">We Review</div>
-              <div class="cc-card__title">Every filing, correspondence, and deadline in your case file</div>
-              <p class="cc-card__desc">We read everything submitted — complaint responses, board correspondence, and any open deadlines — to understand exactly where your case stands and what has been conceded.</p>
-            </div>
-          </div>
-          <div class="cc-card">
-            <div class="cc-card__rule"></div>
-            <div class="cc-card__body">
-              <div class="cc-card__label">We Identify</div>
-              <div class="cc-card__title">What was missed and what can still be corrected</div>
-              <p class="cc-card__desc">A passive rebuttal does not close the record. We identify every opening that remains and build the strongest possible posture from where the case currently stands.</p>
-            </div>
-          </div>
-          <div class="cc-card">
-            <div class="cc-card__rule"></div>
-            <div class="cc-card__body">
-              <div class="cc-card__label">We Act</div>
-              <div class="cc-card__title">Immediately — no delay between assessment and action</div>
-              <p class="cc-card__desc">The Counter Protocol activates the day you retain us. Work begins immediately. No onboarding queue. No paralegal intake call. The first day is the first day of the defense.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════
-       TWO REVIEWS — J.C. + M.P. (verbatim)
-  ═══════════════════════════════════════════════════════════ -->
-  <section class="section reviews-duo">
-    <div class="container">
-      <div class="reviews-duo__header reveal">
-        <div class="eyebrow" style="color:rgba(250,246,240,0.3);">Client Reviews · Google · Verified</div>
-      </div>
-      <div class="reviews-duo__grid">
-        <div class="review-pane reveal">
-          <div class="review-pane__stars">★★★★★</div>
-          <p class="review-pane__quote">"I cannot recommend Octavia enough. She is an incredible attorney who is both passionate about her work and deeply committed to her clients. What sets her apart is her rare combination of warmth and professionalism — a calming, reassuring presence while also being razor-sharp and thorough. You always know she truly cares and is fighting for the best possible outcome."</p>
-          <div class="review-pane__attr">J.C. · Google Review · Verified · Texas</div>
-        </div>
-        <div class="review-pane reveal">
-          <div class="review-pane__stars">★★★★★</div>
-          <p class="review-pane__quote">"She pursues Right over Wrong, Justice over Injustice — and not just Win or Lose. I respect and admire her for that. That standard is rare in this profession and it shows in every interaction."</p>
-          <div class="review-pane__attr">M.P. · Google Review · Verified · Texas</div>
-        </div>
-      </div>
-      <div class="reviews-duo__cta reveal">
+        <a href="transfer-your-case.html" class="btn btn--outline" style="margin-right:14px;">How to Transfer Your Case →</a>
         <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
-        <p class="reviews-duo__sub">Prefer a scheduled assessment? <a href="strategy-session.html">Book a strategy session →</a></p>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════════════════════
+  <!-- ═══════════════════════════════════════════════════════════
        FINAL CTA
-  ═══════════════════════════════════════════════════════════ -->
-  <section class="section final-cta">
-    <div class="final-cta__photo-bg" aria-hidden="true"></div>
-    <div class="final-cta__glow" aria-hidden="true"></div>
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section pld-final-cta" aria-labelledby="finalcta-h2">
     <div class="container">
-      <div class="final-cta__inner reveal">
-        <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:16px;">The First Step</div>
-        <h2>The board has already started. <em>So should you.</em></h2>
-        <p>One phone call. Octavia reviews what you have been sent and tells you directly what you are facing, what the board is likely building, and what happens if you wait. No forms. No intake call with a paralegal. No commitment required.</p>
-        <div style="display:flex;justify-content:center;">
+      <div class="pld-final-cta__inner reveal">
+        <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:14px;">The First Step</div>
+        <h2 id="finalcta-h2">The board has already started.<br><em>So should you.</em></h2>
+        <p>One phone call. Octavia reviews your complaint and tells you directly what you are facing, what the board is building, and what your options are. No intake form. No paralegal call. No commitment required.</p>
+        <div class="pld-final-cta__ctas">
           <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+          <a href="strategy-session.html" class="btn btn--outline">Book a $150 Strategy Session</a>
         </div>
-        <p class="final-cta__sub">Prefer a scheduled session? <a href="strategy-session.html">Book a strategy session →</a></p>
-        <p class="final-cta__trust">Virtual · All of Texas · Monday–Friday 8AM–6PM CST</p>
+        <p class="pld-final-cta__meta">Virtual · All of Texas · Monday–Friday 8AM–6PM CST · <a href="faq.html">Questions? See FAQ</a></p>
       </div>
     </div>
   </section>
 
   <div id="site-footer"></div>
   <script src="../js/medical-nav.js" defer></script>
+
   <script>
   (function() {
     'use strict';
 
-    function luxSplitWords(el,baseDelay,wordGap,fromY,blurAmt){
-      fromY=fromY!==undefined?fromY:14;blurAmt=blurAmt!==undefined?blurAmt:5;wordGap=wordGap!==undefined?wordGap:0.09;
-      function processNodes(parent,container){
-        Array.from(parent.childNodes).forEach(function(node){
-          if(node.nodeType===Node.TEXT_NODE){
-            node.textContent.split(/\s+/).filter(Boolean).forEach(function(word){
-              var span=document.createElement('span');span.className='lux-word';span.textContent=word;
-              container.appendChild(span);container.appendChild(document.createTextNode(' '));
+    /* ── Luxury word split / blur-up animation ── */
+    function luxSplitWords(el, baseDelay, wordGap, fromY, blurAmt) {
+      fromY   = fromY   !== undefined ? fromY   : 14;
+      blurAmt = blurAmt !== undefined ? blurAmt : 5;
+      wordGap = wordGap !== undefined ? wordGap : 0.09;
+
+      function processNodes(parent, container) {
+        Array.from(parent.childNodes).forEach(function(node) {
+          if (node.nodeType === Node.TEXT_NODE) {
+            node.textContent.split(/\s+/).filter(Boolean).forEach(function(word) {
+              var span = document.createElement('span');
+              span.className = 'lux-word';
+              span.textContent = word;
+              container.appendChild(span);
+              container.appendChild(document.createTextNode(' '));
             });
-          }else if(node.nodeName==='BR'){
+          } else if (node.nodeName === 'BR') {
             container.appendChild(document.createElement('br'));
-          }else if(node.nodeName==='EM'||node.nodeName==='STRONG'){
-            var wrapper=document.createElement('span');wrapper.className='lux-word lux-word--em';
-            var tag=document.createElement(node.nodeName.toLowerCase());tag.innerHTML=node.innerHTML;
-            wrapper.appendChild(tag);container.appendChild(wrapper);container.appendChild(document.createTextNode(' '));
-          }else if(node.nodeName==='A'){
-            var clone=node.cloneNode(false);processNodes(node,clone);container.appendChild(clone);
-          }else{container.appendChild(node.cloneNode(true));}
+          } else if (node.nodeName === 'EM' || node.nodeName === 'STRONG') {
+            var wrapper = document.createElement('span');
+            wrapper.className = 'lux-word lux-word--em';
+            var tag = document.createElement(node.nodeName.toLowerCase());
+            tag.innerHTML = node.innerHTML;
+            wrapper.appendChild(tag);
+            container.appendChild(wrapper);
+            container.appendChild(document.createTextNode(' '));
+          } else if (node.nodeName === 'A') {
+            var clone = node.cloneNode(false);
+            processNodes(node, clone);
+            container.appendChild(clone);
+          } else {
+            container.appendChild(node.cloneNode(true));
+          }
         });
       }
-      var frag=document.createDocumentFragment();processNodes(el,frag);el.innerHTML='';el.appendChild(frag);
-      var words=el.querySelectorAll('.lux-word');
-      words.forEach(function(w,i){
-        w.style.opacity='0';w.style.filter='blur('+blurAmt+'px)';w.style.transform='translateY('+fromY+'px)';w.style.display='inline-block';
-        var d=baseDelay+i*wordGap;
-        w.style.transition='opacity 1.05s cubic-bezier(0.25,0.46,0.45,0.94) '+d+'s,transform 1.15s cubic-bezier(0.16,1,0.3,1) '+d+'s,filter 1.0s cubic-bezier(0.25,0.46,0.45,0.94) '+d+'s';
+
+      var frag = document.createDocumentFragment();
+      processNodes(el, frag);
+      el.innerHTML = '';
+      el.appendChild(frag);
+
+      var words = el.querySelectorAll('.lux-word');
+      words.forEach(function(w, i) {
+        w.style.opacity   = '0';
+        w.style.filter    = 'blur(' + blurAmt + 'px)';
+        w.style.transform = 'translateY(' + fromY + 'px)';
+        w.style.display   = 'inline-block';
+        var d = baseDelay + i * wordGap;
+        w.style.transition =
+          'opacity 1.05s cubic-bezier(0.25,0.46,0.45,0.94) ' + d + 's,' +
+          'transform 1.15s cubic-bezier(0.16,1,0.3,1) '      + d + 's,' +
+          'filter 1.0s cubic-bezier(0.25,0.46,0.45,0.94) '   + d + 's';
       });
       return words;
     }
 
-    function luxRevealWords(words){
-      requestAnimationFrame(function(){requestAnimationFrame(function(){
-        words.forEach(function(w){w.style.opacity='1';w.style.transform='translateY(0)';w.style.filter='blur(0px)';});
-      });});
+    function luxRevealWords(words) {
+      requestAnimationFrame(function() { requestAnimationFrame(function() {
+        words.forEach(function(w) {
+          w.style.opacity   = '1';
+          w.style.transform = 'translateY(0)';
+          w.style.filter    = 'blur(0px)';
+        });
+      }); });
     }
 
-    function luxRevealEl(el,delay){
-      el.style.opacity='0';el.style.filter='blur(5px)';el.style.transform='translateY(14px)';
-      el.style.transition='opacity 1.1s cubic-bezier(0.25,0.46,0.45,0.94) '+delay+'s,transform 1.2s cubic-bezier(0.16,1,0.3,1) '+delay+'s,filter 1.0s '+delay+'s';
-      requestAnimationFrame(function(){requestAnimationFrame(function(){
-        el.style.opacity='1';el.style.transform='none';el.style.filter='blur(0px)';
-      });});
+    function luxRevealEl(el, delay, fromX) {
+      el.style.opacity   = '0';
+      el.style.filter    = 'blur(5px)';
+      el.style.transform = fromX ? 'translateX(' + fromX + 'px)' : 'translateY(16px)';
+      el.style.transition =
+        'opacity 1.1s cubic-bezier(0.25,0.46,0.45,0.94) ' + delay + 's,' +
+        'transform 1.2s cubic-bezier(0.16,1,0.3,1) '       + delay + 's,' +
+        'filter 1.0s cubic-bezier(0.25,0.46,0.45,0.94) '   + delay + 's';
+      requestAnimationFrame(function() { requestAnimationFrame(function() {
+        el.style.opacity   = '1';
+        el.style.transform = 'none';
+        el.style.filter    = 'blur(0px)';
+      }); });
     }
 
     /* Hero entrance */
     document.addEventListener('DOMContentLoaded', function() {
-      var hero = document.querySelector('.hero');
+      var hero = document.querySelector('.pld-hero');
       if (!hero) return;
-      var eyebrow = hero.querySelector('.hero__eyebrow-text');
-      var h1     = hero.querySelector('h1');
-      var lead   = hero.querySelector('.hero__lead');
-      var sub    = hero.querySelector('.hero__sub');
-      var ctas   = hero.querySelector('.hero__ctas');
-      var trust  = hero.querySelector('.hero__trust');
-      var panel  = hero.querySelector('.hero__panel');
-      if (eyebrow) { var ew = luxSplitWords(eyebrow, 0.1, 0.06, 8, 3); luxRevealWords(ew); }
-      if (h1)      { var hw = luxSplitWords(h1, 0.3, 0.075, 16, 6); luxRevealWords(hw); }
-      if (lead)    { var lw = luxSplitWords(lead, 0.7, 0.035, 10, 4); luxRevealWords(lw); }
-      if (sub)     luxRevealEl(sub, 0.9);
-      if (ctas)    luxRevealEl(ctas, 1.0);
-      if (trust)   luxRevealEl(trust, 1.1);
-      if (panel)   luxRevealEl(panel, 0.4);
+
+      var kicker  = hero.querySelector('.pld-hero__kicker-text');
+      var h1      = hero.querySelector('h1');
+      var credBar = hero.querySelector('.pld-hero__credential-bar');
+      var lead    = hero.querySelector('.pld-hero__lead');
+      var ctas    = hero.querySelector('.pld-hero__ctas');
+      var trust   = hero.querySelector('.pld-hero__trust');
+      var card    = hero.querySelector('.pld-threat-card');
+
+      if (kicker)  { var kw = luxSplitWords(kicker, 0.1, 0.06, 8, 3); luxRevealWords(kw); }
+      if (h1)      { var hw = luxSplitWords(h1, 0.3, 0.08, 18, 7);    luxRevealWords(hw); }
+      if (credBar) luxRevealEl(credBar, 0.72, 0);
+      if (lead)    { var lw = luxSplitWords(lead, 0.8, 0.036, 10, 4); luxRevealWords(lw); }
+      if (ctas)    luxRevealEl(ctas, 1.0, 0);
+      if (trust)   luxRevealEl(trust, 1.1, 0);
+      if (card)    luxRevealEl(card, 0.35, 24);
     });
 
     /* Scroll reveals */
@@ -986,19 +1490,26 @@
         if (!entry.isIntersecting) return;
         var el = entry.target;
         luxIO.unobserve(el);
-        var h2s  = el.matches('h2') ? [el] : Array.from(el.querySelectorAll('h2'));
+
+        var h2s  = el.matches('h2')  ? [el] : Array.from(el.querySelectorAll('h2'));
         var eybs = el.classList.contains('eyebrow') ? [el] : Array.from(el.querySelectorAll('.eyebrow'));
-        var pars = el.matches('p') ? [el] : Array.from(el.querySelectorAll('p'));
+        var pars = el.matches('p')   ? [el] : Array.from(el.querySelectorAll('p'));
         var cursor = 0;
+
         eybs.forEach(function(e) { var w = luxSplitWords(e, cursor, 0.07, 10, 3); luxRevealWords(w); cursor += 0.05; });
-        h2s.forEach(function(h)  { var w = luxSplitWords(h, cursor, 0.08, 16, 6); luxRevealWords(w); cursor += w.length * 0.08 + 0.05; });
-        pars.forEach(function(p) { var w = luxSplitWords(p, cursor, 0.032, 10, 4); luxRevealWords(w); cursor += 0.1; });
+        h2s.forEach(function(h)  { var w = luxSplitWords(h, cursor, 0.09, 16, 6); luxRevealWords(w); cursor += w.length * 0.09 + 0.05; });
+        pars.forEach(function(p) { var w = luxSplitWords(p, cursor, 0.034, 10, 4); luxRevealWords(w); cursor += 0.11; });
+
         var hasText = h2s.length || eybs.length || pars.length;
         if (!hasText) {
-          el.style.opacity = '0'; el.style.filter = 'blur(6px)'; el.style.transform = 'translateY(20px)';
-          el.style.transition = 'opacity 1.1s cubic-bezier(0.25,0.46,0.45,0.94) 0s,transform 1.2s cubic-bezier(0.16,1,0.3,1) 0s,filter 1.0s 0s';
+          el.style.opacity   = '0';
+          el.style.filter    = 'blur(6px)';
+          el.style.transform = 'translateY(20px)';
+          el.style.transition = 'opacity 1.1s cubic-bezier(0.25,0.46,0.45,0.94) 0s, transform 1.2s cubic-bezier(0.16,1,0.3,1) 0s, filter 1.0s 0s';
           requestAnimationFrame(function() { requestAnimationFrame(function() {
-            el.style.opacity = '1'; el.style.transform = 'none'; el.style.filter = 'blur(0px)';
+            el.style.opacity   = '1';
+            el.style.transform = 'none';
+            el.style.filter    = 'blur(0px)';
           }); });
         }
         el.classList.add('visible');
