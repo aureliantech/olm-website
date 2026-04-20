@@ -475,25 +475,68 @@
     .pld-timeline__action--us { color: rgba(250,246,240,0.88); }
     @media (max-width: 768px) { .pld-protocol__inner { grid-template-columns: 1fr; gap: 40px; } }
 
-    /* ── WHAT WE HANDLE — editorial row design ──────────────── */
+    /* ── WHAT WE HANDLE — one viewport tab interface ─────── */
+    @keyframes panelIn {
+      from { opacity: 0; transform: translateY(14px); filter: blur(3px); }
+      to   { opacity: 1; transform: translateY(0);    filter: blur(0); }
+    }
+    @keyframes numCount {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
     .pld-handles {
       background: var(--dark);
-      color: var(--bg);
+      min-height: 100svh;
+      display: flex;
+      align-items: stretch;
+      padding: 0;
+      overflow: hidden;
+      position: relative;
     }
-    .pld-handles__header {
+    .pld-handles.section { padding: 0; }
+
+    /* Subtle grain texture overlay */
+    .pld-handles::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0; opacity: 0.4;
+    }
+
+    .pld-handles__layout {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: end;
-      margin-bottom: 72px;
+      grid-template-columns: 340px 1fr;
+      width: 100%;
+      min-height: 100svh;
+      position: relative; z-index: 1;
     }
-    .pld-handles__header h2 {
-      font-size: clamp(32px, 4vw, 54px);
+
+    /* ── LEFT NAV PANEL ── */
+    .pld-handles__nav {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 56px 40px;
+      border-right: 1px solid rgba(201,184,154,0.1);
+      background: rgba(10,7,16,0.4);
+    }
+    .pld-handles__nav-top {}
+    .pld-handles__nav-eyebrow {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .pld-handles__nav-title {
+      font-family: var(--ff-serif);
+      font-size: clamp(24px, 2.4vw, 34px);
       color: var(--bg);
-      line-height: 1.05;
+      line-height: 1.1;
       letter-spacing: -0.02em;
+      margin-bottom: 16px;
     }
-    .pld-handles__header h2 em {
+    .pld-handles__nav-title em {
       font-style: italic;
       background: linear-gradient(90deg, var(--accent-lite), var(--accent), var(--accent-lite));
       background-size: 200% auto;
@@ -502,148 +545,213 @@
       background-clip: text;
       animation: shimmerText 4s linear 2s infinite;
     }
-    .pld-handles__header-right p {
-      font-size: 17px;
-      color: rgba(250,246,240,0.78);
-      line-height: 1.75;
+    .pld-handles__nav-desc {
+      font-size: 15px;
+      color: rgba(250,246,240,0.6);
+      line-height: 1.65;
+      margin-bottom: 0;
     }
-    .pld-handles__list {
+
+    /* Tab list */
+    .pld-handles__tabs {
       display: flex;
       flex-direction: column;
+      gap: 2px;
+      margin: 40px 0;
     }
-    .pld-handle-row {
-      display: grid;
-      grid-template-columns: 80px 1fr 32px;
-      align-items: start;
-      border-top: 1px solid rgba(201,184,154,0.12);
+    .pld-handles__tab {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 16px;
+      cursor: pointer;
+      border-left: 2px solid transparent;
+      transition: border-color 0.2s, background 0.2s;
+      border-radius: 0;
       position: relative;
-      cursor: default;
-      overflow: hidden;
-      transition: background 0.3s;
     }
-    .pld-handle-row:last-child {
-      border-bottom: 1px solid rgba(201,184,154,0.12);
-    }
-    .pld-handle-row::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      height: 2px;
-      width: 0;
-      background: linear-gradient(90deg, var(--accent), var(--accent-lite));
-      transition: width 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-      z-index: 2;
-    }
-    .pld-handle-row.line-drawn::before {
-      width: 100%;
-    }
-    .pld-handle-row::after {
-      content: '';
-      position: absolute;
-      inset: 0;
+    .pld-handles__tab:hover {
       background: rgba(232,114,42,0.05);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-      pointer-events: none;
     }
-    .pld-handle-row:hover::after {
-      transform: scaleX(1);
+    .pld-handles__tab.active {
+      border-left-color: var(--accent);
+      background: rgba(232,114,42,0.08);
     }
-    .pld-handle-row__num {
+    .pld-handles__tab-num {
       font-family: var(--ff-serif);
-      font-size: clamp(52px, 6vw, 88px);
-      color: rgba(232,114,42,0.07);
-      line-height: 1;
-      padding: 36px 0;
-      transition: color 0.35s;
-      user-select: none;
-      letter-spacing: -0.03em;
+      font-size: 13px;
+      color: rgba(250,246,240,0.3);
+      width: 24px;
+      flex-shrink: 0;
+      transition: color 0.2s;
     }
-    .pld-handle-row:hover .pld-handle-row__num {
-      color: rgba(232,114,42,0.2);
-    }
-    .pld-handle-row__content {
-      padding: 36px 48px 36px 0;
-      position: relative;
-      z-index: 1;
-    }
-    .pld-handle-row__tag {
-      font-family: var(--ff-sans);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
+    .pld-handles__tab.active .pld-handles__tab-num,
+    .pld-handles__tab:hover .pld-handles__tab-num {
       color: var(--accent);
+    }
+    .pld-handles__tab-label {
+      font-family: var(--ff-sans);
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(250,246,240,0.55);
+      transition: color 0.2s;
+      line-height: 1.3;
+    }
+    .pld-handles__tab.active .pld-handles__tab-label,
+    .pld-handles__tab:hover .pld-handles__tab-label {
+      color: rgba(250,246,240,0.92);
+    }
+    .pld-handles__tab-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: transparent;
+      border: 1px solid rgba(250,246,240,0.2);
+      margin-left: auto;
+      flex-shrink: 0;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .pld-handles__tab.active .pld-handles__tab-dot {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Progress bar at bottom of nav */
+    .pld-handles__nav-bottom {
+      font-size: 12px;
+      color: rgba(250,246,240,0.3);
+      letter-spacing: 0.06em;
+    }
+    .pld-handles__progress-track {
+      width: 100%;
+      height: 2px;
+      background: rgba(201,184,154,0.1);
       margin-bottom: 10px;
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.3s 0.06s, transform 0.3s 0.06s;
-    }
-    .pld-handle-row:hover .pld-handle-row__tag {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .pld-handle-row__title {
-      font-family: var(--ff-serif);
-      font-size: clamp(22px, 2.4vw, 30px);
-      color: rgba(250,246,240,0.88);
-      line-height: 1.15;
-      transition: color 0.25s;
-      letter-spacing: -0.01em;
-    }
-    .pld-handle-row:hover .pld-handle-row__title {
-      color: #fff;
-    }
-    .pld-handle-row__body {
-      font-size: 16px;
-      color: rgba(250,246,240,0.72);
-      line-height: 1.72;
-      max-height: 0;
+      position: relative;
       overflow: hidden;
-      opacity: 0;
-      margin-top: 0;
-      transition: max-height 0.55s cubic-bezier(0.16, 1, 0.3, 1),
-                  opacity 0.4s ease 0.05s,
-                  margin-top 0.4s ease;
     }
-    .pld-handle-row:hover .pld-handle-row__body {
-      max-height: 140px;
-      opacity: 1;
-      margin-top: 14px;
+    .pld-handles__progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--accent-lite));
+      width: 16.666%;
+      transition: width 0.4s cubic-bezier(0.16,1,0.3,1);
     }
-    .pld-handle-row__body a {
+
+    /* ── RIGHT CONTENT PANEL ── */
+    .pld-handles__panel-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 56px 72px;
+      overflow: hidden;
+    }
+
+    /* Large ghost number behind content */
+    .pld-handles__panel-ghost {
+      position: absolute;
+      bottom: -0.15em; right: -0.05em;
+      font-family: var(--ff-serif);
+      font-size: clamp(200px, 26vw, 360px);
+      font-weight: 700;
+      color: rgba(250,246,240,0.022);
+      line-height: 1;
+      letter-spacing: -0.06em;
+      pointer-events: none;
+      user-select: none;
+      transition: opacity 0.3s;
+    }
+
+    .pld-handles__panel {
+      display: none;
+      animation: panelIn 0.45s cubic-bezier(0.16,1,0.3,1) forwards;
+      max-width: 600px;
+      position: relative; z-index: 1;
+    }
+    .pld-handles__panel.active {
+      display: block;
+    }
+
+    .pld-handles__panel-tag {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .pld-handles__panel-num {
+      font-family: var(--ff-serif);
+      font-size: clamp(72px, 9vw, 120px);
+      color: rgba(232,114,42,0.12);
+      line-height: 0.85;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .pld-handles__panel-title {
+      font-family: var(--ff-serif);
+      font-size: clamp(28px, 3.2vw, 44px);
+      color: var(--bg);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .pld-handles__panel-body {
+      font-size: 17px;
+      color: rgba(250,246,240,0.75);
+      line-height: 1.75;
+      margin-bottom: 28px;
+    }
+    .pld-handles__panel-body a {
       color: var(--accent-lite);
-      text-decoration: none;
       border-bottom: 1px solid rgba(232,114,42,0.35);
-      padding-bottom: 1px;
-      transition: border-color 0.2s, color 0.2s;
+      text-decoration: none;
+      transition: color 0.2s, border-color 0.2s;
     }
-    .pld-handle-row__body a:hover {
+    .pld-handles__panel-body a:hover {
       color: #fff;
       border-color: var(--accent);
     }
-    .pld-handle-row__arrow {
-      padding-top: 40px;
-      font-size: 18px;
-      color: rgba(250,246,240,0.18);
-      transition: color 0.3s, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      position: relative;
-      z-index: 1;
-      line-height: 1;
+
+    /* Nav arrows at bottom of panel */
+    .pld-handles__panel-nav {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
-    .pld-handle-row:hover .pld-handle-row__arrow {
+    .pld-handles__panel-prev,
+    .pld-handles__panel-next {
+      width: 40px; height: 40px;
+      border: 1px solid rgba(201,184,154,0.2);
+      background: none;
+      color: rgba(250,246,240,0.5);
+      font-size: 16px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .pld-handles__panel-prev:hover,
+    .pld-handles__panel-next:hover {
+      border-color: var(--accent);
       color: var(--accent);
-      transform: translateX(6px);
+      background: rgba(232,114,42,0.07);
     }
-    @media (max-width: 768px) {
-      .pld-handles__header { grid-template-columns: 1fr; gap: 20px; }
-      .pld-handle-row { grid-template-columns: 48px 1fr 24px; }
-      .pld-handle-row__content { padding: 24px 16px 24px 0; }
-      .pld-handle-row__num { font-size: 44px; padding: 24px 0; }
-      .pld-handle-row__arrow { padding-top: 28px; }
-      .pld-handle-row__tag { opacity: 1; transform: none; }
-      .pld-handle-row__body { max-height: 200px; opacity: 1; margin-top: 10px; }
+    .pld-handles__panel-counter {
+      font-size: 13px;
+      color: rgba(250,246,240,0.35);
+      letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 900px) {
+      .pld-handles { min-height: auto; }
+      .pld-handles.section { padding: clamp(48px,7vw,80px) 0; }
+      .pld-handles__layout { grid-template-columns: 1fr; min-height: auto; }
+      .pld-handles__nav { padding: 40px var(--gutter) 32px; border-right: none; border-bottom: 1px solid rgba(201,184,154,0.1); }
+      .pld-handles__tabs { flex-direction: row; flex-wrap: wrap; gap: 8px; margin: 24px 0 0; }
+      .pld-handles__tab { padding: 8px 14px; border-left: none; border-bottom: 2px solid transparent; }
+      .pld-handles__tab.active { border-bottom-color: var(--accent); border-left-color: transparent; }
+      .pld-handles__tab-dot { display: none; }
+      .pld-handles__nav-bottom { display: none; }
+      .pld-handles__panel-wrap { padding: 40px var(--gutter); }
+      .pld-handles__panel-num { font-size: 60px; }
+      .pld-handles__panel-ghost { display: none; }
     }
     /* ── REVIEWS — cinematic column layout ─────────────────── */
     @keyframes starFadeIn {
@@ -865,161 +973,68 @@
       .pld-reviews__feature::before { font-size: 160px; }
       .pld-reviews__feature-quote .rev-word { opacity: 1; transform: none; filter: none; }
     }
-    /* ── ABOUT — one viewport, split, interactive ──────────── */
+    /* ── ABOUT — dark split, contained photo, bracket frame ── */
     .pld-about {
-      background: var(--bg);
+      background: var(--dark);
       min-height: 100svh;
       display: flex;
-      align-items: stretch;
-      padding: 0;
+      align-items: center;
+      position: relative;
       overflow: hidden;
     }
-    /* Override global .section padding */
-    .pld-about.section { padding: 0; }
+    .pld-about.section { padding: clamp(64px, 9vw, 110px) var(--gutter); }
+
+    /* Large ghost text behind left content */
+    .pld-about::before {
+      content: 'OLM';
+      position: absolute;
+      bottom: -0.12em; left: -0.06em;
+      font-family: var(--ff-serif);
+      font-size: clamp(180px, 28vw, 400px);
+      font-weight: 700;
+      color: rgba(250,246,240,0.018);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      pointer-events: none;
+      user-select: none;
+    }
 
     .pld-about__inner {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 400px;
+      gap: clamp(48px, 7vw, 100px);
+      align-items: center;
       width: 100%;
-      min-height: 100svh;
+      position: relative; z-index: 1;
     }
 
-    /* ── LEFT: photo panel ── */
-    .pld-about__photo-panel {
-      position: relative;
-      overflow: hidden;
-      background: var(--dark);
-    }
-    .pld-about__photo {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 15%;
-      display: block;
-      transform: scale(1.04);
-      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: transform;
-    }
-    .pld-about__photo-panel:hover .pld-about__photo {
-      transform: scale(1.0);
-    }
+    /* ── LEFT: headline + tags + CTAs ── */
+    .pld-about__left {}
 
-    /* Overlay — slides up on hover */
-    .pld-about__photo-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to top,
-        rgba(10, 7, 16, 0.96) 0%,
-        rgba(10, 7, 16, 0.7) 40%,
-        rgba(10, 7, 16, 0.1) 100%
-      );
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 40px 36px;
-      transition: background 0.5s ease;
+    .pld-about__kicker {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 28px;
     }
-    .pld-about__photo-panel:hover .pld-about__photo-overlay {
-      background: linear-gradient(
-        to top,
-        rgba(10, 7, 16, 0.97) 0%,
-        rgba(10, 7, 16, 0.75) 50%,
-        rgba(26, 18, 33, 0.2) 100%
-      );
+    .pld-about__kicker-rule {
+      width: 32px; height: 2px;
+      background: var(--accent);
+      flex-shrink: 0;
     }
-
-    /* Name badge — always visible */
-    .pld-about__name {
-      font-family: var(--ff-serif);
-      font-size: clamp(22px, 2.4vw, 30px);
-      color: var(--bg);
-      line-height: 1.15;
-      margin-bottom: 4px;
-    }
-    .pld-about__title {
-      font-family: var(--ff-sans);
-      font-size: 12px; font-weight: 700;
-      letter-spacing: 0.18em; text-transform: uppercase;
+    .pld-about__kicker-text {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.24em; text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 20px;
     }
 
-    /* Hover quote — hidden at rest, reveals on hover */
-    .pld-about__photo-quote {
+    .pld-about__headline {
       font-family: var(--ff-serif);
-      font-size: clamp(15px, 1.5vw, 18px);
-      color: rgba(250,246,240,0.78);
-      line-height: 1.65;
-      font-style: italic;
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      margin-bottom: 0;
-      transition: max-height 0.55s cubic-bezier(0.16,1,0.3,1),
-                  opacity 0.4s ease 0.08s,
-                  margin-bottom 0.4s ease;
-      border-left: 2px solid var(--accent);
-      padding-left: 16px;
+      font-size: clamp(36px, 5.5vw, 78px);
+      color: var(--bg);
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin-bottom: 28px;
     }
-    .pld-about__photo-panel:hover .pld-about__photo-quote {
-      max-height: 140px;
-      opacity: 1;
-      margin-bottom: 4px;
-    }
-
-    /* Accent line that draws across photo bottom on scroll entry */
-    .pld-about__photo-panel::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0;
-      height: 3px;
-      width: 0;
-      background: linear-gradient(90deg, var(--accent), var(--accent-lite));
-      transition: width 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
-      z-index: 2;
-    }
-    .pld-about.about-entered .pld-about__photo-panel::after {
-      width: 100%;
-    }
-
-    /* ── RIGHT: content panel ── */
-    .pld-about__content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: clamp(40px, 6vw, 80px) clamp(40px, 5vw, 72px);
-      background: var(--bg);
-      position: relative;
-    }
-
-    /* Slide-in animation on scroll entry */
-    .pld-about__photo-panel {
-      transform: translateX(-32px);
-      opacity: 0;
-      transition: transform 0.9s cubic-bezier(0.16,1,0.3,1),
-                  opacity 0.7s ease;
-    }
-    .pld-about__content {
-      transform: translateX(32px);
-      opacity: 0;
-      transition: transform 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s,
-                  opacity 0.7s ease 0.1s;
-    }
-    .pld-about.about-entered .pld-about__photo-panel,
-    .pld-about.about-entered .pld-about__content {
-      transform: translateX(0);
-      opacity: 1;
-    }
-
-    .pld-about__content h2 {
-      font-size: clamp(26px, 2.8vw, 40px);
-      color: var(--dark);
-      line-height: 1.1;
-      margin-bottom: 16px;
-      letter-spacing: -0.02em;
-    }
-    .pld-about__content h2 em {
+    .pld-about__headline em {
       display: block;
       font-style: italic;
       background: linear-gradient(90deg, var(--accent-lite), var(--accent), var(--accent-lite));
@@ -1027,78 +1042,42 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      animation: shimmerText 4s linear 2s infinite;
-    }
-    .pld-about__summary {
-      font-size: 16px;
-      color: var(--mid);
-      line-height: 1.75;
-      margin-bottom: 28px;
-      max-width: 480px;
+      animation: shimmerText 4s linear 1.5s infinite;
     }
 
-    /* Credential rows — compact at rest, expand on hover */
-    .pld-about__creds {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 28px;
-      border-top: 1px solid var(--border);
+    .pld-about__desc {
+      font-size: clamp(15px, 1.5vw, 17px);
+      color: rgba(250,246,240,0.68);
+      line-height: 1.75;
+      max-width: 520px;
+      margin-bottom: 32px;
     }
-    .pld-about__cred {
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      border-bottom: 1px solid var(--border);
+
+    /* Credential tags */
+    .pld-about__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+    .pld-about__tag {
+      font-family: var(--ff-sans);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(250,246,240,0.7);
+      border: 1px solid rgba(201,184,154,0.25);
+      padding: 7px 16px;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
       cursor: default;
-      transition: background 0.2s;
-      position: relative;
     }
-    .pld-about__cred::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 0;
-      background: var(--accent);
-      transition: width 0.3s cubic-bezier(0.16,1,0.3,1);
+    .pld-about__tag:hover {
+      border-color: var(--accent);
+      color: var(--accent-lite);
+      background: rgba(232,114,42,0.07);
     }
-    .pld-about__cred:hover {
-      background: rgba(232,114,42,0.04);
-    }
-    .pld-about__cred:hover::before {
-      width: 3px;
-    }
-    .pld-about__cred-label {
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--accent);
-      padding: 12px 14px 12px 16px;
-      display: flex;
-      align-items: flex-start;
-      padding-top: 14px;
-    }
-    .pld-about__cred-value {
-      font-size: 15px;
-      color: var(--dark);
-      padding: 12px 12px 12px 0;
-      line-height: 1.5;
-    }
-    /* Expandable detail — hidden at rest */
-    .pld-about__cred-detail {
-      font-size: 14px;
-      color: var(--mid);
-      line-height: 1.6;
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transition: max-height 0.4s cubic-bezier(0.16,1,0.3,1),
-                  opacity 0.3s ease 0.05s,
-                  padding 0.3s ease;
-      padding-bottom: 0;
-      grid-column: 2;
-    }
-    .pld-about__cred:hover .pld-about__cred-detail {
-      max-height: 80px;
-      opacity: 1;
-      padding-bottom: 12px;
+    .pld-about__tag--accent {
+      border-color: rgba(232,114,42,0.45);
+      color: var(--accent-lite);
     }
 
     .pld-about__ctas {
@@ -1107,78 +1086,343 @@
       flex-wrap: wrap;
     }
 
-    @media (max-width: 900px) {
-      .pld-about { min-height: auto; }
-      .pld-about__inner { grid-template-columns: 1fr; min-height: auto; }
-      .pld-about__photo-panel { min-height: 55vw; }
-      .pld-about__photo-panel,
-      .pld-about__content { transform: none; opacity: 1; }
-      .pld-about.about-entered .pld-about__photo-panel,
-      .pld-about.about-entered .pld-about__content { transform: none; }
-      .pld-about__photo-quote { max-height: 140px; opacity: 1; margin-bottom: 8px; }
+    /* ── RIGHT: contained photo card ── */
+    .pld-about__right {
+      position: relative;
     }
-    /* ── COMMON COMPLAINT TYPES ─────────────────────────────── */
-    .pld-complaints { background: var(--surface); }
+
+    /* Corner bracket accents — like the reference */
+    .pld-about__bracket {
+      position: absolute;
+      width: 28px; height: 28px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .pld-about__bracket--tl {
+      top: -10px; right: -10px;
+      border-top: 2px solid var(--accent);
+      border-right: 2px solid var(--accent);
+    }
+    .pld-about__bracket--br {
+      bottom: 82px; left: -10px;
+      border-bottom: 2px solid var(--accent);
+      border-left: 2px solid var(--accent);
+    }
+
+    .pld-about__photo-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+    .pld-about__photo {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      object-position: center 10%;
+      transition: transform 0.7s cubic-bezier(0.16,1,0.3,1);
+      max-height: 420px;
+    }
+    .pld-about__right:hover .pld-about__photo {
+      transform: scale(1.025);
+    }
+
+    /* Photo overlay — subtle gradient at bottom */
+    .pld-about__photo-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 40%;
+      background: linear-gradient(to top, rgba(10,7,16,0.85) 0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    /* Info card beneath photo */
+    .pld-about__card {
+      background: rgba(26,18,33,0.98);
+      border-top: 2px solid var(--accent);
+      padding: 20px 24px 22px;
+    }
+    .pld-about__card-name {
+      font-family: var(--ff-serif);
+      font-size: 22px;
+      color: var(--bg);
+      margin-bottom: 3px;
+      line-height: 1.2;
+    }
+    .pld-about__card-title {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .pld-about__card-rule {
+      width: 100%;
+      height: 1px;
+      background: rgba(201,184,154,0.12);
+      margin-bottom: 12px;
+    }
+    .pld-about__card-facts {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .pld-about__card-fact {
+      font-size: 13px;
+      color: rgba(250,246,240,0.58);
+      line-height: 1.4;
+    }
+
+    /* Slide-in on scroll entry */
+    .pld-about__left {
+      transform: translateX(-28px);
+      opacity: 0;
+      transition: transform 0.85s cubic-bezier(0.16,1,0.3,1),
+                  opacity 0.65s ease;
+    }
+    .pld-about__right {
+      transform: translateX(28px);
+      opacity: 0;
+      transition: transform 0.85s cubic-bezier(0.16,1,0.3,1) 0.12s,
+                  opacity 0.65s ease 0.12s;
+    }
+    .pld-about.about-entered .pld-about__left,
+    .pld-about.about-entered .pld-about__right {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 900px) {
+      .pld-about__inner { grid-template-columns: 1fr; }
+      .pld-about__right { order: -1; max-width: 380px; }
+      .pld-about__left,
+      .pld-about__right { transform: none; opacity: 1; }
+      .pld-about__photo { max-height: 320px; }
+    }
+    /* ── COMPLAINT TYPES — one viewport accordion split ────── */
+    @keyframes accentLineIn {
+      from { transform: scaleY(0); }
+      to   { transform: scaleY(1); }
+    }
+
+    .pld-complaints {
+      background: var(--surface);
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .pld-complaints.section {
+      padding: clamp(56px, 8vw, 100px) var(--gutter);
+    }
+
     .pld-complaints__inner {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
+      grid-template-columns: 1fr 380px;
+      gap: clamp(48px, 7vw, 96px);
       align-items: start;
+      width: 100%;
     }
-    .pld-complaints h2 {
-      font-size: clamp(24px, 2.8vw, 36px);
+
+    /* ── LEFT ── */
+    .pld-complaints__left {}
+
+    .pld-complaints__headline {
+      font-family: var(--ff-serif);
+      font-size: clamp(30px, 3.8vw, 52px);
       color: var(--dark);
-      margin-bottom: 20px;
-      line-height: 1.1;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 36px;
     }
+
+    /* Stagger reveal — JS adds .cw-revealed to each .cw-word */
+    .cw-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(18px);
+      filter: blur(4px);
+      transition: opacity 0.55s ease, transform 0.6s cubic-bezier(0.16,1,0.3,1), filter 0.5s ease;
+    }
+    .cw-word.cw-revealed {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    /* Accordion list */
     .pld-complaints__list {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      border-top: 1px solid var(--border);
     }
-    .pld-complaint-item {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      padding: 16px 20px;
-      background: var(--surface);
-      border-left: 3px solid var(--border);
-      transition: border-left-color 0.2s;
-      cursor: default;
-    }
-    .pld-complaint-item:hover { border-left-color: var(--accent); }
-    .pld-complaint-item__marker {
-      color: var(--accent);
-      font-size: 14px;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-    .pld-complaint-item__text {
-      font-size: 15px;
-      color: var(--mid);
-      line-height: 1.55;
-    }
-    .pld-complaint-item__text strong { color: var(--dark); display: block; margin-bottom: 2px; font-size: 14px; }
-    .pld-complaints__note {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--accent);
-      padding: 24px 28px;
-    }
-    .pld-complaints__note h3 {
-      font-size: 16px; font-weight: 700;
-      color: var(--dark);
-      margin-bottom: 10px;
-    }
-    .pld-complaints__note p {
-      font-size: 15px;
-      color: var(--mid);
-      line-height: 1.72;
-    }
-    .pld-complaints__note p + p { margin-top: 10px; }
-    .pld-complaints__note a { color: var(--accent); }
-    @media (max-width: 768px) { .pld-complaints__inner { grid-template-columns: 1fr; } }
 
+    .pld-complaint-item {
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      cursor: default;
+      overflow: hidden;
+    }
+
+    /* Animated left accent bar */
+    .pld-complaint-item::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: var(--accent);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .pld-complaint-item:hover::before {
+      transform: scaleY(1);
+    }
+
+    /* Row header — always visible */
+    .pld-complaint-item__header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 15px 0 15px 16px;
+      transition: padding 0.3s ease;
+    }
+    .pld-complaint-item:hover .pld-complaint-item__header {
+      padding-left: 20px;
+    }
+
+    .pld-complaint-item__arrow {
+      font-size: 14px;
+      color: rgba(var(--dark-rgb, 26,18,33), 0.25);
+      flex-shrink: 0;
+      transition: color 0.25s, transform 0.35s cubic-bezier(0.16,1,0.3,1);
+    }
+    .pld-complaint-item:hover .pld-complaint-item__arrow {
+      color: var(--accent);
+      transform: translateX(4px);
+    }
+
+    .pld-complaint-item__title {
+      font-family: var(--ff-sans);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.3;
+      transition: color 0.2s;
+    }
+    .pld-complaint-item:hover .pld-complaint-item__title {
+      color: var(--accent-dark, #c45e1a);
+    }
+
+    /* Body — hidden at rest, expands on hover */
+    .pld-complaint-item__body {
+      font-size: 15px;
+      color: var(--mid);
+      line-height: 1.7;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      padding: 0 0 0 44px;
+      transition: max-height 0.45s cubic-bezier(0.16,1,0.3,1),
+                  opacity 0.35s ease 0.05s,
+                  padding-bottom 0.35s ease;
+    }
+    .pld-complaint-item:hover .pld-complaint-item__body {
+      max-height: 100px;
+      opacity: 1;
+      padding-bottom: 15px;
+    }
+
+    /* ── RIGHT ── */
+    .pld-complaints__right {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-top: 8px;
+    }
+
+    /* Slide in from right on scroll */
+    .pld-complaints__right {
+      transform: translateX(24px);
+      opacity: 0;
+      transition: transform 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s,
+                  opacity 0.6s ease 0.2s;
+    }
+    .pld-complaints.complaints-entered .pld-complaints__right {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    .pld-complaints__left {
+      transform: translateX(-16px);
+      opacity: 0;
+      transition: transform 0.8s cubic-bezier(0.16,1,0.3,1),
+                  opacity 0.6s ease;
+    }
+    .pld-complaints.complaints-entered .pld-complaints__left {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .pld-complaints__card {
+      background: var(--dark);
+      padding: 28px 30px;
+      border-left: 3px solid var(--accent);
+      position: relative;
+      overflow: hidden;
+      transition: border-left-width 0.25s;
+    }
+    .pld-complaints__card:hover {
+      border-left-width: 5px;
+    }
+    /* Subtle glow sweep on hover */
+    .pld-complaints__card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(232,114,42,0.06) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .pld-complaints__card:hover::after {
+      opacity: 1;
+    }
+
+    .pld-complaints__card h3 {
+      font-family: var(--ff-serif);
+      font-size: 18px;
+      color: var(--bg);
+      margin-bottom: 12px;
+      line-height: 1.25;
+      position: relative; z-index: 1;
+    }
+    .pld-complaints__card p {
+      font-size: 15px;
+      color: rgba(250,246,240,0.72);
+      line-height: 1.7;
+      margin-bottom: 10px;
+      position: relative; z-index: 1;
+    }
+    .pld-complaints__card p:last-child { margin-bottom: 0; }
+    .pld-complaints__card a {
+      color: var(--accent-lite);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(232,114,42,0.35);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+      position: relative; z-index: 1;
+    }
+    .pld-complaints__card a:hover {
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    @media (max-width: 900px) {
+      .pld-complaints { min-height: auto; }
+      .pld-complaints__inner { grid-template-columns: 1fr; }
+      .pld-complaints__left,
+      .pld-complaints__right { transform: none; opacity: 1; }
+      .pld-complaint-item__body { max-height: 120px; opacity: 1; padding-bottom: 14px; }
+    }
     /* ── CORRECTIVE COUNSEL ─────────────────────────────────── */
     .pld-corrective {
       background: var(--plum);
@@ -1537,82 +1781,134 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════
-       WHAT WE HANDLE — editorial rows
+       WHAT WE HANDLE — one viewport tab interface
   ════════════════════════════════════════════════════════════ -->
-  <section class="section pld-handles" aria-labelledby="handles-h2">
-    <div class="container">
+  <section class="section pld-handles" aria-labelledby="handles-h2" id="handlesSection">
+    <div class="pld-handles__layout">
 
-      <div class="pld-handles__header reveal">
-        <div>
-          <div class="eyebrow" style="color:var(--accent-lite);margin-bottom:14px;">Scope of Defense</div>
-          <div class="rule"></div>
-          <h2 id="handles-h2">Every stage.<br><em>Every complaint type.</em></h2>
+      <!-- LEFT: nav / tab list -->
+      <nav class="pld-handles__nav" aria-label="Defense stages">
+        <div class="pld-handles__nav-top">
+          <div class="pld-handles__nav-eyebrow">Scope of Defense</div>
+          <h2 id="handles-h2" class="pld-handles__nav-title">Every stage.<br><em>Every complaint type.</em></h2>
+          <p class="pld-handles__nav-desc">From first response through SOAH hearing — and mid-case intervention when another attorney has stalled.</p>
         </div>
-        <div class="pld-handles__header-right">
-          <p>This firm handles TMB defense from the moment a complaint arrives through full administrative litigation at SOAH — and steps in mid-case when another attorney has gone passive.</p>
+
+        <div class="pld-handles__tabs" role="tablist">
+          <button class="pld-handles__tab active" role="tab" aria-selected="true"  data-panel="1" aria-controls="panel-1">
+            <span class="pld-handles__tab-num">01</span>
+            <span class="pld-handles__tab-label">Initial Response</span>
+            <span class="pld-handles__tab-dot"></span>
+          </button>
+          <button class="pld-handles__tab" role="tab" aria-selected="false" data-panel="2" aria-controls="panel-2">
+            <span class="pld-handles__tab-num">02</span>
+            <span class="pld-handles__tab-label">Investigation</span>
+            <span class="pld-handles__tab-dot"></span>
+          </button>
+          <button class="pld-handles__tab" role="tab" aria-selected="false" data-panel="3" aria-controls="panel-3">
+            <span class="pld-handles__tab-num">03</span>
+            <span class="pld-handles__tab-label">Settlement Conference</span>
+            <span class="pld-handles__tab-dot"></span>
+          </button>
+          <button class="pld-handles__tab" role="tab" aria-selected="false" data-panel="4" aria-controls="panel-4">
+            <span class="pld-handles__tab-num">04</span>
+            <span class="pld-handles__tab-label">SOAH Hearings</span>
+            <span class="pld-handles__tab-dot"></span>
+          </button>
+          <button class="pld-handles__tab" role="tab" aria-selected="false" data-panel="5" aria-controls="panel-5">
+            <span class="pld-handles__tab-num">05</span>
+            <span class="pld-handles__tab-label">All Complaint Types</span>
+            <span class="pld-handles__tab-dot"></span>
+          </button>
+          <button class="pld-handles__tab" role="tab" aria-selected="false" data-panel="6" aria-controls="panel-6">
+            <span class="pld-handles__tab-num">06</span>
+            <span class="pld-handles__tab-label">Corrective Counsel</span>
+            <span class="pld-handles__tab-dot"></span>
+          </button>
         </div>
-      </div>
 
-      <div class="pld-handles__list">
-
-        <div class="pld-handle-row">
-          <div class="pld-handle-row__num" aria-hidden="true">01</div>
-          <div class="pld-handle-row__content">
-            <div class="pld-handle-row__tag">First &amp; Most Critical</div>
-            <div class="pld-handle-row__title">Initial Written Response</div>
-            <p class="pld-handle-row__body">The most consequential document in your defense. Built to force a dismissal decision before the board's narrative hardens — not to acknowledge the complaint and wait for the next move.</p>
+        <div class="pld-handles__nav-bottom">
+          <div class="pld-handles__progress-track">
+            <div class="pld-handles__progress-fill" id="handlesProgress"></div>
           </div>
-          <div class="pld-handle-row__arrow" aria-hidden="true">→</div>
+          <span id="handlesProgressLabel">01 of 06</span>
+        </div>
+      </nav>
+
+      <!-- RIGHT: content panels -->
+      <div class="pld-handles__panel-wrap">
+        <div class="pld-handles__panel-ghost" id="handlesGhost" aria-hidden="true">01</div>
+
+        <div class="pld-handles__panel active" id="panel-1" role="tabpanel" aria-labelledby="tab-1">
+          <div class="pld-handles__panel-tag">First &amp; Most Critical</div>
+          <span class="pld-handles__panel-num" aria-hidden="true">01</span>
+          <div class="pld-handles__panel-title">Initial Written Response</div>
+          <p class="pld-handles__panel-body">The most consequential document in your defense. Built to force a dismissal decision before the board's narrative hardens — not to acknowledge the complaint and wait for the next move. Most attorneys file a brief acknowledgment. We file an evidence-anchored rebuttal that demands a decision.</p>
+          <div class="pld-handles__panel-nav">
+            <button class="pld-handles__panel-prev" aria-label="Previous stage" onclick="handlesNav(-1)">←</button>
+            <button class="pld-handles__panel-next" aria-label="Next stage" onclick="handlesNav(1)">→</button>
+            <span class="pld-handles__panel-counter">01 / 06</span>
+          </div>
         </div>
 
-        <div class="pld-handle-row">
-          <div class="pld-handle-row__num" aria-hidden="true">02</div>
-          <div class="pld-handle-row__content">
-            <div class="pld-handle-row__tag">Parallel Investigation</div>
-            <div class="pld-handle-row__title">Investigation Phase</div>
-            <p class="pld-handle-row__body">Independent investigation running simultaneously with the board's — gathering exculpatory evidence, building the counter-record, and identifying weaknesses in the complaint's factual foundation before they can be used against you.</p>
+        <div class="pld-handles__panel" id="panel-2" role="tabpanel" aria-labelledby="tab-2">
+          <div class="pld-handles__panel-tag">Parallel Investigation</div>
+          <span class="pld-handles__panel-num" aria-hidden="true">02</span>
+          <div class="pld-handles__panel-title">Investigation Phase</div>
+          <p class="pld-handles__panel-body">Independent investigation running simultaneously with the board's — gathering exculpatory evidence, building the counter-record, and identifying weaknesses in the complaint's factual foundation before they can be used against you. The window that matters most. Once it closes, you're fighting a record that already exists.</p>
+          <div class="pld-handles__panel-nav">
+            <button class="pld-handles__panel-prev" aria-label="Previous stage" onclick="handlesNav(-1)">←</button>
+            <button class="pld-handles__panel-next" aria-label="Next stage" onclick="handlesNav(1)">→</button>
+            <span class="pld-handles__panel-counter">02 / 06</span>
           </div>
-          <div class="pld-handle-row__arrow" aria-hidden="true">→</div>
         </div>
 
-        <div class="pld-handle-row">
-          <div class="pld-handle-row__num" aria-hidden="true">03</div>
-          <div class="pld-handle-row__content">
-            <div class="pld-handle-row__tag">Pre-Hearing Negotiation</div>
-            <div class="pld-handle-row__title">Informal Settlement Conference</div>
-            <p class="pld-handle-row__body">ISC outcomes are permanent and NPDB-reportable. We attend prepared to advocate for dismissal — and we never accept a resolution the facts do not require.</p>
+        <div class="pld-handles__panel" id="panel-3" role="tabpanel" aria-labelledby="tab-3">
+          <div class="pld-handles__panel-tag">Pre-Hearing Negotiation</div>
+          <span class="pld-handles__panel-num" aria-hidden="true">03</span>
+          <div class="pld-handles__panel-title">Informal Settlement Conference</div>
+          <p class="pld-handles__panel-body">ISC outcomes are permanent and NPDB-reportable. We attend prepared to advocate for dismissal — and we never accept a resolution the facts do not require. Many physicians accept ISC resolutions without realizing dismissal was still achievable. Once signed, it cannot be undone.</p>
+          <div class="pld-handles__panel-nav">
+            <button class="pld-handles__panel-prev" aria-label="Previous stage" onclick="handlesNav(-1)">←</button>
+            <button class="pld-handles__panel-next" aria-label="Next stage" onclick="handlesNav(1)">→</button>
+            <span class="pld-handles__panel-counter">03 / 06</span>
           </div>
-          <div class="pld-handle-row__arrow" aria-hidden="true">→</div>
         </div>
 
-        <div class="pld-handle-row">
-          <div class="pld-handle-row__num" aria-hidden="true">04</div>
-          <div class="pld-handle-row__content">
-            <div class="pld-handle-row__tag">Full Administrative Trial</div>
-            <div class="pld-handle-row__title">SOAH Administrative Hearings</div>
-            <p class="pld-handle-row__body">Contested case hearings before the State Office of Administrative Hearings — litigated with criminal defense rigor. Cross-examination, expert challenge, full record litigation. Not administrative routine.</p>
+        <div class="pld-handles__panel" id="panel-4" role="tabpanel" aria-labelledby="tab-4">
+          <div class="pld-handles__panel-tag">Full Administrative Trial</div>
+          <span class="pld-handles__panel-num" aria-hidden="true">04</span>
+          <div class="pld-handles__panel-title">SOAH Administrative Hearings</div>
+          <p class="pld-handles__panel-body">Contested case hearings before the State Office of Administrative Hearings — litigated with criminal defense rigor. Cross-examination, expert challenge, full record litigation. If the board won't dismiss, we do not shift to a passive posture. We take the same counter-offensive approach into the hearing.</p>
+          <div class="pld-handles__panel-nav">
+            <button class="pld-handles__panel-prev" aria-label="Previous stage" onclick="handlesNav(-1)">←</button>
+            <button class="pld-handles__panel-next" aria-label="Next stage" onclick="handlesNav(1)">→</button>
+            <span class="pld-handles__panel-counter">04 / 06</span>
           </div>
-          <div class="pld-handle-row__arrow" aria-hidden="true">→</div>
         </div>
 
-        <div class="pld-handle-row">
-          <div class="pld-handle-row__num" aria-hidden="true">05</div>
-          <div class="pld-handle-row__content">
-            <div class="pld-handle-row__tag">Standard of Care · Prescribing · Conduct</div>
-            <div class="pld-handle-row__title">All Complaint Types</div>
-            <p class="pld-handle-row__body">Patient outcome complaints, prescribing practice allegations, boundary and conduct complaints, documentation irregularities, impairment allegations, hospital-initiated complaints — every type demands the same aggressive counter-record from day one.</p>
+        <div class="pld-handles__panel" id="panel-5" role="tabpanel" aria-labelledby="tab-5">
+          <div class="pld-handles__panel-tag">Standard of Care · Prescribing · Conduct · Impairment</div>
+          <span class="pld-handles__panel-num" aria-hidden="true">05</span>
+          <div class="pld-handles__panel-title">All Complaint Types</div>
+          <p class="pld-handles__panel-body">Patient outcome complaints, prescribing practice allegations, boundary and conduct complaints, documentation irregularities, impairment allegations, hospital-initiated complaints. Every complaint type demands the same aggressive counter-record from day one — regardless of how it arrived or who filed it.</p>
+          <div class="pld-handles__panel-nav">
+            <button class="pld-handles__panel-prev" aria-label="Previous stage" onclick="handlesNav(-1)">←</button>
+            <button class="pld-handles__panel-next" aria-label="Next stage" onclick="handlesNav(1)">→</button>
+            <span class="pld-handles__panel-counter">05 / 06</span>
           </div>
-          <div class="pld-handle-row__arrow" aria-hidden="true">→</div>
         </div>
 
-        <div class="pld-handle-row">
-          <div class="pld-handle-row__num" aria-hidden="true">06</div>
-          <div class="pld-handle-row__content">
-            <div class="pld-handle-row__tag">If Your Current Attorney Has Stalled</div>
-            <div class="pld-handle-row__title">Corrective Counsel — Mid-Case</div>
-            <p class="pld-handle-row__body">We conduct a forensic audit of where your case stands, what has been missed, and what is still recoverable. Work begins the same day. <a href="transfer-your-case.html">Transfer your case →</a></p>
+        <div class="pld-handles__panel" id="panel-6" role="tabpanel" aria-labelledby="tab-6">
+          <div class="pld-handles__panel-tag">If Your Current Attorney Has Stalled</div>
+          <span class="pld-handles__panel-num" aria-hidden="true">06</span>
+          <div class="pld-handles__panel-title">Corrective Counsel — Mid-Case</div>
+          <p class="pld-handles__panel-body">We conduct a forensic audit of where your case stands, what has been missed, and what is still recoverable. Work begins the same day. The wrong defense posture is worse than no defense at all — a passive attorney gives the board months of unopposed record-building. <a href="transfer-your-case.html">Transfer your case →</a></p>
+          <div class="pld-handles__panel-nav">
+            <button class="pld-handles__panel-prev" aria-label="Previous stage" onclick="handlesNav(-1)">←</button>
+            <button class="pld-handles__panel-next" aria-label="Next stage" onclick="handlesNav(1)">→</button>
+            <span class="pld-handles__panel-counter">06 / 06</span>
           </div>
-          <div class="pld-handle-row__arrow" aria-hidden="true">→</div>
         </div>
 
       </div>
@@ -1676,155 +1972,160 @@
   </section>
 
     <!-- ═══════════════════════════════════════════════════════════
-       ABOUT — one viewport split
+       ABOUT — dark split, contained photo
   ════════════════════════════════════════════════════════════ -->
   <section class="section pld-about" aria-labelledby="about-h2" id="aboutSection">
-    <div class="pld-about__inner">
+    <div class="container">
+      <div class="pld-about__inner">
 
-      <!-- LEFT: photo -->
-      <div class="pld-about__photo-panel">
-        <img
-          src="../octavia-headshot.png"
-          alt="Octavia LaVon Martinez — Texas Medical License Defense Attorney"
-          class="pld-about__photo"
-          width="700" height="900"
-          loading="lazy"
-        />
-        <div class="pld-about__photo-overlay">
-          <p class="pld-about__photo-quote">"She built cases on the prosecution side — which means she already knows how the board thinks, what investigators look for, and what forces a dismissal. That background is not common in medical license defense."</p>
-          <div class="pld-about__name">Octavia LaVon Martinez</div>
-          <div class="pld-about__title">Founder &amp; Principal Attorney</div>
+        <!-- LEFT -->
+        <div class="pld-about__left">
+          <div class="pld-about__kicker">
+            <div class="pld-about__kicker-rule" aria-hidden="true"></div>
+            <span class="pld-about__kicker-text">Founder &amp; Principal Attorney</span>
+          </div>
+
+          <h2 id="about-h2" class="pld-about__headline">
+            Uncompromised counsel.<br>
+            <em>Fearless advocacy.</em>
+          </h2>
+
+          <p class="pld-about__desc">
+            A former felony prosecutor and complex medical malpractice litigator, Octavia LaVon Martinez defends physicians and midwives the way a prosecutor builds a case — aggressively, from day one, with the goal of forcing a dismissal before any hearing is scheduled.
+          </p>
+
+          <div class="pld-about__tags">
+            <span class="pld-about__tag pld-about__tag--accent">Former Felony Prosecutor</span>
+            <span class="pld-about__tag">Trial Attorney</span>
+            <span class="pld-about__tag">Texas · Arizona</span>
+            <span class="pld-about__tag">Rio Grande Valley</span>
+            <span class="pld-about__tag">Virtual · Statewide</span>
+          </div>
+
+          <div class="pld-about__ctas">
+            <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
+            <a href="strategy-session.html" class="btn btn--outline">Book a Strategy Session</a>
+          </div>
         </div>
+
+        <!-- RIGHT: contained photo -->
+        <div class="pld-about__right">
+          <div class="pld-about__bracket pld-about__bracket--tl" aria-hidden="true"></div>
+          <div class="pld-about__bracket pld-about__bracket--br" aria-hidden="true"></div>
+
+          <div class="pld-about__photo-wrap">
+            <img
+              src="../octavia-headshot.png"
+              alt="Octavia LaVon Martinez — Texas Medical License Defense Attorney"
+              class="pld-about__photo"
+              width="400" height="420"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="pld-about__card">
+            <div class="pld-about__card-name">Octavia LaVon Martinez</div>
+            <div class="pld-about__card-title">Founder &amp; Principal Attorney</div>
+            <div class="pld-about__card-rule"></div>
+            <div class="pld-about__card-facts">
+              <div class="pld-about__card-fact">University of Virginia · Ohio State Moritz College of Law</div>
+              <div class="pld-about__card-fact">Licensed in Texas &amp; Arizona</div>
+              <div class="pld-about__card-fact">Former Felony Prosecutor · Medical Malpractice Litigator</div>
+            </div>
+          </div>
+        </div>
+
       </div>
-
-      <!-- RIGHT: content -->
-      <div class="pld-about__content">
-        <div class="eyebrow" style="margin-bottom:14px;">The Attorney Behind the Defense</div>
-        <div class="rule"></div>
-        <h2 id="about-h2">She has sat on the <em>other side of the record.</em></h2>
-        <p class="pld-about__summary">
-          Former felony prosecutor. Complex medical malpractice litigator. Octavia LaVon Martinez built her entire methodology on one insight: the best defense looks exactly like a prosecution — aggressive, evidence-first, and built to force a decision.
-        </p>
-
-        <div class="pld-about__creds" aria-label="Credentials">
-
-          <div class="pld-about__cred">
-            <div class="pld-about__cred-label">Education</div>
-            <div>
-              <div class="pld-about__cred-value">University of Virginia · Ohio State Moritz College of Law</div>
-              <div class="pld-about__cred-detail">J.D. from Ohio State Moritz College of Law. B.A. from the University of Virginia.</div>
-            </div>
-          </div>
-
-          <div class="pld-about__cred">
-            <div class="pld-about__cred-label">Background</div>
-            <div>
-              <div class="pld-about__cred-value">Former Felony Prosecutor · Medical Malpractice Litigator</div>
-              <div class="pld-about__cred-detail">Prosecuted felony cases before founding this firm — building records, directing investigations, and learning exactly what makes a case dismissible.</div>
-            </div>
-          </div>
-
-          <div class="pld-about__cred">
-            <div class="pld-about__cred-label">Bar Admissions</div>
-            <div>
-              <div class="pld-about__cred-value">Texas · Arizona</div>
-              <div class="pld-about__cred-detail">Licensed to practice in Texas and Arizona. Medical license defense handled across all of Texas virtually.</div>
-            </div>
-          </div>
-
-          <div class="pld-about__cred">
-            <div class="pld-about__cred-label">Practice</div>
-            <div>
-              <div class="pld-about__cred-value">Medical License Defense · All of Texas, virtually</div>
-              <div class="pld-about__cred-detail">Physician and midwife defense before the TMB, Texas Board of Nursing, and Texas Midwifery Board — from first response through SOAH hearing.</div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="pld-about__ctas">
-          <a href="tel:9564263550" class="btn btn--primary">Call (956) 426-3550</a>
-          <a href="about.html" class="btn btn--outline">Full Bio →</a>
-        </div>
-      </div>
-
     </div>
   </section>
 
     <!-- ═══════════════════════════════════════════════════════════
-       COMMON COMPLAINT TYPES
+       COMPLAINT TYPES — one viewport accordion
   ════════════════════════════════════════════════════════════ -->
-  <section class="section pld-complaints" aria-labelledby="complaints-h2">
+  <section class="section pld-complaints" aria-labelledby="complaints-h2" id="complaintsSection">
     <div class="container">
       <div class="pld-complaints__inner">
-        <div class="reveal">
+
+        <!-- LEFT: headline + accordion -->
+        <div class="pld-complaints__left">
           <div class="eyebrow" style="margin-bottom:14px;">What Triggers a Complaint</div>
           <div class="rule"></div>
-          <h2 id="complaints-h2">The complaint does not have to be meritorious to be dangerous.</h2>
+          <h2 id="complaints-h2" class="pld-complaints__headline">The complaint does not have to be meritorious to be dangerous.</h2>
 
-          <div class="pld-complaints__list">
-            <div class="pld-complaint-item">
-              <span class="pld-complaint-item__marker" aria-hidden="true">→</span>
-              <div class="pld-complaint-item__text">
-                <strong>Standard of Care Allegations</strong>
-                Patient outcome complaints — the most common complaint type, and the one most dependent on the quality of the initial written response.
+          <div class="pld-complaints__list" role="list">
+
+            <div class="pld-complaint-item" role="listitem">
+              <div class="pld-complaint-item__header">
+                <span class="pld-complaint-item__arrow" aria-hidden="true">→</span>
+                <span class="pld-complaint-item__title">Standard of Care Allegations</span>
               </div>
+              <p class="pld-complaint-item__body">Patient outcome complaints — the most common complaint type, and the one most dependent on the quality of the initial written response.</p>
             </div>
-            <div class="pld-complaint-item">
-              <span class="pld-complaint-item__marker" aria-hidden="true">→</span>
-              <div class="pld-complaint-item__text">
-                <strong>Prescribing Practice Complaints</strong>
-                Controlled substance prescribing patterns, opioid-related complaints, and DEA referrals to the TMB — frequently triggered by audit algorithms, not individual complaints.
+
+            <div class="pld-complaint-item" role="listitem">
+              <div class="pld-complaint-item__header">
+                <span class="pld-complaint-item__arrow" aria-hidden="true">→</span>
+                <span class="pld-complaint-item__title">Prescribing Practice Complaints</span>
               </div>
+              <p class="pld-complaint-item__body">Controlled substance prescribing patterns, opioid-related complaints, and DEA referrals to the TMB — frequently triggered by audit algorithms, not individual complaints.</p>
             </div>
-            <div class="pld-complaint-item">
-              <span class="pld-complaint-item__marker" aria-hidden="true">→</span>
-              <div class="pld-complaint-item__text">
-                <strong>Hospital-Initiated Complaints</strong>
-                Complaints filed by or at the direction of employers, health systems, or credentialing committees — often coinciding with employment disputes or peer review actions.
+
+            <div class="pld-complaint-item" role="listitem">
+              <div class="pld-complaint-item__header">
+                <span class="pld-complaint-item__arrow" aria-hidden="true">→</span>
+                <span class="pld-complaint-item__title">Hospital-Initiated Complaints</span>
               </div>
+              <p class="pld-complaint-item__body">Complaints filed by or at the direction of employers, health systems, or credentialing committees — often coinciding with employment disputes or peer review actions.</p>
             </div>
-            <div class="pld-complaint-item">
-              <span class="pld-complaint-item__marker" aria-hidden="true">→</span>
-              <div class="pld-complaint-item__text">
-                <strong>Boundary & Conduct Complaints</strong>
-                Allegations of unprofessional conduct, boundary violations, or inappropriate communication — often the hardest to disprove without an aggressive, evidence-first response strategy.
+
+            <div class="pld-complaint-item" role="listitem">
+              <div class="pld-complaint-item__header">
+                <span class="pld-complaint-item__arrow" aria-hidden="true">→</span>
+                <span class="pld-complaint-item__title">Boundary &amp; Conduct Complaints</span>
               </div>
+              <p class="pld-complaint-item__body">Allegations of unprofessional conduct, boundary violations, or inappropriate communication — often the hardest to disprove without an aggressive, evidence-first response strategy.</p>
             </div>
-            <div class="pld-complaint-item">
-              <span class="pld-complaint-item__marker" aria-hidden="true">→</span>
-              <div class="pld-complaint-item__text">
-                <strong>Documentation & Billing Irregularities</strong>
-                Incomplete records, billing practice concerns, or upcoding allegations — where the documentary record itself becomes the defense.
+
+            <div class="pld-complaint-item" role="listitem">
+              <div class="pld-complaint-item__header">
+                <span class="pld-complaint-item__arrow" aria-hidden="true">→</span>
+                <span class="pld-complaint-item__title">Documentation &amp; Billing Irregularities</span>
               </div>
+              <p class="pld-complaint-item__body">Incomplete records, billing practice concerns, or upcoding allegations — where the documentary record itself becomes the defense.</p>
             </div>
-            <div class="pld-complaint-item">
-              <span class="pld-complaint-item__marker" aria-hidden="true">→</span>
-              <div class="pld-complaint-item__text">
-                <strong>Impairment Allegations</strong>
-                Substance use, mental health, or fitness-to-practice concerns — where the complaint's premise is immediately damaging to reputation before any ruling is made.
+
+            <div class="pld-complaint-item" role="listitem">
+              <div class="pld-complaint-item__header">
+                <span class="pld-complaint-item__arrow" aria-hidden="true">→</span>
+                <span class="pld-complaint-item__title">Impairment Allegations</span>
               </div>
+              <p class="pld-complaint-item__body">Substance use, mental health, or fitness-to-practice concerns — where the complaint's premise is immediately damaging to reputation before any ruling is made.</p>
             </div>
+
           </div>
         </div>
 
-        <div class="reveal" style="padding-top: 56px;">
-          <div class="pld-complaints__note">
+        <!-- RIGHT: dark callout cards -->
+        <div class="pld-complaints__right">
+
+          <div class="pld-complaints__card">
             <h3>Already past the initial response deadline?</h3>
             <p>If you have already filed a response without representation — or your current attorney has been passive — the options narrow at every stage but do not close entirely.</p>
             <p>We conduct a forensic review of where your case currently stands and tell you directly what is still achievable. <a href="transfer-your-case.html">Transfer your case →</a></p>
           </div>
 
-          <div class="pld-complaints__note" style="margin-top:16px; border-left-color: var(--border);">
+          <div class="pld-complaints__card">
             <h3>Defending before a different board?</h3>
             <p>This firm also defends all midwife credential types before the Texas Midwifery Board and Texas Board of Nursing — with the same Counter Protocol approach. <a href="midwife-license-defense.html">Midwife license defense →</a></p>
           </div>
+
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════════════
+    <!-- ═══════════════════════════════════════════════════════════
        CORRECTIVE COUNSEL CALLOUT
   ════════════════════════════════════════════════════════════ -->
   <section class="section pld-corrective" aria-labelledby="corrective-h2">
@@ -1984,7 +2285,129 @@
       if (card)    luxRevealEl(card, 0.35, 24);
     });
 
-    /* About — scroll entry: slide-in + line-draw trigger */
+    /* Handles — tab interface */
+    var handlesActive = 1;
+    var HANDLES_TOTAL = 6;
+
+    function handlesGoTo(n) {
+      if (n < 1) n = HANDLES_TOTAL;
+      if (n > HANDLES_TOTAL) n = 1;
+      handlesActive = n;
+
+      // Update tabs
+      document.querySelectorAll('.pld-handles__tab').forEach(function(tab) {
+        var active = parseInt(tab.dataset.panel) === n;
+        tab.classList.toggle('active', active);
+        tab.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+
+      // Update panels
+      document.querySelectorAll('.pld-handles__panel').forEach(function(panel) {
+        panel.classList.remove('active');
+      });
+      var target = document.getElementById('panel-' + n);
+      if (target) target.classList.add('active');
+
+      // Update ghost number
+      var ghost = document.getElementById('handlesGhost');
+      if (ghost) ghost.textContent = n < 10 ? '0' + n : '' + n;
+
+      // Update progress
+      var fill = document.getElementById('handlesProgress');
+      if (fill) fill.style.width = (n / HANDLES_TOTAL * 100) + '%';
+
+      var label = document.getElementById('handlesProgressLabel');
+      if (label) label.textContent = (n < 10 ? '0' + n : '' + n) + ' of 0' + HANDLES_TOTAL;
+    }
+
+    function handlesNav(dir) {
+      handlesGoTo(handlesActive + dir);
+    }
+
+    // Wire up tabs
+    document.querySelectorAll('.pld-handles__tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        handlesGoTo(parseInt(tab.dataset.panel));
+      });
+      // Keyboard: arrow keys to navigate
+      tab.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { e.preventDefault(); handlesNav(1); }
+        if (e.key === 'ArrowUp'  || e.key === 'ArrowLeft')  { e.preventDefault(); handlesNav(-1); }
+      });
+    });
+
+    // Auto-advance on scroll proximity (pauses on interaction)
+    var handlesTimer = null;
+    var handlesManual = false;
+    var handlesSection = document.getElementById('handlesSection');
+
+    function startHandlesAuto() {
+      if (handlesManual) return;
+      handlesTimer = setInterval(function() {
+        handlesGoTo(handlesActive + 1);
+      }, 4500);
+    }
+
+    if (handlesSection) {
+      handlesSection.addEventListener('mouseenter', function() {
+        handlesManual = true;
+        clearInterval(handlesTimer);
+      });
+      handlesSection.addEventListener('mouseleave', function() {
+        handlesManual = false;
+        startHandlesAuto();
+      });
+
+      var handlesIO = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            startHandlesAuto();
+          } else {
+            clearInterval(handlesTimer);
+          }
+        });
+      }, { threshold: 0.3 });
+      handlesIO.observe(handlesSection);
+    }
+
+        /* Complaints — scroll entry + headline word stagger */
+    (function() {
+      var sec = document.getElementById('complaintsSection');
+      if (!sec) return;
+
+      // Word-split headline
+      var hl = sec.querySelector('.pld-complaints__headline');
+      if (hl) {
+        var words = hl.textContent.split(/(\s+)/);
+        hl.innerHTML = '';
+        words.forEach(function(chunk) {
+          if (chunk.match(/^\s+$/)) {
+            hl.appendChild(document.createTextNode(chunk));
+          } else if (chunk.length > 0) {
+            var s = document.createElement('span');
+            s.className = 'cw-word';
+            s.textContent = chunk;
+            hl.appendChild(s);
+          }
+        });
+      }
+
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (!entry.isIntersecting) return;
+          sec.classList.add('complaints-entered');
+          // Stagger headline words
+          var wordEls = sec.querySelectorAll('.cw-word');
+          wordEls.forEach(function(w, i) {
+            setTimeout(function() { w.classList.add('cw-revealed'); }, i * 35 + 120);
+          });
+          io.unobserve(entry.target);
+        });
+      }, { threshold: 0.1 });
+      io.observe(sec);
+    })();
+
+        /* About — scroll entry: slide-in + line-draw trigger */
     (function() {
       var aboutSection = document.getElementById('aboutSection');
       if (!aboutSection) return;
