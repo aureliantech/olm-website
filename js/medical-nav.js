@@ -126,49 +126,49 @@
         </div>
       </div>
       <div class="apx__panel-right">
-        <a href="/texas-medical-attorney/houston.html" class="apx__link">
+        <a href="/texas-medical-attorney/texas-medical-license-defense/houston.html" class="apx__link">
           <span class="apx__link-num">01</span>
           <div class="apx__link-body">
             <div class="apx__link-title">Houston</div>
             <div class="apx__link-desc">TMB defense · Harris County</div>
           </div>
         </a>
-        <a href="/texas-medical-attorney/dallas.html" class="apx__link">
+        <a href="/texas-medical-attorney/texas-medical-license-defense/dallas.html" class="apx__link">
           <span class="apx__link-num">02</span>
           <div class="apx__link-body">
             <div class="apx__link-title">Dallas</div>
             <div class="apx__link-desc">TMB defense · Dallas County</div>
           </div>
         </a>
-        <a href="/texas-medical-attorney/san-antonio.html" class="apx__link">
+        <a href="/texas-medical-attorney/texas-medical-license-defense/san-antonio.html" class="apx__link">
           <span class="apx__link-num">03</span>
           <div class="apx__link-body">
             <div class="apx__link-title">San Antonio</div>
             <div class="apx__link-desc">TMB defense · Bexar County</div>
           </div>
         </a>
-        <a href="/texas-medical-attorney/austin.html" class="apx__link">
+        <a href="/texas-medical-attorney/texas-medical-license-defense/austin.html" class="apx__link">
           <span class="apx__link-num">04</span>
           <div class="apx__link-body">
             <div class="apx__link-title">Austin</div>
             <div class="apx__link-desc">TMB defense · Travis County</div>
           </div>
         </a>
-        <a href="/texas-medical-attorney/el-paso.html" class="apx__link">
+        <a href="/texas-medical-attorney/texas-medical-license-defense/el-paso.html" class="apx__link">
           <span class="apx__link-num">05</span>
           <div class="apx__link-body">
             <div class="apx__link-title">El Paso</div>
             <div class="apx__link-desc">TMB defense · El Paso County</div>
           </div>
         </a>
-        <a href="/texas-medical-attorney/lubbock.html" class="apx__link">
+        <a href="/texas-medical-attorney/texas-medical-license-defense/lubbock.html" class="apx__link">
           <span class="apx__link-num">06</span>
           <div class="apx__link-body">
             <div class="apx__link-title">Lubbock</div>
             <div class="apx__link-desc">TMB defense · Lubbock County</div>
           </div>
         </a>
-        <a href="/texas-medical-attorney/mcallen.html" class="apx__link">
+        <a href="/texas-medical-attorney/texas-medical-license-defense/mcallen.html" class="apx__link">
           <span class="apx__link-num">07</span>
           <div class="apx__link-body">
             <div class="apx__link-title">McAllen</div>
@@ -237,13 +237,13 @@
       <a href="/texas-medical-attorney/employment-law.html">Healthcare Employment Law</a>
       <a href="/texas-medical-attorney/the-counter-protocol.html">The Counter Protocol</a>
       <a href="/texas-medical-attorney/texas-medical-board.html">TMB Complaint Process</a>
-      <a href="/texas-medical-attorney/houston.html">Houston</a>
-      <a href="/texas-medical-attorney/dallas.html">Dallas</a>
-      <a href="/texas-medical-attorney/san-antonio.html">San Antonio</a>
-      <a href="/texas-medical-attorney/austin.html">Austin</a>
-      <a href="/texas-medical-attorney/el-paso.html">El Paso</a>
-      <a href="/texas-medical-attorney/lubbock.html">Lubbock</a>
-      <a href="/texas-medical-attorney/mcallen.html">McAllen</a>
+      <a href="/texas-medical-attorney/texas-medical-license-defense/houston.html">Houston</a>
+      <a href="/texas-medical-attorney/texas-medical-license-defense/dallas.html">Dallas</a>
+      <a href="/texas-medical-attorney/texas-medical-license-defense/san-antonio.html">San Antonio</a>
+      <a href="/texas-medical-attorney/texas-medical-license-defense/austin.html">Austin</a>
+      <a href="/texas-medical-attorney/texas-medical-license-defense/el-paso.html">El Paso</a>
+      <a href="/texas-medical-attorney/texas-medical-license-defense/lubbock.html">Lubbock</a>
+      <a href="/texas-medical-attorney/texas-medical-license-defense/mcallen.html">McAllen</a>
       <a href="/texas-medical-attorney/about.html">About Octavia</a>
       <a href="/texas-medical-attorney/faq.html">FAQ</a>
       <a href="/texas-medical-attorney/contact.html">Contact</a>
@@ -299,13 +299,13 @@
           <div style="margin-top:24px;">
             <div class="footer__heading">Locations Served</div>
             <nav class="footer__links" aria-label="Location links">
-              <a href="/texas-medical-attorney/houston.html">Houston</a>
-              <a href="/texas-medical-attorney/dallas.html">Dallas</a>
-              <a href="/texas-medical-attorney/san-antonio.html">San Antonio</a>
-              <a href="/texas-medical-attorney/austin.html">Austin</a>
-              <a href="/texas-medical-attorney/el-paso.html">El Paso</a>
-              <a href="/texas-medical-attorney/lubbock.html">Lubbock</a>
-              <a href="/texas-medical-attorney/mcallen.html">McAllen</a>
+              <a href="/texas-medical-attorney/texas-medical-license-defense/houston.html">Houston</a>
+              <a href="/texas-medical-attorney/texas-medical-license-defense/dallas.html">Dallas</a>
+              <a href="/texas-medical-attorney/texas-medical-license-defense/san-antonio.html">San Antonio</a>
+              <a href="/texas-medical-attorney/texas-medical-license-defense/austin.html">Austin</a>
+              <a href="/texas-medical-attorney/texas-medical-license-defense/el-paso.html">El Paso</a>
+              <a href="/texas-medical-attorney/texas-medical-license-defense/lubbock.html">Lubbock</a>
+              <a href="/texas-medical-attorney/texas-medical-license-defense/mcallen.html">McAllen</a>
             </nav>
           </div>
         </div>
