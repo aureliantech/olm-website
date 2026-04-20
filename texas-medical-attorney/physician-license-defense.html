@@ -583,6 +583,11 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       animation: shimmerText 4s linear 2s infinite;
+      opacity: 0;
+      transition: opacity 0.45s ease;
+    }
+    .pld-why__headline em.em-visible {
+      opacity: 1;
     }
     /* Character-by-character reveal spans */
     .wc-char {
@@ -3051,10 +3056,9 @@
       var sec = document.getElementById('whySection');
       if (!sec) return;
 
-      // Split headline non-em text into character spans for stamp reveal
+      // Split headline text nodes into char spans; reveal em as single unit after
       var hl = sec.querySelector('.pld-why__headline');
       if (hl) {
-        // Process only text nodes (not the em)
         Array.from(hl.childNodes).forEach(function(node) {
           if (node.nodeType === Node.TEXT_NODE) {
             var chars = node.textContent.split('');
@@ -3077,10 +3081,17 @@
           sec.classList.add('why-entered');
           // Fire character reveal
           var chars = sec.querySelectorAll('.wc-char');
+          var total = chars.length;
           chars.forEach(function(ch, i) {
             ch.style.animationDelay = (i * 0.018) + 's';
             ch.style.animationPlayState = 'running';
           });
+          // Reveal em after all chars have animated in
+          var emDelay = total * 0.018 + 0.1;
+          setTimeout(function() {
+            var em = hl && hl.querySelector('em');
+            if (em) em.classList.add('em-visible');
+          }, emDelay * 1000);
           io.unobserve(entry.target);
         });
       }, { threshold: 0.12 });
