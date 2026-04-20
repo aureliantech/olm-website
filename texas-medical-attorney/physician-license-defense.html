@@ -865,7 +865,7 @@
 
     .pld-protocol__row {
       display: grid;
-      grid-template-columns: 96px 1fr;
+      grid-template-columns: 110px 1fr;
       gap: 0;
       border-bottom: 1px solid var(--border);
     }
@@ -879,8 +879,8 @@
       border-right: 1px solid var(--border);
     }
     .pld-protocol__row-actor-name {
-      font-size: 10px; font-weight: 700;
-      letter-spacing: 0.18em; text-transform: uppercase;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
       writing-mode: vertical-lr;
       transform: rotate(180deg);
       line-height: 1;
@@ -888,7 +888,7 @@
     .pld-protocol__row--board .pld-protocol__row-actor-name { color: var(--mid); }
     .pld-protocol__row--us .pld-protocol__row-actor-name { color: var(--accent); }
     .pld-protocol__row--us .pld-protocol__row-actor { background: rgba(232,114,42,0.04); }
-    .pld-protocol__row--them .pld-protocol__row-actor-name { color: var(--muted); }
+    .pld-protocol__row--them .pld-protocol__row-actor-name { color: rgba(26,18,33,0.25); }
 
     /* Content cell */
     .pld-protocol__row-content {
@@ -941,12 +941,12 @@
       font-size: 14px; font-weight: 700;
       color: var(--dark); line-height: 1.35; margin-bottom: 6px;
     }
-    .pld-protocol__row--them .pld-protocol__row-title { color: var(--muted); }
+    .pld-protocol__row--them .pld-protocol__row-title { color: rgba(26,18,33,0.35); font-weight: 400; font-style: italic; }
     .pld-protocol__row--us .pld-protocol__row-title { color: var(--accent-dark, #b8531a); }
     .pld-protocol__row-desc {
       font-size: 14px; color: var(--mid); line-height: 1.65;
     }
-    .pld-protocol__row--them .pld-protocol__row-desc { color: var(--muted); }
+    .pld-protocol__row--them .pld-protocol__row-desc { color: rgba(26,18,33,0.3); }
 
     /* Bar timing label */
     .pld-protocol__bar-label {
@@ -2416,17 +2416,17 @@
               </div>
             </div>
 
-            <div class="pld-protocol__row pld-protocol__row--them">
+            <div class="pld-protocol__row pld-protocol__row--them" style="background:rgba(26,18,33,0.02);">
               <div class="pld-protocol__row-actor">
                 <span class="pld-protocol__row-actor-name">Typical Firm</span>
               </div>
               <div class="pld-protocol__row-content">
                 <div class="pld-protocol__bar-track">
                   <div class="pld-protocol__bar"></div>
-                  <span class="pld-protocol__bar-label">Waiting for the board's next move</span>
+                  <span class="pld-protocol__bar-label" style="color:rgba(26,18,33,0.3);">Still waiting. Board is months ahead.</span>
                 </div>
-                <div class="pld-protocol__row-title">Reviewing complaint. Drafting acknowledgment. Awaiting next move.</div>
-                <div class="pld-protocol__row-desc">Weeks pass. The board builds unopposed. The gap between their record and yours widens.</div>
+                <div class="pld-protocol__row-title">Reviewing the complaint. Drafting a brief acknowledgment. Waiting.</div>
+                <div class="pld-protocol__row-desc">No counter-investigation. No parallel record. Weeks pass while the board builds — unopposed, uncontested, unchallenged.</div>
               </div>
             </div>
 
