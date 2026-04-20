@@ -78,9 +78,13 @@
       max-width: var(--max-w);
       margin: 0 auto; width: 100%;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 480px;
-      gap: 48px;
+      grid-template-columns: minmax(0, 1fr) 420px;
+      gap: 56px;
       align-items: center;
+    }
+    .pld-hero__left {
+      min-width: 0;
+      overflow: hidden;
     }
     .pld-hero__kicker {
       display: flex; align-items: center; gap: 14px;
@@ -94,10 +98,10 @@
       color: var(--accent);
     }
     .pld-hero h1 {
-      font-size: clamp(28px, 3.2vw, 46px);
+      font-size: clamp(34px, 4.2vw, 58px);
       color: var(--bg);
-      line-height: 1.08;
-      letter-spacing: -0.022em;
+      line-height: 1.06;
+      letter-spacing: -0.025em;
       margin-bottom: 14px;
     }
     @media (max-width: 768px) {
@@ -285,7 +289,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 14px 22px;
-      border-bottom: 1px solid rgba(201,184,154,0.1);
+      border-bottom: 1px solid rgba(201,184,154,0.2);
     }
     .pld-stakes-triggers__label {
       font-size: 11px; font-weight: 700;
@@ -295,15 +299,16 @@
     .pld-stakes-triggers__badge {
       font-size: 10px; font-weight: 700;
       letter-spacing: 0.14em; text-transform: uppercase;
-      color: rgba(250,246,240,0.45);
-      border: 1px solid rgba(201,184,154,0.2);
-      padding: 3px 9px;
+      color: rgba(250,246,240,0.9);
+      border: 1px solid rgba(201,184,154,0.6);
+      padding: 4px 10px;
+      background: rgba(201,184,154,0.1);
     }
     .pld-stakes-trigger {
       display: flex;
       gap: 16px;
       align-items: flex-start;
-      padding: 14px 22px;
+      padding: 16px 22px;
       border-bottom: 1px solid rgba(201,184,154,0.07);
       transition: background 0.2s;
     }
@@ -312,7 +317,7 @@
     .pld-stakes-trigger__num {
       font-family: var(--ff-serif);
       font-size: 15px;
-      color: rgba(232,114,42,0.3);
+      color: var(--accent);
       flex-shrink: 0;
       width: 18px;
       padding-top: 2px;
@@ -320,14 +325,14 @@
     }
     .pld-stakes-trigger:hover .pld-stakes-trigger__num { color: var(--accent); }
     .pld-stakes-trigger__title {
-      font-size: 14px; font-weight: 700;
-      color: rgba(250,246,240,0.9);
+      font-size: 15px; font-weight: 700;
+      color: rgba(250,246,240,1.0);
       margin-bottom: 3px;
       line-height: 1.3;
     }
     .pld-stakes-trigger__sub {
-      font-size: 13px;
-      color: rgba(250,246,240,0.55);
+      font-size: 14px;
+      color: rgba(250,246,240,0.82);
       line-height: 1.5;
     }
     .pld-stakes-triggers__footer {
@@ -336,7 +341,7 @@
       border-top: 1px solid rgba(232,114,42,0.15);
     }
     .pld-stakes-triggers__footer p {
-      font-size: 13px;
+      font-size: 14px;
       color: var(--accent-lite);
       font-weight: 600;
       line-height: 1.5;
@@ -344,6 +349,7 @@
 
     @media (max-width: 900px) {
       .pld-hero__inner { grid-template-columns: 1fr; }
+      .pld-hero h1 br { display: none; }
       .pld-threat-card { max-width: 480px; }
     }
 
@@ -878,7 +884,7 @@
     }
     .pld-handles__nav-desc {
       font-size: 15px;
-      color: rgba(250,246,240,0.6);
+      color: rgba(250,246,240,0.82);
       line-height: 1.65;
       margin-bottom: 0;
     }
@@ -956,8 +962,8 @@
 
     /* Progress bar at bottom of nav */
     .pld-handles__nav-bottom {
-      font-size: 12px;
-      color: rgba(250,246,240,0.3);
+      font-size: 13px;
+      color: rgba(250,246,240,0.65);
       letter-spacing: 0.06em;
     }
     .pld-handles__progress-track {
@@ -1034,7 +1040,7 @@
     }
     .pld-handles__panel-body {
       font-size: 17px;
-      color: rgba(250,246,240,0.75);
+      color: rgba(250,246,240,0.88);
       line-height: 1.75;
       margin-bottom: 28px;
     }
@@ -1074,7 +1080,7 @@
     }
     .pld-handles__panel-counter {
       font-size: 13px;
-      color: rgba(250,246,240,0.35);
+      color: rgba(250,246,240,0.7);
       letter-spacing: 0.08em;
     }
 
@@ -1330,7 +1336,7 @@
 
     .pld-about__desc {
       font-size: clamp(15px, 1.5vw, 17px);
-      color: rgba(250,246,240,0.68);
+      color: rgba(250,246,240,0.85);
       line-height: 1.75;
       max-width: 520px;
       margin-bottom: 32px;
@@ -1450,8 +1456,8 @@
       gap: 5px;
     }
     .pld-about__card-fact {
-      font-size: 13px;
-      color: rgba(250,246,240,0.58);
+      font-size: 14px;
+      color: rgba(250,246,240,0.85);
       line-height: 1.4;
     }
 
@@ -1963,7 +1969,7 @@
           <span class="pld-hero__kicker-text">Texas Physician License Defense</span>
         </div>
         <h1>
-          The board is building<br>its case right now.<br>
+          The board is building its case right now.
           <em>Is anyone building yours?</em>
         </h1>
         <div class="pld-hero__credential-bar">
