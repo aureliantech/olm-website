@@ -583,11 +583,6 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       animation: shimmerText 4s linear 2s infinite;
-      opacity: 0;
-      transition: opacity 0.45s ease;
-    }
-    .pld-why__headline em.em-visible {
-      opacity: 1;
     }
     /* Character-by-character reveal spans */
     .wc-char {
@@ -3051,47 +3046,19 @@
       io.observe(sec);
     })();
 
-        /* Why Her — scroll entry: char reveal headline + card stagger */
+        /* Why Her — scroll entry: luxSplitWords headline (matches hero) + card stagger */
     (function() {
       var sec = document.getElementById('whySection');
       if (!sec) return;
-
-      // Split headline text nodes into char spans; reveal em as single unit after
-      var hl = sec.querySelector('.pld-why__headline');
-      if (hl) {
-        Array.from(hl.childNodes).forEach(function(node) {
-          if (node.nodeType === Node.TEXT_NODE) {
-            var chars = node.textContent.split('');
-            var frag = document.createDocumentFragment();
-            chars.forEach(function(ch) {
-              var s = document.createElement('span');
-              s.className = ch === ' ' ? 'wc-char wc-space' : 'wc-char';
-              s.textContent = ch;
-              s.style.animationPlayState = 'paused';
-              frag.appendChild(s);
-            });
-            node.parentNode.replaceChild(frag, node);
-          }
-        });
-      }
 
       var io = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (!entry.isIntersecting) return;
           sec.classList.add('why-entered');
-          // Fire character reveal
-          var chars = sec.querySelectorAll('.wc-char');
-          var total = chars.length;
-          chars.forEach(function(ch, i) {
-            ch.style.animationDelay = (i * 0.018) + 's';
-            ch.style.animationPlayState = 'running';
-          });
-          // Reveal em after all chars have animated in
-          var emDelay = total * 0.018 + 0.1;
-          setTimeout(function() {
-            var em = hl && hl.querySelector('em');
-            if (em) em.classList.add('em-visible');
-          }, emDelay * 1000);
+          var hl = sec.querySelector('.pld-why__headline');
+          var sub = sec.querySelector('.pld-why__sub');
+          if (hl) { var hw = luxSplitWords(hl, 0, 0.08, 18, 7); luxRevealWords(hw); }
+          if (sub) { var sw = luxSplitWords(sub, 0.6, 0.034, 10, 4); luxRevealWords(sw); }
           io.unobserve(entry.target);
         });
       }, { threshold: 0.12 });
