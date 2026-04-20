@@ -36,6 +36,15 @@
   <style>
     .hero { min-height: 100svh; background: var(--dark); display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 68px; }
     .hero__bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 80% 50%, rgba(43,36,56,0.9) 0%, transparent 70%), radial-gradient(ellipse 40% 60% at 10% 80%, rgba(232,114,42,0.08) 0%, transparent 60%), linear-gradient(135deg, #1A1221 0%, #2B2438 60%, #1A1221 100%); }
+    .hero__bg-img {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1600&q=80&fit=crop&auto=format');
+      background-size: cover;
+      background-position: center 30%;
+      opacity: 0.06;
+      filter: grayscale(100%) contrast(1.2);
+      mix-blend-mode: luminosity;
+    }
     .hero::after {
       content: 'TMB';
       position: absolute;
@@ -336,6 +345,7 @@
   <!-- HERO -->
   <section class="hero" aria-labelledby="hero-h1">
     <div class="hero__bg" aria-hidden="true"></div>
+    <div class="hero__bg-img" aria-hidden="true"></div>
     <div class="hero__inner">
       <div class="hero__content">
         <div class="hero__eyebrow">
