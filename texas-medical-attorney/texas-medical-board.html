@@ -182,7 +182,9 @@
     .tmb-jumpnav {
       background: var(--surface);
       border-bottom: 1px solid var(--border);
-      position: sticky; top: 72px; z-index: 50;
+      border-top: 1px solid var(--border);
+      position: sticky; top: 64px; z-index: 50;
+      box-shadow: 0 2px 12px rgba(26,18,33,0.06);
     }
     .tmb-jumpnav__inner {
       display: flex; align-items: center; gap: 0;
@@ -382,6 +384,8 @@
     @media (max-width:768px) {
       .tmb-stage-block { opacity:1; transform:none; }
       .tmb-stages.stages-entered .tmb-stage-block { animation:none; }
+      .tmb-mistake { opacity:1; transform:none; }
+      .tmb-mistakes.mistakes-entered .tmb-mistake { animation:none; }
       .tmb-inline-cta { grid-template-columns:1fr; }
     }
     /* ── MISTAKES ────────────────────────────────────────────── */
@@ -416,10 +420,11 @@
     .tmb-mistakes.mistakes-entered .tmb-mistake:nth-child(4){animation:mistakeIn .55s cubic-bezier(.16,1,.3,1) .26s forwards}
     .tmb-mistakes.mistakes-entered .tmb-mistake:nth-child(5){animation:mistakeIn .55s cubic-bezier(.16,1,.3,1) .33s forwards}
     .tmb-mistake__x {
-      font-family: var(--ff-serif);
-      font-size: clamp(28px,3vw,40px);
-      color: rgba(192,57,43,0.25);
-      line-height: 1; padding-top: 4px;
+      font-family: var(--ff-sans);
+      font-size: clamp(22px,2.2vw,28px);
+      font-weight: 900;
+      color: rgba(192,57,43,0.3);
+      line-height: 1; padding-top: 6px;
       transition: color .3s;
     }
     .tmb-mistake:hover .tmb-mistake__x { color: rgba(192,57,43,0.5); }
@@ -846,6 +851,62 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════
+       CROSS LINKS
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section" style="background:var(--surface);padding:clamp(48px,6vw,72px) clamp(40px,6vw,100px);" aria-labelledby="tmb-related-h2">
+    <div style="max-width:860px;margin:0 auto;">
+      <div class="eyebrow" style="margin-bottom:12px;">Related Resources</div>
+      <div class="rule"></div>
+      <h2 id="tmb-related-h2" style="font-family:var(--ff-serif);font-size:clamp(22px,2.4vw,32px);color:var(--dark);letter-spacing:-0.02em;line-height:1.1;margin-bottom:32px;">Facing a TMB complaint? These pages go deeper.</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;">
+
+        <a href="physician-license-defense.html" style="display:block;text-decoration:none;background:var(--bg);padding:28px 24px;border:1px solid var(--border);transition:background .2s,transform .2s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden;" onmouseover="this.style.background='rgba(232,114,42,0.03)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--bg)';this.style.transform='none'">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;">Defense Practice</div>
+          <div style="font-family:var(--ff-serif);font-size:18px;color:var(--dark);line-height:1.25;margin-bottom:8px;">Physician License Defense</div>
+          <div style="font-size:14px;color:var(--mid);line-height:1.6;">How we defend physicians at every stage of the TMB complaint process — from initial response through SOAH hearing.</div>
+          <div style="margin-top:14px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);">Learn more →</div>
+        </a>
+
+        <a href="the-counter-protocol.html" style="display:block;text-decoration:none;background:var(--dark);padding:28px 24px;transition:background .2s,transform .2s cubic-bezier(.16,1,.3,1);" onmouseover="this.style.background='#2B2438';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--dark)';this.style.transform='none'">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;">Our Method</div>
+          <div style="font-family:var(--ff-serif);font-size:18px;color:var(--bg);line-height:1.25;margin-bottom:8px;">The Counter Protocol</div>
+          <div style="font-size:14px;color:rgba(250,246,240,0.65);line-height:1.6;">The parallel investigation and evidence-backed rebuttal strategy designed to force dismissal before any hearing is scheduled.</div>
+          <div style="margin-top:14px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);">How it works →</div>
+        </a>
+
+        <a href="midwife-license-defense.html" style="display:block;text-decoration:none;background:var(--bg);padding:28px 24px;border:1px solid var(--border);transition:background .2s,transform .2s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden;" onmouseover="this.style.background='rgba(232,114,42,0.03)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--bg)';this.style.transform='none'">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;">Also Defend</div>
+          <div style="font-family:var(--ff-serif);font-size:18px;color:var(--dark);line-height:1.25;margin-bottom:8px;">Midwife License Defense</div>
+          <div style="font-size:14px;color:var(--mid);line-height:1.6;">Midwifery complaints before the Texas Midwifery Board and Texas Board of Nursing — with the same Counter Protocol approach.</div>
+          <div style="margin-top:14px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);">Learn more →</div>
+        </a>
+
+        <a href="employment-law.html" style="display:block;text-decoration:none;background:var(--bg);padding:28px 24px;border:1px solid var(--border);transition:background .2s,transform .2s cubic-bezier(.16,1,.3,1);" onmouseover="this.style.background='rgba(232,114,42,0.03)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--bg)';this.style.transform='none'">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;">Related Practice</div>
+          <div style="font-family:var(--ff-serif);font-size:18px;color:var(--dark);line-height:1.25;margin-bottom:8px;">Healthcare Employment Law</div>
+          <div style="font-size:14px;color:var(--mid);line-height:1.6;">Employment disputes and TMB complaints often travel together. Hospital terminations frequently trigger a board complaint simultaneously.</div>
+          <div style="margin-top:14px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);">Learn more →</div>
+        </a>
+
+        <a href="strategy-session.html" style="display:block;text-decoration:none;background:var(--accent);padding:28px 24px;transition:background .2s,transform .2s cubic-bezier(.16,1,.3,1);" onmouseover="this.style.background='#b8531a';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--accent)';this.style.transform='none'">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:10px;">The First Step</div>
+          <div style="font-family:var(--ff-serif);font-size:18px;color:#fff;line-height:1.25;margin-bottom:8px;">Book a Strategy Session</div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.82);line-height:1.6;">Octavia reviews your complaint directly — no intake form, no paralegal. A frank read on where you stand and what happens next.</div>
+          <div style="margin-top:14px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;">Book now →</div>
+        </a>
+
+        <a href="transfer-your-case.html" style="display:block;text-decoration:none;background:var(--bg);padding:28px 24px;border:1px solid var(--border);transition:background .2s,transform .2s cubic-bezier(.16,1,.3,1);" onmouseover="this.style.background='rgba(232,114,42,0.03)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--bg)';this.style.transform='none'">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;">Already Represented?</div>
+          <div style="font-family:var(--ff-serif);font-size:18px;color:var(--dark);line-height:1.25;margin-bottom:8px;">Transfer Your Case</div>
+          <div style="font-size:14px;color:var(--mid);line-height:1.6;">If your current attorney has been passive or silent, it may not be too late. We conduct a forensic audit of what remains recoverable.</div>
+          <div style="margin-top:14px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);">Learn more →</div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
        FINAL CTA
   ════════════════════════════════════════════════════════════ -->
   <section class="section tmb-final-cta" aria-labelledby="tmb-finalcta-h2">
@@ -936,22 +997,43 @@
       },{threshold:0.1}).observe(sec);
     })();
 
-    /* Stages */
+    /* Stages — observe each block individually */
     (function(){
-      var sec=document.querySelector('.tmb-stages');
-      if (!sec) return;
-      new IntersectionObserver(function(entries){
-        entries.forEach(function(e){ if(e.isIntersecting) sec.classList.add('stages-entered'); });
-      },{threshold:0.05}).observe(sec);
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting) {
+            e.target.style.opacity = '1';
+            e.target.style.transform = 'none';
+            e.target.style.transition = 'opacity .55s cubic-bezier(.16,1,.3,1), transform .55s cubic-bezier(.16,1,.3,1)';
+            io.unobserve(e.target);
+          }
+        });
+      },{threshold:0, rootMargin:'0px 0px -40px 0px'});
+      document.querySelectorAll('.tmb-stage-block').forEach(function(el){ io.observe(el); });
+      // Also handle inline CTA
+      var cta = document.querySelector('.tmb-inline-cta');
+      if (cta) {
+        new IntersectionObserver(function(entries){
+          entries.forEach(function(e){
+            if(e.isIntersecting){ cta.style.opacity='1'; cta.style.transform='none'; cta.style.transition='opacity .6s ease, transform .6s cubic-bezier(.16,1,.3,1)'; }
+          });
+        },{threshold:0,rootMargin:'0px 0px -40px 0px'}).observe(cta);
+      }
     })();
 
-    /* Mistakes */
+    /* Mistakes — observe each row individually */
     (function(){
-      var sec=document.querySelector('.tmb-mistakes');
-      if (!sec) return;
-      new IntersectionObserver(function(entries){
-        entries.forEach(function(e){ if(e.isIntersecting) sec.classList.add('mistakes-entered'); });
-      },{threshold:0.05}).observe(sec);
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting) {
+            e.target.style.opacity = '1';
+            e.target.style.transform = 'none';
+            e.target.style.transition = 'opacity .5s cubic-bezier(.16,1,.3,1), transform .5s cubic-bezier(.16,1,.3,1)';
+            io.unobserve(e.target);
+          }
+        });
+      },{threshold:0, rootMargin:'0px 0px -40px 0px'});
+      document.querySelectorAll('.tmb-mistake').forEach(function(el){ io.observe(el); });
     })();
 
     /* FAQ accordion */
