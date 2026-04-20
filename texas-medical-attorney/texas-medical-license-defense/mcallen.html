@@ -113,7 +113,7 @@
     <div class="container">
       <div class="loc-inner">
         <div class="loc-copy">
-          <div class="reveal">
+          <div>
             <div class="eyebrow" style="margin-bottom:14px;">Who We Defend in McAllen</div>
             <div class="rule"></div>
             <div class="serve-tags">
@@ -244,7 +244,7 @@
     if(p){var pw=luxSplitWords(p,0.6,0.034,10,4);luxRW(pw);}
     if(ctas)luxRE(ctas,0.85);
   });
-  var ri=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(!entry.isIntersecting)return;var el=entry.target;ri.unobserve(el);var h2s=el.matches('h2')?[el]:Array.from(el.querySelectorAll('h2'));var eybs=el.classList.contains('eyebrow')?[el]:Array.from(el.querySelectorAll('.eyebrow'));var pars=el.matches('p')?[el]:Array.from(el.querySelectorAll('p'));var cur=0;eybs.forEach(function(e){var w=luxSplitWords(e,cur,0.07,10,3);luxRW(w);cur+=0.05;});h2s.forEach(function(h){var w=luxSplitWords(h,cur,0.09,16,6);luxRW(w);cur+=w.length*0.09+0.05;});pars.forEach(function(p){var w=luxSplitWords(p,cur,0.034,10,4);luxRW(w);cur+=0.11;});var hasText=h2s.length||eybs.length||pars.length;if(!hasText){el.style.opacity='0';el.style.filter='blur(6px)';el.style.transform='translateY(20px)';el.style.transition='opacity 1.1s 0s,transform 1.2s cubic-bezier(0.16,1,0.3,1) 0s,filter 1.0s 0s';requestAnimationFrame(function(){requestAnimationFrame(function(){el.style.opacity='1';el.style.transform='none';el.style.filter='blur(0px)';});});}el.classList.add('visible');});},{threshold:0.07,rootMargin:'0px 0px -20px 0px'});
+  var ri=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(!entry.isIntersecting)return;var el=entry.target;ri.unobserve(el);el.style.opacity='0';el.style.transform='translateY(16px)';el.style.transition='opacity .7s ease,transform .7s cubic-bezier(.16,1,.3,1)';requestAnimationFrame(function(){requestAnimationFrame(function(){el.style.opacity='1';el.style.transform='none';});});el.classList.add('visible');});},{threshold:0,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(function(el){ri.observe(el);});
   })();
   </script>
