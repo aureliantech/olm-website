@@ -59,11 +59,11 @@
     }
     .pld-hero__bg {
       position: absolute; inset: 0; z-index: 0;
-      background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&q=80&fit=crop&auto=format');
+      background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1800&q=80&fit=crop&auto=format');
       background-size: cover;
       background-position: center 40%;
-      opacity: 0.04;
-      filter: grayscale(100%) contrast(1.2);
+      opacity: 0.13;
+      filter: grayscale(100%) contrast(1.15);
       mix-blend-mode: luminosity;
     }
     .pld-hero__gradient {
@@ -78,7 +78,7 @@
       max-width: var(--max-w);
       margin: 0 auto; width: 100%;
       display: grid;
-      grid-template-columns: 1fr 480px;
+      grid-template-columns: minmax(0, 1fr) 480px;
       gap: 48px;
       align-items: center;
     }
@@ -94,10 +94,10 @@
       color: var(--accent);
     }
     .pld-hero h1 {
-      font-size: clamp(32px, 4vw, 54px);
+      font-size: clamp(28px, 3.2vw, 46px);
       color: var(--bg);
-      line-height: 1.06;
-      letter-spacing: -0.025em;
+      line-height: 1.08;
+      letter-spacing: -0.022em;
       margin-bottom: 14px;
     }
     @media (max-width: 768px) {
@@ -270,6 +270,10 @@
       font-weight: 700;
     }
     .pld-threat-item__row-val--alert { color: #f08060; font-weight: 800; }
+    .pld-threat-item__row-val--specialist {
+      border-left: 1px solid rgba(201,184,154,0.2);
+      padding-left: 12px;
+    }
 
     /* Stakes section — trigger list */
     .pld-stakes-triggers {
@@ -1981,32 +1985,32 @@
         <div class="pld-threat-item pld-threat-item--row" style="padding:8px 20px;border-bottom:1px solid rgba(201,184,154,0.15);margin-top:-1px;">
           <div class="pld-threat-item__col-head">What Is at Stake</div>
           <div class="pld-threat-item__col-head" style="text-align:right;">Avg</div>
-          <div class="pld-threat-item__col-head" style="text-align:right;">High-Earning</div>
+          <div class="pld-threat-item__col-head" style="text-align:right;border-left:1px solid rgba(201,184,154,0.2);padding-left:12px;">Specialist</div>
         </div>
         <div class="pld-threat-item pld-threat-item--row">
           <div class="pld-threat-item__row-label">Annual salary</div>
           <div class="pld-threat-item__row-val">$374K+</div>
-          <div class="pld-threat-item__row-val">$564K+</div>
+          <div class="pld-threat-item__row-val pld-threat-item__row-val--specialist">$564K+</div>
         </div>
         <div class="pld-threat-item pld-threat-item--row">
           <div class="pld-threat-item__row-label">Practice value</div>
           <div class="pld-threat-item__row-val">$500K–$2M+</div>
-          <div class="pld-threat-item__row-val">$500K–$2M+</div>
+          <div class="pld-threat-item__row-val pld-threat-item__row-val--specialist">$500K–$2M+</div>
         </div>
         <div class="pld-threat-item pld-threat-item--row">
           <div class="pld-threat-item__row-label">Career earnings (20 yr)</div>
           <div class="pld-threat-item__row-val">$7.5M+</div>
-          <div class="pld-threat-item__row-val">$11M+</div>
+          <div class="pld-threat-item__row-val pld-threat-item__row-val--specialist">$11M+</div>
         </div>
         <div class="pld-threat-item pld-threat-item--row">
           <div class="pld-threat-item__row-label">Med school debt (survives revocation)</div>
           <div class="pld-threat-item__row-val">$200–300K</div>
-          <div class="pld-threat-item__row-val">$200–300K</div>
+          <div class="pld-threat-item__row-val pld-threat-item__row-val--specialist">$200–300K</div>
         </div>
         <div class="pld-threat-item pld-threat-item--row pld-threat-item--alert">
           <div class="pld-threat-item__row-label">NPDB filing</div>
           <div class="pld-threat-item__row-val pld-threat-item__row-val--alert">Permanent</div>
-          <div class="pld-threat-item__row-val pld-threat-item__row-val--alert">Permanent</div>
+          <div class="pld-threat-item__row-val pld-threat-item__row-val--alert pld-threat-item__row-val--specialist">Permanent</div>
         </div>
         <div class="pld-threat-card__footer">
           <p>Estimates based on AAMC &amp; MGMA data. Individual cases vary. <strong>Your debt does not disappear if your license is revoked.</strong></p>
