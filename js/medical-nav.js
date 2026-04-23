@@ -483,7 +483,7 @@
         if (!href || href.startsWith('#') || href.startsWith('tel:') || href.startsWith('mailto:') || href.startsWith('http') || a.target === '_blank') return;
         a.addEventListener('click', e => {
           e.preventDefault();
-          pt.classList.add('active');
+          pt.classList.add('out');
           setTimeout(() => { window.location.href = href; }, 800);
         });
       });
