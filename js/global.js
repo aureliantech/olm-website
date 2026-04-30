@@ -459,11 +459,21 @@
     /* ── PAGE TRANSITION ── */
     const overlay = document.getElementById('page-transition');
     if (overlay) {
+      // Reset overlay on bfcache restore (back button) and initial load.
+      // pageshow fires for both cases; persisted=true means restored from bfcache.
+      const resetOverlay = function() { overlay.classList.remove('out'); };
+      window.addEventListener('pageshow', resetOverlay);
+      // Belt-and-suspenders: also clear on initial DOM ready
+      resetOverlay();
+
       document.querySelectorAll('a[href]').forEach(function(link) {
         const href = link.getAttribute('href');
         if (!href || href.startsWith('#') || href.startsWith('tel:') ||
             href.startsWith('mailto:') || href.startsWith('http')) return;
         link.addEventListener('click', function(e) {
+          // Don't hijack new-tab/window clicks or links explicitly opening elsewhere
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+          if (link.target && link.target !== '_self') return;
           e.preventDefault();
           const dest = href;
           overlay.classList.add('out');

@@ -478,10 +478,18 @@
     /* Page transition on internal links */
     const pt = document.getElementById('page-transition');
     if (pt) {
+      // Reset overlay on bfcache restore (back button) and initial load.
+      const resetPt = () => pt.classList.remove('out');
+      window.addEventListener('pageshow', resetPt);
+      resetPt();
+
       document.querySelectorAll('a[href]').forEach(a => {
         const href = a.getAttribute('href');
         if (!href || href.startsWith('#') || href.startsWith('tel:') || href.startsWith('mailto:') || href.startsWith('http') || a.target === '_blank') return;
         a.addEventListener('click', e => {
+          // Don't hijack new-tab/window clicks
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+          if (a.target && a.target !== '_self') return;
           e.preventDefault();
           pt.classList.add('out');
           setTimeout(() => { window.location.href = href; }, 800);
