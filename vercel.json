@@ -6,6 +6,7 @@
   ],
   "rewrites": [
     { "source": "/texas-medical-attorney", "destination": "/texas-medical-attorney/index.html" },
+    { "source": "/texas-medical-attorney/texas-medical-license-defense", "destination": "/texas-medical-attorney/texas-medical-license-defense/index.html" },
     { "source": "/texas-medical-attorney/texas-medical-license-defense/:city", "destination": "/texas-medical-attorney/texas-medical-license-defense/:city.html" },
     { "source": "/texas-medical-attorney/:page", "destination": "/texas-medical-attorney/:page.html" },
     { "source": "/:page", "destination": "/:page.html" }
