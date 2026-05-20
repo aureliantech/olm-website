@@ -105,7 +105,7 @@
           <span class="apx__link-num">→</span>
           <div class="apx__link-body">
             <div class="apx__link-title">Book a Strategy Session</div>
-            <div class="apx__link-desc">30 minutes · Discounted first-session rate</div>
+            <div class="apx__link-desc">30 minutes · Virtual · All of Texas</div>
           </div>
         </a>
         <a href="/texas-medical-attorney/transfer-your-case.html" class="apx__link apx__link--cta">
@@ -229,7 +229,7 @@
           <span class="apx__link-num">03</span>
           <div class="apx__link-body">
             <div class="apx__link-title">Book a Strategy Session</div>
-            <div class="apx__link-desc">30 minutes · Discounted first-session rate</div>
+            <div class="apx__link-desc">30 minutes · Virtual · All of Texas</div>
           </div>
         </a>
         <a href="/texas-medical-attorney/contact.html" class="apx__link">
