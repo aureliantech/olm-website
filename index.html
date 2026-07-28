@@ -824,8 +824,14 @@
       max-width: var(--max-w);
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 16px;
+    }
+
+    /* Tablet: 2 across, last card spans full width so no orphan gap */
+    @media (max-width: 1024px) {
+      .gen-practice__grid { grid-template-columns: repeat(2, 1fr); }
+      .gen-practice__grid > :last-child { grid-column: 1 / -1; }
     }
 
     .gen-practice__card {
@@ -1168,7 +1174,10 @@
     }
 
     /* ── Keep grid media query ── */
-    @media (max-width: 768px) { .gen-practice__grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) {
+      .gen-practice__grid { grid-template-columns: 1fr; }
+      .gen-practice__grid > :last-child { grid-column: auto; }
+    }
 
     /* ── CORRECTIVE COUNSEL SECTION ── */
     .gen-corrective { background: var(--surface); }
