@@ -62,29 +62,22 @@
         </div>
       </div>
       <div class="apx__panel-right">
-        <a href="/medical-malpractice.html" class="apx__link">
-          <span class="apx__link-num">01</span>
-          <div class="apx__link-body">
-            <div class="apx__link-title">Medical Malpractice</div>
-            <div class="apx__link-desc">Negligence &amp; wrongful death</div>
-          </div>
-        </a>
         <a href="/defamation.html" class="apx__link">
-          <span class="apx__link-num">02</span>
+          <span class="apx__link-num">01</span>
           <div class="apx__link-body">
             <div class="apx__link-title">Defamation &amp; Reputation Defense</div>
             <div class="apx__link-desc">Libel, slander &amp; online attacks</div>
           </div>
         </a>
         <a href="/probate.html" class="apx__link">
-          <span class="apx__link-num">03</span>
+          <span class="apx__link-num">02</span>
           <div class="apx__link-body">
             <div class="apx__link-title">Complex Probate &amp; Estate</div>
             <div class="apx__link-desc">Contested estates &amp; failed administration</div>
           </div>
         </a>
         <a href="/breach-of-contract.html" class="apx__link">
-          <span class="apx__link-num">04</span>
+          <span class="apx__link-num">03</span>
           <div class="apx__link-body">
             <div class="apx__link-title">Breach of Contract</div>
             <div class="apx__link-desc">Business &amp; commercial litigation</div>
@@ -224,7 +217,6 @@
       <a href="/probate.html">Complex Probate &amp; Estate</a>
       <a href="/breach-of-contract.html">Breach of Contract</a>
       <a href="/defamation.html">Defamation &amp; Libel</a>
-      <a href="/medical-malpractice.html">Medical Malpractice</a>
       <a href="/about.html">About Octavia</a>
       <a href="/faq.html">FAQ</a>
       <a href="/contact.html">Contact</a>
@@ -259,7 +251,6 @@
         <div>
           <div class="footer__heading">Practice Areas</div>
           <nav class="footer__links" aria-label="Practice area links">
-            <a href="/medical-malpractice.html">Medical Malpractice</a>
             <a href="/defamation.html">Defamation &amp; Libel</a>
             <a href="/probate.html">Complex Probate &amp; Estate</a>
             <a href="/breach-of-contract.html">Breach of Contract</a>

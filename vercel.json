@@ -2,13 +2,42 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/pages/:path*", "destination": "/texas-medical-attorney/:path*", "permanent": true }
+    {
+      "source": "/medical-malpractice.html",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/medical-malpractice",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/pages/:path*",
+      "destination": "/texas-medical-attorney/:path*",
+      "permanent": true
+    }
   ],
   "rewrites": [
-    { "source": "/texas-medical-attorney", "destination": "/texas-medical-attorney/index.html" },
-    { "source": "/texas-medical-attorney/texas-medical-license-defense", "destination": "/texas-medical-attorney/texas-medical-license-defense/index.html" },
-    { "source": "/texas-medical-attorney/texas-medical-license-defense/:city", "destination": "/texas-medical-attorney/texas-medical-license-defense/:city.html" },
-    { "source": "/texas-medical-attorney/:page", "destination": "/texas-medical-attorney/:page.html" },
-    { "source": "/:page", "destination": "/:page.html" }
+    {
+      "source": "/texas-medical-attorney",
+      "destination": "/texas-medical-attorney/index.html"
+    },
+    {
+      "source": "/texas-medical-attorney/texas-medical-license-defense",
+      "destination": "/texas-medical-attorney/texas-medical-license-defense/index.html"
+    },
+    {
+      "source": "/texas-medical-attorney/texas-medical-license-defense/:city",
+      "destination": "/texas-medical-attorney/texas-medical-license-defense/:city.html"
+    },
+    {
+      "source": "/texas-medical-attorney/:page",
+      "destination": "/texas-medical-attorney/:page.html"
+    },
+    {
+      "source": "/:page",
+      "destination": "/:page.html"
+    }
   ]
 }
