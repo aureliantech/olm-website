@@ -631,7 +631,7 @@ h1, h2, h3, h4 { font-family: var(--ff-serif); font-weight: 400; line-height: 1.
   border-top: 1px solid rgba(201,184,154,0.08);
 }
 .apx__mobile.open { display: flex; }
-.apx__mobile a {
+.apx__mobile a:not(.btn) {
   display: block; padding: 13px 0;
   font-family: 'Source Sans 3', sans-serif;
   font-size: 15px; font-weight: 600;
@@ -639,8 +639,23 @@ h1, h2, h3, h4 { font-family: var(--ff-serif); font-weight: 400; line-height: 1.
   border-bottom: 1px solid rgba(201,184,154,0.07);
   transition: color 0.18s, padding-left 0.22s;
 }
-.apx__mobile a:hover { color: #E8722A; padding-left: 8px; }
-.apx__mobile-cta { margin-top: 16px; }
+.apx__mobile a:not(.btn):hover { color: #E8722A; padding-left: 8px; }
+
+/* Call CTA — must not inherit the nav-link block styles above */
+.apx__mobile-cta { margin-top: 20px; }
+.apx__mobile-cta .btn {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 17px 24px;
+  line-height: 1;
+  text-align: center;
+  border-bottom: none;
+}
+.apx__mobile-cta .btn:hover { padding-left: 24px; }
 
 @media (max-width: 900px) {
   .apx__links, .apx__right { display: none; }

@@ -308,6 +308,27 @@
       transition: width 0s;
     }
 
+    /* ── LOADER — MOBILE SIZING ── */
+    @media (max-width: 700px) {
+      #site-loader { padding: 0 22px; }
+      .loader__wordmark-wrap { width: 100%; max-width: 100%; }
+      .loader__firm {
+        white-space: normal;
+        font-size: clamp(15px, 5.4vw, 23px);
+        letter-spacing: 0.07em;
+        line-height: 1.45;
+        max-width: 100%;
+      }
+      .loader__rule { margin-top: 16px; }
+      .loader__rule.visible { width: min(58vw, 260px); }
+      #site-loader::after {
+        bottom: 24px; right: 22px;
+        font-size: 8px; letter-spacing: 0.16em;
+      }
+      .loader__progress { bottom: 24px; left: 22px; }
+      .loader__progress-track { width: 56px; }
+    }
+
     /* ── PAGE TRANSITION — STAGGERED HORIZONTAL STRIPS ── */
     #page-transition {
       position: fixed; inset: 0; z-index: 9999;
@@ -1686,7 +1707,7 @@
           <div class="gen-practice__card-label">Estate Administration</div>
           <div class="gen-practice__card-title">Complex Probate &amp; Estate</div>
         </div>
-        <p class="gen-practice__card-desc">Texas probate attorney handling contested estates, missing assets, and stalled administrations. When standard probate breaks down, this firm intervenes.</p>
+        <p class="gen-practice__card-desc">Texas probate attorney for contested estates, missing assets, and stalled administrations. When standard probate breaks down, this firm intervenes.</p>
         <div class="gen-practice__card-arrow">↗</div>
       </a>
       <a href="breach-of-contract.html" class="gen-practice__card">
@@ -1971,12 +1992,12 @@
         <div class="gen-faq__item">
           <button class="gen-faq__question" aria-expanded="false">
             <span class="gen-faq__q-num">05</span>
-            <span class="gen-faq__q-text">Do you handle divorce or criminal defense?</span>
+            <span class="gen-faq__q-text">Do you take divorce or criminal defense cases?</span>
             <span class="gen-faq__q-icon">+</span>
           </button>
           <div class="gen-faq__answer">
             <div class="gen-faq__answer-inner">
-              <p>No. We do not handle divorce, child custody, criminal defense, or traffic matters. By limiting our practice areas, we ensure that our clients receive focused representation in the fields we know best.</p>
+              <p>No. We do not accept divorce, child custody, criminal defense, or traffic matters. By limiting our practice areas, we ensure that our clients receive focused representation in the fields we know best.</p>
             </div>
           </div>
         </div>
