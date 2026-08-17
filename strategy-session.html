@@ -9,6 +9,12 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
   <link rel="stylesheet" href="css/global.css" />
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://cdn.callrail.com">
+
+  <script src="/js/tracking-config.js"></script>
+  <script src="/js/tracking.js"></script>
+  <script src="/js/consent-init.js"></script>
   <style>
     /* HERO */
     .ss-hero { background: var(--dark); min-height: 100svh; display: flex; align-items: center; padding: 120px var(--gutter) 80px; position: relative; overflow: hidden; }
@@ -390,6 +396,5 @@
     revealEls.forEach(function(el){luxIO.observe(el);});
   })();
   </script>
-  <script type="text/javascript" src="//cdn.callrail.com/companies/866786604/9dded6321220df7f22fd/12/swap.js"></script>
 </body>
 </html>
